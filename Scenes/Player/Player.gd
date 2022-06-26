@@ -5,6 +5,8 @@ var movement_vector:Vector3
 var speed:float = 20
 var mouse_sensitivity:float = 0.3
 
+signal unpause
+signal pause
 signal interact
 signal door
 
@@ -13,12 +15,12 @@ onready var head:MeshInstance = $CollisionShape/Neck/Head
 onready var body:MeshInstance = $CollisionShape/Body
 onready var head_raycast:RayCast = $CollisionShape/Neck/Head/HeadRayCast
 onready var long_raycast:RayCast = $CollisionShape/Neck/Head/longrange
-onready var foot_step:AudioStreamPlayer3D = $Footstep
 onready var pglobal = get_node("/root/Playerglobal")
 var interact = false
 var intobj = ""
 var doorname = ""
 var movement = true
+var pause = false
 
 func _ready():
 	
@@ -82,12 +84,7 @@ func _process(delta):
 	
 	
 	if Input.is_action_just_pressed("toggle_mouse_capture"):
-		get_tree().quit()
-		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		else:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
+		pause()
 	
 	if Input.is_action_pressed("run"):
 		speed = 30
@@ -110,3 +107,20 @@ func _process(delta):
 		movement_vector = self.move_and_slide(new_movement_vector, Vector3.UP)
 	
 	
+func pause():
+	if pause == true:
+		emit_signal("unpause")
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		movement = true
+		pause = false
+	elif pause == false:
+		emit_signal("pause")
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		movement = false
+		pause = true
+	else:
+		printerr("No Pause?")
+
+
+func _on_menus_unpause():
+	pause()

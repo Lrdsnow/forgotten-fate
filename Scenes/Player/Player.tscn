@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://fonts/Roboto-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Scenes/areas/globalenv.tres" type="Environment" id=3]
+[ext_resource path="res://Scenes/Player/ak47.obj" type="ArrayMesh" id=4]
 
 [sub_resource type="CapsuleShape" id=4]
 height = 2.0
@@ -127,6 +128,13 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="gun" type="MeshInstance" parent="CollisionShape/Neck/Head/Camera"]
+transform = Transform( -0.799031, 1.43233e-07, -0.0393588, 1.36351e-07, 0.8, 1.43233e-07, 0.0393588, 1.36351e-07, -0.799031, 0.446589, -0.480624, -0.961834 )
+visible = false
+mesh = ExtResource( 4 )
+material/0 = null
+material/1 = null
 
 [node name="Area" type="Area" parent="."]
 

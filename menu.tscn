@@ -1,0 +1,741 @@
+[gd_scene load_steps=44 format=2]
+
+[ext_resource path="res://menu.gd" type="Script" id=1]
+[ext_resource path="res://fonts/Roboto-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scenes/menu/textures/fogottenfate.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/menu/textures/blur.tres" type="Material" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 31
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 1, 1, 1, 0.411765 )
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.152941, 0.152941, 0.152941, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="DynamicFont" id=9]
+size = 29
+outline_size = 1
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 20
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.243137, 0.243137, 0.243137, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id=13]
+bg_color = Color( 0.25098, 0.25098, 0.25098, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=14]
+bg_color = Color( 0.243137, 0.243137, 0.243137, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=15]
+bg_color = Color( 0.309804, 0.309804, 0.309804, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=16]
+bg_color = Color( 0.25098, 0.25098, 0.25098, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=17]
+bg_color = Color( 0.223529, 0.223529, 0.223529, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=18]
+bg_color = Color( 0.152941, 0.152941, 0.152941, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="DynamicFont" id=19]
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=20]
+bg_color = Color( 0.313726, 0.313726, 0.313726, 1 )
+border_width_left = 5
+border_width_right = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id=21]
+bg_color = Color( 0.243137, 0.243137, 0.243137, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id=22]
+bg_color = Color( 0.156863, 0.156863, 0.156863, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=23]
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="DynamicFont" id=24]
+size = 15
+use_mipmaps = true
+use_filter = true
+extra_spacing_top = 1
+extra_spacing_bottom = 1
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=25]
+bg_color = Color( 0.180392, 0.180392, 0.180392, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+
+[sub_resource type="StyleBoxFlat" id=26]
+bg_color = Color( 0.180392, 0.180392, 0.180392, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+
+[sub_resource type="StyleBoxFlat" id=27]
+bg_color = Color( 0.243137, 0.243137, 0.243137, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+
+[sub_resource type="Theme" id=28]
+Button/styles/disabled = SubResource( 6 )
+Button/styles/focus = SubResource( 6 )
+Button/styles/hover = SubResource( 13 )
+Button/styles/normal = SubResource( 6 )
+Button/styles/pressed = SubResource( 14 )
+OptionButton/styles/disabled = SubResource( 6 )
+OptionButton/styles/focus = SubResource( 6 )
+OptionButton/styles/hover = SubResource( 15 )
+OptionButton/styles/normal = SubResource( 16 )
+OptionButton/styles/pressed = SubResource( 17 )
+Panel/styles/panel = SubResource( 18 )
+PopupMenu/fonts/font = SubResource( 19 )
+PopupMenu/styles/hover = SubResource( 20 )
+PopupMenu/styles/panel = SubResource( 21 )
+PopupMenu/styles/separator = SubResource( 22 )
+PopupPanel/styles/panel = SubResource( 23 )
+TabContainer/fonts/font = SubResource( 24 )
+TabContainer/styles/panel = SubResource( 6 )
+TabContainer/styles/tab_bg = SubResource( 25 )
+TabContainer/styles/tab_disabled = SubResource( 26 )
+TabContainer/styles/tab_fg = SubResource( 27 )
+
+[sub_resource type="StyleBoxFlat" id=33]
+bg_color = Color( 0.337255, 0.337255, 0.337255, 1 )
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id=34]
+bg_color = Color( 0.243137, 0.243137, 0.243137, 1 )
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0.305882, 0.305882, 0.305882, 1 )
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="DynamicFont" id=30]
+size = 24
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=8]
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=29]
+bg_color = Color( 0.294118, 0.294118, 0.294118, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="DynamicFont" id=35]
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=36]
+bg_color = Color( 1, 0, 0, 0.117647 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=37]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="Animation" id=31]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("blur:material:shader_param/blurSize")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=32]
+resource_name = "in"
+length = 0.3
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("blur:material:shader_param/blurSize")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.6, 15, 15, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.3 )
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("modmenu:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=40]
+size = 32
+outline_size = 1
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=38]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("blur:material:shader_param/blurSize")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=39]
+resource_name = "in"
+length = 0.3
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("blur:material:shader_param/blurSize")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.6, 15, 15, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.3 )
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("setmenu:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=41]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("blur:material:shader_param/blurSize")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=42]
+resource_name = "in"
+length = 0.3
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("blur:material:shader_param/blurSize")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.6, 15, 15, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.3 )
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("extmenu:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="New Game" type="Button" parent="."]
+margin_top = 670.0
+margin_right = 299.0
+margin_bottom = 713.0
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+custom_colors/font_color_focus = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 3 )
+custom_styles/normal = SubResource( 3 )
+text = " New Game"
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Multiplayer" type="Button" parent="."]
+margin_top = 760.0
+margin_right = 299.0
+margin_bottom = 803.0
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+custom_colors/font_color_focus = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 3 )
+custom_styles/normal = SubResource( 3 )
+text = " Multiplayer"
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Continue" type="Button" parent="."]
+margin_top = 715.0
+margin_right = 299.0
+margin_bottom = 758.0
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+custom_colors/font_color_focus = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 3 )
+custom_styles/normal = SubResource( 3 )
+text = " Continue"
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Mods" type="Button" parent="."]
+margin_top = 805.0
+margin_right = 299.0
+margin_bottom = 848.0
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+custom_colors/font_color_focus = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 3 )
+custom_styles/normal = SubResource( 3 )
+text = " Mods"
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Settings" type="Button" parent="."]
+margin_top = 850.0
+margin_right = 299.0
+margin_bottom = 893.0
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+custom_colors/font_color_focus = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 3 )
+custom_styles/normal = SubResource( 3 )
+text = " Settings"
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Extras" type="Button" parent="."]
+margin_top = 895.0
+margin_right = 299.0
+margin_bottom = 938.0
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+custom_colors/font_color_focus = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 3 )
+custom_styles/normal = SubResource( 3 )
+text = " Extras"
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Exit" type="Button" parent="."]
+margin_top = 940.0
+margin_right = 299.0
+margin_bottom = 983.0
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+custom_colors/font_color_focus = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 3 )
+custom_styles/normal = SubResource( 3 )
+text = " Exit"
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 290, 178 )
+rotation = -0.180386
+texture = ExtResource( 3 )
+
+[node name="mod_menu" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="blur" type="ColorRect" parent="mod_menu"]
+material = ExtResource( 5 )
+margin_right = 1919.0
+margin_bottom = 1080.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="modmenu" type="Panel" parent="mod_menu"]
+margin_left = 550.0
+margin_top = 280.0
+margin_right = 1409.0
+margin_bottom = 802.0
+custom_styles/panel = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="mods" type="Label" parent="mod_menu/modmenu"]
+margin_left = 14.0
+margin_top = 13.0
+margin_right = 124.0
+margin_bottom = 58.0
+custom_fonts/font = SubResource( 9 )
+text = "Mods"
+
+[node name="info" type="Label" parent="mod_menu/modmenu"]
+margin_left = 13.0
+margin_top = 65.0
+margin_right = 843.0
+margin_bottom = 476.0
+custom_fonts/font = SubResource( 10 )
+text = "
+
+Warning: Mod's Are Expirimental And May Crash Your Game At ANY Moment."
+
+[node name="Play" type="Button" parent="mod_menu/modmenu/info"]
+visible = false
+margin_left = 619.0
+margin_top = 369.0
+margin_right = 827.0
+margin_bottom = 416.0
+theme = SubResource( 28 )
+custom_styles/hover = SubResource( 33 )
+custom_styles/pressed = SubResource( 34 )
+custom_styles/focus = SubResource( 12 )
+custom_styles/disabled = SubResource( 12 )
+custom_styles/normal = SubResource( 12 )
+text = "Play"
+
+[node name="title" type="Label" parent="mod_menu/modmenu/info"]
+margin_right = 830.0
+margin_bottom = 411.0
+custom_fonts/font = SubResource( 30 )
+text = "Select A Mod"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="selmod" type="OptionButton" parent="mod_menu/modmenu"]
+margin_left = 17.0
+margin_top = 488.0
+margin_right = 841.0
+margin_bottom = 508.0
+theme = SubResource( 28 )
+custom_fonts/font = SubResource( 8 )
+custom_styles/hover = SubResource( 29 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/disabled = SubResource( 6 )
+custom_styles/normal = SubResource( 6 )
+text = "   Select A Mod"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="exit" type="Button" parent="mod_menu/modmenu"]
+margin_left = 832.0
+margin_right = 859.0
+margin_bottom = 28.0
+custom_fonts/font = SubResource( 35 )
+custom_styles/hover = SubResource( 36 )
+custom_styles/pressed = SubResource( 37 )
+custom_styles/focus = SubResource( 37 )
+custom_styles/disabled = SubResource( 37 )
+custom_styles/normal = SubResource( 37 )
+text = "X"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="mod_menu"]
+anims/RESET = SubResource( 31 )
+anims/in = SubResource( 32 )
+
+[node name="settings_menu" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="blur" type="ColorRect" parent="settings_menu"]
+material = ExtResource( 5 )
+margin_right = 1919.0
+margin_bottom = 1080.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="setmenu" type="Panel" parent="settings_menu"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 550.0
+margin_top = 280.0
+margin_right = 1409.0
+margin_bottom = 802.0
+custom_styles/panel = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="exit" type="Button" parent="settings_menu/setmenu"]
+margin_left = 832.0
+margin_right = 859.0
+margin_bottom = 28.0
+custom_fonts/font = SubResource( 35 )
+custom_styles/hover = SubResource( 36 )
+custom_styles/pressed = SubResource( 37 )
+custom_styles/focus = SubResource( 37 )
+custom_styles/disabled = SubResource( 37 )
+custom_styles/normal = SubResource( 37 )
+text = "X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="title" type="Label" parent="settings_menu/setmenu"]
+margin_left = 17.0
+margin_top = 19.0
+margin_right = 134.0
+margin_bottom = 57.0
+custom_fonts/font = SubResource( 40 )
+text = "Settings"
+
+[node name="setan" type="AnimationPlayer" parent="settings_menu"]
+anims/RESET = SubResource( 38 )
+anims/in = SubResource( 39 )
+
+[node name="extras_menu" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="blur" type="ColorRect" parent="extras_menu"]
+material = ExtResource( 5 )
+margin_right = 1919.0
+margin_bottom = 1080.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="extmenu" type="Panel" parent="extras_menu"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 550.0
+margin_top = 280.0
+margin_right = 1409.0
+margin_bottom = 802.0
+custom_styles/panel = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="exit" type="Button" parent="extras_menu/extmenu"]
+margin_left = 832.0
+margin_right = 859.0
+margin_bottom = 28.0
+custom_fonts/font = SubResource( 35 )
+custom_styles/hover = SubResource( 36 )
+custom_styles/pressed = SubResource( 37 )
+custom_styles/focus = SubResource( 37 )
+custom_styles/disabled = SubResource( 37 )
+custom_styles/normal = SubResource( 37 )
+text = "X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="title" type="Label" parent="extras_menu/extmenu"]
+margin_left = 17.0
+margin_top = 19.0
+margin_right = 134.0
+margin_bottom = 57.0
+custom_fonts/font = SubResource( 40 )
+text = "Extras"
+
+[node name="extan" type="AnimationPlayer" parent="extras_menu"]
+anims/RESET = SubResource( 41 )
+anims/in = SubResource( 42 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 1813.0
+margin_top = 1065.0
+margin_right = 1919.0
+margin_bottom = 1079.0
+text = "v0.0.2-prototype"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="New Game" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Multiplayer" to="." method="_on_play_dlc_pressed"]
+[connection signal="pressed" from="Mods" to="." method="_on_Mods_pressed"]
+[connection signal="pressed" from="Settings" to="." method="_on_Settings_pressed"]
+[connection signal="pressed" from="Extras" to="." method="_on_Extras_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_Exit_pressed"]
+[connection signal="pressed" from="mod_menu/modmenu/info/Play" to="." method="_on_Play_pressed"]
+[connection signal="item_selected" from="mod_menu/modmenu/selmod" to="." method="_on_selmod_item_selected"]
+[connection signal="pressed" from="mod_menu/modmenu/exit" to="." method="_on_exit_pressed"]
+[connection signal="animation_finished" from="mod_menu/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="pressed" from="settings_menu/setmenu/exit" to="." method="_on_settings_exit_pressed"]
+[connection signal="animation_finished" from="settings_menu/setan" to="." method="_on_setan_animation_finished"]
+[connection signal="pressed" from="extras_menu/extmenu/exit" to="." method="_on_extras_exit_pressed"]
+[connection signal="animation_finished" from="extras_menu/extan" to="." method="_on_extan_animation_finished"]

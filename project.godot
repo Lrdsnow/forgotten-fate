@@ -27,7 +27,7 @@ _global_script_class_icons={
 [application]
 
 config/name="TiwstedFate"
-run/main_scene="res://Scenes/World.tscn"
+run/main_scene="res://menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -38,12 +38,13 @@ Playerglobal="*res://Scenes/Player/playerglobal.gd"
 
 window/size/width=1920
 window/size/height=1080
+window/size/fullscreen=true
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/SIsilicon.3d.text/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/SIsilicon.3d.text/plugin.cfg", "res://addons/build-and-deploy/plugin.cfg" )
 
 [input]
 
@@ -101,4 +102,5 @@ common/enable_pause_aware_picking=true
 
 quality/driver/fallback_to_gles2=true
 environment/default_clear_color=Color( 0, 0, 0, 1 )
+cpu_lightmapper/quality/ultra_quality_ray_count=1025
 environment/default_environment="res://default_env.tres"
