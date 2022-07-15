@@ -1,9 +1,4 @@
-extends Control
-
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+extends Spatial
 
 var fdlc = false
 var fcon = false
@@ -11,61 +6,41 @@ var mods = []
 var modsfolder = ""
 var mod_exec = ""
 var modscene = ""
+var game_mod = false
 var mod_exit = false
 var set_exit = false
 var ext_exit = false
+var exdif = false
+var FGMod = false
+var truefateanim = false
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
+	$difficulty/AnimationPlayer.play_backwards("truefate")
+	get_node("difficulty/cc/menu/true").hide()
+	scale()
 	save_finder()
 	dlc()
 	mods()
 	$mod_menu.hide()
 	if fdlc and fcon:
-		$"New Game".rect_position = pos_wMultiplayer_wContinue.ng
-		$Continue.rect_position = pos_wMultiplayer_wContinue.con
-		$Multiplayer.rect_position = pos_wMultiplayer_wContinue.mp
-		$Mods.rect_position = pos_wMultiplayer_wContinue.mod
-		$Settings.rect_position = pos_wMultiplayer_wContinue.st
-		$Extras.rect_position = pos_wMultiplayer_wContinue.ext
-		$Exit.rect_position = pos_wMultiplayer_wContinue.ex
+		pass
 	elif fdlc:
-		$"New Game".rect_position = pos_wMultiplayer.ng
-		$Continue.hide()
-		$Multiplayer.rect_position = pos_wMultiplayer.mp
-		$Mods.rect_position = pos_wMultiplayer.mod
-		$Settings.rect_position = pos_wMultiplayer.st
-		$Extras.rect_position = pos_wMultiplayer.ext
-		$Exit.rect_position = pos_wMultiplayer.ex
+		$cc/vc/Continue.hide()
 	elif fcon:
-		$"New Game".rect_position = pos_wContinue.ng
-		$Continue.rect_position = pos_wContinue.con
-		$Multiplayer.hide()
-		$Mods.rect_position = pos_wContinue.mod
-		$Settings.rect_position = pos_wContinue.st
-		$Extras.rect_position = pos_wContinue.ext
-		$Exit.rect_position = pos_wContinue.ex
+		$cc/vc/Multiplayer.hide()
 	else:
-		$"New Game".rect_position = pos.ng
-		$Continue.hide()
-		$Multiplayer.hide()
-		$Mods.rect_position = pos.mod
-		$Settings.rect_position = pos.st
-		$Extras.rect_position = pos.ext
-		$Exit.rect_position = pos.ex
+		$cc/vc/Continue.hide()
+		$cc/vc/Multiplayer.hide()
 
 var pos = {"ng":Vector2(0,670),"con":false,"mp":false,"mod":Vector2(0,715),"st":Vector2(0,760),"ext":Vector2(0,805),"ex":Vector2(0,850)}
 var pos_wContinue = {"ng":Vector2(0,715),"con":Vector2(0,670),"mp":false,"mod":Vector2(0,760),"st":Vector2(0,805),"ext":Vector2(0,850),"ex":Vector2(0,895)}
 var pos_wMultiplayer = {"ng":Vector2(0,670),"con":false,"mp":Vector2(0,715),"mod":Vector2(0,760),"st":Vector2(0,805),"ext":Vector2(0,850),"ex":Vector2(0,895)}
 var pos_wMultiplayer_wContinue = {"ng":Vector2(0,715),"con":Vector2(0,670),"mp":Vector2(0,760),"mod":Vector2(0,805),"st":Vector2(0,850),"ext":Vector2(0,895),"ex":Vector2(0,940)}
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
 
 func _on_Button_pressed():
-	get_tree().change_scene("res://Scenes/World.tscn")
+	$difficulty.show()
+	$difficulty/AnimationPlayer.play("in")
 
 func dlc():
 	var file = File.new()
@@ -81,6 +56,7 @@ func save_finder():
 	if file.file_exists("user://user.save"):
 		fcon = true
 		print("SAVE FOUND")
+		Playerglobal.load_game()
 	else:
 		print("NO SAVE")
 
@@ -89,13 +65,11 @@ func dlc_loader(dlc: String):
 	var success = ProjectSettings.load_resource_pack(dlc)
 	if success:
 		print("succsess")
-		$Multiplayer.show()
+		$cc/vc/Multiplayer.show()
 		fdlc = true
 
-# warning-ignore:function_conflicts_variable
-# warning-ignore:function_conflicts_variable
 func mods():
-	$mod_menu/modmenu/selmod.add_item("   Select a Mod")
+	$mod_menu/cc/modmenu/selmod.add_item("   Select a Mod")
 	var dnf = true
 	var dfn = 0
 	var docs = ""
@@ -142,7 +116,7 @@ func mods():
 					s = files[finm]
 					s.erase(s.length() - 4, 4)
 					s = "   " + s.capitalize()
-					$mod_menu/modmenu/selmod.add_item(s)
+					$mod_menu/cc/modmenu/selmod.add_item(s)
 			elif ".mod" in files[finm]:
 					print("Folder Mod found on number: " + str(finm))
 					mods.append(files[finm])
@@ -150,28 +124,29 @@ func mods():
 					s = files[finm]
 					s.erase(s.length() - 4, 4)
 					s = "   " + s.capitalize()
-					$mod_menu/modmenu/selmod.add_item(s)
+					$mod_menu/cc/modmenu/selmod.add_item(s)
 			finm = finm + 1
 
 func _on_play_dlc_pressed():
 	get_tree().change_scene("res://dlc/multiplayerdlc/main.tscn")
 
 func _on_selmod_item_selected(index):
-	var mod = $mod_menu/modmenu/selmod.get_item_text(index)
+	var mod = $mod_menu/cc/modmenu/selmod.get_item_text(index)
 	if "Select a Mod" in mod:
-		$mod_menu/modmenu/info/title.text = "Select A Mod"
-		$mod_menu/modmenu/info.text = "\n\nWarning: Mod's Are Expirimental And May Crash Your Game At ANY Moment."
-		$mod_menu/modmenu/info/Play.hide()
+		$mod_menu/cc/modmenu/info/title.text = "Select A Mod"
+		$mod_menu/cc/modmenu/info.text = "\n\nWarning: Mod's Are Expirimental And May Crash Your Game At ANY Moment."
+		$mod_menu/cc/modmenu/info/Play.hide()
 	else:
 		modselect(index)
 
 func modselect(index):
-	var mod = $mod_menu/modmenu/selmod.get_item_text(index)
+	$mod_menu/cc/modmenu/info/Play.disabled = false
+	var mod = $mod_menu/cc/modmenu/selmod.get_item_text(index)
 	mod.erase(0, 3)
 	mod = mod.to_lower().replace(" ", "_")
 	var modtype = 0
 	var nor = 0
-	var modtitle = $mod_menu/modmenu/selmod.get_item_text(index)
+	var modtitle = $mod_menu/cc/modmenu/selmod.get_item_text(index)
 	modtitle.erase(0, 3)
 	while true:
 		if nor == mods.size():
@@ -185,13 +160,13 @@ func modselect(index):
 		else:
 			nor=nor+1
 	if modtype == 0:
-		$mod_menu/modmenu/info/title.text = modtitle
-		$mod_menu/modmenu/info.text = ""
+		$mod_menu/cc/modmenu/info/title.text = modtitle
+		$mod_menu/cc/modmenu/info.text = ""
 		mod_exec = modsfolder + "/" + mods[nor]
 		var mod_name = mods[nor]
 		mod_name.erase(mod_name.length() - 4, 4)
 		modscene = "res://mods/" + mod_name + "/main.tscn"
-		$mod_menu/modmenu/info/Play.show()
+		$mod_menu/cc/modmenu/info/Play.show()
 	elif modtype == 1:
 		var mod_data
 		var config = modsfolder + "/" + mods[nor] + "/mod.config"
@@ -200,22 +175,48 @@ func modselect(index):
 			file.open(config, File.READ)
 			var data = parse_json(file.get_as_text())
 			mod_data = data
-			$mod_menu/modmenu/info/title.text = mod_data.mod
-			$mod_menu/modmenu/info.text = "\nBy: " + mod_data.author
+			$mod_menu/cc/modmenu/info/title.text = mod_data.mod
+			$mod_menu/cc/modmenu/info.text = "\nBy: " + mod_data.author
 			mod_exec = modsfolder + "/" + mods[nor] + "/" + mod_data.exec
 			modscene = mod_data.scene
-			$mod_menu/modmenu/info/Play.show()
+			if mod_data.game == true:
+				game_mod=true
+				$mod_menu/cc/modmenu/info/Play.text = "Enable"
+			else:
+				$mod_menu/cc/modmenu/info/Play.text = "Play"
+				game_mod = false
+			if mod_data.full == true:
+				FGMod = true
+			else:
+				FGMod = false
+			$mod_menu/cc/modmenu/info/Play.show()
 		else:
 			printerr("Config Does Not Exist!: " + config )
 
 
 func _on_Play_pressed():
-	print(mod_exec)
-	var success = ProjectSettings.load_resource_pack(mod_exec)
-	if success:
-		get_tree().change_scene(modscene)
+	if ! game_mod:
+		print(mod_exec)
+		var success = ProjectSettings.load_resource_pack(mod_exec)
+		if success:
+			get_tree().change_scene(modscene)
+		else:
+			printerr("Mod Failed To Load!")
 	else:
-		printerr("Mod Failed To Load!")
+		if ! FGMod:
+			Playerglobal.mods.append(mod_exec)
+			Playerglobal.modss.append(modscene)
+			$mod_menu/cc/modmenu/info/Play.text = "Enabled"
+		else:
+			var success = ProjectSettings.load_resource_pack(mod_exec)
+			if success:
+				var fgmodinst = load(modscene).instance()
+				get_node("/root").add_child(fgmodinst)
+				$mod_menu/cc/modmenu/info/Play.text = "Enabled"
+			else:
+				printerr("Failed To Load Mod.")
+				$mod_menu/cc/modmenu/info/Play.disabled = true
+				$mod_menu/cc/modmenu/info/Play.text = "Broken"
 
 
 func _on_Mods_pressed():
@@ -228,6 +229,7 @@ func _on_exit_pressed():
 	mod_exit = true
 
 
+# warning-ignore:unused_argument
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if mod_exit == true:
 		$mod_menu.hide()
@@ -235,35 +237,142 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 
 func _on_settings_exit_pressed():
-	$settings_menu/setan.play_backwards("in")
+	$cc/vc/Settings_menu/setan.play_backwards("in")
 	set_exit = true
 
 
 func _on_Settings_pressed():
-	$settings_menu.show()
-	$settings_menu/setan.play("in")
+	$cc/vc/Settings_menu.show()
+	$cc/vc/Settings_menu/setan.play("in")
 
 func _on_setan_animation_finished(anim_name):
 	if set_exit == true:
-		$settings_menu.hide()
+		$cc/vc/Settings_menu.hide()
 		set_exit=false
 
 
 func _on_Extras_pressed():
-	$extras_menu.show()
-	$extras_menu/extan.play("in")
-
+	$cc/vc/Extras_menu.show()
+	$cc/vc/Extras_menu/extan.play("in")
 
 func _on_extan_animation_finished(anim_name):
 	if ext_exit == true:
-		$extras_menu.hide()
+		$cc/vc/Extras_menu.hide()
 		ext_exit=false
 
 
 func _on_extras_exit_pressed():
-	$extras_menu/extan.play_backwards("in")
+	$cc/vc/Extras_menu/extan.play_backwards("in")
 	ext_exit = true
 
 
 func _on_Exit_pressed():
 	get_tree().quit()
+
+func scale():
+	$title.rect_size.x = get_viewport().size.x
+	$cc.rect_size = get_viewport().size
+	$mod_menu/cc.rect_size = get_viewport().size
+	$mod_menu/blur.rect_size = get_viewport().size
+	$difficulty/cc.rect_size = get_viewport().size
+	$difficulty/blur.rect_size = get_viewport().size
+	$vhs/VHS.rect_size = get_viewport().size
+
+func lightloop():
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	var rt = rng.randf_range(0.5, 1.5)
+	var t = Timer.new()
+	t.set_wait_time(rt)
+	t.set_one_shot(true)
+	self.add_child(t)
+	t.start()
+	$light.hide()
+	yield(t, "timeout")
+	$light.show()
+	t.queue_free()
+
+
+# warning-ignore:unused_argument
+func _on_flicker_animation_finished(anim_name):
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	var rt = rng.randf_range(0.5, 1.5)
+	var t = Timer.new()
+	t.set_wait_time(rt)
+	t.set_one_shot(true)
+	self.add_child(t)
+	t.start()
+	yield(t, "timeout")
+	t.queue_free()
+	$flicker.play("flicker")
+	
+
+
+func _on_medium_pressed():
+	Playerglobal.difficulty = 1
+	$cc.hide()
+	$title.hide()
+	$mod_menu.hide()
+	$settings_menu.hide()
+	$extras_menu.hide()
+	$difficulty.hide()
+	loader.load_scene("res://Scenes/World.tscn")
+
+
+func _on_easy_pressed():
+	Playerglobal.difficulty = 0
+	$cc.hide()
+	$title.hide()
+	$mod_menu.hide()
+	$settings_menu.hide()
+	$extras_menu.hide()
+	$difficulty.hide()
+	loader.load_scene("res://Scenes/World.tscn")
+
+
+func _on_hard_pressed():
+	Playerglobal.difficulty = 2
+	$cc.hide()
+	$title.hide()
+	$mod_menu.hide()
+	$settings_menu.hide()
+	$extras_menu.hide()
+	$difficulty.hide()
+	loader.load_scene("res://Scenes/World.tscn")
+
+
+func _on_dif_exit_pressed():
+	exdif = true
+	if Playerglobal.achivements.yourtruefate:
+		$difficulty/AnimationPlayer.play_backwards("truefate")
+	$difficulty/AnimationPlayer.play_backwards("in")
+
+func _on_dif_animation_finished(anim_name):
+	if exdif:
+		$difficulty.hide()
+		exdif = false
+		truefateanim = false
+	elif Playerglobal.achivements.yourtruefate:
+		if ! truefateanim:
+			get_node("difficulty/cc/menu/true").show()
+			$difficulty/AnimationPlayer.play("truefate")
+			truefateanim = true
+
+
+func _on_true_pressed():
+	Playerglobal.difficulty = 3
+	$cc.hide()
+	$title.hide()
+	$mod_menu.hide()
+	$settings_menu.hide()
+	$extras_menu.hide()
+	$difficulty.hide()
+	loader.load_scene("res://Scenes/World.tscn")
+
+
+func _on_Continue_pressed():
+	var file = File.new()
+	if file.file_exists("user://user.save"):
+		Playerglobal.load_game()
+		Playerglobal.continue_game()

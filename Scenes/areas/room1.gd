@@ -6,13 +6,14 @@ onready var pglobal = get_node("/root/Playerglobal")
 # var b = "text"
 var objname = ""
 var key = false
-var room2 = false
+var room2 = Playerglobal.room2
 
 signal room2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pglobal.objects = ["key", "hidebed", 0, 0]
+	$room/door/anim.play_backwards("open")
+	Playerglobal.objects = ["key", "hidebed", 0, 0]
 	$".."/".."/".."/Player.connect("interact", self, "_on_interact")
 	$".."/".."/".."/Player.connect("door", self, "_on_door")
 	reset()
@@ -21,29 +22,29 @@ func _ready():
 
 func reset():
 	$".."/room2/things/boxes.hide()
-	$".."/room2/things/boxes/box/CollisionShape.disabled = true
-	$".."/room2/things/boxes/box2/CollisionShape.disabled = true
-	$".."/room2/things/boxes/box3/CollisionShape.disabled = true
-	$".."/room2/things/boxes/box4/CollisionShape.disabled = true
-	$".."/room2/things/boxes/box5/CollisionShape.disabled = true
-	$".."/room2/things/boxes/box6/CollisionShape.disabled = true
-	$".."/room2/things/boxes/box7/CollisionShape.disabled = true
-	$".."/room2/things/boxes/box8/CollisionShape.disabled = true
-	$".."/room2/things/boxes/box9/CollisionShape.disabled = true
+	$".."/room2/things/boxes/box_0/collision.disabled = true
+	$".."/room2/things/boxes/box_1/collision.disabled = true
+	$".."/room2/things/boxes/box_2/collision.disabled = true
+	$".."/room2/things/boxes/box_3/collision.disabled = true
+	$".."/room2/things/boxes/box_4/collision.disabled = true
+	$".."/room2/things/boxes/box_5/collision.disabled = true
+	$".."/room2/things/boxes/box_6/collision.disabled = true
+	$".."/room2/things/boxes/box_7/collision.disabled = true
+	$".."/room2/things/boxes/box_8/collision.disabled = true
+	$".."/room2/things/boxes/box_9/collision.disabled = true
 	$".."/room2/things/lamp4/lamplight.light_energy = 0.1
 
 func _on_door():
-	if key and not room2:
+	if key and not Playerglobal.room2:
 		$".."/".."/".."/Player/CollisionShape/Neck/Head/Camera/cent/crosshair/interaction.text = "E - Open"
 		if Input.is_action_just_pressed("interact"):
-			$room/door.hide()
-			$room/door/doorcollison.disabled = true
+			$room/door/anim.play("open")
 			print("Opened door")
 			key = false
-			room2 = true
+			Playerglobal.room2 = true
 			emit_signal("room2")
 	else:
-		if not room2:
+		if not Playerglobal.room2:
 			$".."/".."/".."/Player/CollisionShape/Neck/Head/Camera/cent/crosshair/interaction.text = "Locked"
 
 func _on_interact():

@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/cardboar_box_08.obj-1e2863c28a814113ee2d56c733b78f4e.mesh"
+
+[deps]
+
+files=[ "res://.import/cardboar_box_08.obj-1e2863c28a814113ee2d56c733b78f4e.mesh" ]
+
+source_file="res://models/boxes/cardboar_box_08.obj"
+dest_files=[ "res://.import/cardboar_box_08.obj-1e2863c28a814113ee2d56c733b78f4e.mesh", "res://.import/cardboar_box_08.obj-1e2863c28a814113ee2d56c733b78f4e.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

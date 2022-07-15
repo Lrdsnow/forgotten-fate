@@ -5,16 +5,22 @@ extends Spatial
 # var a = 2
 # var b = "text"
 
-var ad = false
+var ad = Playerglobal.ad
+
+var idk = Playerglobal.idk
 
 signal done
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$cutsene.current = false
 	$cutsene/ColorRect.hide()
 	$cutsene/ColorRect2.hide()
 	$cutsene/nurse/nursecollision.disabled = true
-	$".."/".."/".."/Player.connect("interact", self, "_on_interact")
+	get_node("/root/World/Player").connect("interact", self, "_on_interact")
+	$cutsene/cutsenetext.rect_position.y = get_viewport().size.y - $cutsene/cutsenetext.rect_size.y
+	$cutsene/cutsenetext.rect_size.x = get_viewport().size.x
+	get_node("/root/World/Terrains/hospitalfloor1/room2").connect("cutscene", self, "_on_room2_cutsene")
 
 
 
@@ -24,11 +30,12 @@ func _ready():
 
 
 func _on_room2_cutsene():
-	if ad == false:
-		$".."/".."/".."/Player/CollisionShape/Neck/Head/Camera/cent/crosshair/interaction.text = ""
-		$".."/".."/".."/Player/CollisionShape/Neck/Head/Camera.current = false
-		$".."/".."/".."/Player.movement = false
-		$".."/".."/".."/Player.hide()
+	print("r2c")
+	if idk == true:
+		get_node("/root/World/Player/CollisionShape/Neck/Head/Camera/cent/crosshair/interaction").text = ""
+		get_node("/root/World/Player/CollisionShape/Neck/Head/Camera").current = false
+		get_node("/root/World/Player").movement = false
+		get_node("/root/World/Player").hide()
 		$cutsene.current = true
 		$cutsene/ColorRect.show()
 		$cutsene/ColorRect2.show()
@@ -37,12 +44,13 @@ func _on_room2_cutsene():
 
 func _on_interact():
 	if ad:
-		done()
+		if idk:
+			done()
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	print("done")
 	ad = true
-	$".."/".."/".."/Player/CollisionShape/Neck/Head/Camera/cent/crosshair/interaction.text = "E - Get Up"
+	get_node("/root/World/Player/CollisionShape/Neck/Head/Camera/cent/crosshair/interaction").text = "E - Get Up"
 
 func done():
 	print("alldone")
@@ -51,8 +59,10 @@ func done():
 	$cutsene.current = false
 	$cutsene/ColorRect.hide()
 	$cutsene/ColorRect2.hide()
-	$".."/".."/".."/Player/CollisionShape/Neck/Head/Camera/cent/crosshair/interaction.text = ""
-	$".."/".."/".."/Player/CollisionShape/Neck/Head/Camera.current = true
-	$".."/".."/".."/Player.movement = true
-	$".."/".."/".."/Player.show()
+	get_node("/root/World/Player/CollisionShape/Neck/Head/Camera/cent/crosshair/interaction").text = ""
+	get_node("/root/World/Player/CollisionShape/Neck/Head/Camera").current = true
+	get_node("/root/World/Player").movement = true
+	get_node("/root/World/Player").show()
 	emit_signal("done")
+	ad = false
+	idk = false

@@ -1,0 +1,2523 @@
+[gd_scene load_steps=30 format=2]
+
+[ext_resource path="res://addons/SIsilicon.3d.text/label_3d.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/areas/room7.gd" type="Script" id=2]
+
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="ConcavePolygonShape" id=2]
+data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
+
+[sub_resource type="CubeMesh" id=3]
+
+[sub_resource type="ConcavePolygonShape" id=4]
+data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
+
+[sub_resource type="CubeMesh" id=5]
+
+[sub_resource type="ConcavePolygonShape" id=6]
+data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
+
+[sub_resource type="CubeMesh" id=7]
+
+[sub_resource type="ConcavePolygonShape" id=8]
+data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
+
+[sub_resource type="QuadMesh" id=9]
+
+[sub_resource type="ConcavePolygonShape" id=10]
+data = PoolVector3Array( -0.5, -0.5, 0, -0.5, 0.5, 0, 0.5, 0.5, 0, -0.5, -0.5, 0, 0.5, 0.5, 0, 0.5, -0.5, 0 )
+
+[sub_resource type="CubeMesh" id=16]
+
+[sub_resource type="CubeMesh" id=17]
+
+[sub_resource type="CubeMesh" id=20]
+
+[sub_resource type="ConcavePolygonShape" id=21]
+data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
+
+[sub_resource type="ConcavePolygonShape" id=18]
+data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
+
+[sub_resource type="ConcavePolygonShape" id=22]
+data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
+
+[sub_resource type="CubeMesh" id=29]
+
+[sub_resource type="ConcavePolygonShape" id=30]
+margin = 0.001
+data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
+
+[sub_resource type="CubeMesh" id=13]
+
+[sub_resource type="ConcavePolygonShape" id=14]
+data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
+
+[sub_resource type="CubeMesh" id=33]
+
+[sub_resource type="ConcavePolygonShape" id=34]
+data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
+
+[sub_resource type="CubeMesh" id=35]
+
+[sub_resource type="ConcavePolygonShape" id=36]
+data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
+
+[sub_resource type="Animation" id=47]
+resource_name = "cutsene"
+length = 1.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 0.8, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+
+[sub_resource type="CubeMesh" id=31]
+
+[sub_resource type="ConcavePolygonShape" id=32]
+data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
+
+[node name="room7" type="Spatial"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -22.6869, 0, 155.059 )
+script = ExtResource( 2 )
+
+[node name="room" type="Spatial" parent="."]
+
+[node name="floor" type="StaticBody" parent="room"]
+transform = Transform( 10.7054, 0, -6.03719e-06, 0, 20, 0, -7.95091e-07, 0, 219.402, -18.4833, 0, -46.8431 )
+
+[node name="floor" type="MeshInstance" parent="room/floor"]
+transform = Transform( 0.611518, 0, 0, 0, 0.00762569, 0, 0, 0, 0.581552, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="floorcollision" type="CollisionShape" parent="room/floor"]
+transform = Transform( 0.611518, 0, 0, 0, 0.00762569, 0, 0, 0, 0.581552, 0, 0, 0 )
+shape = SubResource( 2 )
+
+[node name="Wall1" type="StaticBody" parent="room"]
+transform = Transform( 10.4332, 0, 0, 0, 20, 0, 0, 0, 20, -18.5624, 0, -146.225 )
+
+[node name="Wall1" type="MeshInstance" parent="room/Wall1"]
+transform = Transform( 0.61428, 0, 0, 0, 0.472566, 0, 0, 0, -0.00248718, 0, 0.468682, -0.584606 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="Wall1Collision" type="CollisionShape" parent="room/Wall1"]
+transform = Transform( 0.61428, 0, 0, 0, 0.472566, 0, 0, 0, -0.00248718, 0, 0.468682, -0.584606 )
+shape = SubResource( 4 )
+
+[node name="Wall2" type="StaticBody" parent="room"]
+transform = Transform( -5.39939e-06, 0, -20, 0, 20, 0, 187.192, 0, -7.10074e-06, -36.7302, 0, -43.7887 )
+
+[node name="Wall2" type="MeshInstance" parent="room/Wall2"]
+transform = Transform( 0.61428, 0, 0, 0, 0.472566, 0, -5.32907e-15, 0, -0.00248718, -0.0322994, 0.468682, -0.584606 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="Wall2Collision" type="CollisionShape" parent="room/Wall2"]
+transform = Transform( 0.61428, 0, 0, 0, 0.472566, 0, 0, 0, -0.00248718, 0, 0.468682, -0.584606 )
+shape = SubResource( 6 )
+
+[node name="Wall9" type="StaticBody" parent="room"]
+transform = Transform( -2.54254e-06, 0, -20, 0, 20, 0, 121.835, 0, -4.92678e-06, -23.3981, 0, -83.7317 )
+
+[node name="Wall2" type="MeshInstance" parent="room/Wall9"]
+transform = Transform( 0.61428, 0, 0, 0, 0.472566, 0, -5.32907e-15, 0, -0.00248718, -0.0322994, 0.468682, -0.584606 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="Wall2Collision" type="CollisionShape" parent="room/Wall9"]
+transform = Transform( 0.61428, 0, 0, 0, 0.472566, 0, 0, 0, -0.00248718, 0, 0.468682, -0.584606 )
+shape = SubResource( 6 )
+
+[node name="Wall3" type="StaticBody" parent="room"]
+transform = Transform( -20, 0, 1.74846e-06, 0, 20, 0, -1.74846e-06, 0, -20, 0, 0, 0 )
+
+[node name="Wall3" type="MeshInstance" parent="room/Wall3"]
+transform = Transform( 0.61428, 0, 0, 0, 0.472566, 0, 0, 0, -0.00248718, 0, 0.468682, -0.584606 )
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="Wall3Collision" type="CollisionShape" parent="room/Wall3"]
+transform = Transform( 0.61428, 0, 0, 0, 0.472566, 0, 0, 0, -0.00248718, 0, 0.468682, -0.584606 )
+shape = SubResource( 8 )
+
+[node name="Wall4" type="StaticBody" parent="room"]
+transform = Transform( -8.74228e-07, 0, -20, 0, 20, 0, 42.1662, 0, -1.84315e-06, -23.9448, -0.286838, 35.8639 )
+
+[node name="Wall2" type="MeshInstance" parent="room/Wall4"]
+transform = Transform( 0.69128, 0, 1.3628e-11, 0, 0.472566, 0, -3.36579e-09, 0, -0.00248718, 0.0166, 0.468682, -0.584607 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="Wall2Collision" type="CollisionShape" parent="room/Wall4"]
+transform = Transform( 0.61428, 0, 0, 0, 0.472566, 0, 0, 0, -0.00248718, 0, 0.468682, -0.584606 )
+shape = SubResource( 6 )
+
+[node name="Wall7" type="StaticBody" parent="room"]
+transform = Transform( -8.74228e-07, 0, -20, 0, 20, 0, 4.42065, 0, -1.93233e-07, -23.9448, -0.286838, 74.5798 )
+
+[node name="Wall2" type="MeshInstance" parent="room/Wall7"]
+transform = Transform( 0.69128, 0, 1.3628e-11, 0, 0.472566, 0, -3.36579e-09, 0, -0.00248718, 0.0166, 0.468682, -0.584607 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="Wall2Collision" type="CollisionShape" parent="room/Wall7"]
+transform = Transform( 0.61428, 0, 0, 0, 0.472566, 0, 0, 0, -0.00248718, 0, 0.468682, -0.584606 )
+shape = SubResource( 6 )
+
+[node name="Wall8" type="StaticBody" parent="room"]
+transform = Transform( -8.74228e-07, 0, -20, 0, 10.3607, 0, 4.42065, 0, -1.93233e-07, -23.9447, 8.73566, 68.4545 )
+
+[node name="Wall2" type="MeshInstance" parent="room/Wall8"]
+transform = Transform( 0.69128, 0, 1.3628e-11, 0, 0.472566, 0, -3.36579e-09, 0, -0.00248718, 0.0166, 0.468682, -0.584607 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="Wall2Collision" type="CollisionShape" parent="room/Wall8"]
+transform = Transform( 0.61428, 0, 0, 0, 0.472566, 0, 0, 0, -0.00248718, 0, 0.468682, -0.584606 )
+shape = SubResource( 6 )
+
+[node name="roof" type="StaticBody" parent="room"]
+transform = Transform( 20, 0, -5.0815e-06, 0, 20, 0, -1.15526e-06, 0, 204.223, -23.6107, -1.19209e-07, -43.5991 )
+
+[node name="roof" type="MeshInstance" parent="room/roof"]
+transform = Transform( 1.18804, 0, 0, 0, -4.37114e-08, -1, 0, 1.16902, -5.10995e-08, 0, 0.937126, 0 )
+mesh = SubResource( 9 )
+material/0 = null
+
+[node name="roofcollision" type="CollisionShape" parent="room/roof"]
+transform = Transform( 1.18804, 0, 0, 0, -4.37114e-08, -1, 0, 1.16902, -5.10995e-08, 0, 0.937126, 0 )
+shape = SubResource( 10 )
+
+[node name="Wall5" type="StaticBody" parent="room"]
+transform = Transform( -8.74228e-07, 0, 20, 0, 20, 0, -20, 0, -8.74228e-07, -0.534242, 0, 0 )
+
+[node name="Wall4" type="MeshInstance" parent="room/Wall5"]
+transform = Transform( 0.333756, 0, 4.96484e-11, 0, 0.472566, 0, -1.22621e-08, 0, -0.00248718, 0.28848, 0.468682, -0.584606 )
+mesh = SubResource( 16 )
+material/0 = null
+
+[node name="Wall4-2" type="MeshInstance" parent="room/Wall5"]
+transform = Transform( 0.333756, 0, 4.96484e-11, 0, 0.261898, 0, -1.22621e-08, 0, -0.00248718, -0.25745, 0.676294, -0.584606 )
+mesh = SubResource( 17 )
+material/0 = null
+
+[node name="Wall4-3" type="MeshInstance" parent="room/Wall5"]
+transform = Transform( 0.137806, 0, 8.43286e-11, 0, 0.261898, 0, -2.08273e-08, 0, -0.00248718, -0.449537, 0.251828, -0.584606 )
+mesh = SubResource( 20 )
+material/0 = null
+
+[node name="Wall4Collison" type="CollisionShape" parent="room/Wall5"]
+transform = Transform( 0.333756, 0, 4.96484e-11, 0, 0.261898, 0, -1.22621e-08, 0, -0.00248718, -0.25745, 0.676294, -0.584606 )
+shape = SubResource( 21 )
+
+[node name="Wall4-2Collison" type="CollisionShape" parent="room/Wall5"]
+transform = Transform( 0.333756, 0, 4.96484e-11, 0, 0.472566, 0, -1.22621e-08, 0, -0.00248718, 0.28848, 0.468682, -0.584606 )
+shape = SubResource( 18 )
+
+[node name="Wall4-3Collision" type="CollisionShape" parent="room/Wall5"]
+transform = Transform( 0.137806, 0, 8.43286e-11, 0, 0.261898, 0, -2.08273e-08, 0, -0.00248718, -0.449537, 0.251828, -0.584606 )
+shape = SubResource( 22 )
+
+[node name="door1" type="StaticBody" parent="room"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.398, 0, -0.961447 )
+
+[node name="door" type="MeshInstance" parent="room/door1"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+mesh = SubResource( 29 )
+material/0 = null
+
+[node name="doorcollison" type="CollisionShape" parent="room/door1"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+shape = SubResource( 30 )
+
+[node name="doorlabel" type="Spatial" parent="room/door1"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.531, 7.28775, 3.35721 )
+script = ExtResource( 1 )
+text = "Door"
+text_size = 2.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="door2" type="StaticBody" parent="room"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.398, 0, 20.7933 )
+
+[node name="door" type="MeshInstance" parent="room/door2"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+mesh = SubResource( 29 )
+material/0 = null
+
+[node name="doorcollison" type="CollisionShape" parent="room/door2"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+shape = SubResource( 30 )
+
+[node name="doorlabel" type="Spatial" parent="room/door2"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.531, 7.28775, 3.35721 )
+script = ExtResource( 1 )
+text = "Door"
+text_size = 2.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="door7" type="StaticBody" parent="room"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.398, 0, 37.7074 )
+
+[node name="door" type="MeshInstance" parent="room/door7"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+mesh = SubResource( 29 )
+material/0 = null
+
+[node name="doorcollison" type="CollisionShape" parent="room/door7"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+shape = SubResource( 30 )
+
+[node name="doorlabel" type="Spatial" parent="room/door7"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.531, 7.28775, 3.35721 )
+script = ExtResource( 1 )
+text = "Door"
+text_size = 2.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="door8" type="StaticBody" parent="room"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.398, 0, 52.7486 )
+
+[node name="door" type="MeshInstance" parent="room/door8"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+mesh = SubResource( 29 )
+material/0 = null
+
+[node name="doorcollison" type="CollisionShape" parent="room/door8"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+shape = SubResource( 30 )
+
+[node name="doorlabel" type="Spatial" parent="room/door8"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.531, 7.28775, 3.35721 )
+script = ExtResource( 1 )
+text = "Door"
+text_size = 2.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="door10" type="StaticBody" parent="room"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.398, 0, 65.8634 )
+
+[node name="door" type="MeshInstance" parent="room/door10"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+mesh = SubResource( 29 )
+material/0 = null
+
+[node name="doorcollison" type="CollisionShape" parent="room/door10"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+shape = SubResource( 30 )
+
+[node name="doorlabel" type="Spatial" parent="room/door10"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.531, 7.28775, 3.35721 )
+script = ExtResource( 1 )
+text = "Door"
+text_size = 2.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="door16" type="StaticBody" parent="room"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.398, 0, -28.5884 )
+
+[node name="door" type="MeshInstance" parent="room/door16"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+mesh = SubResource( 29 )
+material/0 = null
+
+[node name="doorcollison" type="CollisionShape" parent="room/door16"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+shape = SubResource( 30 )
+
+[node name="doorlabel" type="Spatial" parent="room/door16"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.531, 7.28775, 3.35721 )
+script = ExtResource( 1 )
+text = "Door"
+text_size = 2.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="door17" type="StaticBody" parent="room"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.398, 0, -51.8865 )
+
+[node name="door" type="MeshInstance" parent="room/door17"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+mesh = SubResource( 29 )
+material/0 = null
+
+[node name="doorcollison" type="CollisionShape" parent="room/door17"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+shape = SubResource( 30 )
+
+[node name="doorlabel" type="Spatial" parent="room/door17"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.531, 7.28775, 3.35721 )
+script = ExtResource( 1 )
+text = "Door"
+text_size = 2.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="door18" type="StaticBody" parent="room"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.398, 0, -77.6839 )
+
+[node name="door" type="MeshInstance" parent="room/door18"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+mesh = SubResource( 29 )
+material/0 = null
+
+[node name="doorcollison" type="CollisionShape" parent="room/door18"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+shape = SubResource( 30 )
+
+[node name="doorlabel" type="Spatial" parent="room/door18"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.531, 7.28775, 3.35721 )
+script = ExtResource( 1 )
+text = "Door"
+text_size = 2.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="door19" type="StaticBody" parent="room"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.398, 0, -105.311 )
+
+[node name="door" type="MeshInstance" parent="room/door19"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+mesh = SubResource( 29 )
+material/0 = null
+
+[node name="doorcollison" type="CollisionShape" parent="room/door19"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+shape = SubResource( 30 )
+
+[node name="doorlabel" type="Spatial" parent="room/door19"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.531, 7.28775, 3.35721 )
+script = ExtResource( 1 )
+text = "Door"
+text_size = 2.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="door20" type="StaticBody" parent="room"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.398, 0, -129.875 )
+
+[node name="door" type="MeshInstance" parent="room/door20"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+mesh = SubResource( 29 )
+material/0 = null
+
+[node name="doorcollison" type="CollisionShape" parent="room/door20"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+shape = SubResource( 30 )
+
+[node name="doorlabel" type="Spatial" parent="room/door20"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.531, 7.28775, 3.35721 )
+script = ExtResource( 1 )
+text = "Door"
+text_size = 2.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="door21" type="StaticBody" parent="room"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.398, 0, -146.075 )
+
+[node name="door" type="MeshInstance" parent="room/door21"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+mesh = SubResource( 29 )
+material/0 = null
+
+[node name="doorcollison" type="CollisionShape" parent="room/door21"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+shape = SubResource( 30 )
+
+[node name="doorlabel" type="Spatial" parent="room/door21"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.531, 7.28775, 3.35721 )
+script = ExtResource( 1 )
+text = "Door"
+text_size = 2.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="door3" type="StaticBody" parent="room"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -24.0325, 0, 27.6617 )
+
+[node name="door" type="MeshInstance" parent="room/door3"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+mesh = SubResource( 29 )
+material/0 = null
+
+[node name="doorcollison" type="CollisionShape" parent="room/door3"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+shape = SubResource( 30 )
+
+[node name="doorlabel" type="Spatial" parent="room/door3"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.531, 7.28775, 3.35721 )
+script = ExtResource( 1 )
+text = "Door"
+text_size = 2.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="door5" type="StaticBody" parent="room"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -24.0325, 0, 43.9936 )
+
+[node name="door" type="MeshInstance" parent="room/door5"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+mesh = SubResource( 29 )
+material/0 = null
+
+[node name="doorcollison" type="CollisionShape" parent="room/door5"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+shape = SubResource( 30 )
+
+[node name="doorlabel" type="Spatial" parent="room/door5"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.531, 7.28775, 3.35721 )
+script = ExtResource( 1 )
+text = "Door"
+text_size = 2.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="door6" type="StaticBody" parent="room"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -24.0325, 0, 58.6254 )
+
+[node name="door" type="MeshInstance" parent="room/door6"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+mesh = SubResource( 29 )
+material/0 = null
+
+[node name="doorcollison" type="CollisionShape" parent="room/door6"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+shape = SubResource( 30 )
+
+[node name="doorlabel" type="Spatial" parent="room/door6"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.531, 7.28775, 3.35721 )
+script = ExtResource( 1 )
+text = "Door"
+text_size = 2.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="door9" type="StaticBody" parent="room"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -24.0325, 0, -22.1128 )
+
+[node name="door" type="MeshInstance" parent="room/door9"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+mesh = SubResource( 29 )
+material/0 = null
+
+[node name="doorcollison" type="CollisionShape" parent="room/door9"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+shape = SubResource( 30 )
+
+[node name="doorlabel" type="Spatial" parent="room/door9"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.531, 7.28775, 3.35721 )
+script = ExtResource( 1 )
+text = "Door"
+text_size = 2.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="door11" type="StaticBody" parent="room"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -24.0325, 0, -45.2107 )
+
+[node name="door" type="MeshInstance" parent="room/door11"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+mesh = SubResource( 29 )
+material/0 = null
+
+[node name="doorcollison" type="CollisionShape" parent="room/door11"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+shape = SubResource( 30 )
+
+[node name="doorlabel" type="Spatial" parent="room/door11"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.531, 7.28775, 3.35721 )
+script = ExtResource( 1 )
+text = "Door"
+text_size = 2.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="door12" type="StaticBody" parent="room"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -24.0325, 0, -70.791 )
+
+[node name="door" type="MeshInstance" parent="room/door12"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+mesh = SubResource( 29 )
+material/0 = null
+
+[node name="doorcollison" type="CollisionShape" parent="room/door12"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+shape = SubResource( 30 )
+
+[node name="doorlabel" type="Spatial" parent="room/door12"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.531, 7.28775, 3.35721 )
+script = ExtResource( 1 )
+text = "Door"
+text_size = 2.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="door13" type="StaticBody" parent="room"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -24.0325, 0, -98.4215 )
+
+[node name="door" type="MeshInstance" parent="room/door13"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+mesh = SubResource( 29 )
+material/0 = null
+
+[node name="doorcollison" type="CollisionShape" parent="room/door13"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+shape = SubResource( 30 )
+
+[node name="doorlabel" type="Spatial" parent="room/door13"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.531, 7.28775, 3.35721 )
+script = ExtResource( 1 )
+text = "Door"
+text_size = 2.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="door14" type="StaticBody" parent="room"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -24.0325, 0, -123.185 )
+
+[node name="door" type="MeshInstance" parent="room/door14"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+mesh = SubResource( 29 )
+material/0 = null
+
+[node name="doorcollison" type="CollisionShape" parent="room/door14"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+shape = SubResource( 30 )
+
+[node name="doorlabel" type="Spatial" parent="room/door14"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.531, 7.28775, 3.35721 )
+script = ExtResource( 1 )
+text = "Door"
+text_size = 2.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="door15" type="StaticBody" parent="room"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -24.0325, 0, -139.08 )
+
+[node name="door" type="MeshInstance" parent="room/door15"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+mesh = SubResource( 29 )
+material/0 = null
+
+[node name="doorcollison" type="CollisionShape" parent="room/door15"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+shape = SubResource( 30 )
+
+[node name="doorlabel" type="Spatial" parent="room/door15"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.531, 7.28775, 3.35721 )
+script = ExtResource( 1 )
+text = "Door"
+text_size = 2.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="door22" type="StaticBody" parent="room"]
+transform = Transform( -1.0617, 0, -9.28164e-08, 0, 1, 0, 8.74228e-08, 0, -1, -24.5906, 0, 72.0034 )
+
+[node name="door" type="MeshInstance" parent="room/door22"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+mesh = SubResource( 29 )
+material/0 = null
+
+[node name="doorcollison" type="CollisionShape" parent="room/door22"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+shape = SubResource( 30 )
+
+[node name="doorlabel" type="Spatial" parent="room/door22"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.531, 7.28775, 3.35721 )
+script = ExtResource( 1 )
+text = "Door"
+text_size = 2.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="door4" type="StaticBody" parent="room"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15.0564, 0, -146.174 )
+
+[node name="door" type="MeshInstance" parent="room/door4"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+mesh = SubResource( 29 )
+material/0 = null
+
+[node name="doorcollison" type="CollisionShape" parent="room/door4"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+shape = SubResource( 30 )
+
+[node name="doorlabel" type="Spatial" parent="room/door4"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.531, 7.28775, 3.35721 )
+script = ExtResource( 1 )
+text = "Door"
+text_size = 2.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="things" type="Spatial" parent="."]
+
+[node name="lamp" type="StaticBody" parent="things"]
+transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 20, -19.0111, 0, 0 )
+
+[node name="lamp" type="MeshInstance" parent="things/lamp"]
+transform = Transform( 0.03, 0, 0, 0, 0.06, 0, 0, 0, 0.03, 0, 0.887412, 0 )
+mesh = SubResource( 13 )
+material/0 = null
+
+[node name="lampcollision" type="CollisionShape" parent="things/lamp"]
+transform = Transform( 0.03, 0, 0, 0, 0.06, 0, 0, 0, 0.03, 0, 0.887412, 0 )
+shape = SubResource( 14 )
+
+[node name="lamplight" type="SpotLight" parent="things/lamp"]
+transform = Transform( 0.05, 0, 0, 0, -2.18557e-09, 0.05, 0, -0.05, -2.18557e-09, 0.00151628, 0.884045, 0.00216955 )
+light_color = Color( 1, 0.945098, 0.878431, 1 )
+shadow_enabled = true
+spot_range = 28.3763
+spot_attenuation = 3.249
+spot_angle = 89.99
+
+[node name="lamp5" type="StaticBody" parent="things"]
+transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 20, -19.0111, 0, -28.4042 )
+
+[node name="lamp" type="MeshInstance" parent="things/lamp5"]
+transform = Transform( 0.03, 0, 0, 0, 0.06, 0, 0, 0, 0.03, 0, 0.887412, 0 )
+mesh = SubResource( 13 )
+material/0 = null
+
+[node name="lampcollision" type="CollisionShape" parent="things/lamp5"]
+transform = Transform( 0.03, 0, 0, 0, 0.06, 0, 0, 0, 0.03, 0, 0.887412, 0 )
+shape = SubResource( 14 )
+
+[node name="lamplight" type="SpotLight" parent="things/lamp5"]
+transform = Transform( 0.05, 0, 0, 0, -2.18557e-09, 0.05, 0, -0.05, -2.18557e-09, 0.00151628, 0.884045, 0.00216955 )
+light_color = Color( 1, 0.945098, 0.878431, 1 )
+shadow_enabled = true
+spot_range = 28.3763
+spot_attenuation = 3.249
+spot_angle = 89.99
+
+[node name="lamp6" type="StaticBody" parent="things"]
+transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 20, -19.0111, 0, -55.0267 )
+
+[node name="lamp" type="MeshInstance" parent="things/lamp6"]
+transform = Transform( 0.03, 0, 0, 0, 0.06, 0, 0, 0, 0.03, 0, 0.887412, 0 )
+mesh = SubResource( 13 )
+material/0 = null
+
+[node name="lampcollision" type="CollisionShape" parent="things/lamp6"]
+transform = Transform( 0.03, 0, 0, 0, 0.06, 0, 0, 0, 0.03, 0, 0.887412, 0 )
+shape = SubResource( 14 )
+
+[node name="lamplight" type="SpotLight" parent="things/lamp6"]
+transform = Transform( 0.05, 0, 0, 0, -2.18557e-09, 0.05, 0, -0.05, -2.18557e-09, 0.00151628, 0.884045, 0.00216955 )
+light_color = Color( 1, 0.945098, 0.878431, 1 )
+shadow_enabled = true
+spot_range = 28.3763
+spot_attenuation = 3.249
+spot_angle = 89.99
+
+[node name="lamp7" type="StaticBody" parent="things"]
+transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 20, -19.0111, 0, -83.0801 )
+
+[node name="lamp" type="MeshInstance" parent="things/lamp7"]
+transform = Transform( 0.03, 0, 0, 0, 0.06, 0, 0, 0, 0.03, 0, 0.887412, 0 )
+mesh = SubResource( 13 )
+material/0 = null
+
+[node name="lampcollision" type="CollisionShape" parent="things/lamp7"]
+transform = Transform( 0.03, 0, 0, 0, 0.06, 0, 0, 0, 0.03, 0, 0.887412, 0 )
+shape = SubResource( 14 )
+
+[node name="lamplight" type="SpotLight" parent="things/lamp7"]
+transform = Transform( 0.05, 0, 0, 0, -2.18557e-09, 0.05, 0, -0.05, -2.18557e-09, 0.00151628, 0.884045, 0.00216955 )
+light_color = Color( 1, 0.945098, 0.878431, 1 )
+shadow_enabled = true
+spot_range = 28.3763
+spot_attenuation = 3.249
+spot_angle = 89.99
+
+[node name="lamp8" type="StaticBody" parent="things"]
+transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 20, -19.0111, 0, -109.713 )
+
+[node name="lamp" type="MeshInstance" parent="things/lamp8"]
+transform = Transform( 0.03, 0, 0, 0, 0.06, 0, 0, 0, 0.03, 0, 0.887412, 0 )
+mesh = SubResource( 13 )
+material/0 = null
+
+[node name="lampcollision" type="CollisionShape" parent="things/lamp8"]
+transform = Transform( 0.03, 0, 0, 0, 0.06, 0, 0, 0, 0.03, 0, 0.887412, 0 )
+shape = SubResource( 14 )
+
+[node name="lamplight" type="SpotLight" parent="things/lamp8"]
+transform = Transform( 0.05, 0, 0, 0, -2.18557e-09, 0.05, 0, -0.05, -2.18557e-09, 0.00151628, 0.884045, 0.00216955 )
+light_color = Color( 1, 0.945098, 0.878431, 1 )
+shadow_enabled = true
+spot_range = 28.3763
+spot_attenuation = 3.249
+spot_angle = 89.99
+
+[node name="lamp9" type="StaticBody" parent="things"]
+transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 20, -19.0111, 0, -128.975 )
+
+[node name="lamp" type="MeshInstance" parent="things/lamp9"]
+transform = Transform( 0.03, 0, 0, 0, 0.06, 0, 0, 0, 0.03, 0, 0.887412, 0 )
+mesh = SubResource( 13 )
+material/0 = null
+
+[node name="lampcollision" type="CollisionShape" parent="things/lamp9"]
+transform = Transform( 0.03, 0, 0, 0, 0.06, 0, 0, 0, 0.03, 0, 0.887412, 0 )
+shape = SubResource( 14 )
+
+[node name="lamplight" type="SpotLight" parent="things/lamp9"]
+transform = Transform( 0.05, 0, 0, 0, -2.18557e-09, 0.05, 0, -0.05, -2.18557e-09, 0.00151628, 0.884045, 0.00216955 )
+light_color = Color( 1, 0.945098, 0.878431, 1 )
+shadow_enabled = true
+spot_range = 28.3763
+spot_attenuation = 3.249
+spot_angle = 89.99
+
+[node name="lamp10" type="StaticBody" parent="things"]
+transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 20, -19.0111, 0, -148.254 )
+
+[node name="lamp" type="MeshInstance" parent="things/lamp10"]
+transform = Transform( 0.03, 0, 0, 0, 0.06, 0, 0, 0, 0.03, 0, 0.887412, 0 )
+mesh = SubResource( 13 )
+material/0 = null
+
+[node name="lampcollision" type="CollisionShape" parent="things/lamp10"]
+transform = Transform( 0.03, 0, 0, 0, 0.06, 0, 0, 0, 0.03, 0, 0.887412, 0 )
+shape = SubResource( 14 )
+
+[node name="lamplight" type="SpotLight" parent="things/lamp10"]
+transform = Transform( 0.05, 0, 0, 0, -2.18557e-09, 0.05, 0, -0.05, -2.18557e-09, 0.00151628, 0.884045, 0.00216955 )
+light_color = Color( 1, 0.945098, 0.878431, 1 )
+shadow_enabled = true
+spot_range = 28.3763
+spot_attenuation = 3.249
+spot_angle = 89.99
+
+[node name="lamp2" type="StaticBody" parent="things"]
+transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 20, -19.0111, 0, 20.2088 )
+
+[node name="lamp" type="MeshInstance" parent="things/lamp2"]
+transform = Transform( 0.03, 0, 0, 0, 0.06, 0, 0, 0, 0.03, 0, 0.887412, 0 )
+mesh = SubResource( 13 )
+material/0 = null
+
+[node name="lampcollision" type="CollisionShape" parent="things/lamp2"]
+transform = Transform( 0.03, 0, 0, 0, 0.06, 0, 0, 0, 0.03, 0, 0.887412, 0 )
+shape = SubResource( 14 )
+
+[node name="lamplight" type="SpotLight" parent="things/lamp2"]
+transform = Transform( 0.05, 0, 0, 0, -2.18557e-09, 0.05, 0, -0.05, -2.18557e-09, 0.00151628, 0.884045, 0.00216955 )
+light_color = Color( 1, 0.945098, 0.878431, 1 )
+shadow_enabled = true
+spot_range = 28.3763
+spot_attenuation = 3.249
+spot_angle = 89.99
+
+[node name="lamp3" type="StaticBody" parent="things"]
+transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 20, -19.0111, 0, 42.663 )
+
+[node name="lamp" type="MeshInstance" parent="things/lamp3"]
+transform = Transform( 0.03, 0, 0, 0, 0.06, 0, 0, 0, 0.03, 0, 0.887412, 0 )
+mesh = SubResource( 13 )
+material/0 = null
+
+[node name="lampcollision" type="CollisionShape" parent="things/lamp3"]
+transform = Transform( 0.03, 0, 0, 0, 0.06, 0, 0, 0, 0.03, 0, 0.887412, 0 )
+shape = SubResource( 14 )
+
+[node name="lamplight" type="SpotLight" parent="things/lamp3"]
+transform = Transform( 0.05, 0, 0, 0, -2.18557e-09, 0.05, 0, -0.05, -2.18557e-09, 0.00151628, 0.884045, 0.00216955 )
+light_color = Color( 1, 0.945098, 0.878431, 1 )
+shadow_enabled = true
+spot_range = 28.3763
+spot_attenuation = 3.249
+spot_angle = 89.99
+
+[node name="lamp4" type="StaticBody" parent="things"]
+transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 20, -19.0111, 0, 62.1539 )
+
+[node name="lamp" type="MeshInstance" parent="things/lamp4"]
+transform = Transform( 0.03, 0, 0, 0, 0.06, 0, 0, 0, 0.03, 0, 0.887412, 0 )
+mesh = SubResource( 13 )
+material/0 = null
+
+[node name="lampcollision" type="CollisionShape" parent="things/lamp4"]
+transform = Transform( 0.03, 0, 0, 0, 0.06, 0, 0, 0, 0.03, 0, 0.887412, 0 )
+shape = SubResource( 14 )
+
+[node name="lamplight" type="SpotLight" parent="things/lamp4"]
+transform = Transform( 0.05, 0, 0, 0, -2.18557e-09, 0.05, 0, -0.05, -2.18557e-09, 0.00151628, 0.884045, 0.00216955 )
+light_color = Color( 1, 0.945098, 0.878431, 1 )
+light_energy = 2.0
+shadow_enabled = true
+spot_range = 28.3763
+spot_attenuation = 3.249
+spot_angle = 89.99
+
+[node name="wheelchair1" type="StaticBody" parent="things"]
+
+[node name="wheelchair" type="MeshInstance" parent="things/wheelchair1"]
+transform = Transform( 1.25367, 0, 0.792642, 0, 1.59335, 0, -1.09905, 0, 0.904154, -22.4775, 1.8457, -8.97083 )
+mesh = SubResource( 33 )
+material/0 = null
+
+[node name="wheelchaircollision" type="CollisionShape" parent="things/wheelchair1"]
+transform = Transform( 1.25367, 0, 0.792642, 0, 1.59335, 0, -1.09905, 0, 0.904154, -22.4775, 1.8457, -8.97083 )
+shape = SubResource( 34 )
+
+[node name="Label3D" type="Spatial" parent="things/wheelchair1"]
+transform = Transform( 0.759578, 0, 0.650416, 0, 1, 0, -0.650416, 0, 0.759578, -21.5749, 1.81448, -8.08366 )
+script = ExtResource( 1 )
+text = "Wheel
+Chair"
+text_size = 1.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="wheelchair2" type="StaticBody" parent="things"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -58.6375 )
+
+[node name="wheelchair" type="MeshInstance" parent="things/wheelchair2"]
+transform = Transform( 1.25367, 0, 0.792642, 0, 1.59335, 0, -1.09905, 0, 0.904154, -22.4775, 1.8457, -8.97083 )
+mesh = SubResource( 33 )
+material/0 = null
+
+[node name="wheelchaircollision" type="CollisionShape" parent="things/wheelchair2"]
+transform = Transform( 1.25367, 0, 0.792642, 0, 1.59335, 0, -1.09905, 0, 0.904154, -22.4775, 1.8457, -8.97083 )
+shape = SubResource( 34 )
+
+[node name="Label3D" type="Spatial" parent="things/wheelchair2"]
+transform = Transform( 0.759578, 0, 0.650416, 0, 1, 0, -0.650416, 0, 0.759578, -21.5749, 1.81448, -8.08366 )
+script = ExtResource( 1 )
+text = "Wheel
+Chair"
+text_size = 1.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="wheelchair3" type="StaticBody" parent="things"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -80.7706 )
+
+[node name="wheelchair" type="MeshInstance" parent="things/wheelchair3"]
+transform = Transform( 1.25367, 0, 0.792642, 0, 1.59335, 0, -1.09905, 0, 0.904154, -22.4775, 1.8457, -8.97083 )
+mesh = SubResource( 33 )
+material/0 = null
+
+[node name="wheelchaircollision" type="CollisionShape" parent="things/wheelchair3"]
+transform = Transform( 1.25367, 0, 0.792642, 0, 1.59335, 0, -1.09905, 0, 0.904154, -22.4775, 1.8457, -8.97083 )
+shape = SubResource( 34 )
+
+[node name="Label3D" type="Spatial" parent="things/wheelchair3"]
+transform = Transform( 0.759578, 0, 0.650416, 0, 1, 0, -0.650416, 0, 0.759578, -21.5749, 1.81448, -8.08366 )
+script = ExtResource( 1 )
+text = "Wheel
+Chair"
+text_size = 1.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="wheelchair4" type="StaticBody" parent="things"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.04703, -80.7706 )
+
+[node name="wheelchair" type="MeshInstance" parent="things/wheelchair4"]
+transform = Transform( 1.25367, 0, 0.792642, 0, 1.59335, 0, -1.09905, 0, 0.904154, -22.4775, 1.8457, -8.97083 )
+mesh = SubResource( 33 )
+material/0 = null
+
+[node name="wheelchaircollision" type="CollisionShape" parent="things/wheelchair4"]
+transform = Transform( 1.25367, 0, 0.792642, 0, 1.59335, 0, -1.09905, 0, 0.904154, -22.4775, 1.8457, -8.97083 )
+shape = SubResource( 34 )
+
+[node name="Label3D" type="Spatial" parent="things/wheelchair4"]
+transform = Transform( 0.759578, 0, 0.650416, 0, 1, 0, -0.650416, 0, 0.759578, -21.5749, 1.81448, -8.08366 )
+script = ExtResource( 1 )
+text = "Wheel
+Chair"
+text_size = 1.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="wheelchair5" type="StaticBody" parent="things"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.27779, -0.0752984, -78.7051 )
+
+[node name="wheelchair" type="MeshInstance" parent="things/wheelchair5"]
+transform = Transform( 1.25367, 0, 0.792642, 0, 1.59335, 0, -1.09905, 0, 0.904154, -22.4775, 1.8457, -8.97083 )
+mesh = SubResource( 33 )
+material/0 = null
+
+[node name="wheelchaircollision" type="CollisionShape" parent="things/wheelchair5"]
+transform = Transform( 1.25367, 0, 0.792642, 0, 1.59335, 0, -1.09905, 0, 0.904154, -22.4775, 1.8457, -8.97083 )
+shape = SubResource( 34 )
+
+[node name="Label3D" type="Spatial" parent="things/wheelchair5"]
+transform = Transform( 0.759578, 0, 0.650416, 0, 1, 0, -0.650416, 0, 0.759578, -21.5749, 1.81448, -8.08366 )
+script = ExtResource( 1 )
+text = "Wheel
+Chair"
+text_size = 1.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="wheelchair7" type="StaticBody" parent="things"]
+transform = Transform( 0.399661, 0, -0.916663, 0, 1, 0, 0.916663, 0, 0.399661, -13.1223, -0.0139894, 14.665 )
+
+[node name="wheelchair" type="MeshInstance" parent="things/wheelchair7"]
+transform = Transform( 1.25367, 0, 0.792642, 0, 1.59335, 0, -1.09905, 0, 0.904154, -22.4775, 1.8457, -8.97083 )
+mesh = SubResource( 33 )
+material/0 = null
+
+[node name="wheelchaircollision" type="CollisionShape" parent="things/wheelchair7"]
+transform = Transform( 1.25367, 0, 0.792642, 0, 1.59335, 0, -1.09905, 0, 0.904154, -22.4775, 1.8457, -8.97083 )
+shape = SubResource( 34 )
+
+[node name="Label3D" type="Spatial" parent="things/wheelchair7"]
+transform = Transform( 0.759578, 0, 0.650416, 0, 1, 0, -0.650416, 0, 0.759578, -21.5749, 1.81448, -8.08366 )
+script = ExtResource( 1 )
+text = "Wheel
+Chair"
+text_size = 1.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="wheelchair8" type="StaticBody" parent="things"]
+transform = Transform( 0.399661, 0, -0.916663, 0, 1, 0, 0.916663, 0, 0.399661, -13.1223, -0.0139894, -14.9952 )
+
+[node name="wheelchair" type="MeshInstance" parent="things/wheelchair8"]
+transform = Transform( 1.25367, 0, 0.792642, 0, 1.59335, 0, -1.09905, 0, 0.904154, -22.4775, 1.8457, -8.97083 )
+mesh = SubResource( 33 )
+material/0 = null
+
+[node name="wheelchaircollision" type="CollisionShape" parent="things/wheelchair8"]
+transform = Transform( 1.25367, 0, 0.792642, 0, 1.59335, 0, -1.09905, 0, 0.904154, -22.4775, 1.8457, -8.97083 )
+shape = SubResource( 34 )
+
+[node name="Label3D" type="Spatial" parent="things/wheelchair8"]
+transform = Transform( 0.759578, 0, 0.650416, 0, 1, 0, -0.650416, 0, 0.759578, -21.5749, 1.81448, -8.08366 )
+script = ExtResource( 1 )
+text = "Wheel
+Chair"
+text_size = 1.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="wheelchair12" type="StaticBody" parent="things"]
+transform = Transform( 0.399661, 0, -0.916663, 0, 1, 0, 0.916663, 0, 0.399661, -13.1223, 3.03959, -14.9952 )
+
+[node name="wheelchair" type="MeshInstance" parent="things/wheelchair12"]
+transform = Transform( 1.25367, 0, 0.792642, 0, 1.59335, 0, -1.09905, 0, 0.904154, -22.4775, 1.8457, -8.97083 )
+mesh = SubResource( 33 )
+material/0 = null
+
+[node name="wheelchaircollision" type="CollisionShape" parent="things/wheelchair12"]
+transform = Transform( 1.25367, 0, 0.792642, 0, 1.59335, 0, -1.09905, 0, 0.904154, -22.4775, 1.8457, -8.97083 )
+shape = SubResource( 34 )
+
+[node name="Label3D" type="Spatial" parent="things/wheelchair12"]
+transform = Transform( 0.759578, 0, 0.650416, 0, 1, 0, -0.650416, 0, 0.759578, -21.5749, 1.81448, -8.08366 )
+script = ExtResource( 1 )
+text = "Wheel
+Chair"
+text_size = 1.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="wheelchair13" type="StaticBody" parent="things"]
+transform = Transform( 0.399661, 0, -0.916663, 0, 1, 0, 0.916663, 0, 0.399661, -13.1223, -0.143691, -33.2647 )
+
+[node name="wheelchair" type="MeshInstance" parent="things/wheelchair13"]
+transform = Transform( 1.25367, 0, 0.792642, 0, 1.59335, 0, -1.09905, 0, 0.904154, -22.4775, 1.8457, -8.97083 )
+mesh = SubResource( 33 )
+material/0 = null
+
+[node name="wheelchaircollision" type="CollisionShape" parent="things/wheelchair13"]
+transform = Transform( 1.25367, 0, 0.792642, 0, 1.59335, 0, -1.09905, 0, 0.904154, -22.4775, 1.8457, -8.97083 )
+shape = SubResource( 34 )
+
+[node name="Label3D" type="Spatial" parent="things/wheelchair13"]
+transform = Transform( 0.759578, 0, 0.650416, 0, 1, 0, -0.650416, 0, 0.759578, -21.5749, 1.81448, -8.08366 )
+script = ExtResource( 1 )
+text = "Wheel
+Chair"
+text_size = 1.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="wheelchair14" type="StaticBody" parent="things"]
+transform = Transform( 0.399661, 0, -0.916663, 0, 1, 0, 0.916663, 0, 0.399661, -13.1223, -0.143691, -110.352 )
+
+[node name="wheelchair" type="MeshInstance" parent="things/wheelchair14"]
+transform = Transform( 1.25367, 0, 0.792642, 0, 1.59335, 0, -1.09905, 0, 0.904154, -22.4775, 1.8457, -8.97083 )
+mesh = SubResource( 33 )
+material/0 = null
+
+[node name="wheelchaircollision" type="CollisionShape" parent="things/wheelchair14"]
+transform = Transform( 1.25367, 0, 0.792642, 0, 1.59335, 0, -1.09905, 0, 0.904154, -22.4775, 1.8457, -8.97083 )
+shape = SubResource( 34 )
+
+[node name="Label3D" type="Spatial" parent="things/wheelchair14"]
+transform = Transform( 0.759578, 0, 0.650416, 0, 1, 0, -0.650416, 0, 0.759578, -21.5749, 1.81448, -8.08366 )
+script = ExtResource( 1 )
+text = "Wheel
+Chair"
+text_size = 1.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="wheelchair15" type="StaticBody" parent="things"]
+transform = Transform( 0.399661, 0, -0.916663, 0, 1, 0, 0.916663, 0, 0.399661, -13.1223, -0.143691, -58.3126 )
+
+[node name="wheelchair" type="MeshInstance" parent="things/wheelchair15"]
+transform = Transform( 1.25367, 0, 0.792642, 0, 1.59335, 0, -1.09905, 0, 0.904154, -22.4775, 1.8457, -8.97083 )
+mesh = SubResource( 33 )
+material/0 = null
+
+[node name="wheelchaircollision" type="CollisionShape" parent="things/wheelchair15"]
+transform = Transform( 1.25367, 0, 0.792642, 0, 1.59335, 0, -1.09905, 0, 0.904154, -22.4775, 1.8457, -8.97083 )
+shape = SubResource( 34 )
+
+[node name="Label3D" type="Spatial" parent="things/wheelchair15"]
+transform = Transform( 0.759578, 0, 0.650416, 0, 1, 0, -0.650416, 0, 0.759578, -21.5749, 1.81448, -8.08366 )
+script = ExtResource( 1 )
+text = "Wheel
+Chair"
+text_size = 1.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="wheelchair16" type="StaticBody" parent="things"]
+transform = Transform( 0.399661, 0, -0.916663, 0, 1, 0, 0.916663, 0, 0.399661, -13.1223, -0.143691, -69.8319 )
+
+[node name="wheelchair" type="MeshInstance" parent="things/wheelchair16"]
+transform = Transform( 1.25367, 0, 0.792642, 0, 1.59335, 0, -1.09905, 0, 0.904154, -22.4775, 1.8457, -8.97083 )
+mesh = SubResource( 33 )
+material/0 = null
+
+[node name="wheelchaircollision" type="CollisionShape" parent="things/wheelchair16"]
+transform = Transform( 1.25367, 0, 0.792642, 0, 1.59335, 0, -1.09905, 0, 0.904154, -22.4775, 1.8457, -8.97083 )
+shape = SubResource( 34 )
+
+[node name="Label3D" type="Spatial" parent="things/wheelchair16"]
+transform = Transform( 0.759578, 0, 0.650416, 0, 1, 0, -0.650416, 0, 0.759578, -21.5749, 1.81448, -8.08366 )
+script = ExtResource( 1 )
+text = "Wheel
+Chair"
+text_size = 1.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="wheelchair9" type="StaticBody" parent="things"]
+transform = Transform( 0.232121, 0, 0.972687, 0, 1, 0, -0.972687, 0, 0.232121, -9.40961, -0.149886, 22.0418 )
+
+[node name="wheelchair" type="MeshInstance" parent="things/wheelchair9"]
+transform = Transform( 1.25367, 0, 0.792642, 0, 1.59335, 0, -1.09905, 0, 0.904154, -22.4775, 1.8457, -8.97083 )
+mesh = SubResource( 33 )
+material/0 = null
+
+[node name="wheelchaircollision" type="CollisionShape" parent="things/wheelchair9"]
+transform = Transform( 1.25367, 0, 0.792642, 0, 1.59335, 0, -1.09905, 0, 0.904154, -22.4775, 1.8457, -8.97083 )
+shape = SubResource( 34 )
+
+[node name="Label3D" type="Spatial" parent="things/wheelchair9"]
+transform = Transform( 0.759578, 0, 0.650416, 0, 1, 0, -0.650416, 0, 0.759578, -21.5749, 1.81448, -8.08366 )
+script = ExtResource( 1 )
+text = "Wheel
+Chair"
+text_size = 1.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="wheelchair10" type="StaticBody" parent="things"]
+transform = Transform( 0.232121, 0, 0.972687, 0, 1, 0, -0.972687, 0, 0.232121, -9.40961, 1.2692, 24.8306 )
+
+[node name="wheelchair" type="MeshInstance" parent="things/wheelchair10"]
+transform = Transform( 1.25367, 0, 0.792642, 0, 1.59335, 0, -1.09905, 0, 0.904154, -22.4775, 1.8457, -8.97083 )
+mesh = SubResource( 33 )
+material/0 = null
+
+[node name="wheelchaircollision" type="CollisionShape" parent="things/wheelchair10"]
+transform = Transform( 1.25367, 0, 0.792642, 0, 1.59335, 0, -1.09905, 0, 0.904154, -22.4775, 1.8457, -8.97083 )
+shape = SubResource( 34 )
+
+[node name="Label3D" type="Spatial" parent="things/wheelchair10"]
+transform = Transform( 0.759578, 0, 0.650416, 0, 1, 0, -0.650416, 0, 0.759578, -21.5749, 1.81448, -8.08366 )
+script = ExtResource( 1 )
+text = "Wheel
+Chair"
+text_size = 1.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="wheelchair11" type="StaticBody" parent="things"]
+transform = Transform( 0.232121, 0, 0.972687, 0, 1, 0, -0.972687, 0, 0.232121, -9.40961, -0.137828, 43.7803 )
+
+[node name="wheelchair" type="MeshInstance" parent="things/wheelchair11"]
+transform = Transform( 1.25367, 0, 0.792642, 0, 1.59335, 0, -1.09905, 0, 0.904154, -22.4775, 1.8457, -8.97083 )
+mesh = SubResource( 33 )
+material/0 = null
+
+[node name="wheelchaircollision" type="CollisionShape" parent="things/wheelchair11"]
+transform = Transform( 1.25367, 0, 0.792642, 0, 1.59335, 0, -1.09905, 0, 0.904154, -22.4775, 1.8457, -8.97083 )
+shape = SubResource( 34 )
+
+[node name="Label3D" type="Spatial" parent="things/wheelchair11"]
+transform = Transform( 0.759578, 0, 0.650416, 0, 1, 0, -0.650416, 0, 0.759578, -21.5749, 1.81448, -8.08366 )
+script = ExtResource( 1 )
+text = "Wheel
+Chair"
+text_size = 1.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="stretcher1" type="StaticBody" parent="things"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0753498, 0, 43.5951 )
+
+[node name="stretcher" type="MeshInstance" parent="things/stretcher1"]
+transform = Transform( 1.64719, 0, 0, 0, 1.45347, 0, 0, 0, 2.81855, -23.6079, 1.12995, 1.78371 )
+mesh = SubResource( 35 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="things/stretcher1"]
+transform = Transform( 1.64719, 0, 0, 0, 1.45347, 0, 0, 0, 2.81855, -23.6079, 1.12995, 1.78371 )
+shape = SubResource( 36 )
+
+[node name="Label3D" type="Spatial" parent="things/stretcher1"]
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, -23.2917, 2.70013, 1.62327 )
+script = ExtResource( 1 )
+text = "Stretcher"
+text_size = 1.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="stretcher4" type="StaticBody" parent="things"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0753479, 0, -117.926 )
+
+[node name="stretcher" type="MeshInstance" parent="things/stretcher4"]
+transform = Transform( 1.64719, 0, 0, 0, 1.45347, 0, 0, 0, 2.81855, -23.6079, 1.12995, 1.78371 )
+mesh = SubResource( 35 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="things/stretcher4"]
+transform = Transform( 1.64719, 0, 0, 0, 1.45347, 0, 0, 0, 2.81855, -23.6079, 1.12995, 1.78371 )
+shape = SubResource( 36 )
+
+[node name="Label3D" type="Spatial" parent="things/stretcher4"]
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, -23.2917, 2.70013, 1.62327 )
+script = ExtResource( 1 )
+text = "Stretcher"
+text_size = 1.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="stretcher5" type="StaticBody" parent="things"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0753479, 0, -37.3848 )
+
+[node name="stretcher" type="MeshInstance" parent="things/stretcher5"]
+transform = Transform( 1.64719, 0, 0, 0, 1.45347, 0, 0, 0, 2.81855, -23.6079, 1.12995, 1.78371 )
+mesh = SubResource( 35 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="things/stretcher5"]
+transform = Transform( 1.64719, 0, 0, 0, 1.45347, 0, 0, 0, 2.81855, -23.6079, 1.12995, 1.78371 )
+shape = SubResource( 36 )
+
+[node name="Label3D" type="Spatial" parent="things/stretcher5"]
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, -23.2917, 2.70013, 1.62327 )
+script = ExtResource( 1 )
+text = "Stretcher"
+text_size = 1.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="stretcher2" type="StaticBody" parent="things"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.75872, 0, 8.8562 )
+
+[node name="stretcher" type="MeshInstance" parent="things/stretcher2"]
+transform = Transform( 1.64719, 0, 0, 0, 1.45347, 0, 0, 0, 2.81855, -23.6079, 1.12995, 1.78371 )
+mesh = SubResource( 35 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="things/stretcher2"]
+transform = Transform( 1.64719, 0, 0, 0, 1.45347, 0, 0, 0, 2.81855, -23.6079, 1.12995, 1.78371 )
+shape = SubResource( 36 )
+
+[node name="stretcherlabel" type="Spatial" parent="things/stretcher2"]
+transform = Transform( -4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, -24.1049, 2.70013, 1.62327 )
+script = ExtResource( 1 )
+text = "Stretcher"
+text_size = 1.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="stretcher6" type="StaticBody" parent="things"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.75871, 0, -117.606 )
+
+[node name="stretcher" type="MeshInstance" parent="things/stretcher6"]
+transform = Transform( 1.64719, 0, 0, 0, 1.45347, 0, 0, 0, 2.81855, -23.6079, 1.12995, 1.78371 )
+mesh = SubResource( 35 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="things/stretcher6"]
+transform = Transform( 1.64719, 0, 0, 0, 1.45347, 0, 0, 0, 2.81855, -23.6079, 1.12995, 1.78371 )
+shape = SubResource( 36 )
+
+[node name="stretcherlabel" type="Spatial" parent="things/stretcher6"]
+transform = Transform( -4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, -24.1049, 2.70013, 1.62327 )
+script = ExtResource( 1 )
+text = "Stretcher"
+text_size = 1.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="stretcher7" type="StaticBody" parent="things"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.75871, 0, -124.293 )
+
+[node name="stretcher" type="MeshInstance" parent="things/stretcher7"]
+transform = Transform( 1.64719, 0, 0, 0, 1.45347, 0, 0, 0, 2.81855, -23.6079, 1.12995, 1.78371 )
+mesh = SubResource( 35 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="things/stretcher7"]
+transform = Transform( 1.64719, 0, 0, 0, 1.45347, 0, 0, 0, 2.81855, -23.6079, 1.12995, 1.78371 )
+shape = SubResource( 36 )
+
+[node name="stretcherlabel" type="Spatial" parent="things/stretcher7"]
+transform = Transform( -4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, -24.1049, 2.70013, 1.62327 )
+script = ExtResource( 1 )
+text = "Stretcher"
+text_size = 1.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="stretcher8" type="StaticBody" parent="things"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.75871, 0, -132.293 )
+
+[node name="stretcher" type="MeshInstance" parent="things/stretcher8"]
+transform = Transform( 1.64719, 0, 0, 0, 1.45347, 0, 0, 0, 2.81855, -23.6079, 1.12995, 1.78371 )
+mesh = SubResource( 35 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="things/stretcher8"]
+transform = Transform( 1.64719, 0, 0, 0, 1.45347, 0, 0, 0, 2.81855, -23.6079, 1.12995, 1.78371 )
+shape = SubResource( 36 )
+
+[node name="stretcherlabel" type="Spatial" parent="things/stretcher8"]
+transform = Transform( -4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, -24.1049, 2.70013, 1.62327 )
+script = ExtResource( 1 )
+text = "Stretcher"
+text_size = 1.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="stretcher9" type="StaticBody" parent="things"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.75871, 0, -150.851 )
+
+[node name="stretcher" type="MeshInstance" parent="things/stretcher9"]
+transform = Transform( 1.64719, 0, 0, 0, 1.45347, 0, 0, 0, 2.81855, -23.6079, 1.12995, 1.78371 )
+mesh = SubResource( 35 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="things/stretcher9"]
+transform = Transform( 1.64719, 0, 0, 0, 1.45347, 0, 0, 0, 2.81855, -23.6079, 1.12995, 1.78371 )
+shape = SubResource( 36 )
+
+[node name="stretcherlabel" type="Spatial" parent="things/stretcher9"]
+transform = Transform( -4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, -24.1049, 2.70013, 1.62327 )
+script = ExtResource( 1 )
+text = "Stretcher"
+text_size = 1.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="stretcher3" type="StaticBody" parent="things"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.86718, 2.84138, 9.39561 )
+
+[node name="stretcher" type="MeshInstance" parent="things/stretcher3"]
+transform = Transform( 1.64719, 0, 0, 0, 1.45347, 0, 0, 0, 2.81855, -23.6079, 1.12995, 1.78371 )
+mesh = SubResource( 35 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="things/stretcher3"]
+transform = Transform( 1.64719, 0, 0, 0, 1.45347, 0, 0, 0, 2.81855, -23.6079, 1.12995, 1.78371 )
+shape = SubResource( 36 )
+
+[node name="stretcherlabel" type="Spatial" parent="things/stretcher3"]
+transform = Transform( -4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, -24.1049, 2.70013, 1.62327 )
+script = ExtResource( 1 )
+text = "Stretcher"
+text_size = 1.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="cutsene" type="Spatial" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="cutsene"]
+anims/cutsene = SubResource( 47 )
+
+[node name="ColorRect" type="ColorRect" parent="cutsene"]
+margin_left = -30.0
+margin_top = -22.0
+margin_right = 1960.0
+margin_bottom = 1100.0
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="things2" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 89.5711 )
+
+[node name="lamp" type="StaticBody" parent="things2"]
+transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 20, -19.0111, 0, 0 )
+
+[node name="lamp" type="MeshInstance" parent="things2/lamp"]
+transform = Transform( 0.03, 0, 0, 0, 0.06, 0, 0, 0, 0.03, 0, 0.887412, 0 )
+mesh = SubResource( 13 )
+material/0 = null
+
+[node name="lampcollision" type="CollisionShape" parent="things2/lamp"]
+transform = Transform( 0.03, 0, 0, 0, 0.06, 0, 0, 0, 0.03, 0, 0.887412, 0 )
+shape = SubResource( 14 )
+
+[node name="lamplight" type="SpotLight" parent="things2/lamp"]
+transform = Transform( 0.05, 0, 0, 0, -2.18557e-09, 0.05, 0, -0.05, -2.18557e-09, 0.00151628, 0.884045, 0.00216955 )
+light_color = Color( 1, 0.945098, 0.878431, 1 )
+shadow_enabled = true
+spot_range = 28.3763
+spot_attenuation = 3.249
+spot_angle = 89.99
+
+[node name="lamp2" type="StaticBody" parent="things2"]
+transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 20, -19.0111, 0, 20.2088 )
+
+[node name="lamp" type="MeshInstance" parent="things2/lamp2"]
+transform = Transform( 0.03, 0, 0, 0, 0.06, 0, 0, 0, 0.03, 0, 0.887412, 0 )
+mesh = SubResource( 13 )
+material/0 = null
+
+[node name="lampcollision" type="CollisionShape" parent="things2/lamp2"]
+transform = Transform( 0.03, 0, 0, 0, 0.06, 0, 0, 0, 0.03, 0, 0.887412, 0 )
+shape = SubResource( 14 )
+
+[node name="lamplight" type="SpotLight" parent="things2/lamp2"]
+transform = Transform( 0.05, 0, 0, 0, -2.18557e-09, 0.05, 0, -0.05, -2.18557e-09, 0.00151628, 0.884045, 0.00216955 )
+light_color = Color( 1, 0.945098, 0.878431, 1 )
+shadow_enabled = true
+spot_range = 28.3763
+spot_attenuation = 3.249
+spot_angle = 89.99
+
+[node name="lamp3" type="StaticBody" parent="things2"]
+transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 20, -19.0111, 0, 42.663 )
+
+[node name="lamp" type="MeshInstance" parent="things2/lamp3"]
+transform = Transform( 0.03, 0, 0, 0, 0.06, 0, 0, 0, 0.03, 0, 0.887412, 0 )
+mesh = SubResource( 13 )
+material/0 = null
+
+[node name="lampcollision" type="CollisionShape" parent="things2/lamp3"]
+transform = Transform( 0.03, 0, 0, 0, 0.06, 0, 0, 0, 0.03, 0, 0.887412, 0 )
+shape = SubResource( 14 )
+
+[node name="lamplight" type="SpotLight" parent="things2/lamp3"]
+transform = Transform( 0.05, 0, 0, 0, -2.18557e-09, 0.05, 0, -0.05, -2.18557e-09, 0.00151628, 0.884045, 0.00216955 )
+light_color = Color( 1, 0.945098, 0.878431, 1 )
+shadow_enabled = true
+spot_range = 28.3763
+spot_attenuation = 3.249
+spot_angle = 89.99
+
+[node name="lamp4" type="StaticBody" parent="things2"]
+transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 20, -19.0111, 0, 62.1539 )
+
+[node name="lamp" type="MeshInstance" parent="things2/lamp4"]
+transform = Transform( 0.03, 0, 0, 0, 0.06, 0, 0, 0, 0.03, 0, 0.887412, 0 )
+mesh = SubResource( 13 )
+material/0 = null
+
+[node name="lampcollision" type="CollisionShape" parent="things2/lamp4"]
+transform = Transform( 0.03, 0, 0, 0, 0.06, 0, 0, 0, 0.03, 0, 0.887412, 0 )
+shape = SubResource( 14 )
+
+[node name="lamplight" type="SpotLight" parent="things2/lamp4"]
+transform = Transform( 0.05, 0, 0, 0, -2.18557e-09, 0.05, 0, -0.05, -2.18557e-09, 0.00151628, 0.884045, 0.00216955 )
+light_color = Color( 1, 0.945098, 0.878431, 1 )
+light_energy = 2.0
+shadow_enabled = true
+spot_range = 28.3763
+spot_attenuation = 3.249
+spot_angle = 89.99
+
+[node name="wheelchair9" type="StaticBody" parent="things2"]
+transform = Transform( 0.232121, 0, 0.972687, 0, 1, 0, -0.972687, 0, 0.232121, -9.40961, -0.149886, 22.0418 )
+
+[node name="wheelchair" type="MeshInstance" parent="things2/wheelchair9"]
+transform = Transform( 1.25367, 0, 0.792642, 0, 1.59335, 0, -1.09905, 0, 0.904154, -22.4775, 1.8457, -8.97083 )
+mesh = SubResource( 33 )
+material/0 = null
+
+[node name="wheelchaircollision" type="CollisionShape" parent="things2/wheelchair9"]
+transform = Transform( 1.25367, 0, 0.792642, 0, 1.59335, 0, -1.09905, 0, 0.904154, -22.4775, 1.8457, -8.97083 )
+shape = SubResource( 34 )
+
+[node name="Label3D" type="Spatial" parent="things2/wheelchair9"]
+transform = Transform( 0.759578, 0, 0.650416, 0, 1, 0, -0.650416, 0, 0.759578, -21.5749, 1.81448, -8.08366 )
+script = ExtResource( 1 )
+text = "Wheel
+Chair"
+text_size = 1.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="wheelchair10" type="StaticBody" parent="things2"]
+transform = Transform( 0.232121, 0, 0.972687, 0, 1, 0, -0.972687, 0, 0.232121, -9.40961, 1.2692, 24.8306 )
+
+[node name="wheelchair" type="MeshInstance" parent="things2/wheelchair10"]
+transform = Transform( 1.25367, 0, 0.792642, 0, 1.59335, 0, -1.09905, 0, 0.904154, -22.4775, 1.8457, -8.97083 )
+mesh = SubResource( 33 )
+material/0 = null
+
+[node name="wheelchaircollision" type="CollisionShape" parent="things2/wheelchair10"]
+transform = Transform( 1.25367, 0, 0.792642, 0, 1.59335, 0, -1.09905, 0, 0.904154, -22.4775, 1.8457, -8.97083 )
+shape = SubResource( 34 )
+
+[node name="Label3D" type="Spatial" parent="things2/wheelchair10"]
+transform = Transform( 0.759578, 0, 0.650416, 0, 1, 0, -0.650416, 0, 0.759578, -21.5749, 1.81448, -8.08366 )
+script = ExtResource( 1 )
+text = "Wheel
+Chair"
+text_size = 1.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="wheelchair11" type="StaticBody" parent="things2"]
+transform = Transform( 0.232121, 0, 0.972687, 0, 1, 0, -0.972687, 0, 0.232121, -9.40961, -0.137828, 43.7803 )
+
+[node name="wheelchair" type="MeshInstance" parent="things2/wheelchair11"]
+transform = Transform( 1.25367, 0, 0.792642, 0, 1.59335, 0, -1.09905, 0, 0.904154, -22.4775, 1.8457, -8.97083 )
+mesh = SubResource( 33 )
+material/0 = null
+
+[node name="wheelchaircollision" type="CollisionShape" parent="things2/wheelchair11"]
+transform = Transform( 1.25367, 0, 0.792642, 0, 1.59335, 0, -1.09905, 0, 0.904154, -22.4775, 1.8457, -8.97083 )
+shape = SubResource( 34 )
+
+[node name="Label3D" type="Spatial" parent="things2/wheelchair11"]
+transform = Transform( 0.759578, 0, 0.650416, 0, 1, 0, -0.650416, 0, 0.759578, -21.5749, 1.81448, -8.08366 )
+script = ExtResource( 1 )
+text = "Wheel
+Chair"
+text_size = 1.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="stretcher1" type="StaticBody" parent="things2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0753498, 0, 43.5951 )
+
+[node name="stretcher" type="MeshInstance" parent="things2/stretcher1"]
+transform = Transform( 1.64719, 0, 0, 0, 1.45347, 0, 0, 0, 2.81855, -23.6079, 1.12995, 1.78371 )
+mesh = SubResource( 35 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="things2/stretcher1"]
+transform = Transform( 1.64719, 0, 0, 0, 1.45347, 0, 0, 0, 2.81855, -23.6079, 1.12995, 1.78371 )
+shape = SubResource( 36 )
+
+[node name="Label3D" type="Spatial" parent="things2/stretcher1"]
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, -23.2917, 2.70013, 1.62327 )
+script = ExtResource( 1 )
+text = "Stretcher"
+text_size = 1.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="stretcher2" type="StaticBody" parent="things2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.75872, 0, 8.8562 )
+
+[node name="stretcher" type="MeshInstance" parent="things2/stretcher2"]
+transform = Transform( 1.64719, 0, 0, 0, 1.45347, 0, 0, 0, 2.81855, -23.6079, 1.12995, 1.78371 )
+mesh = SubResource( 35 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="things2/stretcher2"]
+transform = Transform( 1.64719, 0, 0, 0, 1.45347, 0, 0, 0, 2.81855, -23.6079, 1.12995, 1.78371 )
+shape = SubResource( 36 )
+
+[node name="stretcherlabel" type="Spatial" parent="things2/stretcher2"]
+transform = Transform( -4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, -24.1049, 2.70013, 1.62327 )
+script = ExtResource( 1 )
+text = "Stretcher"
+text_size = 1.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="stretcher3" type="StaticBody" parent="things2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.86718, 2.84138, 9.39561 )
+
+[node name="stretcher" type="MeshInstance" parent="things2/stretcher3"]
+transform = Transform( 1.64719, 0, 0, 0, 1.45347, 0, 0, 0, 2.81855, -23.6079, 1.12995, 1.78371 )
+mesh = SubResource( 35 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="things2/stretcher3"]
+transform = Transform( 1.64719, 0, 0, 0, 1.45347, 0, 0, 0, 2.81855, -23.6079, 1.12995, 1.78371 )
+shape = SubResource( 36 )
+
+[node name="stretcherlabel" type="Spatial" parent="things2/stretcher3"]
+transform = Transform( -4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, -24.1049, 2.70013, 1.62327 )
+script = ExtResource( 1 )
+text = "Stretcher"
+text_size = 1.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="room2" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 89.5711 )
+
+[node name="floor" type="StaticBody" parent="room2"]
+transform = Transform( 10.7054, 0, 0, 0, 20, 0, 0, 0, 81.2869, -18.4833, 0, 30.5026 )
+
+[node name="floor" type="MeshInstance" parent="room2/floor"]
+transform = Transform( 0.611518, 0, 0, 0, 0.00762569, 0, 0, 0, 0.581552, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="floorcollision" type="CollisionShape" parent="room2/floor"]
+transform = Transform( 0.611518, 0, 0, 0, 0.00762569, 0, 0, 0, 0.581552, 0, 0, 0 )
+shape = SubResource( 2 )
+
+[node name="Wall2" type="StaticBody" parent="room2"]
+transform = Transform( -8.74228e-07, 0, -20, 0, 20, 0, 83.6682, 0, -3.65726e-06, -36.7302, 0, 29.1761 )
+
+[node name="Wall2" type="MeshInstance" parent="room2/Wall2"]
+transform = Transform( 0.61428, 0, 0, 0, 0.472566, 0, -5.32907e-15, 0, -0.00248718, -0.0322994, 0.468682, -0.584606 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="Wall2Collision" type="CollisionShape" parent="room2/Wall2"]
+transform = Transform( 0.61428, 0, 0, 0, 0.472566, 0, 0, 0, -0.00248718, 0, 0.468682, -0.584606 )
+shape = SubResource( 6 )
+
+[node name="Wall3" type="StaticBody" parent="room2"]
+transform = Transform( -20, 0, 1.74846e-06, 0, 20, 0, -1.74846e-06, 0, -20, 0, 0, 0 )
+
+[node name="Wall3" type="MeshInstance" parent="room2/Wall3"]
+transform = Transform( 0.61428, 0, 0, 0, 0.472566, 0, 0, 0, -0.00248718, 0, 0.468682, -0.584606 )
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="Wall3Collision" type="CollisionShape" parent="room2/Wall3"]
+transform = Transform( 0.61428, 0, 0, 0, 0.472566, 0, 0, 0, -0.00248718, 0, 0.468682, -0.584606 )
+shape = SubResource( 8 )
+
+[node name="Wall4" type="StaticBody" parent="room2"]
+transform = Transform( -8.74228e-07, 0, -20, 0, 20, 0, 42.1662, 0, -1.84315e-06, -23.9448, -0.286838, 35.8639 )
+
+[node name="Wall2" type="MeshInstance" parent="room2/Wall4"]
+transform = Transform( 0.69128, 0, 1.3628e-11, 0, 0.472566, 0, -3.36579e-09, 0, -0.00248718, 0.0166, 0.468682, -0.584607 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="Wall2Collision" type="CollisionShape" parent="room2/Wall4"]
+transform = Transform( 0.61428, 0, 0, 0, 0.472566, 0, 0, 0, -0.00248718, 0, 0.468682, -0.584606 )
+shape = SubResource( 6 )
+
+[node name="Wall7" type="StaticBody" parent="room2"]
+transform = Transform( -8.74228e-07, 0, -20, 0, 20, 0, 4.42065, 0, -1.93233e-07, -23.9448, -0.286838, 74.5798 )
+
+[node name="Wall2" type="MeshInstance" parent="room2/Wall7"]
+transform = Transform( 0.69128, 0, 1.3628e-11, 0, 0.472566, 0, -3.36579e-09, 0, -0.00248718, 0.0166, 0.468682, -0.584607 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="Wall2Collision" type="CollisionShape" parent="room2/Wall7"]
+transform = Transform( 0.61428, 0, 0, 0, 0.472566, 0, 0, 0, -0.00248718, 0, 0.468682, -0.584606 )
+shape = SubResource( 6 )
+
+[node name="Wall8" type="StaticBody" parent="room2"]
+transform = Transform( -8.74228e-07, 0, -20, 0, 10.3607, 0, 4.42065, 0, -1.93233e-07, -23.9447, 8.73566, 68.4545 )
+
+[node name="Wall2" type="MeshInstance" parent="room2/Wall8"]
+transform = Transform( 0.69128, 0, 1.3628e-11, 0, 0.472566, 0, -3.36579e-09, 0, -0.00248718, 0.0166, 0.468682, -0.584607 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="Wall2Collision" type="CollisionShape" parent="room2/Wall8"]
+transform = Transform( 0.61428, 0, 0, 0, 0.472566, 0, 0, 0, -0.00248718, 0, 0.468682, -0.584606 )
+shape = SubResource( 6 )
+
+[node name="roof" type="StaticBody" parent="room2"]
+transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 87.9716, -23.6107, -1.19209e-07, 26.4025 )
+
+[node name="roof" type="MeshInstance" parent="room2/roof"]
+transform = Transform( 1.18804, 0, 0, 0, -4.37114e-08, -1, 0, 1.16902, -5.10995e-08, 0, 0.937126, 0 )
+mesh = SubResource( 9 )
+material/0 = null
+
+[node name="roofcollision" type="CollisionShape" parent="room2/roof"]
+transform = Transform( 1.18804, 0, 0, 0, -4.37114e-08, -1, 0, 1.16902, -5.10995e-08, 0, 0.937126, 0 )
+shape = SubResource( 10 )
+
+[node name="Wall5" type="StaticBody" parent="room2"]
+transform = Transform( -8.74228e-07, 0, 20, 0, 20, 0, -20, 0, -8.74228e-07, -0.534242, 0, 0 )
+
+[node name="Wall4" type="MeshInstance" parent="room2/Wall5"]
+transform = Transform( 0.333756, 0, 4.96484e-11, 0, 0.472566, 0, -1.22621e-08, 0, -0.00248718, 0.28848, 0.468682, -0.584606 )
+mesh = SubResource( 16 )
+material/0 = null
+
+[node name="Wall4-2" type="MeshInstance" parent="room2/Wall5"]
+transform = Transform( 0.333756, 0, 4.96484e-11, 0, 0.261898, 0, -1.22621e-08, 0, -0.00248718, -0.25745, 0.676294, -0.584606 )
+mesh = SubResource( 17 )
+material/0 = null
+
+[node name="Wall4-3" type="MeshInstance" parent="room2/Wall5"]
+transform = Transform( 0.137806, 0, 8.43286e-11, 0, 0.261898, 0, -2.08273e-08, 0, -0.00248718, -0.449537, 0.251828, -0.584606 )
+mesh = SubResource( 20 )
+material/0 = null
+
+[node name="Wall4Collison" type="CollisionShape" parent="room2/Wall5"]
+transform = Transform( 0.333756, 0, 4.96484e-11, 0, 0.261898, 0, -1.22621e-08, 0, -0.00248718, -0.25745, 0.676294, -0.584606 )
+shape = SubResource( 21 )
+
+[node name="Wall4-2Collison" type="CollisionShape" parent="room2/Wall5"]
+transform = Transform( 0.333756, 0, 4.96484e-11, 0, 0.472566, 0, -1.22621e-08, 0, -0.00248718, 0.28848, 0.468682, -0.584606 )
+shape = SubResource( 18 )
+
+[node name="Wall4-3Collision" type="CollisionShape" parent="room2/Wall5"]
+transform = Transform( 0.137806, 0, 8.43286e-11, 0, 0.261898, 0, -2.08273e-08, 0, -0.00248718, -0.449537, 0.251828, -0.584606 )
+shape = SubResource( 22 )
+
+[node name="door1" type="StaticBody" parent="room2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.398, 0, -0.961447 )
+
+[node name="door" type="MeshInstance" parent="room2/door1"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+mesh = SubResource( 29 )
+material/0 = null
+
+[node name="doorcollison" type="CollisionShape" parent="room2/door1"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+shape = SubResource( 30 )
+
+[node name="doorlabel" type="Spatial" parent="room2/door1"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.531, 7.28775, 3.35721 )
+script = ExtResource( 1 )
+text = "Door"
+text_size = 2.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="door2" type="StaticBody" parent="room2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.398, 0, 20.7933 )
+
+[node name="door" type="MeshInstance" parent="room2/door2"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+mesh = SubResource( 29 )
+material/0 = null
+
+[node name="doorcollison" type="CollisionShape" parent="room2/door2"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+shape = SubResource( 30 )
+
+[node name="doorlabel" type="Spatial" parent="room2/door2"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.531, 7.28775, 3.35721 )
+script = ExtResource( 1 )
+text = "Door"
+text_size = 2.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="door7" type="StaticBody" parent="room2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.398, 0, 37.7074 )
+
+[node name="door" type="MeshInstance" parent="room2/door7"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+mesh = SubResource( 29 )
+material/0 = null
+
+[node name="doorcollison" type="CollisionShape" parent="room2/door7"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+shape = SubResource( 30 )
+
+[node name="doorlabel" type="Spatial" parent="room2/door7"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.531, 7.28775, 3.35721 )
+script = ExtResource( 1 )
+text = "Door"
+text_size = 2.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="door8" type="StaticBody" parent="room2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.398, 0, 52.7486 )
+
+[node name="door" type="MeshInstance" parent="room2/door8"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+mesh = SubResource( 29 )
+material/0 = null
+
+[node name="doorcollison" type="CollisionShape" parent="room2/door8"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+shape = SubResource( 30 )
+
+[node name="doorlabel" type="Spatial" parent="room2/door8"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.531, 7.28775, 3.35721 )
+script = ExtResource( 1 )
+text = "Door"
+text_size = 2.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="door10" type="StaticBody" parent="room2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.398, 0, 65.8634 )
+
+[node name="door" type="MeshInstance" parent="room2/door10"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+mesh = SubResource( 29 )
+material/0 = null
+
+[node name="doorcollison" type="CollisionShape" parent="room2/door10"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+shape = SubResource( 30 )
+
+[node name="doorlabel" type="Spatial" parent="room2/door10"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.531, 7.28775, 3.35721 )
+script = ExtResource( 1 )
+text = "Door"
+text_size = 2.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="door3" type="StaticBody" parent="room2"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -24.0325, 0, 27.6617 )
+
+[node name="door" type="MeshInstance" parent="room2/door3"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+mesh = SubResource( 29 )
+material/0 = null
+
+[node name="doorcollison" type="CollisionShape" parent="room2/door3"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+shape = SubResource( 30 )
+
+[node name="doorlabel" type="Spatial" parent="room2/door3"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.531, 7.28775, 3.35721 )
+script = ExtResource( 1 )
+text = "Door"
+text_size = 2.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="door5" type="StaticBody" parent="room2"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -24.0325, 0, 43.9936 )
+
+[node name="door" type="MeshInstance" parent="room2/door5"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+mesh = SubResource( 29 )
+material/0 = null
+
+[node name="doorcollison" type="CollisionShape" parent="room2/door5"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+shape = SubResource( 30 )
+
+[node name="doorlabel" type="Spatial" parent="room2/door5"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.531, 7.28775, 3.35721 )
+script = ExtResource( 1 )
+text = "Door"
+text_size = 2.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="door9" type="StaticBody" parent="room2"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -24.0325, 0, 6.67286 )
+
+[node name="door" type="MeshInstance" parent="room2/door9"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+mesh = SubResource( 29 )
+material/0 = null
+
+[node name="doorcollison" type="CollisionShape" parent="room2/door9"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+shape = SubResource( 30 )
+
+[node name="doorlabel" type="Spatial" parent="room2/door9"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.531, 7.28775, 3.35721 )
+script = ExtResource( 1 )
+text = "Door"
+text_size = 2.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="door6" type="StaticBody" parent="room2"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -24.0325, 0, 58.6254 )
+
+[node name="door" type="MeshInstance" parent="room2/door6"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+mesh = SubResource( 29 )
+material/0 = null
+
+[node name="doorcollison" type="CollisionShape" parent="room2/door6"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+shape = SubResource( 30 )
+
+[node name="doorlabel" type="Spatial" parent="room2/door6"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.531, 7.28775, 3.35721 )
+script = ExtResource( 1 )
+text = "Door"
+text_size = 2.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="beddoor" type="StaticBody" parent="room2"]
+transform = Transform( -1.0617, 0, -9.28164e-08, 0, 1, 0, 8.74228e-08, 0, -1, -24.5906, 0, 72.0034 )
+
+[node name="door" type="MeshInstance" parent="room2/beddoor"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+mesh = SubResource( 29 )
+material/0 = null
+
+[node name="doorcollison" type="CollisionShape" parent="room2/beddoor"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+shape = SubResource( 30 )
+
+[node name="doorlabel" type="Spatial" parent="room2/beddoor"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.531, 7.28775, 3.35721 )
+script = ExtResource( 1 )
+text = "Door"
+text_size = 2.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="door" type="StaticBody" parent="room2"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -22.086, 0, 65.9253 )
+
+[node name="door" type="MeshInstance" parent="room2/door"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+mesh = SubResource( 29 )
+material/0 = null
+
+[node name="doorcollison" type="CollisionShape" parent="room2/door"]
+transform = Transform( 0.226122, 0, 0, 0, 4.39914, 0, 0, 0, 2.95932, -11.7785, 4.26419, 3.38014 )
+shape = SubResource( 30 )
+
+[node name="doorlabel" type="Spatial" parent="room2/door"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.531, 7.28775, 3.35721 )
+script = ExtResource( 1 )
+text = "Door"
+text_size = 2.0
+font = null
+align = 0
+billboard = false
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+emission_color = Color( 1, 1, 1, 1 )
+emission_strength = 0.0
+extrude = 0.0
+min_steps = 32
+max_steps = 256
+
+[node name="Wall6" type="StaticBody" parent="room2"]
+transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 20, -15.0474, 0, 89.4241 )
+
+[node name="Wall4" type="MeshInstance" parent="room2/Wall6"]
+transform = Transform( 0.183337, 0, 0, 0, 0.752523, 0, 0, 0, 0.00321636, 0.115731, 0.183624, -0.58375 )
+mesh = SubResource( 31 )
+material/0 = null
+
+[node name="Wall4-2" type="MeshInstance" parent="room2/Wall6"]
+transform = Transform( 0.333756, 0, 4.96484e-11, 0, 0.261898, 0, -1.22621e-08, 0, -0.00248718, -0.25745, 0.676294, -0.584606 )
+mesh = SubResource( 17 )
+material/0 = null
+
+[node name="Wall4-3" type="MeshInstance" parent="room2/Wall6"]
+transform = Transform( 0.137806, 0, 8.43286e-11, 0, 0.261898, 0, -2.08273e-08, 0, -0.00248718, -0.449537, 0.251828, -0.584606 )
+mesh = SubResource( 20 )
+material/0 = null
+
+[node name="Wall4Collision" type="CollisionShape" parent="room2/Wall6"]
+transform = Transform( 0.183337, 0, 0, 0, 0.752523, 0, 0, 0, 0.00321636, 0.115731, 0.183624, -0.583684 )
+shape = SubResource( 32 )
+
+[node name="Wall4-2Collison" type="CollisionShape" parent="room2/Wall6"]
+transform = Transform( 0.333756, 0, 4.96484e-11, 0, 0.472566, 0, -1.22621e-08, 0, -0.00248718, 0.28848, 0.468682, -0.584606 )
+shape = SubResource( 18 )
+
+[node name="Wall4-3Collision" type="CollisionShape" parent="room2/Wall6"]
+transform = Transform( 0.137806, 0, 8.43286e-11, 0, 0.261898, 0, -2.08273e-08, 0, -0.00248718, -0.449537, 0.251828, -0.584606 )
+shape = SubResource( 22 )

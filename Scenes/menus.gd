@@ -1,25 +1,25 @@
 extends Control
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$blur.hide()
+	$pause.hide()
+	$blur.rect_size = get_viewport_rect().size
+	$pause.rect_size.y = get_viewport_rect().size.y
+	$".."/CollisionShape/Neck/Head/Camera/cent.rect_size = get_viewport_rect().size
+	get_node("../gui").rect_position.y = get_viewport_rect().size.y - 246
+	get_node("../gui").rect_position.x = 30
+	
+	$info.rect_position.y = get_viewport().size.y - $info.rect_size.y
+	$info.rect_size.x = get_viewport().size.x
+	$vhs/VHS.rect_size = get_viewport_rect().size
 
 signal unpause
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 
 var pani = false
 
 func _on_Player_pause():
-	show()
+	$blur.show()
+	$pause.show()
 	$AnimationPlayer.play("pause")
 
 
@@ -30,7 +30,8 @@ func _on_Player_unpause():
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if pani:
-		hide()
+		$blur.hide()
+		$pause.hide()
 		pani = false
 
 
@@ -39,7 +40,7 @@ func _on_exit_pressed():
 
 
 func _on_save_pressed():
-	pass # Replace with function body.
+	Playerglobal.save_game()
 
 
 func _on_continue_pressed():
