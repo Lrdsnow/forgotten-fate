@@ -42,6 +42,9 @@ func _on_door():
 			$room/beddoor.hide()
 			$room/beddoor/doorcollison.disabled = true
 			print("Opened door")
+			Playerglobal.chapter = "Chapter 1"
+			Playerglobal.room = "Room 3"
+			Playerglobal.update_activity()
 	elif doorname == "exitdoor":
 		get_node("/root/World/Player/CollisionShape/Neck/Head/Camera/cent/crosshair/interaction").text = "E - Open"
 		if Input.is_action_pressed("interact"):

@@ -8,7 +8,10 @@ var ad = true
 var doorname
 
 # Called when the node enters the scene tree for the first time.
-func _on_room5():
+func _ready():
+	Playerglobal.chapter = "Chapter 1"
+	Playerglobal.room = "Room 4"
+	Playerglobal.update_activity()
 	get_node("/root/World/Player").connect("interact", self, "_on_interact")
 	#get_node("/root/World/Player").connect("door", self, "_on_door")
 

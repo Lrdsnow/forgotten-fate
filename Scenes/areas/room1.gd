@@ -17,6 +17,10 @@ func _ready():
 	$".."/".."/".."/Player.connect("interact", self, "_on_interact")
 	$".."/".."/".."/Player.connect("door", self, "_on_door")
 	reset()
+	Playerglobal.chapter = "Chapter 1"
+	Playerglobal.room = "Room 1"
+	Playerglobal.discord_image = "chapter-1"
+	Playerglobal.update_activity()
 	#pass
 #pglobal.interactible = ["key"]
 
@@ -43,6 +47,9 @@ func _on_door():
 			key = false
 			Playerglobal.room2 = true
 			emit_signal("room2")
+			Playerglobal.chapter = "Chapter 1"
+			Playerglobal.room = "Room 2"
+			Playerglobal.update_activity()
 	else:
 		if not Playerglobal.room2:
 			$".."/".."/".."/Player/CollisionShape/Neck/Head/Camera/cent/crosshair/interaction.text = "Locked"

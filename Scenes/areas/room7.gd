@@ -8,7 +8,9 @@ extends Spatial
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	Playerglobal.chapter = "Chapter 1"
+	Playerglobal.room = "Room 7 (Debug)"
+	Playerglobal.update_activity()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

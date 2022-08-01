@@ -21,6 +21,12 @@ var room2 = false
 var ad = false
 var idk = true
 
+#discord
+var chapter = "Main Menu"
+var room = ""
+var discord_image = "chapter-2"
+
+
 var difficulty = 0
 # 0 for easy 1 for medium 2 for hard and 3 for hardest (Also -1 for detroit)
 var objects = [0, 0, 0, 0]
@@ -40,6 +46,33 @@ var active = false
 
 func _ready():
 	self.add_to_group("Persist")
+	update_activity()
+
+func update_activity() -> void:
+	var activity = Discord.Activity.new()
+	activity.set_type(Discord.ActivityType.Playing)
+	var detail = chapter + " (" + room + ")"
+	var state = "Playing Solo"
+	if chapter == "Main Menu":
+		detail = chapter
+		state = ""
+	#else:
+	#	if difficulty == 0:
+	#		pass
+	activity.set_state(state)
+	activity.set_details(detail)
+
+	var assets = activity.get_assets()
+	assets.set_large_image(discord_image)
+	assets.set_large_text(chapter)
+	
+	#var timestamps = activity.get_timestamps()
+	#timestamps.set_start(OS.get_unix_time() + 100)
+	#timestamps.set_end(OS.get_unix_time() + 500)
+
+	var result = yield(Discord.activity_manager.update_activity(activity), "result").result
+	if result != Discord.Result.Ok:
+		push_error(str(result))
 
 func save():
 	if active:
