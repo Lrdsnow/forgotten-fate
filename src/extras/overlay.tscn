@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://cm3eefb87caix"]
+
+[ext_resource type="Shader" path="res://src/extras/overlay.gdshader" id="1_ffm48"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ukv65"]
+shader = ExtResource("1_ffm48")
+aberration_amount = 0.0
+boost = 1.2
+curvature_x_amount = 6.0
+curvature_y_amount = 4.0
+horizontal_scan_lines_amount = 180.0
+horizontal_scan_lines_opacity = 0.12
+screen_size = Vector2(320, 180)
+show_curvature = true
+show_horizontal_scan_lines = true
+show_vertical_scan_lines = false
+show_vignette = true
+vertical_scan_lines_amount = 320.0
+vertical_scan_lines_opacity = 1.0
+vignette_opacity = 0.2
+
+[node name="game_overlay" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="toper" type="CanvasLayer" parent="."]
+layer = 15
+
+[node name="ColorRect" type="ColorRect" parent="toper"]
+material = SubResource("ShaderMaterial_ukv65")
+offset_right = 2562.0
+offset_bottom = 1442.0
+mouse_filter = 2

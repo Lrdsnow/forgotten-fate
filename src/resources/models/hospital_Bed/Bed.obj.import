@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dafd5p2wabb3f"
+path="res://.godot/imported/Bed.obj-53bd2a09e784c578f451e07c5f8a000f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Bed.obj-53bd2a09e784c578f451e07c5f8a000f.mesh"]
+
+source_file="res://src/resources/models/hospital_Bed/Bed.obj"
+dest_files=["res://.godot/imported/Bed.obj-53bd2a09e784c578f451e07c5f8a000f.mesh", "res://.godot/imported/Bed.obj-53bd2a09e784c578f451e07c5f8a000f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

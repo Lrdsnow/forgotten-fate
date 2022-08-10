@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://c7w2cy72e6iip"
+path="res://.godot/imported/light.png-8d505967aed5a1ccdd8b23bc2b0e8534.image"
+
+[deps]
+
+source_file="res://src/resources/textures/light.png"
+dest_files=["res://.godot/imported/light.png-8d505967aed5a1ccdd8b23bc2b0e8534.image"]
+
+[params]
+

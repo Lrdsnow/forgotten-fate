@@ -1,83 +1,86 @@
-extends Spatial
+extends Control
 
-var fdlc = false
-var fcon = false
-var mods = []
-var modsfolder = ""
-var mod_exec = ""
-var modscene = ""
-var game_mod = false
-var mod_exit = false
-var set_exit = false
-var ext_exit = false
-var exdif = false
-var FGMod = false
-var truefateanim = false
+var default_save_info = {
+	"name":"Jack Campbell",
+	"difficulty":0
+}
+
+var loaded_save:Dictionary
 
 func _ready():
-	$difficulty/AnimationPlayer.play_backwards("truefate")
-	get_node("difficulty/cc/menu/true").hide()
-	scale()
-	save_finder()
-	dlc()
-	mods()
-	$mod_menu.hide()
-	if fdlc and fcon:
-		pass
-	elif fdlc:
-		$cc/vc/Continue.hide()
-	elif fcon:
-		$cc/vc/Multiplayer.hide()
-	else:
-		$cc/vc/Continue.hide()
-		$cc/vc/Multiplayer.hide()
+	Global.ingame = false
+	reset()
+	save_scanner()
+	mod_scanner()
+	menu_update()
+	call_deferred("fx")
+	call_deferred("resize")
+	get_tree().root.size_changed.connect(self.resize)
 
-var pos = {"ng":Vector2(0,670),"con":false,"mp":false,"mod":Vector2(0,715),"st":Vector2(0,760),"ext":Vector2(0,805),"ex":Vector2(0,850)}
-var pos_wContinue = {"ng":Vector2(0,715),"con":Vector2(0,670),"mp":false,"mod":Vector2(0,760),"st":Vector2(0,805),"ext":Vector2(0,850),"ex":Vector2(0,895)}
-var pos_wMultiplayer = {"ng":Vector2(0,670),"con":false,"mp":Vector2(0,715),"mod":Vector2(0,760),"st":Vector2(0,805),"ext":Vector2(0,850),"ex":Vector2(0,895)}
-var pos_wMultiplayer_wContinue = {"ng":Vector2(0,715),"con":Vector2(0,670),"mp":Vector2(0,760),"mod":Vector2(0,805),"st":Vector2(0,850),"ext":Vector2(0,895),"ex":Vector2(0,940)}
+func fx():
+	if not Global.efficiency_mode:
+		var background = load("res://src/extras/menu.tscn").instantiate()
+		add_child(background)
+		move_child(background, get_child_count())
+		var overlay = load("res://src/extras/overlay.tscn").instantiate()
+		get_node("/root").add_child(overlay)
+
+func _on_new_game_pressed():
+	$anim.play("open_play")
 
 
-func _on_Button_pressed():
-	$difficulty.show()
-	$difficulty/AnimationPlayer.play("in")
+func _on_continue_pressed():
+	pass # Replace with function body.
 
-func dlc():
-	var file = File.new()
-	if file.file_exists(ProjectSettings.globalize_path("res://") + "../twistedfate 2/mdlc.pck"):
-		dlc_loader(ProjectSettings.globalize_path("res://") + "../twistedfate 2/mdlc.pck")
-	elif file.file_exists(ProjectSettings.globalize_path("res://") + "../twistedfate/mdlc.pck"):
-		dlc_loader(ProjectSettings.globalize_path("res://") + "../twistedfate/mdlc.pck")
-	else:
-		print("NO DLC")
 
-func save_finder():
-	var file = File.new()
-	if file.file_exists("user://user.save"):
-		fcon = true
-		print("SAVE FOUND")
-		Playerglobal.load_game()
-	else:
-		print("NO SAVE")
+func _on_mods_pressed():
+	$anim.play("open_mods")
 
-func dlc_loader(dlc: String):
-	print("DLC FOUND")
-	var success = ProjectSettings.load_resource_pack(dlc)
-	if success:
-		print("succsess")
-		$cc/vc/Multiplayer.show()
-		fdlc = true
 
-func mods():
-	$mod_menu/cc/modmenu/selmod.add_item("   Select a Mod")
-	var dnf = true
-	var dfn = 0
+func _on_settings_pressed():
+	pass # Replace with function body.
+
+
+func _on_exit_pressed():
+	get_tree().quit()
+
+func resize():
+	#get_node("/root").mode = 3
+	
+	$main/title/shad.size.x = get_viewport_rect().size.x / 3.65714286
+	$main/title/shad.size.y = get_viewport_rect().size.y / 2.4
+	$main/buttons.size = get_viewport_rect().size
+	$main/title.size.x = get_viewport_rect().size.x
+	
+
+func reset():
+	$anim.play("RESET")
+	$mods.hide()
+
+func menu_update():
+	var nc:int = 0
+	while nc != $main/buttons/vbox.get_child_count():
+		var buttons = $main/buttons/vbox.get_children()
+		if str(buttons[nc].name) in Global.buttons:
+			buttons[nc].show()
+		else:
+			buttons[nc].hide()
+		nc=nc+1
+
+# Mods:
+
+func _on_mods_exit_pressed():
+	$anim.play_backwards("open_mods")
+
+func mod_scanner():
 	var docs = ""
-	while dnf == true:
+	var dmodslist:VBoxContainer = $mods/menu/panel/dmodslist
+	var dfn = 0
+	var dfnd = true
+	while dfnd:
 		if "Documents" in OS.get_system_dir(dfn):
-			print("Documents is number: " + str(dfn))
 			docs = OS.get_system_dir(dfn)
-			dnf = false
+			dfnd = false
 		else:
 			dfn = dfn + 1
 	var dir = Directory.new()
@@ -92,11 +95,23 @@ func mods():
 				dir.make_dir(docs + "/My Games/ForgottenFate")
 		else:
 			dir.make_dir(docs + "/My Games")
-	if dir.dir_exists(docs + "/My Games/ForgottenFate/Mods"):
-		var folder = docs + "/My Games/ForgottenFate/Mods"
-		modsfolder = folder
-		var files = []
-		dir.open(folder)
+	var folder = docs + "/My Games/ForgottenFate/Mods"
+	var modsfolder = folder
+	Global.mods_folder = folder
+	var files = []
+	dir.open(folder)
+	dir.list_dir_begin()
+	while true:
+		var file = dir.get_next()
+		if file == "":
+			break
+		elif not file.begins_with("."):
+			files.append(file)
+	dir.list_dir_end()
+	var int_mods_folder = OS.get_executable_path().get_base_dir() + "/internal_mods"
+	Global.int_mods_folder = int_mods_folder
+	if dir.dir_exists(int_mods_folder):
+		dir.open(int_mods_folder)
 		dir.list_dir_begin()
 		while true:
 			var file = dir.get_next()
@@ -105,274 +120,224 @@ func mods():
 			elif not file.begins_with("."):
 				files.append(file)
 		dir.list_dir_end()
-		var finm = 0
-		while true:
-			if finm == files.size():
-				break
-			elif ".pck" in files[finm]:
-					print("Single File Mod found on number: " + str(finm))
-					mods.append(files[finm])
-					var s := ""
-					s = files[finm]
-					s.erase(s.length() - 4, 4)
-					s = "   " + s.capitalize()
-					$mod_menu/cc/modmenu/selmod.add_item(s)
-			elif ".mod" in files[finm]:
-					print("Folder Mod found on number: " + str(finm))
-					mods.append(files[finm])
-					var s := ""
-					s = files[finm]
-					s.erase(s.length() - 4, 4)
-					s = "   " + s.capitalize()
-					$mod_menu/cc/modmenu/selmod.add_item(s)
-			finm = finm + 1
+	var finm = 0
+	while finm != files.size():
+		if ".mod" in files[finm]:
+			var file = File.new()
+			var json = JSON.new()
+			var config = modsfolder + "/" + files[finm] + "/mod.config"
+			if ! file.file_exists(config):
+				config = int_mods_folder + "/" + files[finm] + "/mod.config" # Quick Fix
+				if ! file.file_exists(config):
+					config = modsfolder + "/" + files[finm] + "/mod.json"
+					if ! file.file_exists(config):
+						config = int_mods_folder + "/" + files[finm] + "/mod.json"
+			if file.file_exists(config):
+				file.open(config, File.READ)
+				@warning_ignore(unused_variable)
+				var data = json.parse(file.get_as_text())
+				var mod_data = json.get_data()
+				var outdated = false
+				if mod_data.has("min_ver"):
+					if ! mod_data.min_ver >= Global.version:
+						outdated=true
+					elif mod_data.has("min_sub_ver"):
+						if ! mod_data.min_sub_ver >= Global.sub_version:
+							outdated=true
+				if not outdated:
+					var mod_button = load("res://src/resources/ui/mod_button.tscn").instantiate()
+					print("Found Mod")
+					Global.mods.append(files[finm])
+					Global.unused_mods.append(files[finm])
+					Global.mod_datas[Global.lower(mod_data.mod)] = mod_data
+					Global.mod_folders[Global.lower(mod_data.mod)] = files[finm]
+					dmodslist.get_node("temp").hide()
+					mod_button.name=Global.lower(mod_data.mod)
+					mod_button.text = mod_data.mod
+					mod_button.pressed.connect(self.mod_pressed.bind(mod_button))
+					dmodslist.add_child(mod_button)
+					if mod_data.has("autoload"):
+						if mod_data.autoload:
+							mod_pressed(mod_button)
+				else:
+					print("Outdated Client")
+			else:
+				print("Broken Mod")
+		finm = finm + 1
 
-func _on_play_dlc_pressed():
-	get_tree().change_scene("res://dlc/multiplayerdlc/main.tscn")
-
-func _on_selmod_item_selected(index):
-	var mod = $mod_menu/cc/modmenu/selmod.get_item_text(index)
-	if "Select a Mod" in mod:
-		$mod_menu/cc/modmenu/info/title.text = "Select A Mod"
-		$mod_menu/cc/modmenu/info.text = "\n\nWarning: Mod's Are Expirimental And May Crash Your Game At ANY Moment."
-		$mod_menu/cc/modmenu/info/Play.hide()
+func mod_pressed(button):
+	var modslist:VBoxContainer = $mods/menu/panel/modslist
+	var dmodslist:VBoxContainer = $mods/menu/panel/dmodslist
+	print("Load Mod")
+	var mod_button = load("res://src/resources/ui/mod_button.tscn").instantiate()
+	var mod_name = button.name
+	Global.used_mods.append(button.name)
+	Global.unused_mods.erase(button.name)
+	mod_button.name=Global.lower(button.name)
+	mod_button.text =button.text
+	modslist.add_child(mod_button)
+	modslist.move_child(modslist.get_node("add_mod"), Global.used_mods.size())
+	button.hide()
+	button.queue_free()
+	print(dmodslist.get_child_count())
+	if dmodslist.get_child_count() == 2:
+		dmodslist.get_node("temp").show()
 	else:
-		modselect(index)
+		dmodslist.get_node("temp").hide()
+	var mod_data = Global.mod_datas[Global.lower(mod_name)]
+	modslist.get_node(Global.lower(mod_data.mod)).pressed.connect(self.disable_mod.bind(mod_button))
+	if mod_data.has("full_game"):
+		if mod_data.full_game:
+			var file = File.new()
+			var mod_pck = Global.mods_folder + "/" + Global.mod_folders[Global.lower(mod_data.mod)] + "/" + mod_data.pck
+			print(mod_pck)
+			if ! file.file_exists(mod_pck):
+				mod_pck = Global.int_mods_folder + "/" + Global.mod_folders[Global.lower(mod_data.mod)] + "/" + mod_data.pck # Quick Fix
+			var mod_package = ProjectSettings.load_resource_pack(mod_pck)
+			if mod_package:
+				if file.file_exists(mod_data.scene):
+					var mod_inst = load(mod_data.scene).instantiate()
+					get_node("/root").call_deferred("add_child", mod_inst)
+				else:
+					print("Broken Mod Scenes")
+			else:
+				print("Broken Mod pck")
+	$anim.play_backwards("add_mods")
 
-func modselect(index):
-	$mod_menu/cc/modmenu/info/Play.disabled = false
-	var mod = $mod_menu/cc/modmenu/selmod.get_item_text(index)
-	mod.erase(0, 3)
-	mod = mod.to_lower().replace(" ", "_")
-	var modtype = 0
-	var nor = 0
-	var modtitle = $mod_menu/cc/modmenu/selmod.get_item_text(index)
-	modtitle.erase(0, 3)
+func disable_mod(button):
+	var modslist:VBoxContainer = $mods/menu/panel/modslist
+	var dmodslist:VBoxContainer = $mods/menu/panel/dmodslist
+	print("Load Mod")
+	var mod_button = load("res://src/resources/ui/mod_button.tscn").instantiate()
+	var mod_name = button.name
+	Global.used_mods.append(button.name)
+	Global.unused_mods.erase(button.name)
+	mod_button.name=Global.lower(button.name)
+	mod_button.text=button.text
+	dmodslist.add_child(mod_button)
+	modslist.move_child(modslist.get_node("add_mod"), Global.used_mods.size())
+	button.hide()
+	button.queue_free()
+	print(modslist.get_child_count())
+	var mod_data = Global.mod_datas[Global.lower(mod_name)]
+	dmodslist.get_node(Global.lower(mod_data.mod)).pressed.connect(self.mod_pressed.bind(mod_button))
+	if mod_data.full_game:
+		var dir = Directory.new()
+		var mod_folder = "res://mods/" + Global.lower(mod_data.mod)
+		dir.remove(mod_folder)
+
+func _on_add_mod_pressed():
+	$anim.play("add_mods")
+
+
+func _on_add_mods_back_pressed():
+	$anim.play_backwards("add_mods")
+
+# Play:
+
+func _on_play_exit_pressed():
+	$anim.play_backwards("open_play")
+
+func _on_new_save_pressed():
+	var default = default_save_info
+	$play/menu/panel/new_game/fillout/name.editable = true
+	$play/menu/panel/new_game/fillout/name.text = default.name
+	$play/menu/panel/new_game/fillout/difficulty.selected = default.difficulty
+	$play/menu/panel/new_game/fillout/difficulty.disabled = false
+	$anim.play("new_game")
+	loaded_save = {}
+
+
+func _on_new_save_back_pressed():
+	$anim.play_backwards("new_game")
+
+func _on_single_pressed():
+	if not Global.efficiency_mode:
+		get_tree().change_scene("res://src/world.tscn")
+	else:
+		get_tree().change_scene("res://src/extras/efficent_world.tscn")
+	if loaded_save == {}:
+		Global.player_name = $play/menu/panel/new_game/fillout/name.text
+		Global.difficulty = $play/menu/panel/new_game/fillout/difficulty.selected
+		loaded_save = Global.resave()
+		Global.save_game()
+	Global.load_save(loaded_save)
+
+func _on_multi_pressed():
+	pass # Replace with function body.
+
+# Save & Loader:
+
+func save_scanner():
+	var docs = ""
+	@warning_ignore(unused_variable)
+	var dmodslist:VBoxContainer = $mods/menu/panel/dmodslist
+	var dfn = 0
+	var dfnd = true
+	while dfnd:
+		if "Documents" in OS.get_system_dir(dfn):
+			docs = OS.get_system_dir(dfn)
+			dfnd = false
+		else:
+			dfn = dfn + 1
+	var dir = Directory.new()
+	while ! dir.dir_exists(docs + "/My Games/ForgottenFate/Saves"):
+		if dir.dir_exists(docs + "/My Games"):
+			if dir.dir_exists(docs + "/My Games/ForgottenFate"):
+				if dir.dir_exists(docs + "/My Games/ForgottenFate/Saves"):
+					pass
+				else:
+					dir.make_dir(docs + "/My Games/ForgottenFate/Saves")
+			else:
+				dir.make_dir(docs + "/My Games/ForgottenFate")
+		else:
+			dir.make_dir(docs + "/My Games")
+	var folder = docs + "/My Games/ForgottenFate/Saves"
+	var modsfolder = folder
+	Global.saves_folder = modsfolder
+	Global.mods_folder = folder
+	var files = []
+	dir.open(folder)
+	dir.list_dir_begin()
 	while true:
-		if nor == mods.size():
+		var file = dir.get_next()
+		if file == "":
 			break
-		if mod+".pck" in mods[nor]:
-			modtype = 0
-			break
-		elif mod+".mod" in mods[nor]:
-			modtype = 1
-			break
-		else:
-			nor=nor+1
-	if modtype == 0:
-		$mod_menu/cc/modmenu/info/title.text = modtitle
-		$mod_menu/cc/modmenu/info.text = ""
-		mod_exec = modsfolder + "/" + mods[nor]
-		var mod_name = mods[nor]
-		mod_name.erase(mod_name.length() - 4, 4)
-		modscene = "res://mods/" + mod_name + "/main.tscn"
-		$mod_menu/cc/modmenu/info/Play.show()
-	elif modtype == 1:
-		var mod_data
-		var config = modsfolder + "/" + mods[nor] + "/mod.config"
-		var file = File.new()
-		if file.file_exists(config):
-			file.open(config, File.READ)
-			var data = parse_json(file.get_as_text())
-			mod_data = data
-			$mod_menu/cc/modmenu/info/title.text = mod_data.mod
-			$mod_menu/cc/modmenu/info.text = "\nBy: " + mod_data.author
-			mod_exec = modsfolder + "/" + mods[nor] + "/" + mod_data.exec
-			modscene = mod_data.scene
-			if mod_data.game == true:
-				game_mod=true
-				$mod_menu/cc/modmenu/info/Play.text = "Enable"
+		elif not file.begins_with("."):
+			files.append(file)
+	dir.list_dir_end()
+	var finm = 0
+	while finm != files.size():
+		if ".save" in files[finm] or ".json" in files[finm]:
+			var file = File.new()
+			var json = JSON.new()
+			var config = modsfolder + "/" + files[finm]
+			if file.file_exists(config):
+				file.open(config, File.READ)
+				@warning_ignore(unused_variable)
+				var data = json.parse(file.get_as_text())
+				var save_data = json.get_data()
+				var mod_button = load("res://src/resources/ui/mod_button.tscn").instantiate()
+				Global.saves[Global.lower(save_data.player_name)] = save_data
+				mod_button.name = Global.lower(save_data.player_name)
+				mod_button.text = save_data.player_name
+				mod_button.pressed.connect(self.load_save.bind(mod_button))
+				$play/menu/panel/save_list.add_child(mod_button)
+				$play/menu/panel/save_list.move_child($play/menu/panel/save_list/new_save, $play/menu/panel/save_list.get_child_count())
 			else:
-				$mod_menu/cc/modmenu/info/Play.text = "Play"
-				game_mod = false
-			if mod_data.full == true:
-				FGMod = true
-			else:
-				FGMod = false
-			$mod_menu/cc/modmenu/info/Play.show()
-		else:
-			printerr("Config Does Not Exist!: " + config )
+				print("Corrupted Save")
+		finm = finm + 1
+
+func load_save(button):
+	var save_name = button.name
+	var save_data = Global.saves[save_name]
+	$play/menu/panel/new_game/fillout/name.editable = false
+	$play/menu/panel/new_game/fillout/name.text = save_data.player_name
+	$play/menu/panel/new_game/fillout/difficulty.selected = save_data.difficulty
+	$play/menu/panel/new_game/fillout/difficulty.disabled = true
+	$anim.play("continue")
+	loaded_save = save_data
 
 
-func _on_Play_pressed():
-	if ! game_mod:
-		print(mod_exec)
-		var success = ProjectSettings.load_resource_pack(mod_exec)
-		if success:
-			get_tree().change_scene(modscene)
-		else:
-			printerr("Mod Failed To Load!")
-	else:
-		if ! FGMod:
-			Playerglobal.mods.append(mod_exec)
-			Playerglobal.modss.append(modscene)
-			$mod_menu/cc/modmenu/info/Play.text = "Enabled"
-		else:
-			var success = ProjectSettings.load_resource_pack(mod_exec)
-			if success:
-				var fgmodinst = load(modscene).instance()
-				get_node("/root").add_child(fgmodinst)
-				$mod_menu/cc/modmenu/info/Play.text = "Enabled"
-			else:
-				printerr("Failed To Load Mod.")
-				$mod_menu/cc/modmenu/info/Play.disabled = true
-				$mod_menu/cc/modmenu/info/Play.text = "Broken"
-
-
-func _on_Mods_pressed():
-	$mod_menu/AnimationPlayer.play("in")
-	$mod_menu.show()
-
-
-func _on_exit_pressed():
-	$mod_menu/AnimationPlayer.play_backwards("in")
-	mod_exit = true
-
-
-# warning-ignore:unused_argument
-func _on_AnimationPlayer_animation_finished(anim_name):
-	if mod_exit == true:
-		$mod_menu.hide()
-		mod_exit=false
-
-
-func _on_settings_exit_pressed():
-	$cc/vc/Settings_menu/setan.play_backwards("in")
-	set_exit = true
-
-
-func _on_Settings_pressed():
-	$cc/vc/Settings_menu.show()
-	$cc/vc/Settings_menu/setan.play("in")
-
-func _on_setan_animation_finished(anim_name):
-	if set_exit == true:
-		$cc/vc/Settings_menu.hide()
-		set_exit=false
-
-
-func _on_Extras_pressed():
-	$cc/vc/Extras_menu.show()
-	$cc/vc/Extras_menu/extan.play("in")
-
-func _on_extan_animation_finished(anim_name):
-	if ext_exit == true:
-		$cc/vc/Extras_menu.hide()
-		ext_exit=false
-
-
-func _on_extras_exit_pressed():
-	$cc/vc/Extras_menu/extan.play_backwards("in")
-	ext_exit = true
-
-
-func _on_Exit_pressed():
-	get_tree().quit()
-
-func scale():
-	$title.rect_size.x = get_viewport().size.x
-	$cc.rect_size = get_viewport().size
-	$mod_menu/cc.rect_size = get_viewport().size
-	$mod_menu/blur.rect_size = get_viewport().size
-	$difficulty/cc.rect_size = get_viewport().size
-	$difficulty/blur.rect_size = get_viewport().size
-	$vhs/VHS.rect_size = get_viewport().size
-
-func lightloop():
-	var rng = RandomNumberGenerator.new()
-	rng.randomize()
-	var rt = rng.randf_range(0.5, 1.5)
-	var t = Timer.new()
-	t.set_wait_time(rt)
-	t.set_one_shot(true)
-	self.add_child(t)
-	t.start()
-	$light.hide()
-	yield(t, "timeout")
-	$light.show()
-	t.queue_free()
-
-
-# warning-ignore:unused_argument
-func _on_flicker_animation_finished(anim_name):
-	var rng = RandomNumberGenerator.new()
-	rng.randomize()
-	var rt = rng.randf_range(0.5, 1.5)
-	var t = Timer.new()
-	t.set_wait_time(rt)
-	t.set_one_shot(true)
-	self.add_child(t)
-	t.start()
-	yield(t, "timeout")
-	t.queue_free()
-	$flicker.play("flicker")
-	
-
-
-func _on_medium_pressed():
-	Playerglobal.difficulty = 1
-	$cc.hide()
-	$title.hide()
-	$mod_menu.hide()
-	$settings_menu.hide()
-	$extras_menu.hide()
-	$difficulty.hide()
-	loader.load_scene("res://Scenes/World.tscn")
-
-
-func _on_easy_pressed():
-	Playerglobal.difficulty = 0
-	$cc.hide()
-	$title.hide()
-	$mod_menu.hide()
-	$settings_menu.hide()
-	$extras_menu.hide()
-	$difficulty.hide()
-	loader.load_scene("res://Scenes/World.tscn")
-
-
-func _on_hard_pressed():
-	Playerglobal.difficulty = 2
-	$cc.hide()
-	$title.hide()
-	$mod_menu.hide()
-	$settings_menu.hide()
-	$extras_menu.hide()
-	$difficulty.hide()
-	loader.load_scene("res://Scenes/World.tscn")
-
-
-func _on_dif_exit_pressed():
-	exdif = true
-	if Playerglobal.achivements.yourtruefate:
-		$difficulty/AnimationPlayer.play_backwards("truefate")
-	$difficulty/AnimationPlayer.play_backwards("in")
-
-func _on_dif_animation_finished(anim_name):
-	if exdif:
-		$difficulty.hide()
-		exdif = false
-		truefateanim = false
-	elif Playerglobal.achivements.yourtruefate:
-		if ! truefateanim:
-			get_node("difficulty/cc/menu/true").show()
-			$difficulty/AnimationPlayer.play("truefate")
-			truefateanim = true
-
-
-func _on_true_pressed():
-	Playerglobal.difficulty = 3
-	$cc.hide()
-	$title.hide()
-	$mod_menu.hide()
-	$settings_menu.hide()
-	$extras_menu.hide()
-	$difficulty.hide()
-	loader.load_scene("res://Scenes/World.tscn")
-
-
-func _on_Continue_pressed():
-	var file = File.new()
-	if file.file_exists("user://user.save"):
-		Playerglobal.load_game()
-		Playerglobal.continue_game()
+func _on_set_exit_pressed():
+	pass # Replace with function body.

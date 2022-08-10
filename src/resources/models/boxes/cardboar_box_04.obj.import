@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://i4fnwfnkoc46"
+path="res://.godot/imported/cardboar_box_04.obj-9c88dd8c70dbeb51917a8c7304392611.mesh"
+
+[deps]
+
+files=["res://.godot/imported/cardboar_box_04.obj-9c88dd8c70dbeb51917a8c7304392611.mesh"]
+
+source_file="res://src/resources/models/boxes/cardboar_box_04.obj"
+dest_files=["res://.godot/imported/cardboar_box_04.obj-9c88dd8c70dbeb51917a8c7304392611.mesh", "res://.godot/imported/cardboar_box_04.obj-9c88dd8c70dbeb51917a8c7304392611.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

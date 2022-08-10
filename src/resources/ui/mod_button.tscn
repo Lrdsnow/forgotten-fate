@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvvarhqg0gbm8"]
+
+[ext_resource type="FontFile" uid="uid://ui1ka56xhyu7" path="res://src/resources/ui/fonts/Roboto-Regular.ttf" id="1_0fsw2"]
+
+[sub_resource type="FontVariation" id="FontVariation_31tsf"]
+base_font = ExtResource("1_0fsw2")
+
+[node name="temp" type="Button"]
+offset_right = 844.0
+offset_bottom = 44.0
+theme_override_fonts/font = SubResource("FontVariation_31tsf")
+theme_override_font_sizes/font_size = 30
+text = "Debug Mod"
+expand_icon = true

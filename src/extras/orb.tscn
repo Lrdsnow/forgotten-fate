@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://bs5tgi425ocra"]
+
+[ext_resource type="Script" path="res://src/extras/orb.gd" id="1_qpqbh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dok8u"]
+albedo_color = Color(1, 1, 0, 1)
+emission_enabled = true
+emission = Color(1, 1, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_a5i53"]
+material = SubResource("StandardMaterial3D_dok8u")
+radius = 0.05
+height = 0.1
+
+[sub_resource type="Animation" id="Animation_nsvow"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_57aay"]
+resource_name = "float"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.01, 0), Vector3(0, 0, 0), Vector3(0, -0.01, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ja8e3"]
+_data = {
+"RESET": SubResource("Animation_nsvow"),
+"float": SubResource("Animation_57aay")
+}
+
+[node name="orb" type="Node3D"]
+
+[node name="mesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_a5i53")
+script = ExtResource("1_qpqbh")
+
+[node name="anim" type="AnimationPlayer" parent="."]
+root_node = NodePath("../mesh")
+libraries = {
+"": SubResource("AnimationLibrary_ja8e3")
+}
+
+[connection signal="animation_finished" from="anim" to="mesh" method="_on_anim_animation_finished"]
