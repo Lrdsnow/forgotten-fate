@@ -50,6 +50,7 @@ _data = {
 }
 
 [node name="orb" type="Node3D"]
+visible = false
 
 [node name="mesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_a5i53")

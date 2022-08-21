@@ -1,0 +1,3640 @@
+{
+    "asset": {
+        "generator": "FBX2glTF v0.9.7",
+        "version": "2.0"
+    },
+    "scene": 0,
+    "buffers": [
+        {
+            "byteLength": 867736,
+            "uri": "buffer.bin"
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteLength": 220,
+            "byteOffset": 0
+        },
+        {
+            "buffer": 0,
+            "byteLength": 660,
+            "byteOffset": 220
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 880
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 1760
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 2640
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 3520
+        },
+        {
+            "buffer": 0,
+            "byteLength": 660,
+            "byteOffset": 4400
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 5060
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 5940
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 6820
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 7700
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 8580
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 9460
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 10340
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 11220
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 12100
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 12980
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 13860
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 14740
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 15620
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 16500
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 17380
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 18260
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 19140
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 20020
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 20900
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 21780
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 22660
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 23540
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 24420
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 25300
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 26180
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 27060
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 27940
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 28820
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 29700
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 30580
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 31460
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 32340
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 33220
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 34100
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 34980
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 35860
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 36740
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 37620
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 38500
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 39380
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 40260
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 41140
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 42020
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 42900
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 43780
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 44660
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 45540
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 46420
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 47300
+        },
+        {
+            "buffer": 0,
+            "byteLength": 880,
+            "byteOffset": 48180
+        },
+        {
+            "buffer": 0,
+            "byteLength": 128946,
+            "byteOffset": 49060,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteLength": 146592,
+            "byteOffset": 178008,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 146592,
+            "byteOffset": 324600,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 97728,
+            "byteOffset": 471192,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 97728,
+            "byteOffset": 568920,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 195456,
+            "byteOffset": 666648,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteLength": 5632,
+            "byteOffset": 862104
+        }
+    ],
+    "scenes": [
+        {
+            "name": "Root Scene",
+            "nodes": [
+                0
+            ]
+        }
+    ],
+    "accessors": [
+        {
+            "componentType": 5126,
+            "type": "SCALAR",
+            "count": 55,
+            "bufferView": 0,
+            "byteOffset": 0,
+            "min": [
+                0.0
+            ],
+            "max": [
+                2.25
+            ]
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC3",
+            "count": 55,
+            "bufferView": 1,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 2,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 3,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 4,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 5,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC3",
+            "count": 55,
+            "bufferView": 6,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 7,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 8,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 9,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 10,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 11,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 12,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 13,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 14,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 15,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 16,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 17,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 18,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 19,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 20,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 21,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 22,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 23,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 24,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 25,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 26,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 27,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 28,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 29,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 30,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 31,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 32,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 33,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 34,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 35,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 36,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 37,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 38,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 39,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 40,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 41,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 42,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 43,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 44,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 45,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 46,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 47,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 48,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 49,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 50,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 51,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 52,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 53,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 54,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 55,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 55,
+            "bufferView": 56,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5123,
+            "type": "SCALAR",
+            "count": 64473,
+            "bufferView": 57,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC3",
+            "count": 12216,
+            "bufferView": 58,
+            "byteOffset": 0,
+            "min": [
+                -0.285370290279388,
+                -0.00556395342573524,
+                -0.242524430155754
+            ],
+            "max": [
+                0.265555918216705,
+                1.85193538665771,
+                0.239496380090714
+            ]
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC3",
+            "count": 12216,
+            "bufferView": 59,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC2",
+            "count": 12216,
+            "bufferView": 60,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5123,
+            "type": "VEC4",
+            "count": 12216,
+            "bufferView": 61,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "VEC4",
+            "count": 12216,
+            "bufferView": 62,
+            "byteOffset": 0
+        },
+        {
+            "componentType": 5126,
+            "type": "MAT4",
+            "count": 88,
+            "bufferView": 63,
+            "byteOffset": 0
+        }
+    ],
+    "images": [
+        {
+            "name": "rp_nathan_animated_003_dif.jpg",
+            "uri": "rp_nathan_animated_003_dif.jpg"
+        }
+    ],
+    "samplers": [
+        {}
+    ],
+    "textures": [
+        {
+            "name": "rp_nathan_animated_003_dif",
+            "sampler": 0,
+            "source": 0
+        }
+    ],
+    "materials": [
+        {
+            "name": "rp_nathan_animated_003_mat",
+            "alphaMode": "OPAQUE",
+            "extras": {
+                "fromFBX": {
+                    "shadingModel": "Phong",
+                    "isTruePBR": false
+                }
+            },
+            "pbrMetallicRoughness": {
+                "baseColorTexture": {
+                    "index": 0,
+                    "texCoord": 0
+                },
+                "baseColorFactor": [
+                    0.800000011920929,
+                    0.800000011920929,
+                    0.800000011920929,
+                    1.0
+                ],
+                "metallicFactor": 0.400000005960464,
+                "roughnessFactor": 0.70710676908493
+            }
+        }
+    ],
+    "meshes": [
+        {
+            "name": "rp_nathan_animated_003_walking_geo",
+            "primitives": [
+                {
+                    "material": 0,
+                    "mode": 4,
+                    "attributes": {
+                        "JOINTS_0": 61,
+                        "NORMAL": 59,
+                        "POSITION": 58,
+                        "TEXCOORD_0": 60,
+                        "WEIGHTS_0": 62
+                    },
+                    "indices": 57
+                }
+            ]
+        }
+    ],
+    "skins": [
+        {
+            "joints": [
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62,
+                63,
+                64,
+                65,
+                66,
+                67,
+                68,
+                69,
+                70,
+                71,
+                72,
+                73,
+                74,
+                75,
+                76,
+                77,
+                78,
+                79,
+                80,
+                81,
+                82,
+                83,
+                84,
+                85,
+                86,
+                87,
+                88,
+                89,
+                90,
+                17,
+                18,
+                21,
+                19,
+                20,
+                22,
+                23,
+                24
+            ],
+            "inverseBindMatrices": 63,
+            "skeleton": 3
+        }
+    ],
+    "animations": [
+        {
+            "name": "Take 001",
+            "channels": [
+                {
+                    "sampler": 0,
+                    "target": {
+                        "node": 4,
+                        "path": "translation"
+                    }
+                },
+                {
+                    "sampler": 1,
+                    "target": {
+                        "node": 4,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 2,
+                    "target": {
+                        "node": 5,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 3,
+                    "target": {
+                        "node": 6,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 4,
+                    "target": {
+                        "node": 7,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 5,
+                    "target": {
+                        "node": 8,
+                        "path": "translation"
+                    }
+                },
+                {
+                    "sampler": 6,
+                    "target": {
+                        "node": 8,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 7,
+                    "target": {
+                        "node": 9,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 8,
+                    "target": {
+                        "node": 19,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 9,
+                    "target": {
+                        "node": 21,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 10,
+                    "target": {
+                        "node": 25,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 11,
+                    "target": {
+                        "node": 26,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 12,
+                    "target": {
+                        "node": 27,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 13,
+                    "target": {
+                        "node": 28,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 14,
+                    "target": {
+                        "node": 33,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 15,
+                    "target": {
+                        "node": 34,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 16,
+                    "target": {
+                        "node": 35,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 17,
+                    "target": {
+                        "node": 37,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 18,
+                    "target": {
+                        "node": 38,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 19,
+                    "target": {
+                        "node": 39,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 20,
+                    "target": {
+                        "node": 41,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 21,
+                    "target": {
+                        "node": 42,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 22,
+                    "target": {
+                        "node": 43,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 23,
+                    "target": {
+                        "node": 45,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 24,
+                    "target": {
+                        "node": 46,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 25,
+                    "target": {
+                        "node": 47,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 26,
+                    "target": {
+                        "node": 49,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 27,
+                    "target": {
+                        "node": 51,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 28,
+                    "target": {
+                        "node": 52,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 29,
+                    "target": {
+                        "node": 53,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 30,
+                    "target": {
+                        "node": 54,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 31,
+                    "target": {
+                        "node": 57,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 32,
+                    "target": {
+                        "node": 59,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 33,
+                    "target": {
+                        "node": 60,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 34,
+                    "target": {
+                        "node": 61,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 35,
+                    "target": {
+                        "node": 63,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 36,
+                    "target": {
+                        "node": 64,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 37,
+                    "target": {
+                        "node": 65,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 38,
+                    "target": {
+                        "node": 67,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 39,
+                    "target": {
+                        "node": 68,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 40,
+                    "target": {
+                        "node": 69,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 41,
+                    "target": {
+                        "node": 71,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 42,
+                    "target": {
+                        "node": 72,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 43,
+                    "target": {
+                        "node": 73,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 44,
+                    "target": {
+                        "node": 77,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 45,
+                    "target": {
+                        "node": 78,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 46,
+                    "target": {
+                        "node": 79,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 47,
+                    "target": {
+                        "node": 80,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 48,
+                    "target": {
+                        "node": 82,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 49,
+                    "target": {
+                        "node": 83,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 50,
+                    "target": {
+                        "node": 84,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 51,
+                    "target": {
+                        "node": 85,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 52,
+                    "target": {
+                        "node": 86,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 53,
+                    "target": {
+                        "node": 87,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 54,
+                    "target": {
+                        "node": 89,
+                        "path": "rotation"
+                    }
+                },
+                {
+                    "sampler": 55,
+                    "target": {
+                        "node": 90,
+                        "path": "rotation"
+                    }
+                }
+            ],
+            "samplers": [
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 1
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 2
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 3
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 4
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 5
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 6
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 7
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 8
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 9
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 10
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 11
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 12
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 13
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 14
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 15
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 16
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 17
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 18
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 19
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 20
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 21
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 22
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 23
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 24
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 25
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 26
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 27
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 28
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 29
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 30
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 31
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 32
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 33
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 34
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 35
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 36
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 37
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 38
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 39
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 40
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 41
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 42
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 43
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 44
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 45
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 46
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 47
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 48
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 49
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 50
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 51
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 52
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 53
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 54
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 55
+                },
+                {
+                    "input": 0,
+                    "interpolation": "LINEAR",
+                    "output": 56
+                }
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "name": "RootNode",
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                1
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking",
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                2,
+                91
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_CTRL",
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                3
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_root",
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                4
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_hip",
+            "translation": [
+                -0.0021280765067786,
+                0.944461345672607,
+                -0.00281041953712702
+            ],
+            "rotation": [
+                0.520102262496948,
+                0.478540927171707,
+                -0.511155486106873,
+                -0.489093333482742
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                5,
+                77,
+                84
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_spine_01",
+            "translation": [
+                0.14935514330864,
+                -8.14576708307868e-08,
+                1.96483700420913e-08
+            ],
+            "rotation": [
+                0.00720877666026354,
+                -0.019932433962822,
+                -0.0187563803046942,
+                0.999599397182465
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                6
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_spine_02",
+            "translation": [
+                0.14935514330864,
+                1.98814920082668e-09,
+                -2.69102518046793e-09
+            ],
+            "rotation": [
+                0.0141056161373854,
+                -0.00635131215676665,
+                -0.0363328494131565,
+                0.999220013618469
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                7
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_spine_03",
+            "translation": [
+                0.149354964494705,
+                -7.58286944346764e-09,
+                4.63036720077525e-09
+            ],
+            "rotation": [
+                0.0124556086957455,
+                -0.00678782584145665,
+                -0.0366754494607449,
+                0.999226570129395
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                8,
+                25,
+                51
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_neck",
+            "translation": [
+                0.149356886744499,
+                -1.56276112051046e-08,
+                -1.40613565235981e-08
+            ],
+            "rotation": [
+                -0.0128953848034143,
+                0.0212441142648458,
+                -0.0581946074962616,
+                0.997995913028717
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                9
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_head",
+            "translation": [
+                0.11519630253315,
+                -2.72833204917333e-07,
+                1.260812165782e-08
+            ],
+            "rotation": [
+                -0.0122958598658442,
+                -0.000723633856978267,
+                0.136432290077209,
+                0.990572810173035
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                10,
+                11,
+                13,
+                15,
+                17,
+                18,
+                19,
+                21,
+                23,
+                24
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_head_end",
+            "translation": [
+                0.193800732493401,
+                1.5987210866388e-16,
+                -1.33226759977169e-17
+            ],
+            "rotation": [
+                -5.20417042793042e-18,
+                2.60208521396521e-18,
+                1.35416949214728e-35,
+                1.0
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_jaw",
+            "translation": [
+                0.00791819114238024,
+                -0.0159479472786188,
+                5.77274222450797e-05
+            ],
+            "rotation": [
+                -0.00034327112371102,
+                -0.000627899309620261,
+                0.877436399459839,
+                -0.479692459106445
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                12
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_jaw_end",
+            "translation": [
+                0.089027613401413,
+                0.0,
+                2.22044599961948e-18
+            ],
+            "rotation": [
+                -8.67361737988404e-19,
+                -1.73472347597681e-18,
+                -2.77555756156289e-17,
+                1.0
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_eye_l",
+            "translation": [
+                0.0631119087338448,
+                -0.0733147785067558,
+                -0.0308618545532227
+            ],
+            "rotation": [
+                -5.79920197438983e-18,
+                5.14223437164674e-08,
+                -0.707108497619629,
+                0.707105100154877
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                14
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_eye_end_l",
+            "translation": [
+                0.0122234774753451,
+                -1.39834812565992e-13,
+                -4.44089199923895e-18
+            ],
+            "rotation": [
+                -2.05998412772246e-18,
+                -1.21499096100992e-34,
+                5.89805981832114e-17,
+                1.0
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_eye_r",
+            "translation": [
+                0.0635162368416786,
+                -0.0723385289311409,
+                0.0278400555253029
+            ],
+            "rotation": [
+                -5.42906512005195e-18,
+                2.94935365019455e-08,
+                -0.707107424736023,
+                0.707106173038483
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                16
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_eye_end_r",
+            "translation": [
+                0.0139018259942532,
+                -2.188471571931e-14,
+                0.0
+            ],
+            "rotation": [
+                -2.49366499671666e-18,
+                -3.46944695195361e-18,
+                5.20417042793042e-17,
+                1.0
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_mouth_l",
+            "translation": [
+                -0.00583534454926848,
+                -0.0856712162494659,
+                -0.0273273214697838
+            ],
+            "rotation": [
+                -0.27059805393219,
+                -0.27059805393219,
+                -0.653281509876251,
+                0.653281509876251
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_mouth_r",
+            "translation": [
+                -0.00620353920385242,
+                -0.0880244299769402,
+                0.0243692435324192
+            ],
+            "rotation": [
+                0.27059805393219,
+                0.27059805393219,
+                -0.653281509876251,
+                0.653281509876251
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_eyelid_l",
+            "translation": [
+                0.0631119087338448,
+                -0.0733147785067558,
+                -0.0308618545532227
+            ],
+            "rotation": [
+                -3.63227662835407e-18,
+                3.35613137281143e-08,
+                -0.615413546562195,
+                0.788204371929169
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                20
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_eyelid_end_l",
+            "translation": [
+                0.0167995486408472,
+                2.44426688226574e-14,
+                -7.99360543319399e-17
+            ],
+            "rotation": [
+                4.33680868994202e-19,
+                -3.46944695195361e-18,
+                1.50463276905253e-36,
+                1.0
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_eyelid_r",
+            "translation": [
+                0.0635162368416786,
+                -0.0723385289311409,
+                0.0278400555253029
+            ],
+            "rotation": [
+                -3.24525308860607e-18,
+                2.01264711563454e-08,
+                -0.62407910823822,
+                0.781361162662506
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                22
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_eyelid_end_r",
+            "translation": [
+                0.0184322893619537,
+                1.36424202216621e-14,
+                -6.21724896437066e-17
+            ],
+            "rotation": [
+                -7.42294407514647e-19,
+                -2.01264711563454e-08,
+                0.62407910823822,
+                0.781361162662506
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_eyebrow_l",
+            "translation": [
+                0.0735045447945595,
+                -0.102606475353241,
+                -0.018699424341321
+            ],
+            "rotation": [
+                0.27059805393219,
+                0.653281509876251,
+                0.653281509876251,
+                -0.27059805393219
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_eyebrow_r",
+            "translation": [
+                0.0739526972174644,
+                -0.101152077317238,
+                0.0195722002536058
+            ],
+            "rotation": [
+                0.27059805393219,
+                0.653281509876251,
+                -0.653281509876251,
+                0.27059805393219
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_shoulder_l",
+            "translation": [
+                0.132166489958763,
+                0.0178804732859135,
+                -0.0580788888037205
+            ],
+            "rotation": [
+                -0.0413322933018208,
+                0.797066867351532,
+                -0.00336337788030505,
+                0.602465569972992
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                26
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_upperarm_l",
+            "translation": [
+                0.136440813541412,
+                7.52034345907759e-09,
+                7.55415072717369e-08
+            ],
+            "rotation": [
+                -0.0165885891765356,
+                0.570769369602203,
+                -0.049232080578804,
+                0.819465279579163
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                27,
+                50
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_lowerarm_l",
+            "translation": [
+                0.266802042722702,
+                2.11071391476025e-08,
+                -6.99081736943441e-10
+            ],
+            "rotation": [
+                0.220349967479706,
+                -0.0159178115427494,
+                -0.130955964326859,
+                0.966459035873413
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                28,
+                49
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_hand_l",
+            "translation": [
+                0.258373260498047,
+                -3.7166000055322e-08,
+                -6.66805846094576e-08
+            ],
+            "rotation": [
+                -0.794594705104828,
+                -0.0376025326550007,
+                -0.0147099485620856,
+                0.605796098709106
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                29,
+                33,
+                37,
+                41,
+                45
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_thumb_01_l",
+            "translation": [
+                0.0548426434397697,
+                0.0135061424225569,
+                -0.0329537764191628
+            ],
+            "rotation": [
+                0.682916164398193,
+                0.313336938619614,
+                -0.0234222188591957,
+                0.659467101097107
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                30
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_thumb_02_l",
+            "translation": [
+                0.0374627262353897,
+                2.29459331535509e-08,
+                4.1530374694787e-09
+            ],
+            "rotation": [
+                -0.00436758436262608,
+                0.00556498533114791,
+                0.253750592470169,
+                0.967243790626526
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                31
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_thumb_03_l",
+            "translation": [
+                0.0323332957923412,
+                1.07742899047025e-08,
+                8.00551447355247e-09
+            ],
+            "rotation": [
+                -0.00736355688422918,
+                -0.00540853338316083,
+                0.216192692518234,
+                0.976307988166809
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                32
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_thumb_end_l",
+            "translation": [
+                0.0246304739266634,
+                -5.66429081416686e-09,
+                9.1839993388021e-09
+            ],
+            "rotation": [
+                2.53851162312912e-08,
+                -3.37876031153428e-07,
+                2.37919877577042e-07,
+                1.0
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_index_01_l",
+            "translation": [
+                0.106161095201969,
+                0.00545966252684593,
+                -0.0263810381293297
+            ],
+            "rotation": [
+                -0.050078272819519,
+                0.0125852944329381,
+                0.122313871979713,
+                0.991147339344025
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                34
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_index_02_l",
+            "translation": [
+                0.0420008823275566,
+                -8.50461123746982e-09,
+                3.12662534751595e-10
+            ],
+            "rotation": [
+                0.000755137298256159,
+                -0.0120928343385458,
+                0.239931806921959,
+                0.970714151859283
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                35
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_index_03_l",
+            "translation": [
+                0.0242145415395498,
+                1.23730181655901e-08,
+                -8.59390780760805e-09
+            ],
+            "rotation": [
+                0.00924818404018879,
+                -0.00893497839570045,
+                0.144308000802994,
+                0.989449262619019
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                36
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_index_end_l",
+            "translation": [
+                0.0234689824283123,
+                -5.07316411102465e-09,
+                -2.50460030493116e-09
+            ],
+            "rotation": [
+                1.09887714927481e-07,
+                1.25240262605075e-07,
+                -1.2249340386461e-07,
+                1.0
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_middle_01_l",
+            "translation": [
+                0.107864320278168,
+                0.00396231934428215,
+                -0.00637461524456739
+            ],
+            "rotation": [
+                -0.0416772551834583,
+                -0.0213658176362514,
+                0.106194779276848,
+                0.993241727352142
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                38
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_middle_02_l",
+            "translation": [
+                0.0502109937369823,
+                -2.84192331889699e-08,
+                7.11219305671307e-10
+            ],
+            "rotation": [
+                -0.00163035071454942,
+                0.0204612351953983,
+                0.436267346143723,
+                0.899582922458649
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                39
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_middle_03_l",
+            "translation": [
+                0.0286151543259621,
+                4.39312142219705e-09,
+                -4.1181211218877e-10
+            ],
+            "rotation": [
+                -0.0368599519133568,
+                -0.0145103791728616,
+                0.300711631774902,
+                0.952892065048218
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                40
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_middle_end_l",
+            "translation": [
+                0.0282292105257511,
+                -3.43562014393228e-08,
+                3.07180236802651e-09
+            ],
+            "rotation": [
+                1.55973989279801e-08,
+                2.75261697879614e-07,
+                -5.78365231262978e-08,
+                1.0
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_ring_01_l",
+            "translation": [
+                0.106161087751389,
+                0.00545968301594257,
+                0.0130581511184573
+            ],
+            "rotation": [
+                -0.0212410315871239,
+                -0.0429141335189342,
+                0.0731189474463463,
+                0.996173083782196
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                42
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_ring_02_l",
+            "translation": [
+                0.0464612282812595,
+                -1.14636122816592e-09,
+                -1.09732409825369e-08
+            ],
+            "rotation": [
+                -0.00892406981438398,
+                -0.0112339714542031,
+                0.535124957561493,
+                0.84465104341507
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                43
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_ring_03_l",
+            "translation": [
+                0.025422191247344,
+                -5.82204577881384e-08,
+                8.29884716502249e-10
+            ],
+            "rotation": [
+                0.0262427348643541,
+                0.0152341620996594,
+                0.381039351224899,
+                0.924060761928558
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                44
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_ring_end_l",
+            "translation": [
+                0.0250814948230982,
+                1.17664642473869e-08,
+                -2.83827650271462e-09
+            ],
+            "rotation": [
+                1.19226424288854e-08,
+                3.23654170131249e-08,
+                -1.07701005447325e-07,
+                1.0
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_pinky_01_l",
+            "translation": [
+                0.104628168046474,
+                0.00682522915303707,
+                0.0301511194556952
+            ],
+            "rotation": [
+                -0.0829727053642273,
+                -0.0878564342856407,
+                0.0090942457318306,
+                0.992629885673523
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                46
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_pinky_02_l",
+            "translation": [
+                0.0340019799768925,
+                -4.81741180280437e-09,
+                -1.32857680412712e-09
+            ],
+            "rotation": [
+                -0.00215447065420449,
+                -0.0141487037763,
+                0.570569634437561,
+                0.821124494075775
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                47
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_pinky_03_l",
+            "translation": [
+                0.0156097644940019,
+                2.63263881805642e-08,
+                -2.47957676613453e-09
+            ],
+            "rotation": [
+                0.0324531830847263,
+                0.0181184224784374,
+                0.463789016008377,
+                0.885165691375732
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                48
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_pinky_end_l",
+            "translation": [
+                0.0178277771919966,
+                2.33578489883257e-09,
+                -1.44421682946039e-10
+            ],
+            "rotation": [
+                -5.31253707691803e-09,
+                9.9699875022452e-09,
+                1.41061367031625e-08,
+                1.0
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_lowerarm_twist_l",
+            "translation": [
+                0.129186630249023,
+                -4.08553439967818e-08,
+                -6.46244373569971e-08
+            ],
+            "rotation": [
+                -0.0785511359572411,
+                1.51517340896135e-07,
+                2.30816326052263e-07,
+                0.996910095214844
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_upperarm_twist_l",
+            "translation": [
+                0.133400946855545,
+                9.15361741959941e-09,
+                1.8399468615371e-08
+            ],
+            "rotation": [
+                -0.000427132472395897,
+                1.00630977328819e-07,
+                1.05379342585366e-07,
+                0.99999988079071
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_shoulder_r",
+            "translation": [
+                0.129703208804131,
+                0.0156536009162664,
+                0.0649089366197586
+            ],
+            "rotation": [
+                0.776782095432281,
+                0.0272872075438499,
+                -0.629177093505859,
+                0.0010827868245542
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                52
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_upperarm_r",
+            "translation": [
+                -0.136853694915771,
+                3.94637167389078e-09,
+                1.39753089101191e-08
+            ],
+            "rotation": [
+                -0.064378634095192,
+                0.583439826965332,
+                -0.000171344552654773,
+                0.809600710868835
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                53,
+                76
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_lowerarm_r",
+            "translation": [
+                -0.27967569231987,
+                1.94393976471474e-08,
+                -2.92578477001371e-08
+            ],
+            "rotation": [
+                0.245228096842766,
+                -0.0547856763005257,
+                -0.149247586727142,
+                0.956340372562408
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                54,
+                75
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_hand_r",
+            "translation": [
+                -0.25719690322876,
+                -1.04680166757021e-08,
+                -1.97299190318745e-08
+            ],
+            "rotation": [
+                -0.716163456439972,
+                -0.00940593425184488,
+                -0.0738387331366539,
+                0.693951904773712
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                55,
+                59,
+                63,
+                67,
+                71
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_thumb_01_r",
+            "translation": [
+                -0.0469569824635983,
+                -0.0149029772728682,
+                0.0321288406848907
+            ],
+            "rotation": [
+                0.652273058891296,
+                0.357083916664124,
+                -0.00530677149072289,
+                0.668582677841187
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                56
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_thumb_02_r",
+            "translation": [
+                -0.0381255149841309,
+                2.93104585047388e-09,
+                -1.89074533807343e-08
+            ],
+            "rotation": [
+                -0.0128693962469697,
+                -0.0087073901668191,
+                0.194738775491714,
+                0.980732083320618
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                57
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_thumb_03_r",
+            "translation": [
+                -0.0347326472401619,
+                -8.10508371529295e-09,
+                -7.11364689376381e-10
+            ],
+            "rotation": [
+                0.032594483345747,
+                -0.0272095892578363,
+                0.198088303208351,
+                0.979264140129089
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                58
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_thumb_end_r",
+            "translation": [
+                -0.0259859673678875,
+                1.00056132268378e-08,
+                5.88408388679795e-09
+            ],
+            "rotation": [
+                3.72683572891219e-08,
+                -5.39300104573925e-10,
+                -4.58026931937638e-08,
+                1.0
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_index_01_r",
+            "translation": [
+                -0.107045732438564,
+                -0.00515516009181738,
+                0.0268931463360786
+            ],
+            "rotation": [
+                -0.0220165364444256,
+                -0.0031791371293366,
+                0.24868780374527,
+                0.968328237533569
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                60
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_index_02_r",
+            "translation": [
+                -0.0415447503328323,
+                4.7134878222721e-09,
+                -1.32335564728692e-08
+            ],
+            "rotation": [
+                0.000199805028387345,
+                -0.0123905939981341,
+                0.181607693433762,
+                0.983292996883392
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                61
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_index_03_r",
+            "translation": [
+                -0.0237006675451994,
+                -3.31116254415065e-08,
+                1.26236687769676e-09
+            ],
+            "rotation": [
+                0.0148879531770945,
+                -0.00921050272881985,
+                0.126811176538467,
+                0.991772353649139
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                62
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_index_end_r",
+            "translation": [
+                -0.0230305232107639,
+                4.48096848515434e-09,
+                3.04098746184422e-09
+            ],
+            "rotation": [
+                -6.75081213152851e-10,
+                2.88157533390176e-08,
+                -3.09253671559873e-08,
+                1.0
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_middle_01_r",
+            "translation": [
+                -0.108203612267971,
+                -0.00290052476339042,
+                0.00768894888460636
+            ],
+            "rotation": [
+                -0.021612485870719,
+                -0.054450910538435,
+                0.275815159082413,
+                0.959423780441284
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                64
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_middle_02_r",
+            "translation": [
+                -0.0494629815220833,
+                1.21046292989035e-08,
+                -3.33380860695343e-08
+            ],
+            "rotation": [
+                0.000542389345355332,
+                0.020615266636014,
+                0.347869575023651,
+                0.937316119670868
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                65
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_middle_03_r",
+            "translation": [
+                -0.0277727022767067,
+                -1.51534624848182e-08,
+                -6.47401554587645e-09
+            ],
+            "rotation": [
+                -0.0359340012073517,
+                -0.0122389188036323,
+                0.263339936733246,
+                0.963955938816071
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                66
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_middle_end_r",
+            "translation": [
+                -0.0274102874100208,
+                -1.984275499467e-08,
+                1.33677042768454e-08
+            ],
+            "rotation": [
+                2.89213062387716e-08,
+                6.49504912075827e-08,
+                -1.02391304324101e-07,
+                1.0
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_ring_01_r",
+            "translation": [
+                -0.107045739889145,
+                -0.00515515683218837,
+                -0.0117372609674931
+            ],
+            "rotation": [
+                -0.0272284634411335,
+                -0.0771052166819572,
+                0.297308951616287,
+                0.951273262500763
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                68
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_ring_02_r",
+            "translation": [
+                -0.0453805290162563,
+                -5.03368369209056e-09,
+                -4.00718236370778e-10
+            ],
+            "rotation": [
+                -0.0102374292910099,
+                -0.010508393868804,
+                0.460733503103256,
+                0.887417256832123
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                69
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_ring_03_r",
+            "translation": [
+                -0.0248525869101286,
+                -2.37554740323276e-08,
+                -1.23633903115206e-08
+            ],
+            "rotation": [
+                0.0267641413956881,
+                0.0132521465420723,
+                0.333273351192474,
+                0.942357122898102
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                70
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_ring_end_r",
+            "translation": [
+                -0.02454455755651,
+                8.54242454551013e-09,
+                -2.4203790083277e-09
+            ],
+            "rotation": [
+                -1.03345660917853e-08,
+                2.79190377483474e-08,
+                2.47225585781052e-07,
+                1.0
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_pinky_01_r",
+            "translation": [
+                -0.105694785714149,
+                -0.00602763006463647,
+                -0.0299384947866201
+            ],
+            "rotation": [
+                -0.053801666945219,
+                -0.105601504445076,
+                0.392697900533676,
+                0.911998927593231
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                72
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_pinky_02_r",
+            "translation": [
+                -0.0354157648980618,
+                -1.9174153820245e-08,
+                -9.19953624389791e-09
+            ],
+            "rotation": [
+                -0.00492377579212189,
+                -0.0132943261414766,
+                0.389080226421356,
+                0.92109477519989
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                73
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_pinky_03_r",
+            "translation": [
+                -0.016047777608037,
+                6.29940011265262e-09,
+                -7.50058859466662e-09
+            ],
+            "rotation": [
+                0.0352137014269829,
+                0.0139771737158298,
+                0.376633822917938,
+                0.925587177276611
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                74
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_pinky_end_r",
+            "translation": [
+                -0.018299363553524,
+                -9.07383590487143e-09,
+                -2.83432477488077e-09
+            ],
+            "rotation": [
+                5.17195388738401e-08,
+                2.65387853914945e-08,
+                -4.25297201900321e-07,
+                1.0
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_lowerarm_twist_r",
+            "translation": [
+                -0.12859845161438,
+                -2.86063066567976e-08,
+                -7.86347520431718e-09
+            ],
+            "rotation": [
+                -2.13663522430352e-08,
+                -5.52931624042685e-07,
+                -2.68583164597658e-07,
+                1.0
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_upperarm_twist_r",
+            "translation": [
+                -0.139837935566902,
+                9.28688148604806e-09,
+                -9.85413528553636e-09
+            ],
+            "rotation": [
+                -0.0050583528354764,
+                2.61350805885741e-07,
+                1.38931739002146e-07,
+                0.999987185001373
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_upperleg_l",
+            "translation": [
+                -9.75269722403027e-05,
+                -1.21302594635608e-08,
+                -0.106178157031536
+            ],
+            "rotation": [
+                0.0461673252284527,
+                -0.011282816529274,
+                0.157389640808105,
+                0.986392319202423
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                78,
+                83
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_lowerleg_l",
+            "translation": [
+                -0.444228500127792,
+                5.08311863711697e-08,
+                2.31954615514951e-08
+            ],
+            "rotation": [
+                -0.00870728772133589,
+                -0.0191981345415115,
+                -0.550083577632904,
+                0.834843456745148
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                79,
+                82
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_foot_l",
+            "translation": [
+                -0.419873714447021,
+                -1.74442661204921e-07,
+                -5.90797677446631e-09
+            ],
+            "rotation": [
+                0.030320743098855,
+                0.0113533362746239,
+                0.0132322534918785,
+                0.999388158321381
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                80
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_ball_l",
+            "translation": [
+                -0.0697986856102943,
+                -0.142633438110352,
+                -0.00221280055120587
+            ],
+            "rotation": [
+                -0.00802698917686939,
+                0.00236564571969211,
+                -0.700841546058655,
+                0.713267922401428
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                81
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_foot_end_l",
+            "translation": [
+                0.06233000010252,
+                -1.33226759977169e-17,
+                -3.55271359939116e-17
+            ],
+            "rotation": [
+                -1.38777878078145e-17,
+                6.93889390390723e-18,
+                -2.77555756156289e-17,
+                1.0
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_lowerleg_twist_l",
+            "translation": [
+                -0.209936752915382,
+                -4.14146832383722e-08,
+                -5.75262193436288e-09
+            ],
+            "rotation": [
+                0.00475950632244349,
+                3.3946824260056e-05,
+                -8.62806786017245e-08,
+                0.999988675117493
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_upperleg_twist_l",
+            "translation": [
+                -0.222114145755768,
+                -3.54665168345036e-08,
+                1.21639809336216e-08
+            ],
+            "rotation": [
+                -4.31652297265828e-05,
+                4.90318257106992e-08,
+                -2.29942571650099e-07,
+                1.0
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_upperleg_r",
+            "translation": [
+                9.7523552540224e-05,
+                -1.02996580153558e-08,
+                0.106178224086761
+            ],
+            "rotation": [
+                -0.031849205493927,
+                -0.00601336220279336,
+                0.999212741851807,
+                -0.022877985611558
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                85,
+                90
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_lowerleg_r",
+            "translation": [
+                0.441960692405701,
+                -1.35006894552703e-09,
+                -3.66695118714233e-08
+            ],
+            "rotation": [
+                -0.0561623983085155,
+                0.0149767128750682,
+                -0.13551376760006,
+                0.989068984985352
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                86,
+                89
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_foot_r",
+            "translation": [
+                0.412727236747742,
+                -3.64457726220735e-08,
+                -2.35878747645302e-08
+            ],
+            "rotation": [
+                0.0996974110603333,
+                -0.00180428405292332,
+                0.0669759884476662,
+                0.992759466171265
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                87
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_ball_r",
+            "translation": [
+                0.0819377675652504,
+                0.1572425365448,
+                -0.00130506290588528
+            ],
+            "rotation": [
+                0.0120706157758832,
+                -0.0124047268182039,
+                -0.711642205715179,
+                0.70232880115509
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                88
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_foot_end_r",
+            "translation": [
+                -0.051047071814537,
+                -2.66453519954337e-17,
+                -1.77635679969558e-17
+            ],
+            "rotation": [
+                -6.28837260041593e-18,
+                6.93889390390723e-18,
+                1.66533453693773e-16,
+                1.0
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_lowerleg_twist_r",
+            "translation": [
+                0.206363648176193,
+                -2.87891221972814e-08,
+                -1.12138920371763e-08
+            ],
+            "rotation": [
+                0.0411444008350372,
+                -0.000147886006743647,
+                5.97699727222789e-06,
+                0.999153196811676
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_upperleg_twist_r",
+            "translation": [
+                0.220980316400528,
+                -1.75559811133041e-09,
+                -2.09743777901394e-08
+            ],
+            "rotation": [
+                -0.000478028843645006,
+                5.04240460941219e-07,
+                1.03489703917603e-07,
+                0.99999988079071
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_geoGRP",
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "children": [
+                92
+            ]
+        },
+        {
+            "name": "rp_nathan_animated_003_walking_geo",
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "mesh": 0,
+            "skin": 0
+        }
+    ]
+}

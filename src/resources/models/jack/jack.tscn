@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1ern2hlb2gyx"]
+
+[ext_resource type="PackedScene" uid="uid://u6gbun36hamn" path="res://src/resources/models/jack/4.0/rp_nathan_animated_003_walking.gltf" id="1_hhvtv"]
+
+[node name="rp_nathan_animated_003_walking" instance=ExtResource("1_hhvtv")]

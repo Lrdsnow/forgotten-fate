@@ -3,5 +3,5 @@
 [ext_resource type="Script" path="res://src/extras/cutscene_camera.gd" id="1_oftjg"]
 
 [node name="cam" type="Camera3D"]
-transform = Transform3D(-3.64262e-08, 0, 0.833333, 0, 0.833333, 0, -0.833333, 0, -3.64262e-08, -0.518297, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.524517, 0, 0)
 script = ExtResource("1_oftjg")

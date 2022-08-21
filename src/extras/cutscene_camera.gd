@@ -15,7 +15,7 @@ func _input(event):
 
 
 func cam(event):
-	if Global.can_move:
+	if true:
 		if event is InputEventMouseMotion:
 			var left_right = deg2rad(event.relative.x * Global.mouse_sensitivity)
 			var up_down = deg2rad(event.relative.y * Global.mouse_sensitivity)
@@ -29,7 +29,7 @@ func cam(event):
 			
 			self.rotation.x = clamp(self.rotation.x, deg2rad(0), deg2rad(0))
 			self.rotation.z = clamp(self.rotation.z, deg2rad(0), deg2rad(0))
-			self.rotation.y = clamp(self.rotation.y, deg2rad(50), deg2rad(120))
+			self.rotation.y = clamp(self.rotation.y, deg2rad(-140), deg2rad(-50))
 		elif event is InputEventJoypadMotion:
 			var left_right = deg2rad(Input.get_joy_axis(0, 2) * Global.mouse_sensitivity)
 			var up_down = deg2rad(Input.get_joy_axis(0, 3) * Global.mouse_sensitivity)

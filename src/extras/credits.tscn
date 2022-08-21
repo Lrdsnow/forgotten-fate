@@ -1,0 +1,98 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccaanfodqngld"]
+
+[ext_resource type="Script" path="res://src/extras/credits.gd" id="1_kk22o"]
+
+[node name="credits" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_kk22o")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 2560.0
+offset_bottom = 1441.0
+alignment = 1
+
+[node name="end" type="Label" parent="VBoxContainer"]
+offset_top = 368.0
+offset_right = 2560.0
+offset_bottom = 508.0
+theme_override_font_sizes/font_size = 100
+text = "The End!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/end"]
+offset_left = 1497.0
+offset_top = 65.0
+offset_right = 1764.0
+offset_bottom = 121.0
+theme_override_font_sizes/font_size = 32
+text = "(For Now)"
+
+[node name="spacer2" type="Label" parent="VBoxContainer"]
+offset_top = 512.0
+offset_right = 2560.0
+offset_bottom = 570.0
+theme_override_font_sizes/font_size = 40
+text = "
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="story" type="Label" parent="VBoxContainer"]
+offset_top = 574.0
+offset_right = 2560.0
+offset_bottom = 690.0
+theme_override_font_sizes/font_size = 40
+text = "Story By:
+CharmanderIsDerpy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="spacer" type="Label" parent="VBoxContainer"]
+offset_top = 694.0
+offset_right = 2560.0
+offset_bottom = 752.0
+theme_override_font_sizes/font_size = 40
+text = "
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="program" type="Label" parent="VBoxContainer"]
+offset_top = 756.0
+offset_right = 2560.0
+offset_bottom = 872.0
+theme_override_font_sizes/font_size = 40
+text = "Programmed By:
+Lrdsnow"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="spacer3" type="Label" parent="VBoxContainer"]
+offset_top = 876.0
+offset_right = 2560.0
+offset_bottom = 934.0
+theme_override_font_sizes/font_size = 40
+text = "
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="backsoon" type="Label" parent="VBoxContainer"]
+offset_top = 938.0
+offset_right = 2560.0
+offset_bottom = 1024.0
+theme_override_font_sizes/font_size = 60
+text = "Come Back Soon For More!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="anybut" type="Label" parent="VBoxContainer"]
+offset_top = 1028.0
+offset_right = 2560.0
+offset_bottom = 1073.0
+theme_override_font_sizes/font_size = 30
+text = "(Press Any Button To Quit)"
+horizontal_alignment = 1
+vertical_alignment = 1
