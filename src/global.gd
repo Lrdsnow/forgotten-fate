@@ -1,14 +1,23 @@
 extends Node
 
 func _ready():
-	pass
+	get_tree().set_auto_accept_quit(false)
+	#TGlobal.set_main()
 
 # Base:
 var version = 0.3
-var sub_version = 2
+var sub_version = 4
 var save:Dictionary
+var checkpoint:Dictionary
 var ingame:bool = false
 var efficiency_mode:bool = false
+var itch_info
+var trifate_info
+var gamejolt_info
+var release = "itch"
+var skip_checks = false
+var cinematic_mode = false
+var gamejolt = false
 
 # Game:
 var difficulty:int = 0
@@ -27,6 +36,7 @@ var doors_lock_status:Dictionary = {}
 signal interact
 var interact_obj:Array = []
 var player_held_item:String = "N/A"
+var player_held_item_obj = null
 var power:int = 100
 var health:int = 100
 var stamina:int = 100
@@ -39,9 +49,15 @@ var guide:bool = false
 var pos = Vector3(-3.276,1.803,-0.348)
 var rot = Vector3(0,0,0)
 
+
 # Settings:
 var mouse_sensitivity:int = 1
 var joystick_sensitivity:int = 1
+
+# Debug:
+signal debug
+var debug_mode = OS.is_debug_build()
+var debug_ext = false
 
 # Quests:
 signal update_quest_info
@@ -61,6 +77,7 @@ var quests = [{
 		"name":"Open The Door",
 		"color":"white",
 		"orb":false,
+		"trophy":"so_it_begins",
 		"type":"door",
 		"door_status":"key0",
 		"door":null
@@ -71,14 +88,29 @@ var quests = [{
 	"segments":[{
 		"name":"HIDE",
 		"color":"red",
-		"orb":true,
+		"orb":false,
+		"anim":"bed0",
 		"type":"hide",
+		"complete":false,
 		"room":"hall1",
 		"hiding_spots":[]
 	}]
+},{
+	"name":"Escape",
+	"map":"floor1",
+	"segments":[{
+		"name":"Continue Through the door",
+		"color":"white",
+		"orb":false,
+		"anim":"anim1",
+		"type":"door",
+		"door_status":"anim0",
+		"door":null
+	}]
 }]
 
-# Items:
+# Item Variables:
+
 signal update_item
 var all_items:Array = ["AK", "45", "basic_flashlight", "N/A"] # Debug
 var guns:Array = ["AK", "45"]
@@ -96,6 +128,27 @@ var grab_items = ["key0"]
 var inv = []
 var item_objs = {}
 
+var shooting = false
+
+var items = {
+	"AK":{
+		"type":"debug_gun",
+		"reload":0,
+		"max_ammo":32
+	},
+	"45":{
+		"type":"placeholder",
+		"reload":0,
+		"max_ammo":16
+	},
+	"basic_flashlight":{
+		"type":"placeholder"
+	},
+	"N/A":{
+		"type":"N/A"
+	}
+}
+
 # Menu:
 var buttons:Array = ["play", "mods", "exit"] # Whats the point in this?
 
@@ -103,17 +156,51 @@ var buttons:Array = ["play", "mods", "exit"] # Whats the point in this?
 var mods_folder:String = ""
 var int_mods_folder:String = ""
 var mods:Array = []
-var used_mods:Array = []
-var unused_mods:Array = []
+var used_mods:Array = [] # This Is Broken?
+var unused_mods:Array = [] # This one too
 var mod_datas:Dictionary = {}
 var mod_folders:Dictionary = {}
 var player_item_node
+var loaded_mods:Dictionary = {}
+var unloaded_mods:Dictionary = {}
+
 
 # Save:
 var saves:Dictionary = {}
 var saves_folder:String = ""
 
 var modded_save = false
+
+func save_checkpoint():
+	checkpoint={
+		"save_version":version,
+		"x":get_node("/root/World/Player").position.x,
+		"y":get_node("/root/World/Player").position.y,
+		"z":get_node("/root/World/Player").position.z,
+		"rx":get_node("/root/World/Player").rotation.x,
+		"ry":get_node("/root/World/Player").rotation.y,
+		"rz":get_node("/root/World/Player").rotation.z,
+		"difficulty":difficulty,
+		"efficiency_mode":efficiency_mode,
+		"player_name":player_name,
+		"skin":skin,
+		"interact_obj":interact_obj,
+		"player_held_item":player_held_item,
+		"power":power,
+		"can_move":can_move,
+		"health":health,
+		"stamina":stamina,
+		"ammo_clip":ammo_clip,
+		"ammo":ammo,
+		"mouse_sensitivity":mouse_sensitivity,
+		"joystick_sensitivity":joystick_sensitivity,
+		#"grab_items":grab_items,
+		#"inv":inv,
+		#"quest":quest
+	}
+	#if modded_save:
+	#	save=save.merge(Game.modded_save)
+	return checkpoint
 
 func resave():
 	save={
@@ -145,13 +232,30 @@ func resave():
 	#	save=save.merge(Game.modded_save)
 	return save
 
+func load_checkpoint(incheckpoint):
+	for i in incheckpoint:
+		if i != "x" or i != "y" or i != "z" or i != "rx" or i != "ry" or i != "rz":
+			self.set(i, incheckpoint[i])
+		elif i == "x":
+			get_node("/root/World/Player").position.x = i
+		elif i == "y":
+			get_node("/root/World/Player").position.y = i
+		elif i == "z":
+			get_node("/root/World/Player").position.z = i
+		elif i == "rx":
+			get_node("/root/World/Player").rotation.x = i
+		elif i == "ry":
+			get_node("/root/World/Player").rotation.y = i
+		elif i == "rz":
+			get_node("/root/World/Player").rotation.z = i
+
 signal load_complete
 func load_save(insave):
 	for i in insave:
 		if i != "x" or i != "y" or i != "z" or i != "rx" or i != "ry" or i != "rz":
 			self.set(i, insave[i])
 		elif i == "x":
-			pos.x
+			pos.x = i
 		elif i == "y":
 			pos.y = i
 		elif i == "z":
@@ -175,7 +279,7 @@ func save_game():
 
 #UngodlyLongDictonarys
 
-var achivents = {
+var trophys = {
 	# Chapter 1
 	"so_it_begins":false, # After escaping room
 	"escape_nurse":false, # After hiding under bed
@@ -183,18 +287,26 @@ var achivents = {
 	"muffin_for_your_troubles":false, # death by muffin man
 	"the_stairs":false, # After esaping muffin man
 	# Others
-	"nurse_murderer":false, 
-	"banana":false,
-	"oh_hello_there":false,
-	"just_gotta_smile":false,
-	"the_eye":false,
+	"nurse_murderer":false, # Murder the nurse
+	"banana":false, # Praise The Banana
+	"oh_hello_there":false, # OH HELLO THERE MATE
+	"just_gotta_smile":false, # Smile!
+	"the_eye":false, # *shivers*
 	"vent_inspector":false, # VENT INSPECTAAAAAAAAAAAAAARRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
-	"meet_the_devil":false
+	"meet_the_devil":false # The devil cant be that bad to deal with!
 }
 
 var anims = {
-	"anim0":false
+	"anim0":false,
+	"anim1":false
 }
+
+func _notification(what):
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		if gamejolt:
+			Gamejolt.api().close_session()
+		else:
+			get_tree().quit()
 
 # Lazy Commands:
 
@@ -202,6 +314,92 @@ func lower(string:String):
 	string=string.to_lower().replace(":", "").replace("/", "").replace("-", "").replace("+", "").replace("=", "").replace("$", "").replace("%", "").replace("^", "").replace("&", "").replace("*", "").replace("(", "").replace(")", "").replace("~", "").replace("`", "").replace("?", "").replace("!", "").replace("@", "").replace("#", "").replace(">", "").replace("<", "").replace(",", "").replace(".", "").replace(";", "").replace(":", "").replace(" ", "_")
 	return string
 
+func endgame():
+	pass
+
+func quit_game(why=""):
+	if why == "quest":
+		if ! debug_mode:
+			if gamejolt:
+				Gamejolt.api().close_session()
+			else:
+				get_tree().quit()
+	else:
+		if gamejolt:
+			Gamejolt.api().close_session()
+		else:
+			get_tree().quit()
+
+func current_quest() -> Dictionary:
+	var subquest = {}
+	subquest = Global.quests[Global.quest[0]].segments[Global.quest[1]]
+	return subquest
+
 # Extras:
 
 var story_script = "https://docs.google.com/document/d/1zfnBpAsTVQWNBl88SlSjXF9jTU_cpu-_s6pEArXSDHY/edit?usp=sharing"
+
+func get_floor() -> Node3D:
+	var floor = get_node("/root/World/map").get_children()[0]
+	return floor
+
+func get_player_camera() -> Camera3D:
+	return get_node_or_null("/root/World/Player/collision/neck/head/player_camera")
+
+func get_player() -> CharacterBody3D:
+	return get_node_or_null("/root/World/Player")
+
+func GameChecker():
+	if skip_checks:
+		print("GameChecker: Ownership Checks Skipped")
+	elif release == "gamejolt":
+		var file = File.new()
+		var info = OS.get_executable_path().get_base_dir() + "/.gj-credentials"
+		if file.file_exists(info):
+			file.open(info, File.READ)
+			info = file.get_as_text()
+			info = info.split("\n")
+			gamejolt_info = Array(info)
+			print("GameChecker: Game Validated, "+gamejolt_info[1]+" ("+gamejolt_info[2]+")")
+			gamejolt=true
+			Gamejolt.load_api()
+		else:
+			print("GameChecker: Failed To Validate Game")
+	elif release == "trifate-studios":
+		# Checks For Mod Launcher Install Files
+		var file = File.new()
+		var info = OS.get_executable_path().get_base_dir() + "/.trifate-studios/receipt.json"
+		if file.file_exists(info):
+			file.open(info, File.READ)
+			info = file.get_as_text()
+			var json = JSON.new()
+			json.parse(info)
+			info = json.get_data()
+			trifate_info = info
+			var info_string = "Game Info:\nName: "+trifate_info.Game+"\nID: "+trifate_info.ID+"\n\nUser Info:\nDisplayName: "+trifate_info["user"].DisplayName+"\nID: "+trifate_info["user"].ID+"\n"
+			#print(info_string)
+			print("GameChecker: Game Validated, "+trifate_info["user"].DisplayName+' (Trifate Studios)')
+	#elif release == "steam":
+		# Checks For Steam Install Files
+	#	print("GameChecker: Failed To Validate Game! (Steam Verification Selected)")
+	else:
+		# Checks For Itch App Install Files
+		var file = File.new()
+		var info = OS.get_executable_path().get_base_dir() + "/.itch/receipt.json.gz"
+		if file.file_exists(info):
+			OS.execute("gzip", ["-dk", info])
+			info = OS.get_executable_path().get_base_dir() + "/.itch/receipt.json"
+			if file.file_exists(info):
+				file.open(info, File.READ)
+				info = file.get_as_text()
+				var json = JSON.new()
+				json.parse(info)
+				info = json.get_data()
+				itch_info = info
+				var info_string = "Game Info:\nGame ID: "+str(itch_info["game"].id)+"\nName: "+itch_info["game"].title+"\nDesc: "+itch_info["game"].shortText+"\nInstalled Version: "+itch_info["build"].userVersion+"\n\nUser Info:\nDisplayName: "+itch_info["game"].user.displayName+"\nUser ID: "+str(itch_info["game"].user.id)+"\nDeveloper?: "+str(itch_info["game"].user.developer)+"\n"
+				#print(info_string)
+				print("GameChecker: Game Validated, "+itch_info["game"].user.displayName+' ('+str(itch_info["game"].user.id)+')')
+			else:
+				print("GameChecker: Failed To Validate Game! (Error Reading File)")
+		else:
+			print("GameChecker: Failed To Validate Game! (Error Getting File)")

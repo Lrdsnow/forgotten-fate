@@ -21,13 +21,22 @@ config/icon="res://icon.png"
 
 Global="*res://src/global.gd"
 Game="*res://src/extras/modding_extras.gd"
+Mods="*res://src/modhandler/mods.gd"
+LegacyMods="res://src/modhandler/legacy_mods.gd"
+Gamejolt="*res://src/extras/gamejolt.gd"
+TGlobal="res://src/extras/testing_global.gd"
 
 [display]
 
 window/size/viewport_width=2560
 window/size/viewport_height=1440
 window/size/borderless=true
-window/size/fullscreen=true
+window/vsync/vsync_mode=2
+window/stretch/mode="viewport"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/gamejolt_api_v2/plugin.cfg")
 
 [global]
 
@@ -109,6 +118,12 @@ interact={
 [rendering]
 
 driver/threads/thread_model=2
+global_illumination/voxel_gi/quality=1
+environment/ssao/quality=4
+environment/ssil/quality=4
+scaling_3d/mode=1
+environment/screen_space_reflection/roughness_quality=3
+environment/subsurface_scattering/subsurface_scattering_quality=3
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)
 anti_aliasing/quality/msaa=3
 anti_aliasing/quality/screen_space_aa=1

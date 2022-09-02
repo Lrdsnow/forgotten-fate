@@ -1,35 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://buo5rg0jgmp2b"]
+[gd_scene load_steps=5 format=3 uid="uid://buo5rg0jgmp2b"]
 
 [ext_resource type="Script" path="res://src/World.gd" id="1_k7noi"]
 [ext_resource type="PackedScene" uid="uid://c3ue78xdmxvqp" path="res://src/player/player.tscn" id="2_bpike"]
 [ext_resource type="PackedScene" uid="uid://ca0ocpsj0r33q" path="res://src/floor1.tscn" id="2_tjavw"]
-[ext_resource type="Texture2D" uid="uid://dso26o0p4w21b" path="res://src/resources/textures/arrow.png" id="3_l6gj7"]
-[ext_resource type="Script" path="res://src/player/guide.gd" id="4_pwil4"]
-
-[sub_resource type="Animation" id="Animation_7ytym"]
-resource_name = "move"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0.943398, -2.36156), Vector3(-3.55067, 0.943398, -2.36156)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_kx4x3"]
-_data = {
-"move": SubResource("Animation_7ytym")
-}
 
 [sub_resource type="Environment" id="Environment_e8hr5"]
 background_mode = 1
 ssao_enabled = true
+ssil_enabled = true
 sdfgi_enabled = true
 sdfgi_use_occlusion = true
 sdfgi_read_sky_light = false
@@ -44,19 +22,6 @@ script = ExtResource("1_k7noi")
 [node name="map" type="Node3D" parent="."]
 
 [node name="floor1" parent="map" instance=ExtResource("2_tjavw")]
-
-[node name="arrow" type="Sprite3D" parent="map"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.943398, -2.36156)
-visible = false
-cast_shadow = 0
-pixel_size = 0.001
-texture = ExtResource("3_l6gj7")
-script = ExtResource("4_pwil4")
-
-[node name="arrow_anim" type="AnimationPlayer" parent="map/arrow"]
-libraries = {
-"": SubResource("AnimationLibrary_kx4x3")
-}
 
 [node name="Player" parent="." instance=ExtResource("2_bpike")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -3.27585, 1.80317, -0.348282)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://0ri8703lbmmo"]
+[gd_scene load_steps=7 format=3 uid="uid://0ri8703lbmmo"]
 
 [ext_resource type="ArrayMesh" uid="uid://c2sp82oavsxgg" path="res://src/resources/models/Ak_47/Ak-47.obj" id="1_4lkxl"]
+[ext_resource type="Script" path="res://src/player/items/ak47/ak47.gd" id="1_ss2jg"]
 [ext_resource type="Texture2D" uid="uid://yrqte8svckmt" path="res://src/resources/models/Ak_47/ak-47.jpg" id="2_plg26"]
 [ext_resource type="Texture2D" uid="uid://bvlq543c2h6a1" path="res://src/resources/models/Ak_47/Ambiont Occlusion.jpg" id="3_0ajwv"]
 
@@ -13,6 +14,7 @@ ao_texture = ExtResource("3_0ajwv")
 
 [node name="ak-47" type="StaticBody3D"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.125, -0.17, -0.192)
+script = ExtResource("1_ss2jg")
 
 [node name="mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)

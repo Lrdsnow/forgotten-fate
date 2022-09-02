@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://b7fm0a17b27fb"]
+[gd_scene load_steps=40 format=3 uid="uid://b7fm0a17b27fb"]
 
 [ext_resource type="Texture2D" uid="uid://bn4ifjjna8irq" path="res://src/resources/textures/Tech_PlasticBase/Tech_PlasticBase_normal.jpg" id="2_c2g28"]
 [ext_resource type="Texture2D" uid="uid://cwmhem72ay2vd" path="res://src/resources/textures/Tech_PlasticBase/Tech_PlasticBase_roughness.jpg" id="3_bt323"]
@@ -141,6 +141,9 @@ data = PackedVector3Array(-2.1853, -0.5408, 0.184, -2.1664, -0.5863, 0.208, -1.4
 
 [sub_resource type="BoxMesh" id="BoxMesh_ryy10"]
 size = Vector3(1, 0.1, 2.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f0fbh"]
+size = Vector3(1, 2.39847, 0.0693981)
 
 [node name="room1" type="Node3D"]
 metadata/items = ["room_items/counter/key0"]
@@ -292,3 +295,12 @@ shape = SubResource("ConcavePolygonShape3D_awfnk")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="room_items/counter"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0457723, 0.441682, 0.000324249)
 mesh = SubResource("BoxMesh_ryy10")
+
+[node name="room1_door" type="Area3D" parent="room_items"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.22916, 1.23592, -2.84439)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="room_items/room1_door"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.19222)
+shape = SubResource("BoxShape3D_f0fbh")
+
+[connection signal="body_entered" from="room_items/room1_door" to="room_items/counter/key0" method="_on_room_1_door_body_entered"]

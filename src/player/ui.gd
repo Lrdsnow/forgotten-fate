@@ -10,6 +10,10 @@ func _ready():
 		$gui/gui_anim.play("open_stamina_health_power")
 	else:
 		$gui/gui_anim.play("open_stamina_health")
+	if Global.cinematic_mode:
+		self.hide()
+	else:
+		self.show()
 
 func _process(delta):
 	update_stats()

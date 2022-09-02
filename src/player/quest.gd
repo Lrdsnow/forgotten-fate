@@ -18,6 +18,8 @@ func _ready():
 	shaking = false
 
 func check_quest(interact_item=null):
+	if Global.gamejolt:
+		Gamejolt.api().ping_session()
 	subquest = Global.quests[Global.quest[0]].segments[Global.quest[1]]
 	if str(subquest.type) == "grab":
 		var items = []
@@ -25,6 +27,12 @@ func check_quest(interact_item=null):
 			if item in Global.inv:
 				print("QuestHandler: subquest complete: " + subquest.name)
 				Global.save_checkpoint()
+				if subquest.has("trophy"):
+					if Global.gamejolt:
+						Global.trophys[subquest.trophy] = true
+						Gamejolt.trophy(subquest.trophy)
+					else:
+						Global.trophys[subquest.trophy] = true
 				if prev_orb != null:
 					prev_orb.queue_free()
 				if Global.quest[1] + 1 != Global.quests[Global.quest[0]].segments.size():
@@ -36,7 +44,7 @@ func check_quest(interact_item=null):
 					else:
 						print("QuestHandler: All Quests Completed")
 						get_tree().change_scene("res://src/extras/credits.tscn")
-						#get_tree().quit()
+						Global.quit_game("quest")
 			else:
 				print("QuestHandler: subquest vaild: " + subquest.name)
 	elif str(subquest.type) == "door":
@@ -44,6 +52,12 @@ func check_quest(interact_item=null):
 			if subquest.door == interact_item:
 				print("QuestHandler: subquest complete: " + subquest.name)
 				Global.save_checkpoint()
+				if subquest.has("trophy"):
+					if Global.gamejolt:
+						Global.trophys[subquest.trophy] = true
+						Gamejolt.trophy(subquest.trophy)
+					else:
+						Global.trophys[subquest.trophy] = true
 				if prev_orb != null:
 					prev_orb.queue_free()
 				if Global.quest[1] + 1 != Global.quests[Global.quest[0]].segments.size():
@@ -55,13 +69,19 @@ func check_quest(interact_item=null):
 					else:
 						print("QuestHandler: All Quests Completed")
 						get_tree().change_scene("res://src/extras/credits.tscn")
-						#get_tree().quit()
+						Global.quit_game("quest")
 			else:
 				print("QuestHandler: subquest vaild: " + subquest.name)
 	elif str(subquest.type) == "hide":
 		if subquest.complete:
 			print("QuestHandler: subquest complete: " + subquest.name)
 			Global.save_checkpoint()
+			if subquest.has("trophy"):
+					if Global.gamejolt:
+						Global.trophys[subquest.trophy] = true
+						Gamejolt.trophy(subquest.trophy)
+					else:
+						Global.trophys[subquest.trophy] = true
 			if Global.quest[1] + 1 != Global.quests[Global.quest[0]].segments.size():
 					Global.quest[1] = Global.quest[1] + 1
 			else:
@@ -71,12 +91,13 @@ func check_quest(interact_item=null):
 				else:
 					print("QuestHandler: All Quests Completed")
 					get_tree().change_scene("res://src/extras/credits.tscn")
-					#get_tree().quit()
+					Global.quit_game("quest")
 			#print("QuestHandler: Quest info: "+str(Global.current_quest()))
 		else:
 			print("QuestHandler: subquest vaild: " + subquest.name)
 	call_deferred("update_quest_info")
-	call("nurse_hide")
+	if not Global.cinematic_mode:
+		call("nurse_hide")
 
 func update_quest_info():
 	self.modulate = color[Global.quests[Global.quest[0]].segments[Global.quest[1]].color]

@@ -6,24 +6,49 @@ var default_save_info = {
 }
 
 var loaded_save:Dictionary
+@export_enum("itch", "trifate-studios", "gamejolt") var release
+var releases = ["itch", "trifate-studios", "gamejolt","steam"]
 
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	Global.ingame = false
 	reset()
 	save_scanner()
-	mod_scanner()
+	Mods.mod_scanner()
 	menu_update()
 	call_deferred("fx")
 	call_deferred("resize")
 	get_tree().root.size_changed.connect(self.resize)
+	Global.release = releases[release]
+	Global.call_deferred("GameChecker")
+
+func debug():
+	if Global.debug_ext:
+		$main/buttons/vbox/debug.show()
+	else:
+		$main/buttons/vbox/debug.hide()
 
 func fx():
 	if not Global.efficiency_mode:
+		ProjectSettings.set_setting("rendering/scaling_3d/mode", 1)
+		ProjectSettings.set_setting("application/run/low_processor_mode", false)
+		ProjectSettings.set_setting("rendering/anti_aliasing/screen_space_roughness_limiter/enabled", true)
+		ProjectSettings.set_setting("rendering/anti_aliasing/quality/msaa", 3)
+		ProjectSettings.set_setting("rendering/anti_aliasing/quality/screen_space_aa", 1)
+		ProjectSettings.set_setting("rendering/anti_aliasing/quality/use_taa", true)
 		var background = load("res://src/extras/menu.tscn").instantiate()
 		add_child(background)
 		move_child(background, get_child_count())
 		var overlay = load("res://src/extras/overlay.tscn").instantiate()
 		get_node("/root").add_child(overlay)
+	else:
+		ProjectSettings.set_setting("rendering/scaling_3d/mode", 0)
+		ProjectSettings.set_setting("application/run/low_processor_mode", true)
+		ProjectSettings.set_setting("rendering/anti_aliasing/screen_space_roughness_limiter/enabled", false)
+		ProjectSettings.set_setting("rendering/anti_aliasing/quality/msaa", 0)
+		ProjectSettings.set_setting("rendering/anti_aliasing/quality/screen_space_aa", 0)
+		ProjectSettings.set_setting("rendering/anti_aliasing/quality/use_taa", false)
+		
 
 func _on_new_game_pressed():
 	$anim.play("open_play")
@@ -42,10 +67,10 @@ func _on_settings_pressed():
 
 
 func _on_exit_pressed():
-	get_tree().quit()
+	Global.quit_game()
 
 func resize():
-	#get_node("/root").mode = 3
+	get_node("/root").mode = 3
 	
 	$main/title/shad.size.x = get_viewport_rect().size.x / 3.65714286
 	$main/title/shad.size.y = get_viewport_rect().size.y / 2.4
@@ -71,160 +96,6 @@ func menu_update():
 
 func _on_mods_exit_pressed():
 	$anim.play_backwards("open_mods")
-
-func mod_scanner():
-	var docs = ""
-	var dmodslist:VBoxContainer = $mods/menu/panel/dmodslist
-	var dfn = 0
-	var dfnd = true
-	while dfnd:
-		if "Documents" in OS.get_system_dir(dfn):
-			docs = OS.get_system_dir(dfn)
-			dfnd = false
-		else:
-			dfn = dfn + 1
-	var dir = Directory.new()
-	while ! dir.dir_exists(docs + "/My Games/ForgottenFate/Mods"):
-		if dir.dir_exists(docs + "/My Games"):
-			if dir.dir_exists(docs + "/My Games/ForgottenFate"):
-				if dir.dir_exists(docs + "/My Games/ForgottenFate/Mods"):
-					pass
-				else:
-					dir.make_dir(docs + "/My Games/ForgottenFate/Mods")
-			else:
-				dir.make_dir(docs + "/My Games/ForgottenFate")
-		else:
-			dir.make_dir(docs + "/My Games")
-	var folder = docs + "/My Games/ForgottenFate/Mods"
-	var modsfolder = folder
-	Global.mods_folder = folder
-	var files = []
-	dir.open(folder)
-	dir.list_dir_begin()
-	while true:
-		var file = dir.get_next()
-		if file == "":
-			break
-		elif not file.begins_with("."):
-			files.append(file)
-	dir.list_dir_end()
-	var int_mods_folder = OS.get_executable_path().get_base_dir() + "/internal_mods"
-	Global.int_mods_folder = int_mods_folder
-	if dir.dir_exists(int_mods_folder):
-		dir.open(int_mods_folder)
-		dir.list_dir_begin()
-		while true:
-			var file = dir.get_next()
-			if file == "":
-				break
-			elif not file.begins_with("."):
-				files.append(file)
-		dir.list_dir_end()
-	var finm = 0
-	while finm != files.size():
-		if ".mod" in files[finm]:
-			var file = File.new()
-			var json = JSON.new()
-			var config = modsfolder + "/" + files[finm] + "/mod.config"
-			if ! file.file_exists(config):
-				config = int_mods_folder + "/" + files[finm] + "/mod.config" # Quick Fix
-				if ! file.file_exists(config):
-					config = modsfolder + "/" + files[finm] + "/mod.json"
-					if ! file.file_exists(config):
-						config = int_mods_folder + "/" + files[finm] + "/mod.json"
-			if file.file_exists(config):
-				file.open(config, File.READ)
-				@warning_ignore(unused_variable)
-				var data = json.parse(file.get_as_text())
-				var mod_data = json.get_data()
-				var outdated = false
-				if mod_data.has("min_ver"):
-					if ! mod_data.min_ver >= Global.version:
-						outdated=true
-					elif mod_data.has("min_sub_ver"):
-						if ! mod_data.min_sub_ver >= Global.sub_version:
-							outdated=true
-				if not outdated:
-					var mod_button = load("res://src/resources/ui/mod_button.tscn").instantiate()
-					print("Found Mod")
-					Global.mods.append(files[finm])
-					Global.unused_mods.append(files[finm])
-					Global.mod_datas[Global.lower(mod_data.mod)] = mod_data
-					Global.mod_folders[Global.lower(mod_data.mod)] = files[finm]
-					dmodslist.get_node("temp").hide()
-					mod_button.name=Global.lower(mod_data.mod)
-					mod_button.text = mod_data.mod
-					mod_button.pressed.connect(self.mod_pressed.bind(mod_button))
-					dmodslist.add_child(mod_button)
-					if mod_data.has("autoload"):
-						if mod_data.autoload:
-							mod_pressed(mod_button)
-				else:
-					print("Outdated Client")
-			else:
-				print("Broken Mod")
-		finm = finm + 1
-
-func mod_pressed(button):
-	var modslist:VBoxContainer = $mods/menu/panel/modslist
-	var dmodslist:VBoxContainer = $mods/menu/panel/dmodslist
-	print("Load Mod")
-	var mod_button = load("res://src/resources/ui/mod_button.tscn").instantiate()
-	var mod_name = button.name
-	Global.used_mods.append(button.name)
-	Global.unused_mods.erase(button.name)
-	mod_button.name=Global.lower(button.name)
-	mod_button.text =button.text
-	modslist.add_child(mod_button)
-	modslist.move_child(modslist.get_node("add_mod"), Global.used_mods.size())
-	button.hide()
-	button.queue_free()
-	print(dmodslist.get_child_count())
-	if dmodslist.get_child_count() == 2:
-		dmodslist.get_node("temp").show()
-	else:
-		dmodslist.get_node("temp").hide()
-	var mod_data = Global.mod_datas[Global.lower(mod_name)]
-	modslist.get_node(Global.lower(mod_data.mod)).pressed.connect(self.disable_mod.bind(mod_button))
-	if mod_data.has("full_game"):
-		if mod_data.full_game:
-			var file = File.new()
-			var mod_pck = Global.mods_folder + "/" + Global.mod_folders[Global.lower(mod_data.mod)] + "/" + mod_data.pck
-			print(mod_pck)
-			if ! file.file_exists(mod_pck):
-				mod_pck = Global.int_mods_folder + "/" + Global.mod_folders[Global.lower(mod_data.mod)] + "/" + mod_data.pck # Quick Fix
-			var mod_package = ProjectSettings.load_resource_pack(mod_pck)
-			if mod_package:
-				if file.file_exists(mod_data.scene):
-					var mod_inst = load(mod_data.scene).instantiate()
-					get_node("/root").call_deferred("add_child", mod_inst)
-				else:
-					print("Broken Mod Scenes")
-			else:
-				print("Broken Mod pck")
-	$anim.play_backwards("add_mods")
-
-func disable_mod(button):
-	var modslist:VBoxContainer = $mods/menu/panel/modslist
-	var dmodslist:VBoxContainer = $mods/menu/panel/dmodslist
-	print("Load Mod")
-	var mod_button = load("res://src/resources/ui/mod_button.tscn").instantiate()
-	var mod_name = button.name
-	Global.used_mods.append(button.name)
-	Global.unused_mods.erase(button.name)
-	mod_button.name=Global.lower(button.name)
-	mod_button.text=button.text
-	dmodslist.add_child(mod_button)
-	modslist.move_child(modslist.get_node("add_mod"), Global.used_mods.size())
-	button.hide()
-	button.queue_free()
-	print(modslist.get_child_count())
-	var mod_data = Global.mod_datas[Global.lower(mod_name)]
-	dmodslist.get_node(Global.lower(mod_data.mod)).pressed.connect(self.mod_pressed.bind(mod_button))
-	if mod_data.full_game:
-		var dir = Directory.new()
-		var mod_folder = "res://mods/" + Global.lower(mod_data.mod)
-		dir.remove(mod_folder)
 
 func _on_add_mod_pressed():
 	$anim.play("add_mods")
@@ -252,6 +123,8 @@ func _on_new_save_back_pressed():
 	$anim.play_backwards("new_game")
 
 func _on_single_pressed():
+	if Global.gamejolt:
+		Gamejolt.api().open_session()
 	if not Global.efficiency_mode:
 		get_tree().change_scene("res://src/world.tscn")
 	else:
@@ -325,7 +198,7 @@ func save_scanner():
 				$play/menu/panel/save_list.add_child(mod_button)
 				$play/menu/panel/save_list.move_child($play/menu/panel/save_list/new_save, $play/menu/panel/save_list.get_child_count())
 			else:
-				print("Corrupted Save")
+				print("SaveLoader: Corrupted Save")
 		finm = finm + 1
 
 func load_save(button):
@@ -341,3 +214,7 @@ func load_save(button):
 
 func _on_set_exit_pressed():
 	pass # Replace with function body.
+
+
+func _on_debug_pressed():
+	get_tree().change_scene("res://src/testing/debug_scenes.tscn")

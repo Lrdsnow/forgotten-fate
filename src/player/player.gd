@@ -5,6 +5,7 @@ var JUMP_VELOCITY = 4.5
 
 # Get the gravity from the project settings to be synced with RigidDynamicBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+var bars = false # tells if start anim for bars are finished
 
 var movement:Dictionary = {
 	"can_aim":true,
@@ -12,6 +13,12 @@ var movement:Dictionary = {
 	"aiming":false,
 	"croutching":false,
 	"runnin":false
+}
+
+var held_item:Dictionary = {
+	"name":Global.player_held_item,
+	"obj":Global.player_held_item_obj,
+	"type":Global.player_held_item
 }
 
 var interaction:Dictionary = {
@@ -30,6 +37,11 @@ func _ready():
 	$nametag.text = Global.player_name
 	Global.load_complete.connect(self._load)
 	get_node(self.get_meta("quest")).check_quest()
+	if Global.debug_ext:
+		$ui/cc/ui/pause/menu/vbox/debug.show()
+	else:
+		$ui/cc/ui/pause/menu/vbox/debug.hide()
+	$ui/cc/ui/pause.hide()
 
 func _load():
 	position = Global.pos
@@ -37,8 +49,10 @@ func _load():
 	#Global.update_item.connect(self.update_held())
 
 func _physics_process(delta):
+	#$ui/cc/ui/gui/info.text = "Self: "+str(rotation)+"\nCam: "+str($collision/neck/head/player_camera.rotation)+"\nHead: "+str($collision/neck/head.rotation)+"\nRot: "+str(rotation+$collision/neck.rotation+$collision/neck/head.rotation)
 	if Global.can_move and not Global.paused:
-		update_held()
+		if bars:
+			update_held()
 		check_look()
 		handle_stats()
 	if not is_on_floor():
@@ -65,10 +79,14 @@ func _physics_process(delta):
 			movement.aiming = false
 	if Input.is_action_pressed("shoot"): # This is stupid code :|
 		if Global.can_move:
-			if not movement.shooting:
+			if not movement.shooting and not Global.shooting:
 				if movement.aiming:
 					if Global.ammo_clip != 0:
 						movement.shooting=true
+						var plr_rot = Vector3($collision/neck/head.rotation.x, self.rotation.y, $collision/neck.rotation.z)
+						var plr_pos = $collision/neck/head/Marker3d.global_position
+						Global.player_held_item_obj.shoot(plr_rot, plr_pos)
+						call("shot_delay")
 						$anim.play("shoot+aim")
 						Global.ammo_clip = Global.ammo_clip - 1
 					else:
@@ -76,12 +94,17 @@ func _physics_process(delta):
 				else:
 					if Global.ammo_clip != 0:
 						movement.shooting=false
+						var plr_rot = Vector3($collision/neck/head.rotation.x, self.rotation.y, $collision/neck.rotation.z)
+						var plr_pos = $collision/neck/head/Marker3d.global_position
+						Global.player_held_item_obj.shoot(plr_rot, plr_pos)
+						call("shot_delay")
 						$anim.play("shoot")
 						Global.ammo_clip = Global.ammo_clip - 1
 					else:
 						$anim.play("no_ammo")
 	if Input.is_action_just_pressed("pause"):
 		if ! Global.paused:
+			$ui/cc/ui/pause.show()
 			$ui/cc/ui/gui/gui_anim.play("pause")
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			Global.paused=true
@@ -91,6 +114,7 @@ func _physics_process(delta):
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			Global.paused=false
 			Global.can_move=true
+			$ui/cc/ui/pause.hide()
 	if Input.is_action_pressed("runnin"):
 		if Global.stamina != 0:
 			movement.runnin = true
@@ -172,8 +196,8 @@ func refresh_info():
 func _input(event):
 	if Global.can_move:
 		if event is InputEventMouseMotion:
-			var left_right = deg2rad(event.relative.x * Global.mouse_sensitivity)
-			var up_down = deg2rad(event.relative.y * Global.mouse_sensitivity)
+			var left_right = deg_to_rad(event.relative.x * Global.mouse_sensitivity)
+			var up_down = deg_to_rad(event.relative.y * Global.mouse_sensitivity)
 		
 			$collision/neck/head.rotate_x(-up_down)
 			#neck.rotate_z(left_right)
@@ -181,11 +205,11 @@ func _input(event):
 			#if neck.rotation.z <= deg2rad(-75) or neck.rotation.z >= deg2rad(75):
 			self.rotate_y(-left_right)
 		
-			$collision/neck/head.rotation.x = clamp($collision/neck/head.rotation.x, deg2rad(-75), deg2rad(75))
-			$collision/neck.rotation.z = clamp($collision/neck.rotation.z, deg2rad(-75), deg2rad(75))
+			$collision/neck/head.rotation.x = clamp($collision/neck/head.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+			$collision/neck.rotation.z = clamp($collision/neck.rotation.z, deg_to_rad(-75), deg_to_rad(75))
 		elif event is InputEventJoypadMotion:
-			var left_right = deg2rad(Input.get_joy_axis(0, 2) * Global.mouse_sensitivity)
-			var up_down = deg2rad(Input.get_joy_axis(0, 3) * Global.mouse_sensitivity)
+			var left_right = deg_to_rad(Input.get_joy_axis(0, 2) * Global.mouse_sensitivity)
+			var up_down = deg_to_rad(Input.get_joy_axis(0, 3) * Global.mouse_sensitivity)
 		
 			$collision/neck/head.rotate_x(-up_down)
 			#neck.rotate_z(left_right)
@@ -193,8 +217,8 @@ func _input(event):
 			#if neck.rotation.z <= deg2rad(-75) or neck.rotation.z >= deg2rad(75):
 			self.rotate_y(-left_right)
 		
-			$collision/neck/head.rotation.x = clamp($collision/neck/head.rotation.x, deg2rad(-75), deg2rad(75))
-			$collision/neck.rotation.z = clamp($collision/neck.rotation.z, deg2rad(-75), deg2rad(75))
+			$collision/neck/head.rotation.x = clamp($collision/neck/head.rotation.x, deg_to_rad(-75), deg_to_rad(75))
+			$collision/neck.rotation.z = clamp($collision/neck.rotation.z, deg_to_rad(-75), deg_to_rad(75))
 
 func update_held():
 	var item = "collision/neck/head/items/" + Global.player_held_item
@@ -208,21 +232,32 @@ func update_held():
 			child.hide()
 	if item_obj != null:
 		item_obj.show()
+		Global.player_held_item_obj = item_obj
 		for child in item_obj.get_children():
 			child.show()
 		var gui_anim = get_node(get_meta("gui_anim"))
-		if item in Global.guns:
-			if og_item.name in Global.lights:
-				gui_anim.play_backwards("switch_power_ammo")
+		if Global.player_held_item in Global.guns:
+			if og_item != null:
+				if str(og_item.get_node("..").name) in Global.lights:
+					gui_anim.play_backwards("switch_power_ammo")
+				elif str(og_item.get_node("..").name) in Global.guns:
+					pass
+				else:
+					gui_anim.play("open_ammo")
 			else:
 				gui_anim.play("open_ammo")
-		elif item in Global.lights:
-			if og_item.name in Global.guns:
-				gui_anim.play("switch_power_ammo")
+		elif Global.player_held_item in Global.lights:
+			if og_item != null:
+				if str(og_item.get_node("..").name) in Global.guns:
+					gui_anim.play("switch_power_ammo")
+				elif str(og_item.get_node("..").name) in Global.lights:
+					pass
+				else:
+					gui_anim.play("open_power")
 			else:
 				gui_anim.play("open_power")
 	else:
-		pass
+		Global.player_held_item_obj = null
 
 func check_look():
 	var main_raycast = get_node("collision/neck/head/main_raycast")
@@ -298,7 +333,7 @@ func check_look():
 
 func _on_quit_pressed():
 	Global.save_game()
-	get_tree().quit()
+	Global.quit_game()
 
 
 func _on_save_pressed():
@@ -308,13 +343,37 @@ func _on_save_pressed():
 
 
 func _on_continue_pressed():
-	$ui/cc/ui/gui/gui_anim.play_backwards("pause")
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	Global.paused=false
-	Global.can_move=true
+	pass # Replaced by _on_resume_pressed()
 
 
 func _on_shootin_animation_finished(anim_name):
+	#print("PlayerAnimation: Finished "+str(anim_name))
 	if anim_name == "shoot" or anim_name == "shoot+aim":
 		movement.shooting = false
 
+
+
+func _on_resume_pressed():
+	if Global.paused:
+		$ui/cc/ui/gui/gui_anim.play_backwards("pause")
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		Global.paused=false
+		Global.can_move=true
+
+
+func _on_debug_pressed():
+	Global.emit_signal("debug")
+
+
+func _on_gui_anim_animation_finished(anim_name):
+	bars = true
+
+func shot_delay():
+	var t = Timer.new()
+	t.set_wait_time(0.1)
+	t.set_one_shot(true)
+	self.add_child(t)
+	Global.shooting = true
+	t.start()
+	await t.timeout
+	Global.shooting = false

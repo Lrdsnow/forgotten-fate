@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bg0jkca0koi6k"]
+
+[ext_resource type="Script" path="res://addons/gamejolt_api_v2/main.gd" id="1_1l3l4"]
+
+[node name="GameJoltAPI" type="HTTPRequest"]
+script = ExtResource("1_1l3l4")
+private_key = "70ee31704404f4e5bffc82bc67f4b8f5"
+game_id = "746451"

@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://csvq5wsftg33f"]
+
+[ext_resource type="Script" path="res://src/player/items/ak47/bullet.gd" id="1_wb8ib"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_10k3n"]
+radius = 0.005
+height = 0.01
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ax2k0"]
+points = PackedVector3Array(-0.000793526, -0.00507936, -0.00047532, 0.000793526, 0.00507936, 0.00047532, 0.00142795, 0.00492026, 0.000793526, -0.00269879, -0.000317212, 0.00444395, -0.00365042, 0.000951635, -0.00365042, 0.00507936, -0.000792532, -0.000633429, 0.00158705, 0.00047532, -0.00492026, 0.00285689, -0.00142795, 0.00412674, -0.00507936, 0.000792532, 0.000634423, 0.000793526, -0.00333321, -0.00396763, -0.00396763, -0.00333221, -0.000793526, -0.000793526, 0.00333221, 0.00396763, -0.00222148, 0.00444295, -0.00158705, 0.00396763, 0.00317311, 0.00126885, 0.00206237, 0.00333321, -0.00349132, 0.00222148, -0.00444395, 0.00158705, -0.00253968, -0.00333221, 0.00317411, -0.00349132, 0.00333221, 0.00206337, 0.00317411, -0.00333321, -0.00253968, -0.00174516, -0.00269779, -0.00412674, 0.00158705, 0.00190426, 0.00460305, 0.00428484, 0.000793526, -0.00285689, -0.00158705, 0.00190327, -0.00460305, 0.000634423, -0.00158705, 0.00492026, 0.00444395, -0.000316217, 0.00269779, 0.00396763, -0.00317411, 0.00126885, -0.00428484, -0.000792532, 0.00285689, 0.000634423, -0.00396763, 0.00333321, -0.00396763, 0.003015, -0.00158705, -0.00460206, -0.000792532, -0.00222148, 0.00396763, 0.00317311, -0.00126885, 0.00095263, 0.00444395, -0.00253968)
+
+[node name="RigidDynamicBody3D" type="RigidBody3D"]
+collision_layer = 2
+collision_mask = 2
+gravity_scale = 0.0
+can_sleep = false
+script = ExtResource("1_wb8ib")
+
+[node name="mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_10k3n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_ax2k0")
+
+[node name="Area3d" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3d"]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_ax2k0")
+
+[connection signal="body_entered" from="." to="." method="_on_rigid_dynamic_body_3d_body_entered"]
+[connection signal="body_entered" from="Area3d" to="." method="_on_area_3d_body_entered"]
