@@ -126,9 +126,9 @@ func _on_single_pressed():
 	if Global.gamejolt:
 		Gamejolt.api().open_session()
 	if not Global.efficiency_mode:
-		get_tree().change_scene("res://src/world.tscn")
+		get_tree().change_scene_to_file("res://src/world.tscn")
 	else:
-		get_tree().change_scene("res://src/extras/efficent_world.tscn")
+		get_tree().change_scene_to_file("res://src/extras/efficent_world.tscn")
 	if loaded_save == {}:
 		Global.player_name = $play/menu/panel/new_game/fillout/name.text
 		Global.difficulty = $play/menu/panel/new_game/fillout/difficulty.selected
@@ -153,18 +153,18 @@ func save_scanner():
 			dfnd = false
 		else:
 			dfn = dfn + 1
-	var dir = Directory.new()
-	while ! dir.dir_exists(docs + "/My Games/ForgottenFate/Saves"):
-		if dir.dir_exists(docs + "/My Games"):
-			if dir.dir_exists(docs + "/My Games/ForgottenFate"):
-				if dir.dir_exists(docs + "/My Games/ForgottenFate/Saves"):
+	var dir = DirAccess.open(docs)
+	while ! dir.dir_exists("My Games/ForgottenFate/Saves"):
+		if dir.dir_exists("My Games"):
+			if dir.dir_exists("My Games/ForgottenFate"):
+				if dir.dir_exists("My Games/ForgottenFate/Saves"):
 					pass
 				else:
-					dir.make_dir(docs + "/My Games/ForgottenFate/Saves")
+					dir.make_dir("My Games/ForgottenFate/Saves")
 			else:
-				dir.make_dir(docs + "/My Games/ForgottenFate")
+				dir.make_dir("My Games/ForgottenFate")
 		else:
-			dir.make_dir(docs + "/My Games")
+			dir.make_dir("My Games")
 	var folder = docs + "/My Games/ForgottenFate/Saves"
 	var modsfolder = folder
 	Global.saves_folder = modsfolder
@@ -182,11 +182,10 @@ func save_scanner():
 	var finm = 0
 	while finm != files.size():
 		if ".save" in files[finm] or ".json" in files[finm]:
-			var file = File.new()
 			var json = JSON.new()
 			var config = modsfolder + "/" + files[finm]
-			if file.file_exists(config):
-				file.open(config, File.READ)
+			if FileAccess.file_exists(config):
+				var file = FileAccess.open(config, FileAccess.READ)
 				@warning_ignore(unused_variable)
 				var data = json.parse(file.get_as_text())
 				var save_data = json.get_data()

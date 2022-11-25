@@ -271,9 +271,8 @@ func load_save(insave):
 signal save_complete
 func save_game():
 	save = resave()
-	var file = File.new()
 	var save_file = saves_folder + "/" + lower(save.player_name) + ".save"
-	file.open(save_file, File.WRITE)
+	var file = FileAccess.open(save_file, FileAccess.WRITE)
 	file.store_string(str(save))
 	self.call_deferred("emit_signal", "save_complete")
 
@@ -353,10 +352,9 @@ func GameChecker():
 	if skip_checks:
 		print("GameChecker: Ownership Checks Skipped")
 	elif release == "gamejolt":
-		var file = File.new()
 		var info = OS.get_executable_path().get_base_dir() + "/.gj-credentials"
-		if file.file_exists(info):
-			file.open(info, File.READ)
+		if FileAccess.file_exists(info):
+			var file = FileAccess.open(info, FileAccess.READ)
 			info = file.get_as_text()
 			info = info.split("\n")
 			gamejolt_info = Array(info)
@@ -367,10 +365,9 @@ func GameChecker():
 			print("GameChecker: Failed To Validate Game")
 	elif release == "trifate-studios":
 		# Checks For Mod Launcher Install Files
-		var file = File.new()
 		var info = OS.get_executable_path().get_base_dir() + "/.trifate-studios/receipt.json"
-		if file.file_exists(info):
-			file.open(info, File.READ)
+		if FileAccess.file_exists(info):
+			var file = FileAccess.open(info, FileAccess.READ)
 			info = file.get_as_text()
 			var json = JSON.new()
 			json.parse(info)
@@ -384,13 +381,12 @@ func GameChecker():
 	#	print("GameChecker: Failed To Validate Game! (Steam Verification Selected)")
 	else:
 		# Checks For Itch App Install Files
-		var file = File.new()
 		var info = OS.get_executable_path().get_base_dir() + "/.itch/receipt.json.gz"
-		if file.file_exists(info):
+		if FileAccess.file_exists(info):
 			OS.execute("gzip", ["-dk", info])
 			info = OS.get_executable_path().get_base_dir() + "/.itch/receipt.json"
-			if file.file_exists(info):
-				file.open(info, File.READ)
+			if FileAccess.file_exists(info):
+				var file = FileAccess.open(info, FileAccess.READ)
 				info = file.get_as_text()
 				var json = JSON.new()
 				json.parse(info)

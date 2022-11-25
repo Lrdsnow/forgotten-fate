@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/font.ttf-9d41173b3005ef570421a0073a968aba.fon
 [params]
 
 Rendering=null
-antialiased=true
+antialiasing=1
 generate_mipmaps=true
 multichannel_signed_distance_field=true
 msdf_pixel_range=8

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgqxgxi86nbg5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6c0oh"]
+
+[node name="muffin" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+
+[node name="StaticBody3d" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="StaticBody3d"]
+transform = Transform3D(3.76741, 0, 0, 0, 4.11176, 0, 0, 0, 3.73662, 0, 0, 0)
+mesh = SubResource("BoxMesh_6c0oh")

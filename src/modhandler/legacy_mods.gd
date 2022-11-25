@@ -11,7 +11,7 @@ func mod_scanner():
 			dfnd = false
 		else:
 			dfn = dfn + 1
-	var dir = Directory.new()
+	var dir = DirAccess.new()
 	while ! dir.dir_exists(docs + "/My Games/ForgottenFate/Mods"):
 		if dir.dir_exists(docs + "/My Games"):
 			if dir.dir_exists(docs + "/My Games/ForgottenFate"):
@@ -51,17 +51,16 @@ func mod_scanner():
 	var finm = 0
 	while finm != files.size():
 		if ".mod" in files[finm]:
-			var file = File.new()
 			var json = JSON.new()
 			var config = modsfolder + "/" + files[finm] + "/mod.config"
-			if ! file.file_exists(config):
+			if ! FileAccess.file_exists(config):
 				config = int_mods_folder + "/" + files[finm] + "/mod.config" # Quick Fix
-				if ! file.file_exists(config):
+				if ! FileAccess.file_exists(config):
 					config = modsfolder + "/" + files[finm] + "/mod.json"
-					if ! file.file_exists(config):
+					if ! FileAccess.file_exists(config):
 						config = int_mods_folder + "/" + files[finm] + "/mod.json"
-			if file.file_exists(config):
-				file.open(config, File.READ)
+			if FileAccess.file_exists(config):
+				var file = FileAccess.open(config, FileAccess.READ)
 				@warning_ignore(unused_variable)
 				var data = json.parse(file.get_as_text())
 				var mod_data = json.get_data()
@@ -138,13 +137,12 @@ func mod_pressed(button, autoload=false):
 	if mod_data.has("full_game"):
 		if mod_data.full_game:
 			Global.loaded_mods[mod_name] = mod_data
-			var file = File.new()
 			var mod_pck = Global.mods_folder + "/" + Global.mod_folders[Global.lower(mod_data.mod)] + "/" + mod_data.pck
-			if ! file.file_exists(mod_pck):
+			if ! FileAccess.file_exists(mod_pck):
 				mod_pck = Global.int_mods_folder + "/" + Global.mod_folders[Global.lower(mod_data.mod)] + "/" + mod_data.pck # Quick Fix
 			var mod_package = ProjectSettings.load_resource_pack(mod_pck)
 			if mod_package:
-				if file.file_exists(mod_data.scene):
+				if FileAccess.file_exists(mod_data.scene):
 					var mod_inst = load(mod_data.scene).instantiate()
 					get_node("/root").call_deferred("add_child", mod_inst)
 				else:
@@ -178,7 +176,7 @@ func disable_mod(button):
 	if dmodslist != null:
 		dmodslist.get_node(Global.lower(mod_data.mod)).pressed.connect(self.mod_pressed.bind(mod_button))
 	if mod_data.full_game:
-		var dir = Directory.new()
+		var dir = DirAccess.new()
 		var mod_folder = "res://mods/" + Global.lower(mod_data.mod)
 		dir.remove(mod_folder)
 
