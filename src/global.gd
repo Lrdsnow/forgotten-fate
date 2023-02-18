@@ -10,7 +10,7 @@ var sub_version = 4
 var save:Dictionary
 var checkpoint:Dictionary
 var ingame:bool = false
-var efficiency_mode:bool = false
+var efficiency_mode:bool = true
 var itch_info
 var trifate_info
 var gamejolt_info

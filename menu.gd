@@ -143,7 +143,6 @@ func _on_multi_pressed():
 
 func save_scanner():
 	var docs = ""
-	@warning_ignore(unused_variable)
 	var dmodslist:VBoxContainer = $mods/menu/panel/dmodslist
 	var dfn = 0
 	var dfnd = true
@@ -186,7 +185,6 @@ func save_scanner():
 			var config = modsfolder + "/" + files[finm]
 			if FileAccess.file_exists(config):
 				var file = FileAccess.open(config, FileAccess.READ)
-				@warning_ignore(unused_variable)
 				var data = json.parse(file.get_as_text())
 				var save_data = json.get_data()
 				var mod_button = load("res://src/resources/ui/mod_button.tscn").instantiate()

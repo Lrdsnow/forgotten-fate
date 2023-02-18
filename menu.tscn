@@ -7,10 +7,10 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5wwlt"]
 shader = ExtResource("2_yl6sf")
-shader_parameter/distort = 0.06
-shader_parameter/noise = 0.0
-shader_parameter/offset = 0.0
 shader_parameter/resolution = Vector2(64, 64)
+shader_parameter/noise = 0.0
+shader_parameter/distort = 0.06
+shader_parameter/offset = 0.0
 
 [sub_resource type="FontVariation" id="FontVariation_taryb"]
 base_font = ExtResource("3_8vm06")
@@ -806,77 +806,62 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="title" type="CenterContainer" parent="main"]
+layout_mode = 0
 offset_right = 2562.0
 offset_bottom = 620.0
 
 [node name="shad" type="TextureRect" parent="main/title"]
 material = SubResource("ShaderMaterial_5wwlt")
-custom_minimum_size = Vector2i(700, 600)
-offset_left = 931.0
-offset_top = 10.0
-offset_right = 1631.0
-offset_bottom = 610.0
+custom_minimum_size = Vector2(700, 600)
+layout_mode = 2
 texture = ExtResource("3_13kt2")
-ignore_texture_size = true
+expand_mode = 1
 
 [node name="buttons" type="CenterContainer" parent="main"]
+layout_mode = 0
 offset_top = 1.0
 offset_right = 2564.0
 offset_bottom = 1443.0
 
 [node name="vbox" type="VBoxContainer" parent="main/buttons"]
-offset_left = 1216.0
-offset_top = 651.0
-offset_right = 1348.0
-offset_bottom = 791.0
+layout_mode = 2
 
 [node name="play" type="Button" parent="main/buttons/vbox"]
-offset_right = 132.0
-offset_bottom = 44.0
+layout_mode = 2
 theme_override_fonts/font = SubResource("FontVariation_taryb")
 theme_override_font_sizes/font_size = 30
 text = "Play"
 
 [node name="set" type="Button" parent="main/buttons/vbox"]
 visible = false
-offset_top = 48.0
-offset_right = 132.0
-offset_bottom = 92.0
+layout_mode = 2
 theme_override_fonts/font = SubResource("FontVariation_taryb")
 theme_override_font_sizes/font_size = 30
 text = "Settings"
 
 [node name="mods" type="Button" parent="main/buttons/vbox"]
-offset_top = 48.0
-offset_right = 132.0
-offset_bottom = 92.0
+layout_mode = 2
 theme_override_fonts/font = SubResource("FontVariation_taryb")
 theme_override_font_sizes/font_size = 30
 text = "   Mods    "
 
 [node name="debug" type="Button" parent="main/buttons/vbox"]
 visible = false
-offset_top = 96.0
-offset_right = 144.0
-offset_bottom = 140.0
+layout_mode = 2
 theme_override_fonts/font = SubResource("FontVariation_taryb")
 theme_override_font_sizes/font_size = 30
 text = "   Debug    "
 
 [node name="settings" type="Button" parent="main/buttons/vbox"]
 visible = false
-offset_top = 96.0
-offset_right = 153.0
-offset_bottom = 140.0
+layout_mode = 2
 theme_override_fonts/font = SubResource("FontVariation_taryb")
 theme_override_font_sizes/font_size = 30
 text = "Settings
 "
 
 [node name="exit" type="Button" parent="main/buttons/vbox"]
-offset_top = 96.0
-offset_right = 132.0
-offset_bottom = 140.0
+layout_mode = 2
 theme_override_fonts/font = SubResource("FontVariation_taryb")
 theme_override_font_sizes/font_size = 30
 text = "Exit"
@@ -891,17 +876,16 @@ offset_right = 40.0
 offset_bottom = 1090.0
 
 [node name="menu" type="CenterContainer" parent="mods"]
+layout_mode = 0
 offset_right = 2566.0
 offset_bottom = 1447.0
 
 [node name="panel" type="Panel" parent="mods/menu"]
-custom_minimum_size = Vector2i(844, 660)
-offset_left = 861.0
-offset_top = 393.0
-offset_right = 1705.0
-offset_bottom = 1053.0
+custom_minimum_size = Vector2(844, 660)
+layout_mode = 2
 
 [node name="title" type="Label" parent="mods/menu/panel"]
+layout_mode = 0
 offset_right = 841.0
 offset_bottom = 70.0
 theme_override_fonts/font = SubResource("FontVariation_taryb")
@@ -911,33 +895,34 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="modslist" type="VBoxContainer" parent="mods/menu/panel"]
+layout_mode = 0
 offset_top = 77.0
 offset_right = 844.0
 offset_bottom = 657.0
 
 [node name="add_mod" type="Button" parent="mods/menu/panel/modslist"]
-offset_right = 844.0
-offset_bottom = 44.0
+layout_mode = 2
 theme_override_fonts/font = SubResource("FontVariation_taryb")
 theme_override_font_sizes/font_size = 30
 text = "+"
 
 [node name="dmodslist" type="VBoxContainer" parent="mods/menu/panel"]
 modulate = Color(1, 1, 1, 0)
+layout_mode = 0
 offset_left = 844.0
 offset_top = 77.0
 offset_right = 1688.0
 offset_bottom = 657.0
 
 [node name="temp" type="Button" parent="mods/menu/panel/dmodslist"]
-offset_right = 844.0
-offset_bottom = 44.0
+layout_mode = 2
 theme_override_fonts/font = SubResource("FontVariation_31tsf")
 theme_override_font_sizes/font_size = 30
 disabled = true
 text = "No Mods Found"
 
 [node name="mods_exit" type="Button" parent="mods/menu/panel"]
+layout_mode = 0
 offset_left = 810.0
 offset_right = 844.0
 offset_bottom = 36.0
@@ -946,6 +931,7 @@ text = "X"
 
 [node name="add_mods_back" type="Button" parent="mods/menu/panel"]
 modulate = Color(1, 1, 1, 0)
+layout_mode = 0
 offset_right = 34.0
 offset_bottom = 36.0
 theme_override_font_sizes/font_size = 20
@@ -961,17 +947,16 @@ offset_right = 40.0
 offset_bottom = 1090.0
 
 [node name="menu" type="CenterContainer" parent="settings"]
+layout_mode = 0
 offset_right = 2566.0
 offset_bottom = 1447.0
 
 [node name="panel" type="Panel" parent="settings/menu"]
-custom_minimum_size = Vector2i(844, 660)
-offset_left = 861.0
-offset_top = 393.0
-offset_right = 1705.0
-offset_bottom = 1053.0
+custom_minimum_size = Vector2(844, 660)
+layout_mode = 2
 
 [node name="title" type="Label" parent="settings/menu/panel"]
+layout_mode = 0
 offset_right = 841.0
 offset_bottom = 70.0
 theme_override_fonts/font = SubResource("FontVariation_taryb")
@@ -981,33 +966,34 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="modslist" type="VBoxContainer" parent="settings/menu/panel"]
+layout_mode = 0
 offset_top = 77.0
 offset_right = 844.0
 offset_bottom = 657.0
 
 [node name="add_mod" type="Button" parent="settings/menu/panel/modslist"]
-offset_right = 844.0
-offset_bottom = 44.0
+layout_mode = 2
 theme_override_fonts/font = SubResource("FontVariation_taryb")
 theme_override_font_sizes/font_size = 30
 text = "+"
 
 [node name="dmodslist" type="VBoxContainer" parent="settings/menu/panel"]
 modulate = Color(1, 1, 1, 0)
+layout_mode = 0
 offset_left = 844.0
 offset_top = 77.0
 offset_right = 1688.0
 offset_bottom = 657.0
 
 [node name="temp" type="Button" parent="settings/menu/panel/dmodslist"]
-offset_right = 844.0
-offset_bottom = 44.0
+layout_mode = 2
 theme_override_fonts/font = SubResource("FontVariation_31tsf")
 theme_override_font_sizes/font_size = 30
 disabled = true
 text = "No Mods Found"
 
 [node name="mods_exit" type="Button" parent="settings/menu/panel"]
+layout_mode = 0
 offset_left = 810.0
 offset_right = 844.0
 offset_bottom = 36.0
@@ -1016,6 +1002,7 @@ text = "X"
 
 [node name="add_mods_back" type="Button" parent="settings/menu/panel"]
 modulate = Color(1, 1, 1, 0)
+layout_mode = 0
 offset_right = 34.0
 offset_bottom = 36.0
 theme_override_font_sizes/font_size = 20
@@ -1031,17 +1018,16 @@ offset_right = 40.0
 offset_bottom = 1090.0
 
 [node name="menu" type="CenterContainer" parent="play"]
+layout_mode = 0
 offset_right = 2566.0
 offset_bottom = 1447.0
 
 [node name="panel" type="Panel" parent="play/menu"]
-custom_minimum_size = Vector2i(844, 660)
-offset_left = 861.0
-offset_top = 393.0
-offset_right = 1705.0
-offset_bottom = 1053.0
+custom_minimum_size = Vector2(844, 660)
+layout_mode = 2
 
 [node name="title" type="Label" parent="play/menu/panel"]
+layout_mode = 0
 offset_right = 839.0
 offset_bottom = 70.0
 theme_override_fonts/font = SubResource("FontVariation_taryb")
@@ -1051,13 +1037,13 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="save_list" type="VBoxContainer" parent="play/menu/panel"]
+layout_mode = 0
 offset_top = 81.0
 offset_right = 844.0
 offset_bottom = 655.003
 
 [node name="new_save" type="Button" parent="play/menu/panel/save_list"]
-offset_right = 844.0
-offset_bottom = 44.0
+layout_mode = 2
 theme_override_fonts/font = SubResource("FontVariation_31tsf")
 theme_override_font_sizes/font_size = 30
 text = "New Game
@@ -1080,6 +1066,7 @@ offset_right = 643.0
 offset_bottom = 43.0
 
 [node name="name_label" type="Label" parent="play/menu/panel/new_game/fillout"]
+layout_mode = 0
 offset_left = 277.0
 offset_top = 63.0
 offset_right = 839.0
@@ -1088,6 +1075,7 @@ text = "Name:"
 vertical_alignment = 1
 
 [node name="name" type="LineEdit" parent="play/menu/panel/new_game/fillout"]
+layout_mode = 0
 offset_left = 274.0
 offset_top = 94.0
 offset_right = 440.0
@@ -1095,6 +1083,7 @@ offset_bottom = 125.0
 text = "Jack Campbell"
 
 [node name="difficulty_label" type="Label" parent="play/menu/panel/new_game/fillout"]
+layout_mode = 0
 offset_left = 276.0
 offset_top = 127.0
 offset_right = 839.0
@@ -1103,6 +1092,7 @@ text = "Difficulty:"
 vertical_alignment = 1
 
 [node name="difficulty" type="OptionButton" parent="play/menu/panel/new_game/fillout"]
+layout_mode = 0
 offset_left = 274.0
 offset_top = 157.0
 offset_right = 439.0
@@ -1116,40 +1106,38 @@ popup/item_2/text = "The Devils Nightmare (Hard)"
 popup/item_2/id = 2
 
 [node name="mods" type="VBoxContainer" parent="play/menu/panel/new_game/fillout"]
+layout_mode = 0
 offset_left = 276.0
 offset_top = 195.0
 offset_right = 839.0
 offset_bottom = 235.0
 
 [node name="label" type="Label" parent="play/menu/panel/new_game/fillout/mods"]
-offset_right = 563.0
-offset_bottom = 26.0
+layout_mode = 2
 text = "Mod Values:"
 vertical_alignment = 1
 
 [node name="warn" type="Label" parent="play/menu/panel/new_game/fillout/mods"]
 visible = false
-offset_top = 30.0
-offset_right = 563.0
-offset_bottom = 50.0
+layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Warning! Save Altering Mod Enabled!"
 vertical_alignment = 1
 
 [node name="CheckBox" type="CheckBox" parent="play/menu/panel/new_game/fillout/mods"]
-offset_top = 30.0
-offset_right = 563.0
-offset_bottom = 61.0
+layout_mode = 2
 text = "Guns"
 
 [node name="skins" type="Panel" parent="play/menu/panel/new_game"]
 modulate = Color(1, 1, 1, 0)
+layout_mode = 0
 offset_left = 30.0
 offset_top = 76.0
 offset_right = 261.0
 offset_bottom = 596.0
 
 [node name="Label" type="Label" parent="play/menu/panel/new_game/skins"]
+layout_mode = 0
 offset_right = 229.0
 offset_bottom = 521.0
 text = "Skins Coming Soon"
@@ -1165,6 +1153,7 @@ offset_right = 40.0
 offset_bottom = 94.0
 
 [node name="single" type="Button" parent="play/menu/panel/new_game/player"]
+layout_mode = 0
 offset_left = 7.0
 offset_top = 618.0
 offset_right = 417.0
@@ -1172,6 +1161,7 @@ offset_bottom = 654.0
 text = "Singleplayer"
 
 [node name="multi" type="Button" parent="play/menu/panel/new_game/player"]
+layout_mode = 0
 offset_left = 427.0
 offset_top = 618.0
 offset_right = 837.0
@@ -1180,12 +1170,14 @@ disabled = true
 text = "Multiplayer"
 
 [node name="new_save_back" type="Button" parent="play/menu/panel"]
+layout_mode = 0
 offset_right = 34.0
 offset_bottom = 36.0
 theme_override_font_sizes/font_size = 20
 text = "<"
 
 [node name="play_exit" type="Button" parent="play/menu/panel"]
+layout_mode = 0
 offset_left = 810.0
 offset_right = 844.0
 offset_bottom = 36.0

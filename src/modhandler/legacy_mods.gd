@@ -11,7 +11,7 @@ func mod_scanner():
 			dfnd = false
 		else:
 			dfn = dfn + 1
-	var dir = DirAccess.new()
+	var dir = DirAccess.open(docs)
 	while ! dir.dir_exists(docs + "/My Games/ForgottenFate/Mods"):
 		if dir.dir_exists(docs + "/My Games"):
 			if dir.dir_exists(docs + "/My Games/ForgottenFate"):
@@ -61,7 +61,6 @@ func mod_scanner():
 						config = int_mods_folder + "/" + files[finm] + "/mod.json"
 			if FileAccess.file_exists(config):
 				var file = FileAccess.open(config, FileAccess.READ)
-				@warning_ignore(unused_variable)
 				var data = json.parse(file.get_as_text())
 				var mod_data = json.get_data()
 				var outdated = false
@@ -176,8 +175,8 @@ func disable_mod(button):
 	if dmodslist != null:
 		dmodslist.get_node(Global.lower(mod_data.mod)).pressed.connect(self.mod_pressed.bind(mod_button))
 	if mod_data.full_game:
-		var dir = DirAccess.new()
 		var mod_folder = "res://mods/" + Global.lower(mod_data.mod)
+		var dir = DirAccess.open(mod_folder)
 		dir.remove(mod_folder)
 
 func load_mod(files, finm, mod_data, dmodslist):
