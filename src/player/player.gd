@@ -36,6 +36,7 @@ func _ready():
 	update_held()
 	$nametag.text = Global.player_name
 	Global.load_complete.connect(self._load)
+	Global.debuglog.connect(self.debug_log)
 	get_node(self.get_meta("quest")).check_quest()
 	if Global.debug_ext:
 		$ui/cc/ui/pause/menu/vbox/debug.show()
@@ -377,3 +378,11 @@ func shot_delay():
 	t.start()
 	await t.timeout
 	Global.shooting = false
+
+func debug_log(log):
+	var fulllog = Array($ui/debuglog.text.split("\n"))
+	if not len(fulllog) >= 50:
+		$ui/debuglog.text = $ui/debuglog.text + "\n" + log
+	else:
+		fulllog.remove_at(0)
+		$ui/debuglog.text = "\n".join(PackedStringArray(fulllog)) + "\n" + log

@@ -36,3 +36,7 @@ func resize():
 	$"..".size.y = get_viewport().size.y
 	$"gui/cc/cross/int-text".size.x = get_viewport().size.x
 	$"gui/cc/cross/int-text".position.x = int(get_viewport().size.x - get_viewport().size.x*2) / 2 + 10
+
+
+func _on_settings_pressed():
+	pass # Replace with function body.

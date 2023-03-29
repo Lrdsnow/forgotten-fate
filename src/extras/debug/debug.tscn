@@ -1,0 +1,192 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvtm2y4q5kpn4"]
+
+[ext_resource type="Script" path="res://src/extras/debug/debug.gd" id="1_5bevm"]
+
+[sub_resource type="Animation" id="Animation_oniow"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("debug_layer/debug_panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-415, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_a4c61"]
+resource_name = "open"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("debug_layer/debug_panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-415, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q66n7"]
+_data = {
+"RESET": SubResource("Animation_oniow"),
+"open": SubResource("Animation_a4c61")
+}
+
+[node name="debug" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="debug_layer" type="CanvasLayer" parent="."]
+layer = 50
+script = ExtResource("1_5bevm")
+
+[node name="debug_panel" type="Panel" parent="debug_layer"]
+offset_left = -415.0
+offset_bottom = 1439.0
+
+[node name="inmenu" type="VBoxContainer" parent="debug_layer/debug_panel"]
+layout_mode = 0
+offset_left = 24.0
+offset_right = 397.0
+offset_bottom = 1442.0
+alignment = 1
+
+[node name="bools" type="Label" parent="debug_layer/debug_panel/inmenu"]
+layout_mode = 2
+text = "Bools:"
+horizontal_alignment = 1
+
+[node name="truefate" type="CheckBox" parent="debug_layer/debug_panel/inmenu"]
+layout_mode = 2
+text = "True Fate Difficulty"
+alignment = 1
+icon_alignment = 1
+expand_icon = true
+
+[node name="debugui" type="CheckBox" parent="debug_layer/debug_panel/inmenu"]
+layout_mode = 2
+text = "Debug UI"
+alignment = 1
+icon_alignment = 1
+expand_icon = true
+
+[node name="efficent" type="CheckBox" parent="debug_layer/debug_panel/inmenu"]
+layout_mode = 2
+text = "Efficency Mode"
+alignment = 1
+icon_alignment = 1
+expand_icon = true
+
+[node name="tests" type="Label" parent="debug_layer/debug_panel/inmenu"]
+layout_mode = 2
+text = "Tests:"
+horizontal_alignment = 1
+
+[node name="fpstest" type="Button" parent="debug_layer/debug_panel/inmenu"]
+layout_mode = 2
+text = "fpstest0"
+
+[node name="ingame" type="VBoxContainer" parent="debug_layer/debug_panel"]
+visible = false
+layout_mode = 0
+offset_left = 24.0
+offset_right = 397.0
+offset_bottom = 1442.0
+alignment = 1
+
+[node name="items" type="Label" parent="debug_layer/debug_panel/ingame"]
+layout_mode = 2
+text = "Held Item:"
+horizontal_alignment = 1
+
+[node name="items_opt" type="OptionButton" parent="debug_layer/debug_panel/ingame"]
+layout_mode = 2
+alignment = 1
+
+[node name="ammo" type="Label" parent="debug_layer/debug_panel/ingame"]
+layout_mode = 2
+text = "Ammo:"
+horizontal_alignment = 1
+
+[node name="ammo_in" type="SpinBox" parent="debug_layer/debug_panel/ingame"]
+layout_mode = 2
+alignment = 1
+
+[node name="health" type="Label" parent="debug_layer/debug_panel/ingame"]
+layout_mode = 2
+text = "Health:"
+horizontal_alignment = 1
+
+[node name="health_slider" type="HSlider" parent="debug_layer/debug_panel/ingame"]
+layout_mode = 2
+value = 100.0
+rounded = true
+
+[node name="stam" type="Label" parent="debug_layer/debug_panel/ingame"]
+layout_mode = 2
+text = "Stamina:"
+horizontal_alignment = 1
+
+[node name="stam_slider" type="HSlider" parent="debug_layer/debug_panel/ingame"]
+layout_mode = 2
+value = 100.0
+rounded = true
+
+[node name="pwr" type="Label" parent="debug_layer/debug_panel/ingame"]
+layout_mode = 2
+text = "Power:"
+horizontal_alignment = 1
+
+[node name="pwr_slider" type="HSlider" parent="debug_layer/debug_panel/ingame"]
+layout_mode = 2
+value = 100.0
+rounded = true
+
+[node name="fov" type="Label" parent="debug_layer/debug_panel/ingame"]
+layout_mode = 2
+text = "FOV:"
+horizontal_alignment = 1
+
+[node name="fov_slider" type="HSlider" parent="debug_layer/debug_panel/ingame"]
+layout_mode = 2
+max_value = 200.0
+value = 55.0
+rounded = true
+
+[node name="br" type="Label" parent="debug_layer/debug_panel/ingame"]
+layout_mode = 2
+text = "Brightness:"
+horizontal_alignment = 1
+
+[node name="br_slider" type="HSlider" parent="debug_layer/debug_panel/ingame"]
+layout_mode = 2
+max_value = 8.0
+
+[node name="anim" type="AnimationPlayer" parent="debug_layer"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_q66n7")
+}
+
+[connection signal="toggled" from="debug_layer/debug_panel/inmenu/debugui" to="debug_layer" method="_on_debugui_toggled"]
+[connection signal="toggled" from="debug_layer/debug_panel/inmenu/efficent" to="debug_layer" method="_on_efficent_toggled"]
+[connection signal="pressed" from="debug_layer/debug_panel/inmenu/fpstest" to="debug_layer" method="_on_fpstest_pressed"]
+[connection signal="pressed" from="debug_layer/debug_panel/ingame/items_opt" to="debug_layer" method="_on_items_opt_pressed"]
+[connection signal="value_changed" from="debug_layer/debug_panel/ingame/ammo_in" to="debug_layer" method="_on_ammo_in_value_changed"]
+[connection signal="value_changed" from="debug_layer/debug_panel/ingame/health_slider" to="debug_layer" method="_on_health_slider_value_changed"]
+[connection signal="value_changed" from="debug_layer/debug_panel/ingame/stam_slider" to="debug_layer" method="_on_stam_slider_value_changed"]
+[connection signal="value_changed" from="debug_layer/debug_panel/ingame/pwr_slider" to="debug_layer" method="_on_pwr_slider_value_changed"]
+[connection signal="value_changed" from="debug_layer/debug_panel/ingame/fov_slider" to="debug_layer" method="_on_fov_slider_value_changed"]
+[connection signal="value_changed" from="debug_layer/debug_panel/ingame/br_slider" to="debug_layer" method="_on_br_slider_value_changed"]

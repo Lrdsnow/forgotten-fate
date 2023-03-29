@@ -1,33 +1,12 @@
 extends Node
 
 func mod_scanner():
-	var docs = ""
 	var dmodslist:VBoxContainer = get_node_or_null("/root/menu/mods/menu/panel/dmodslist")
-	var dfn = 0
-	var dfnd = true
-	while dfnd:
-		if "Documents" in OS.get_system_dir(dfn):
-			docs = OS.get_system_dir(dfn)
-			dfnd = false
-		else:
-			dfn = dfn + 1
-	var dir = DirAccess.open(docs)
-	while ! dir.dir_exists("My Games/ForgottenFate/Mods"):
-		if dir.dir_exists("My Games"):
-			if dir.dir_exists("My Games/ForgottenFate"):
-				if dir.dir_exists("My Games/ForgottenFate/Mods"):
-					pass
-				else:
-					dir.make_dir("My Games/ForgottenFate/Mods")
-			else:
-				dir.make_dir("My Games/ForgottenFate")
-		else:
-			dir.make_dir("My Games")
-	var folder = docs + "/My Games/ForgottenFate/Mods"
+	var folder = Global.get_home() + "/Mods"
 	var modsfolder = folder
 	Global.mods_folder = folder
 	var files = []
-	dir.open(folder)
+	var dir = DirAccess.open(folder)
 	dir.list_dir_begin()
 	while true:
 		var file = dir.get_next()
@@ -68,13 +47,9 @@ func mod_scanner():
 				if mod_data.has("min_ver"):
 					if mod_data.min_ver > Global.version:
 						outdated=true
-					elif mod_data.min_ver < Global.version:
-						legacy=true
 					elif mod_data.has("min_sub_ver"):
 						if mod_data.min_sub_ver > Global.sub_version:
 							outdated=true
-						elif mod_data.min_sub_ver < Global.sub_version:
-							legacy=true
 				if not outdated:
 					var mod_button = load("res://src/resources/ui/mod_button.tscn").instantiate()
 					Global.mods.append(files[finm])
@@ -99,8 +74,6 @@ func mod_scanner():
 				else:
 					if outdated:
 						print('ModLoader: Outdated Client For Mod "'+str(files[finm])+'"')
-					#elif legacy:
-					#	LegacyMods.load_mod(files, finm, mod_data, dmodslist)
 					else:
 						print('ModLoader: Something Went Wrong For Mod "'+str(files[finm])+'"')
 			else:
@@ -141,7 +114,7 @@ func mod_pressed(button, autoload=false):
 				mod_pck = Global.int_mods_folder + "/" + Global.mod_folders[Global.lower(mod_data.mod)] + "/" + mod_data.pck # Quick Fix
 			var mod_package = ProjectSettings.load_resource_pack(mod_pck)
 			if mod_package:
-				if FileAccess.file_exists(mod_data.scene):
+				if ResourceLoader.exists(mod_data.scene):
 					var mod_inst = load(mod_data.scene).instantiate()
 					get_node("/root").call_deferred("add_child", mod_inst)
 				else:

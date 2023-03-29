@@ -27,6 +27,7 @@ uniform float vertical_scan_lines_amount : hint_range(0.0, 320.0, 0.1) = 320.0;
 uniform float vertical_scan_lines_opacity : hint_range(0.0, 1.0, 0.01) = 1.0;
 uniform float boost : hint_range(1.0, 2.0, 0.01) = 1.2;
 uniform float aberration_amount : hint_range(0.0, 10.0, 0.01) = 0.0;
+uniform sampler2D SCREEN_TEXTURE : hint_screen_texture;
 
 vec2 uv_curve(vec2 uv) {
 	if (show_curvature) {

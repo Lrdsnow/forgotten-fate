@@ -2,27 +2,28 @@ extends Node
 
 func _ready():
 	get_tree().set_auto_accept_quit(false)
+	debugstart.connect(debug_setup)
+	emit_signal("debugstart")
 	#TGlobal.set_main()
 
 # Base:
 var version = 0.3
-var sub_version = 4
+var sub_version = 6
 var save:Dictionary
 var checkpoint:Dictionary
 var ingame:bool = false
-var efficiency_mode:bool = true
+var efficiency_mode:bool = false
+var overlays:bool = true
 var itch_info
 var trifate_info
-var gamejolt_info
 var release = "itch"
 var skip_checks = false
 var cinematic_mode = false
-var gamejolt = false
+var home = ""
 
 # Game:
 var difficulty:int = 0
 var player_name:String = "Jack Campbell"
-var skin:MeshInstance3D = null
 var mod_env_override = false
 var env
 
@@ -34,6 +35,7 @@ var doors_lock_status:Dictionary = {}
 
 # Player:
 signal interact
+signal debuglog
 var interact_obj:Array = []
 var player_held_item:String = "N/A"
 var player_held_item_obj = null
@@ -56,8 +58,19 @@ var joystick_sensitivity:int = 1
 
 # Debug:
 signal debug
-var debug_mode = OS.is_debug_build()
+signal debugstart
+signal update_graphics
+var debug_mode = false
 var debug_ext = false
+var debug_ui = false
+
+func debug_setup():
+	debug_mode = true
+	var debug_scene = load("res://src/extras/debug/debug.tscn").instantiate()
+	get_node("/root").add_child.call_deferred(debug_scene)
+
+func logger(logg):
+	debuglog.emit(logg)
 
 # Quests:
 signal update_quest_info
@@ -149,9 +162,6 @@ var items = {
 	}
 }
 
-# Menu:
-var buttons:Array = ["play", "mods", "exit"] # Whats the point in this?
-
 # Mods:
 var mods_folder:String = ""
 var int_mods_folder:String = ""
@@ -181,9 +191,7 @@ func save_checkpoint():
 		"ry":get_node("/root/World/Player").rotation.y,
 		"rz":get_node("/root/World/Player").rotation.z,
 		"difficulty":difficulty,
-		"efficiency_mode":efficiency_mode,
 		"player_name":player_name,
-		"skin":skin,
 		"interact_obj":interact_obj,
 		"player_held_item":player_held_item,
 		"power":power,
@@ -212,9 +220,7 @@ func resave():
 		"ry":rot.y,
 		"rz":rot.z,
 		"difficulty":difficulty,
-		"efficiency_mode":efficiency_mode,
 		"player_name":player_name,
-		"skin":skin,
 		"interact_obj":interact_obj,
 		"player_held_item":player_held_item,
 		"power":power,
@@ -302,10 +308,7 @@ var anims = {
 
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
-		if gamejolt:
-			Gamejolt.api().close_session()
-		else:
-			get_tree().quit()
+		get_tree().quit()
 
 # Lazy Commands:
 
@@ -319,15 +322,9 @@ func endgame():
 func quit_game(why=""):
 	if why == "quest":
 		if ! debug_mode:
-			if gamejolt:
-				Gamejolt.api().close_session()
-			else:
-				get_tree().quit()
-	else:
-		if gamejolt:
-			Gamejolt.api().close_session()
-		else:
 			get_tree().quit()
+	else:
+		get_tree().quit()
 
 func current_quest() -> Dictionary:
 	var subquest = {}
@@ -351,18 +348,6 @@ func get_player() -> CharacterBody3D:
 func GameChecker():
 	if skip_checks:
 		print("GameChecker: Ownership Checks Skipped")
-	elif release == "gamejolt":
-		var info = OS.get_executable_path().get_base_dir() + "/.gj-credentials"
-		if FileAccess.file_exists(info):
-			var file = FileAccess.open(info, FileAccess.READ)
-			info = file.get_as_text()
-			info = info.split("\n")
-			gamejolt_info = Array(info)
-			print("GameChecker: Game Validated, "+gamejolt_info[1]+" ("+gamejolt_info[2]+")")
-			gamejolt=true
-			Gamejolt.load_api()
-		else:
-			print("GameChecker: Failed To Validate Game")
 	elif release == "trifate-studios":
 		# Checks For Mod Launcher Install Files
 		var info = OS.get_executable_path().get_base_dir() + "/.trifate-studios/receipt.json"
@@ -399,3 +384,35 @@ func GameChecker():
 				print("GameChecker: Failed To Validate Game! (Error Reading File)")
 		else:
 			print("GameChecker: Failed To Validate Game! (Error Getting File)")
+
+# Files:
+
+func get_home():
+	if home == "":
+		var docs = ""
+		var dfn = 0
+		var dfnd = true
+		while dfnd:
+			if "Documents" in OS.get_system_dir(dfn):
+				docs = OS.get_system_dir(dfn)
+				dfnd = false
+			else:
+				dfn = dfn + 1
+		var dir = DirAccess.open(docs)
+		while ! dir.dir_exists("My Games/ForgottenFate/Saves"):
+			if dir.dir_exists("My Games"):
+				if dir.dir_exists("My Games/ForgottenFate"):
+					if dir.dir_exists("My Games/ForgottenFate/Saves"):
+						pass
+					else:
+						dir.make_dir("My Games/ForgottenFate/Saves")
+					if dir.dir_exists("My Games/ForgottenFate/Mods"):
+						pass
+					else:
+						dir.make_dir("My Games/ForgottenFate/Mods")
+				else:
+					dir.make_dir("My Games/ForgottenFate")
+			else:
+				dir.make_dir("My Games")
+		home = docs + "/My Games/ForgottenFate"
+	return home

@@ -32,9 +32,11 @@ func shoot(rot, pos):
 func end_bullet(type, body=null):
 	if type == "timeout":
 		print("Bullet: No Hit")
+		Global.debuglog.emit("Bullet: No Hit")
 		queue_free()
 	elif type == "hit":
 		print("Bullet: Hit "+str(body))
+		Global.debuglog.emit("Bullet: Hit "+str(body))
 		if body.has_method("shot"):
 			body.shot(damage)
 		queue_free()
