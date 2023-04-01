@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://6scpjw1s572n"
 path.s3tc="res://.godot/imported/Stylized_29_ConcreteTiles02_height.jpg-d86e287760e2f8ee26915279de070bf9.s3tc.ctex"
+path.etc2="res://.godot/imported/Stylized_29_ConcreteTiles02_height.jpg-d86e287760e2f8ee26915279de070bf9.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://src/resources/textures/Stylized_29_ConcreteTiles02/Stylized_29_ConcreteTiles02_height.jpg"
-dest_files=["res://.godot/imported/Stylized_29_ConcreteTiles02_height.jpg-d86e287760e2f8ee26915279de070bf9.s3tc.ctex"]
+dest_files=["res://.godot/imported/Stylized_29_ConcreteTiles02_height.jpg-d86e287760e2f8ee26915279de070bf9.s3tc.ctex", "res://.godot/imported/Stylized_29_ConcreteTiles02_height.jpg-d86e287760e2f8ee26915279de070bf9.etc2.ctex"]
 
 [params]
 

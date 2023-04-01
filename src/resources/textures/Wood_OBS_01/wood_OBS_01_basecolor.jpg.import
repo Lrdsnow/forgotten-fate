@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dt2ltogtssj5k"
 path.s3tc="res://.godot/imported/wood_OBS_01_basecolor.jpg-b147a0fba93ed8b63dea26883b69498d.s3tc.ctex"
+path.etc2="res://.godot/imported/wood_OBS_01_basecolor.jpg-b147a0fba93ed8b63dea26883b69498d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://src/resources/textures/Wood_OBS_01/wood_OBS_01_basecolor.jpg"
-dest_files=["res://.godot/imported/wood_OBS_01_basecolor.jpg-b147a0fba93ed8b63dea26883b69498d.s3tc.ctex"]
+dest_files=["res://.godot/imported/wood_OBS_01_basecolor.jpg-b147a0fba93ed8b63dea26883b69498d.s3tc.ctex", "res://.godot/imported/wood_OBS_01_basecolor.jpg-b147a0fba93ed8b63dea26883b69498d.etc2.ctex"]
 
 [params]
 

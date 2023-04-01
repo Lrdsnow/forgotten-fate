@@ -66,8 +66,9 @@ var debug_ui = false
 
 func debug_setup():
 	debug_mode = true
-	var debug_scene = load("res://src/extras/debug/debug.tscn").instantiate()
-	get_node("/root").add_child.call_deferred(debug_scene)
+	if get_node_or_null("/root/debug") == null:
+		var debug_scene = load("res://src/extras/debug/debug.tscn").instantiate()
+		get_node("/root").add_child.call_deferred(debug_scene)
 
 func logger(logg):
 	debuglog.emit(logg)

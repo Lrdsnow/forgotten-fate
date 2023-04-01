@@ -86,7 +86,8 @@ func _physics_process(delta):
 						movement.shooting=true
 						var plr_rot = Vector3($collision/neck/head.rotation.x, self.rotation.y, $collision/neck.rotation.z)
 						var plr_pos = $collision/neck/head/Marker3d.global_position
-						Global.player_held_item_obj.shoot(plr_rot, plr_pos)
+						if Global.player_held_item_obj != null:
+							Global.player_held_item_obj.shoot(plr_rot, plr_pos)
 						call("shot_delay")
 						$anim.play("shoot+aim")
 						Global.ammo_clip = Global.ammo_clip - 1
@@ -97,7 +98,8 @@ func _physics_process(delta):
 						movement.shooting=false
 						var plr_rot = Vector3($collision/neck/head.rotation.x, self.rotation.y, $collision/neck.rotation.z)
 						var plr_pos = $collision/neck/head/Marker3d.global_position
-						Global.player_held_item_obj.shoot(plr_rot, plr_pos)
+						if Global.player_held_item_obj != null:
+							Global.player_held_item_obj.shoot(plr_rot, plr_pos)
 						call("shot_delay")
 						$anim.play("shoot")
 						Global.ammo_clip = Global.ammo_clip - 1
@@ -351,7 +353,6 @@ func _on_shootin_animation_finished(anim_name):
 	#print("PlayerAnimation: Finished "+str(anim_name))
 	if anim_name == "shoot" or anim_name == "shoot+aim":
 		movement.shooting = false
-
 
 
 func _on_resume_pressed():

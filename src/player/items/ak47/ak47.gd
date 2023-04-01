@@ -24,7 +24,7 @@ func shoot(plr_rot, plr_pos):
 	var pos = bullet.global_position
 	var rot = bullet.global_rotation
 	self.remove_child(bullet)
-	get_node("/root/World/extras").add_child(bullet)
+	get_node("/root/World").add_child(bullet)
 	bullet.position = pos
 	bullet.rotation = rot
 	bullet.shoot(plr_rot, plr_pos)

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://yrqte8svckmt"
 path.s3tc="res://.godot/imported/ak-47.jpg-924d1a8d804d4920b0a5ce1b34cbc021.s3tc.ctex"
+path.etc2="res://.godot/imported/ak-47.jpg-924d1a8d804d4920b0a5ce1b34cbc021.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://src/resources/models/Ak_47/ak-47.jpg"
-dest_files=["res://.godot/imported/ak-47.jpg-924d1a8d804d4920b0a5ce1b34cbc021.s3tc.ctex"]
+dest_files=["res://.godot/imported/ak-47.jpg-924d1a8d804d4920b0a5ce1b34cbc021.s3tc.ctex", "res://.godot/imported/ak-47.jpg-924d1a8d804d4920b0a5ce1b34cbc021.etc2.ctex"]
 
 [params]
 

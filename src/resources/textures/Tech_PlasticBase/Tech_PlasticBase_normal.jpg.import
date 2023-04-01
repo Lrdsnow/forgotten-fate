@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bn4ifjjna8irq"
 path.s3tc="res://.godot/imported/Tech_PlasticBase_normal.jpg-3ad79626f58dc36b853397e5c83b5783.s3tc.ctex"
+path.etc2="res://.godot/imported/Tech_PlasticBase_normal.jpg-3ad79626f58dc36b853397e5c83b5783.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://src/resources/textures/Tech_PlasticBase/Tech_PlasticBase_normal.jpg"
-dest_files=["res://.godot/imported/Tech_PlasticBase_normal.jpg-3ad79626f58dc36b853397e5c83b5783.s3tc.ctex"]
+dest_files=["res://.godot/imported/Tech_PlasticBase_normal.jpg-3ad79626f58dc36b853397e5c83b5783.s3tc.ctex", "res://.godot/imported/Tech_PlasticBase_normal.jpg-3ad79626f58dc36b853397e5c83b5783.etc2.ctex"]
 
 [params]
 

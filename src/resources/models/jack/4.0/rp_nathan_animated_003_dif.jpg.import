@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dsr412uddcvsq"
 path.s3tc="res://.godot/imported/rp_nathan_animated_003_dif.jpg-99e6a0422c8f7f4bd8e385f08484136c.s3tc.ctex"
+path.etc2="res://.godot/imported/rp_nathan_animated_003_dif.jpg-99e6a0422c8f7f4bd8e385f08484136c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://src/resources/models/jack/4.0/rp_nathan_animated_003_dif.jpg"
-dest_files=["res://.godot/imported/rp_nathan_animated_003_dif.jpg-99e6a0422c8f7f4bd8e385f08484136c.s3tc.ctex"]
+dest_files=["res://.godot/imported/rp_nathan_animated_003_dif.jpg-99e6a0422c8f7f4bd8e385f08484136c.s3tc.ctex", "res://.godot/imported/rp_nathan_animated_003_dif.jpg-99e6a0422c8f7f4bd8e385f08484136c.etc2.ctex"]
 
 [params]
 

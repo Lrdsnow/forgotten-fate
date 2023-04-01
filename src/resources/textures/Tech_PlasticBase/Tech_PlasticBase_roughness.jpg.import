@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cwmhem72ay2vd"
 path.s3tc="res://.godot/imported/Tech_PlasticBase_roughness.jpg-d271d5a521634f09af8d81f5481b0d52.s3tc.ctex"
+path.etc2="res://.godot/imported/Tech_PlasticBase_roughness.jpg-d271d5a521634f09af8d81f5481b0d52.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://src/resources/textures/Tech_PlasticBase/Tech_PlasticBase_roughness.jpg"
-dest_files=["res://.godot/imported/Tech_PlasticBase_roughness.jpg-d271d5a521634f09af8d81f5481b0d52.s3tc.ctex"]
+dest_files=["res://.godot/imported/Tech_PlasticBase_roughness.jpg-d271d5a521634f09af8d81f5481b0d52.s3tc.ctex", "res://.godot/imported/Tech_PlasticBase_roughness.jpg-d271d5a521634f09af8d81f5481b0d52.etc2.ctex"]
 
 [params]
 

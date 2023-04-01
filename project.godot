@@ -114,6 +114,8 @@ interact={
 
 [rendering]
 
+renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
 shader_compiler/shader_cache/enabled=false
 shader_compiler/shader_cache/compress=false
 shader_compiler/shader_cache/use_zstd_compression=false
