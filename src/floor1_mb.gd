@@ -12,7 +12,26 @@ func _process(delta):
 	pass
 
 func update_floor():
-	pass
+	var current_rooms = []
+	var current_rooms_data = {}
+	var req_rooms = Global.CurrentlyRequiredRooms
+	for child in get_children():
+		if child.name != "labels":
+			current_rooms.append(child.name)
+			current_rooms_data[child.name] = child
+	var old_rooms = current_rooms
+	for room in req_rooms:
+		print(room)
+		if room in current_rooms:
+			old_rooms.remove_at(old_rooms.find(room))
+		else:
+			print("FloorUpdater: Adding room "+room)
+			var new_room = load(Global.RoomsData[room].mobile).instantiate()
+			add_child(new_room)
+			new_room.position = Global.RoomsData[room].pos
+	for room in old_rooms:
+		print("FloorUpdater: Removing room "+room)
+		current_rooms_data[room].queue_free()
 
 func scandoors():
 	for child in get_children():
@@ -40,27 +59,30 @@ func scandoors():
 				if child.get_node_or_null(item) != null:
 					Global.item_objs[child.get_node(item).name] = child.get_node(item)
 
-#func init_quests():
-#	for quest in Global.quests:
-#		if quest.map == self.name:
-#			for subquest in quest.segments:
-#				if subquest.type == "grab":
-#					for item in subquest.item_names:
-#						subquest.item_paths[item] = Global.item_objs[item].get_path()
-#						subquest.items[item] = Global.item_objs[item]
-#				elif subquest.type == "door":
-#					subquest["floor"] = self
-#					for door in Global.doors_lock_status:
-#						if Global.doors_lock_status[door] == subquest.door_status:
-#							subquest.door = Global.doors[door]
-#							break
-#				elif subquest.type == "hide":
-#					subquest["floor"] = self
-#					for spot in get_node(subquest.room).get_meta("spots"):
-#						subquest["floor"] = self
-#						subquest.hiding_spots.append(get_node(subquest.room).get_node(spot))
-#				else:
-#					print("unrecognized subquest type: " + subquest.type)
+func init_quests():
+	for quest in Global.quests:
+		Global.CurrentlyRequiredRooms=quest.rooms
+		update_floor()
+		if quest.map == self.name:
+			for subquest in quest.segments:
+				if subquest.type == "grab":
+					for item in subquest.item_names:
+						subquest.item_paths[item] = Global.item_objs[item].get_path()
+						subquest.items[item] = Global.item_objs[item]
+				elif subquest.type == "door":
+					subquest["floor"] = self
+					for door in Global.doors_lock_status:
+						if Global.doors_lock_status[door] == subquest.door_status:
+							subquest.door = Global.doors[door]
+							break
+				elif subquest.type == "hide":
+					subquest["floor"] = self
+					if get_node_or_null(subquest.room) != null:
+						for spot in get_node(subquest.room).get_meta("spots"):
+							subquest["floor"] = self
+							subquest.hiding_spots.append(get_node(subquest.room).get_node(spot))
+				else:
+					print("unrecognized subquest type: " + subquest.type)
 
 func init_animation(anim:String, death=false):
 	if anim == "bed0":
@@ -75,8 +97,9 @@ func init_animation(anim:String, death=false):
 			cam.current = true
 		else:
 			print("init_animation: Starting Nurse Chase (bed0) Animation (With Death)")
-		get_node(Global.current_quest().room).get_node("animations/animation_player").animation_finished.connect(self.animation_handler.bind(death))
-		get_node(Global.current_quest().room).get_node("animations/animation_player").play("nurse_chase")
+		if get_node_or_null(Global.current_quest().room) != null:
+			get_node(Global.current_quest().room).get_node("animations/animation_player").animation_finished.connect(self.animation_handler.bind(death))
+			get_node(Global.current_quest().room).get_node("animations/animation_player").play("nurse_chase")
 	elif anim == "door16":
 		print("init_animation: Starting Claire (door16) Animation")
 	else:

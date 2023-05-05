@@ -12,7 +12,7 @@ var sub_version = 6
 var save:Dictionary
 var checkpoint:Dictionary
 var ingame:bool = false
-var efficiency_mode:bool = false
+var efficiency_mode:bool = true
 var overlays:bool = true
 var itch_info
 var trifate_info
@@ -28,12 +28,21 @@ var mod_env_override = false
 var env
 
 # Generation:
-var rooms:Array = ["res://src/rooms/gen/hall0.tscn","res://src/rooms/gen/room0.tscn","res://src/rooms/gen/hall1.tscn"]
 var door_count:int = 0
 var doors:Dictionary = {}
 var doors_lock_status:Dictionary = {}
-var CurrentlyRequiredRooms:Dictionary = {
-	"room1":"res://src/rooms/story/story_room1_mb.tscn"
+var CurrentlyRequiredRooms = ["room1"]
+var RoomsData = {
+	"room1":{
+		"normal":"res://src/rooms/story/story_room1.tscn",
+		"mobile":"res://src/rooms/story/story_room1_mb.tscn",
+		"pos":Vector3(0,0,0)
+	},
+	"hall4":{
+		"normal":"res://src/rooms/story/story_hall4.tscn",
+		"mobile":"res://src/rooms/story/story_hall4_mb.tscn",
+		"pos":Vector3(-14.88, 0, 0.017)
+	}
 }
 
 # Player:
@@ -82,6 +91,7 @@ var quest = [0,0]
 var quests = [{
 	"name":"Esacape the room",
 	"map":"floor1",
+	"rooms":["room1"],
 	"segments":[{
 		"name":"Grab The Key",
 		"color":"white",
@@ -102,6 +112,7 @@ var quests = [{
 }, {
 	"name":"HIDE",
 	"map":"floor1",
+	"rooms":["room1", "hall4"],
 	"segments":[{
 		"name":"HIDE",
 		"color":"red",
@@ -115,6 +126,7 @@ var quests = [{
 },{
 	"name":"Escape",
 	"map":"floor1",
+	"rooms":["room1", "hall4"],
 	"segments":[{
 		"name":"Continue Through the door",
 		"color":"white",

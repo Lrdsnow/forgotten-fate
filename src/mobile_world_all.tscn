@@ -1,9 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bcpvllw143b7d"]
+[gd_scene load_steps=6 format=3 uid="uid://iua1wi8aa4ef"]
 
-[ext_resource type="Script" path="res://src/World.gd" id="1_0q8lm"]
-[ext_resource type="PackedScene" uid="uid://dxelxo74mv73g" path="res://src/floor1_mb.tscn" id="2_u8fha"]
-[ext_resource type="PackedScene" uid="uid://c3ue78xdmxvqp" path="res://src/player/player.tscn" id="3_v7pi4"]
-[ext_resource type="Script" path="res://src/testinit.gd" id="4_gkwse"]
+[ext_resource type="Script" path="res://src/World.gd" id="1_ab8kq"]
+[ext_resource type="PackedScene" uid="uid://chyg3k338kydi" path="res://src/floor1_mb_all.tscn" id="2_mpcxb"]
+[ext_resource type="PackedScene" uid="uid://c3ue78xdmxvqp" path="res://src/player/player.tscn" id="3_r4jjh"]
+[ext_resource type="Script" path="res://src/testinit.gd" id="4_6nnso"]
 
 [sub_resource type="Environment" id="Environment_eqemn"]
 background_mode = 1
@@ -16,13 +16,13 @@ fog_light_color = Color(0, 0, 0, 1)
 adjustment_enabled = true
 
 [node name="World" type="Node3D"]
-script = ExtResource("1_0q8lm")
+script = ExtResource("1_ab8kq")
 
 [node name="map" type="Node3D" parent="."]
 
-[node name="floor1" parent="map" instance=ExtResource("2_u8fha")]
+[node name="floor1" parent="map" instance=ExtResource("2_mpcxb")]
 
-[node name="Player" parent="." instance=ExtResource("3_v7pi4")]
+[node name="Player" parent="." instance=ExtResource("3_r4jjh")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -3.27585, 1.80317, 3.78181)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -33,5 +33,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.63871)
 light_energy = 0.0
 
 [node name="testinit" type="Node3D" parent="."]
-script = ExtResource("4_gkwse")
+script = ExtResource("4_6nnso")
 test = false

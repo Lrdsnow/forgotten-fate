@@ -10,7 +10,8 @@ var loaded_save:Dictionary
 var releases = ["itch", "trifate-studios", "steam"]
 
 func _ready():
-	if OS.get_name() == "Web" or OS.get_name() == "Android" or OS.get_name() == "iOS":
+	print("Running on: "+OS.get_name())
+	if OS.get_name() == "Web" or OS.get_name() == "Android" or OS.get_name() == "iOS" or OS.get_name() == "macOS":
 		Global.efficiency_mode = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	Global.ingame = false
@@ -79,7 +80,7 @@ func _on_single_pressed():
 	if not Global.efficiency_mode:
 		get_tree().change_scene_to_file("res://src/world.tscn")
 	else:
-		get_tree().change_scene_to_file("res://src/extras/efficent_world.tscn")
+		get_tree().change_scene_to_file("res://src/mobile_world_all.tscn")
 	if loaded_save == {}:
 		Global.player_name = $play/menu/panel/new_game/playerinput/fillout/name.text
 		Global.difficulty = $play/menu/panel/new_game/playerinput/fillout/difficulty.selected

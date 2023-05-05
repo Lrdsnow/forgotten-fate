@@ -172,9 +172,9 @@ func handle_stats():
 		await InputEventKey
 		Global.load_checkpoint(Global.checkpoint)
 		if not Global.efficiency_mode:
-			get_tree().change_scene("res://src/world.tscn")
+			get_tree().change_scene_to_file("res://src/world.tscn")
 		else:
-			get_tree().change_scene("res://src/extras/efficent_world.tscn")
+			get_tree().change_scene_to_file("res://src/mobile_world_all.tscn")
 
 func refresh_info():
 	SPEED = 5.0
