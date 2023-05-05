@@ -92,3 +92,12 @@ func _on_fpstest_pressed():
 func _on_efficent_toggled(button_pressed):
 	Global.efficiency_mode = button_pressed
 	Global.update_graphics.emit()
+
+
+func _on_mbtest_pressed():
+	if get_node_or_null("/root/World") == null:
+		$anim.play_backwards("open")
+		debug_open = false
+		for x in 2:
+			get_tree().change_scene_to_file.call_deferred("res://src/mobile_world.tscn")
+			await get_tree().create_timer(1.0).timeout

@@ -28,8 +28,8 @@ Mods="*res://src/modhandler/mods.gd"
 window/size/viewport_width=2560
 window/size/viewport_height=1440
 window/size/borderless=true
-window/vsync/vsync_mode=2
 window/stretch/mode="viewport"
+window/vsync/vsync_mode=2
 
 [editor_plugins]
 
@@ -114,6 +114,7 @@ interact={
 
 [rendering]
 
+renderer/rendering_method="mobile"
 renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
 shader_compiler/shader_cache/enabled=false

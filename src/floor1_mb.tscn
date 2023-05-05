@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxelxo74mv73g"]
+
+[ext_resource type="Script" path="res://src/floor1_mb.gd" id="1_syr6m"]
+[ext_resource type="PackedScene" uid="uid://dxusfht5x4y2f" path="res://src/rooms/story/story_room1_mb.tscn" id="2_641ku"]
+
+[node name="floor1" type="Node3D"]
+script = ExtResource("1_syr6m")
+
+[node name="labels" type="Node3D" parent="."]
+visible = false
+
+[node name="Label3D" type="Label3D" parent="labels"]
+transform = Transform3D(-1, 8.74228e-08, 0, 8.74228e-08, 1, 8.74228e-08, 7.64274e-15, 8.74228e-08, -1, -2.44235, 5.7113, 0)
+text = "Starting Room /"
+font_size = 100
+
+[node name="Label3D2" type="Label3D" parent="labels"]
+transform = Transform3D(-1, 8.74228e-08, 0, 8.74228e-08, 1, 8.74228e-08, 7.64274e-15, 8.74228e-08, -1, -18.485, 5.14543, 4.2184)
+text = "Rooms"
+font_size = 150
+
+[node name="Label3D3" type="Label3D" parent="labels"]
+transform = Transform3D(-1, 8.74228e-08, 0, 8.74228e-08, 1, 8.74228e-08, 7.64274e-15, 8.74228e-08, -1, -18.485, 5.14543, -14.9995)
+text = "Rooms"
+font_size = 150
+
+[node name="Label3D6" type="Label3D" parent="labels"]
+transform = Transform3D(-0.476898, -3.51493e-08, 0.878959, 8.74228e-08, 1, 8.74228e-08, -0.878959, 1.18533e-07, -0.476898, -36.1407, 6.74671, -22.5431)
+text = "Stair Stuff"
+font_size = 100
+
+[node name="Label3D7" type="Label3D" parent="labels"]
+transform = Transform3D(-0.836544, 2.52342e-08, 0.547899, -0.0264877, 0.998831, -0.040442, -0.547259, -0.0483441, -0.835566, -36.1407, 6.74671, 6.44937)
+text = "Blocked/Locked Doors"
+font_size = 100
+
+[node name="Label3D5" type="Label3D" parent="labels"]
+transform = Transform3D(-0.828393, 2.34508e-08, 0.560148, 8.74228e-08, 1, 8.74228e-08, -0.560148, 1.2139e-07, -0.828393, -44.9952, 6.36419, -4.80274)
+text = "Crossroad - Left Or Right"
+font_size = 150
+
+[node name="Label3D4" type="Label3D" parent="labels"]
+transform = Transform3D(-1, 8.74228e-08, 2.98023e-08, 8.74228e-08, 1, 8.74228e-08, -2.98023e-08, 8.74228e-08, -1, -29.2429, 6.36419, -2.77527)
+text = "Claires Cutscene"
+font_size = 150
+
+[node name="room1" parent="." instance=ExtResource("2_641ku")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.193223, 0, 4.18611)

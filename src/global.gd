@@ -32,6 +32,9 @@ var rooms:Array = ["res://src/rooms/gen/hall0.tscn","res://src/rooms/gen/room0.t
 var door_count:int = 0
 var doors:Dictionary = {}
 var doors_lock_status:Dictionary = {}
+var CurrentlyRequiredRooms:Dictionary = {
+	"room1":"res://src/rooms/story/story_room1_mb.tscn"
+}
 
 # Player:
 signal interact

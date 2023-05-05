@@ -98,6 +98,10 @@ horizontal_alignment = 1
 layout_mode = 2
 text = "fpstest0"
 
+[node name="mbtest" type="Button" parent="debug_layer/debug_panel/inmenu"]
+layout_mode = 2
+text = "mobile_world"
+
 [node name="ingame" type="VBoxContainer" parent="debug_layer/debug_panel"]
 visible = false
 layout_mode = 0
@@ -183,6 +187,7 @@ libraries = {
 [connection signal="toggled" from="debug_layer/debug_panel/inmenu/debugui" to="debug_layer" method="_on_debugui_toggled"]
 [connection signal="toggled" from="debug_layer/debug_panel/inmenu/efficent" to="debug_layer" method="_on_efficent_toggled"]
 [connection signal="pressed" from="debug_layer/debug_panel/inmenu/fpstest" to="debug_layer" method="_on_fpstest_pressed"]
+[connection signal="pressed" from="debug_layer/debug_panel/inmenu/mbtest" to="debug_layer" method="_on_mbtest_pressed"]
 [connection signal="pressed" from="debug_layer/debug_panel/ingame/items_opt" to="debug_layer" method="_on_items_opt_pressed"]
 [connection signal="value_changed" from="debug_layer/debug_panel/ingame/ammo_in" to="debug_layer" method="_on_ammo_in_value_changed"]
 [connection signal="value_changed" from="debug_layer/debug_panel/ingame/health_slider" to="debug_layer" method="_on_health_slider_value_changed"]
