@@ -1,10 +1,10 @@
 extends Node
 
+# Main Functions:
 func _ready():
 	get_tree().set_auto_accept_quit(false)
 	debugstart.connect(debug_setup)
 	emit_signal("debugstart")
-	#TGlobal.set_main()
 
 # Base:
 var version = 0.3
@@ -12,7 +12,7 @@ var sub_version = 6
 var save:Dictionary
 var checkpoint:Dictionary
 var ingame:bool = false
-var efficiency_mode:bool = true
+var efficiency_mode:bool = false
 var overlays:bool = true
 var itch_info
 var trifate_info
@@ -20,6 +20,7 @@ var release = "itch"
 var skip_checks = false
 var cinematic_mode = false
 var home = ""
+var sensitive_filesystem = false # Will save files to user:// instead of the Documents folder
 
 # Game:
 var difficulty:int = 0
@@ -28,6 +29,7 @@ var mod_env_override = false
 var env
 
 # Generation:
+var unlock_all = true
 var door_count:int = 0
 var doors:Dictionary = {}
 var doors_lock_status:Dictionary = {}
@@ -48,6 +50,7 @@ var RoomsData = {
 # Player:
 signal interact
 signal debuglog
+signal instakill
 var interact_obj:Array = []
 var player_held_item:String = "N/A"
 var player_held_item_obj = null
@@ -74,7 +77,7 @@ signal debugstart
 signal update_graphics
 var debug_mode = false
 var debug_ext = false
-var debug_ui = false
+var debug_ui = true
 
 func debug_setup():
 	debug_mode = true
@@ -82,8 +85,10 @@ func debug_setup():
 		var debug_scene = load("res://src/extras/debug/debug.tscn").instantiate()
 		get_node("/root").add_child.call_deferred(debug_scene)
 
-func logger(logg):
-	debuglog.emit(logg)
+func debug_log(logg):
+	if ingame:
+		debuglog.emit(logg)
+	print(logg)
 
 # Quests:
 signal update_quest_info
@@ -91,6 +96,8 @@ var quest = [0,0]
 var quests = [{
 	"name":"Esacape the room",
 	"map":"floor1",
+	"image":"chapter-1",
+	"image_text":"Chapter 1",
 	"rooms":["room1"],
 	"segments":[{
 		"name":"Grab The Key",
@@ -110,25 +117,28 @@ var quests = [{
 		"door":null
 	}]
 }, {
-	"name":"HIDE",
+	"name":"H̴͎̾͋̃̐͋ȉ̵̻̮̜̱̝̩̝͔̂̐̈ḑ̵̜̺̭͖̮̳͚̲̆̆̓̌͝e̴̼̲̝̻̞̽̾̅͂͜͝͠",
 	"map":"floor1",
+	"image":"chapter-1",
+	"image_text":"Chapter 1",
 	"rooms":["room1", "hall4"],
 	"segments":[{
-		"name":"HIDE",
+		"name":"H̴͎̾͋̃̐͋ȉ̵̻̮̜̱̝̩̝͔̂̐̈ḑ̵̜̺̭͖̮̳͚̲̆̆̓̌͝e̴̼̲̝̻̞̽̾̅͂͜͝͠",
 		"color":"red",
 		"orb":false,
-		"anim":"bed0",
-		"type":"hide",
-		"complete":false,
-		"room":"hall1",
-		"hiding_spots":[]
+		"anim":"anim1",
+		"type":"door",
+		"door_status":"anim0",
+		"door":null
 	}]
-},{
+}, {
 	"name":"Escape",
 	"map":"floor1",
+	"image":"chapter-1",
+	"image_text":"Chapter 1",
 	"rooms":["room1", "hall4"],
 	"segments":[{
-		"name":"Continue Through the door",
+		"name":"Make your way through the hospital",
 		"color":"white",
 		"orb":false,
 		"anim":"anim1",
@@ -193,7 +203,7 @@ var unloaded_mods:Dictionary = {}
 
 # Save:
 var saves:Dictionary = {}
-var saves_folder:String = ""
+var saves_folder:String = get_home() + "/Saves"
 
 var modded_save = false
 
@@ -317,11 +327,6 @@ var trophys = {
 	"meet_the_devil":false # The devil cant be that bad to deal with!
 }
 
-var anims = {
-	"anim0":false,
-	"anim1":false
-}
-
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		get_tree().quit()
@@ -346,6 +351,14 @@ func current_quest() -> Dictionary:
 	var subquest = {}
 	subquest = Global.quests[Global.quest[0]].segments[Global.quest[1]]
 	return subquest
+
+func get_quest_name(input) -> Array:
+	var quest_name = [Global.quests[Global.quest[input[0]]]["name"],Global.quests[Global.quest[input[0]]].segments[Global.quest[input[1]]]["name"]]
+	return quest_name
+
+func get_quest_rpdata() -> Array:
+	var quest_data = [Global.quests[Global.quest[quest[0]]]["name"],Global.quests[Global.quest[quest[0]]].segments[Global.quest[quest[1]]]["name"],Global.quests[Global.quest[quest[0]]]["image"],Global.quests[Global.quest[quest[0]]]["image_text"]]
+	return quest_data
 
 # Extras:
 
@@ -405,30 +418,33 @@ func GameChecker():
 
 func get_home():
 	if home == "":
-		var docs = ""
-		var dfn = 0
-		var dfnd = true
-		while dfnd:
-			if "Documents" in OS.get_system_dir(dfn):
-				docs = OS.get_system_dir(dfn)
-				dfnd = false
-			else:
-				dfn = dfn + 1
-		var dir = DirAccess.open(docs)
-		while ! dir.dir_exists("My Games/ForgottenFate/Saves"):
-			if dir.dir_exists("My Games"):
-				if dir.dir_exists("My Games/ForgottenFate"):
-					if dir.dir_exists("My Games/ForgottenFate/Saves"):
-						pass
-					else:
-						dir.make_dir("My Games/ForgottenFate/Saves")
-					if dir.dir_exists("My Games/ForgottenFate/Mods"):
-						pass
-					else:
-						dir.make_dir("My Games/ForgottenFate/Mods")
+		if not sensitive_filesystem:
+			var docs = ""
+			var dfn = 0
+			var dfnd = true
+			while dfnd:
+				if "Documents" in OS.get_system_dir(dfn):
+					docs = OS.get_system_dir(dfn)
+					dfnd = false
 				else:
-					dir.make_dir("My Games/ForgottenFate")
-			else:
-				dir.make_dir("My Games")
-		home = docs + "/My Games/ForgottenFate"
+					dfn = dfn + 1
+			var dir = DirAccess.open(docs)
+			while ! dir.dir_exists("My Games/ForgottenFate/Saves"):
+				if dir.dir_exists("My Games"):
+					if dir.dir_exists("My Games/ForgottenFate"):
+						if dir.dir_exists("My Games/ForgottenFate/Saves"):
+							pass
+						else:
+							dir.make_dir("My Games/ForgottenFate/Saves")
+						if dir.dir_exists("My Games/ForgottenFate/Mods"):
+							pass
+						else:
+							dir.make_dir("My Games/ForgottenFate/Mods")
+					else:
+						dir.make_dir("My Games/ForgottenFate")
+				else:
+					dir.make_dir("My Games")
+			home = docs + "/My Games/ForgottenFate"
+		else:
+			home = "user://"
 	return home

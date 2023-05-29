@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bnlmdareybmib"
+uid="uid://ceceltx6rotcp"
 path="res://.godot/imported/key.dae-8db5df6bb4265f3e51c0274b02e61f9e.scn"
 
 [deps]
@@ -28,17 +28,5 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
-_subresources={
-"nodes": {
-"PATH:AnimationPlayer": {
-"import/skip_import": true
-},
-"PATH:Camera": {
-"import/skip_import": true
-},
-"PATH:Light": {
-"import/skip_import": true
-}
-}
-}
+_subresources={}
 gltf/embedded_image_handling=1

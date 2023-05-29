@@ -38,11 +38,12 @@ func _ready():
 	Global.load_complete.connect(self._load)
 	Global.debuglog.connect(self.debug_log)
 	get_node(self.get_meta("quest")).check_quest()
+	Global.instakill.connect(die)
 	if Global.debug_ext:
-		$ui/cc/ui/pause/menu/vbox/debug.show()
+		%pause_menu/debug.show()
 	else:
-		$ui/cc/ui/pause/menu/vbox/debug.hide()
-	$ui/cc/ui/pause.hide()
+		%pause_menu/debug.hide()
+	%pause.hide()
 
 func _load():
 	position = Global.pos
@@ -50,7 +51,7 @@ func _load():
 	#Global.update_item.connect(self.update_held())
 
 func _physics_process(delta):
-	#$ui/cc/ui/gui/info.text = "Self: "+str(rotation)+"\nCam: "+str($collision/neck/head/player_camera.rotation)+"\nHead: "+str($collision/neck/head.rotation)+"\nRot: "+str(rotation+$collision/neck.rotation+$collision/neck/head.rotation)
+	#%ui/gui/info.text = "Self: "+str(rotation)+"\nCam: "+str($collision/neck/head/player_camera.rotation)+"\nHead: "+str($collision/neck/head.rotation)+"\nRot: "+str(rotation+$collision/neck.rotation+$collision/neck/head.rotation)
 	if Global.can_move and not Global.paused:
 		if bars:
 			update_held()
@@ -107,17 +108,17 @@ func _physics_process(delta):
 						$anim.play("no_ammo")
 	if Input.is_action_just_pressed("pause"):
 		if ! Global.paused:
-			$ui/cc/ui/pause.show()
-			$ui/cc/ui/gui/gui_anim.play("pause")
+			%pause.show()
+			%gui/gui_anim.play("pause")
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			Global.paused=true
 			Global.can_move=false
 		else:
-			$ui/cc/ui/gui/gui_anim.play_backwards("pause")
+			%gui/gui_anim.play_backwards("pause")
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			Global.paused=false
 			Global.can_move=true
-			$ui/cc/ui/pause.hide()
+			%pause.hide()
 	if Input.is_action_pressed("runnin"):
 		if Global.stamina != 0:
 			movement.runnin = true
@@ -144,16 +145,16 @@ func _physics_process(delta):
 					interaction.floor.init_animation(interaction.item.name)
 				get_node(self.get_meta("quest")).check_quest(interaction.item)
 			else:
-				$ui/cc/ui/gui/gui_anim.play("cant_interact")
-	if Input.is_action_pressed("left") or Input.is_action_pressed("right") or Input.is_action_pressed("forwards") or Input.is_action_pressed("backwards"):
+				%gui/gui_anim.play("cant_interact")
+	if Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_up") or Input.is_action_pressed("ui_down"):
 		if not movement.runnin:
 			$movement.play("walkin")
 		else:
 			$movement.play("runnin")
-	if Input.is_action_just_released("left") or Input.is_action_just_released("right") or Input.is_action_just_released("forwards") or Input.is_action_just_released("backwards"):
+	if Input.is_action_just_released("ui_left") or Input.is_action_just_released("ui_right") or Input.is_action_just_released("ui_up") or Input.is_action_just_released("ui_down"):
 		$movement.stop()
 		$collision/neck/head/player_camera.position = Vector3(0,0.7,0)
-	var input_dir = Input.get_vector("left", "right", "forwards", "backwards")
+	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * SPEED
@@ -165,16 +166,22 @@ func _physics_process(delta):
 
 func handle_stats():
 	if Global.health == 0:
+		die()
+
+func die():
+		Global.health = 0
 		Global.can_move = false
 		movement.can_aim = false
-		$ui/cc/ui/transition.play("death")
-		print("Game: Player Has Died")
-		await InputEventKey
-		Global.load_checkpoint(Global.checkpoint)
-		if not Global.efficiency_mode:
-			get_tree().change_scene_to_file("res://src/world.tscn")
-		else:
-			get_tree().change_scene_to_file("res://src/mobile_world_all.tscn")
+		%death_info.text = "Patient:\n"+Global.player_name+"\nDeath:\nAcidental\nTime of death:\n2/2/2003 "+Time.get_time_string_from_system()
+		%ui/transition.play("death")
+		Global.debug_log("Game: Player Has Died")
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		#await InputEventKey
+		#Global.load_checkpoint(Global.checkpoint)
+		#if not Global.efficiency_mode:
+		#	get_tree().change_scene_to_file("res://src/world.tscn")
+		#else:
+		#	get_tree().change_scene_to_file("res://src/mobile_world_all.tscn")
 
 func refresh_info():
 	SPEED = 5.0
@@ -193,32 +200,32 @@ func refresh_info():
 		"type":"",
 		"item":null
 	}
-	$ui/cc/ui/gui/bars.hide()
-	$"ui/cc/ui/gui/cc/cross/int-text".text = ""
+	%ui/gui/bars.hide()
+	%interact_text.text = ""
 
 func _input(event):
-	if Global.can_move:
+	if Global.can_move and not Global.paused:
 		if event is InputEventMouseMotion:
-			var left_right = deg_to_rad(event.relative.x * Global.mouse_sensitivity)
+			var left_ui_right = deg_to_rad(event.relative.x * Global.mouse_sensitivity)
 			var up_down = deg_to_rad(event.relative.y * Global.mouse_sensitivity)
 		
 			$collision/neck/head.rotate_x(-up_down)
-			#neck.rotate_z(left_right)
+			#neck.rotate_z(left_ui_right)
 		
 			#if neck.rotation.z <= deg2rad(-75) or neck.rotation.z >= deg2rad(75):
-			self.rotate_y(-left_right)
+			self.rotate_y(-left_ui_right)
 		
 			$collision/neck/head.rotation.x = clamp($collision/neck/head.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 			$collision/neck.rotation.z = clamp($collision/neck.rotation.z, deg_to_rad(-75), deg_to_rad(75))
 		elif event is InputEventJoypadMotion:
-			var left_right = deg_to_rad(Input.get_joy_axis(0, 2) * Global.mouse_sensitivity)
+			var left_ui_right = deg_to_rad(Input.get_joy_axis(0, 2) * Global.mouse_sensitivity)
 			var up_down = deg_to_rad(Input.get_joy_axis(0, 3) * Global.mouse_sensitivity)
 		
 			$collision/neck/head.rotate_x(-up_down)
-			#neck.rotate_z(left_right)
+			#neck.rotate_z(left_ui_right)
 		
 			#if neck.rotation.z <= deg2rad(-75) or neck.rotation.z >= deg2rad(75):
-			self.rotate_y(-left_right)
+			self.rotate_y(-left_ui_right)
 		
 			$collision/neck/head.rotation.x = clamp($collision/neck/head.rotation.x, deg_to_rad(-75), deg_to_rad(75))
 			$collision/neck.rotation.z = clamp($collision/neck.rotation.z, deg_to_rad(-75), deg_to_rad(75))
@@ -267,20 +274,20 @@ func check_look():
 	var alt_raycast = get_node("collision/neck/head/alt_raycast")
 	if main_raycast.is_colliding():
 		if str(main_raycast.get_collider().name) in Global.int_items:
-			$"ui/cc/ui/gui/cc/cross/int-text".text = "E - Interact"
+			%interact_text.text = "E - Interact"
 			interaction["item"] = main_raycast.get_collider()
 			interaction.is_hovering = true
 			interaction.can_interact = true
 			interaction.type = "item"
 		elif str(main_raycast.get_collider().name) in Global.grab_items:
-			$"ui/cc/ui/gui/cc/cross/int-text".text = "E - Pick Up"
+			%interact_text.text = "E - Pick Up"
 			interaction["item"] = main_raycast.get_collider()
 			interaction.is_hovering = true
 			interaction.can_interact = true
 			interaction.type = "item"
 		elif Global.current_quest().type == "hide":
 			if main_raycast.get_collider() in Global.current_quest().hiding_spots:
-				$"ui/cc/ui/gui/cc/cross/int-text".text = "E - HIDE!!!!"
+				%interact_text.text = "E - HIDE!!!!"
 				interaction["item"] = main_raycast.get_collider()
 				interaction.is_hovering = true
 				interaction.can_interact = true
@@ -290,45 +297,52 @@ func check_look():
 		if "door" in str(alt_raycast.get_collider().name):
 			if "key" in str(Global.doors_lock_status[alt_raycast.get_collider().name]):
 				if str(Global.doors_lock_status[alt_raycast.get_collider().name]) in Global.inv:
-					$"ui/cc/ui/gui/cc/cross/int-text".text = "E - Unlock"
+					%interact_text.text = "E - Unlock"
 					interaction["item"] = alt_raycast.get_collider()
 					interaction.is_hovering = true
 					interaction.can_interact = true
 					interaction.type = "door"
 				else:
-					$"ui/cc/ui/gui/cc/cross/int-text".text = "Requires Key"
+					%interact_text.text = "Requires Key"
 					interaction["item"] = null
 					interaction.is_hovering = true
 					interaction.can_interact = false
 					interaction.type = ""
 			elif "anim" in str(Global.doors_lock_status[alt_raycast.get_collider().name]):
-				if Global.anims[Global.doors_lock_status[alt_raycast.get_collider().name]]:
-					$"ui/cc/ui/gui/cc/cross/int-text".text = "E - Open"
-					interaction["item"] = alt_raycast.get_collider()
+				if Global.doors_lock_status[alt_raycast.get_collider().name] == "quest"+str(Global.quest[0])+str(Global.quest[1]):
+					%interact_text.text = "E - Open"
+					interaction["item"] = alt_raycast.get_colliwwwwder()
 					interaction.is_hovering = true
 					interaction.can_interact = true
 					interaction.type = "door"
 					if Global.current_quest().has("floor"):
 						interaction["floor"] = Global.current_quest().floor
 				else:
-					$"ui/cc/ui/gui/cc/cross/int-text".text = "The door is locked from the otherside"
+					%interact_text.text = "The door is locked from the otherside"
 					interaction["item"] = null
 					interaction.is_hovering = true
 					interaction.can_interact = false
 					interaction.type = ""
 			elif str(Global.doors_lock_status[alt_raycast.get_collider().name]) == "unlocked":
-				$"ui/cc/ui/gui/cc/cross/int-text".text = "E - Open"
+				%interact_text.text = "E - Open"
 				interaction["item"] = alt_raycast.get_collider()
 				interaction.is_hovering = true
 				interaction.can_interact = true
 				interaction.type = "door"
 			else:
-				$"ui/cc/ui/gui/cc/cross/int-text".text = "Locked"
+				%interact_text.text = "Locked"
 				interaction.is_hovering = true
 				interaction.can_interact = false
 				interaction.type = ""
+			# Unlock All After the if tree so it'll just override everything
+			if Global.unlock_all:
+				%interact_text.text = "E - Open"
+				interaction["item"] = alt_raycast.get_collider()
+				interaction.is_hovering = true
+				interaction.can_interact = true
+				interaction.type = "door"
 	else:
-		$"ui/cc/ui/gui/cc/cross/int-text".text = ""
+		%interact_text.text = ""
 		interaction["item"] = null
 		interaction.is_hovering = false
 		interaction.can_interact = false
@@ -350,14 +364,14 @@ func _on_continue_pressed():
 
 
 func _on_shootin_animation_finished(anim_name):
-	#print("PlayerAnimation: Finished "+str(anim_name))
+	#Global.debug_log("PlayerAnimation: Finished "+str(anim_name))
 	if anim_name == "shoot" or anim_name == "shoot+aim":
 		movement.shooting = false
 
 
 func _on_resume_pressed():
 	if Global.paused:
-		$ui/cc/ui/gui/gui_anim.play_backwards("pause")
+		%ui/gui/gui_anim.play_backwards("pause")
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		Global.paused=false
 		Global.can_move=true
@@ -387,3 +401,16 @@ func debug_log(log):
 	else:
 		fulllog.remove_at(0)
 		$ui/debuglog.text = "\n".join(PackedStringArray(fulllog)) + "\n" + log
+
+
+func _on_respawn_pressed():
+	Global.load_checkpoint(Global.checkpoint)
+	get_tree().change_scene_to_file("res://src/world.tscn")
+
+
+func _on_mainmenu_pressed():
+	get_tree().change_scene_to_file("res://start.tscn")
+
+
+func _on_exit_pressed():
+	get_tree().quit()

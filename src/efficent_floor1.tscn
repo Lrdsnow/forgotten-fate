@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dy2i2vhd16yk6"]
-
-[ext_resource type="PackedScene" uid="uid://b7fm0a17b27fb" path="res://src/rooms/story/story_room1.tscn" id="1_d7t6j"]
-
-[node name="efficent_floor1" type="Node3D"]
-
-[node name="room1" parent="." instance=ExtResource("1_d7t6j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0370648, 0, 0.0548763)

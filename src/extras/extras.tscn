@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://crxsv1o6nfjw2"]
+
+[ext_resource type="Script" path="res://src/extras/modding_extras.gd" id="1_0vpl2"]
+[ext_resource type="Script" path="res://addons/discord-sdk-gd/example.gd" id="2_gkheq"]
+
+[node name="extras" type="Node"]
+script = ExtResource("1_0vpl2")
+
+[node name="discord" type="Node" parent="."]
+script = ExtResource("2_gkheq")

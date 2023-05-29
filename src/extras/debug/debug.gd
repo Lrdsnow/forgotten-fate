@@ -5,7 +5,6 @@ signal cITEM
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	resize()
 	cITEM.connect(Global.update_items)
 	for i in Global.all_items:
 		$debug_panel/ingame/items_opt.add_item(i, Global.all_items.find(i))
@@ -23,17 +22,12 @@ func _process(delta):
 			$anim.play("open")
 			debug_open = true
 		else:
-			if Global.ingame:
+			if Global.ingame and not Global.health == 0:
 				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 				Global.paused=false
 				Global.can_move=true
 			$anim.play_backwards("open")
 			debug_open = false
-
-func resize():
-	$debug_panel.size.y = get_viewport().size.y
-	$debug_panel/inmenu.size.y = get_viewport().size.y
-	$debug_panel/ingame.size.y = get_viewport().size.y
 
 func update_vars():
 	if Global.ingame:
@@ -99,3 +93,7 @@ func _on_mbtest_pressed():
 		$anim.play_backwards("open")
 		debug_open = false
 		get_tree().change_scene_to_file.call_deferred("res://src/mobile_world.tscn")
+
+
+func _on_kys_pressed():
+	Global.instakill.emit()

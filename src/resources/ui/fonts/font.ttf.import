@@ -2,7 +2,7 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dix0f4bw52j38"
+uid="uid://lq8ej41ungav"
 path="res://.godot/imported/font.ttf-9d41173b3005ef570421a0073a968aba.fontdata"
 
 [deps]
@@ -14,8 +14,8 @@ dest_files=["res://.godot/imported/font.ttf-9d41173b3005ef570421a0073a968aba.fon
 
 Rendering=null
 antialiasing=1
-generate_mipmaps=true
-multichannel_signed_distance_field=true
+generate_mipmaps=false
+multichannel_signed_distance_field=false
 msdf_pixel_range=8
 msdf_size=48
 allow_system_fallback=true

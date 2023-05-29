@@ -33,6 +33,9 @@ layer = 15
 
 [node name="ColorRect" type="ColorRect" parent="toper"]
 material = SubResource("ShaderMaterial_ukv65")
-offset_right = 2562.0
-offset_bottom = 1442.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2

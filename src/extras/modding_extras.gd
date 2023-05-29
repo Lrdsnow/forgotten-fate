@@ -68,3 +68,36 @@ func add_object(object:Node, position:Vector3, rotation:Vector3): # Loads an ite
 		#object.rotation = rotation
 	else:
 		print("Extras: add_object: Cannot load object!, Not In Game!")
+
+func setup_discord():
+	# Main:
+	discord_sdk.app_id = 1003060749695983616 # Application ID
+	print("Discord working: " + str(discord_sdk.get_is_discord_working())) # A boolean if everything worked
+	discord_sdk.details = "Main Menu"
+	discord_sdk.state = "Main Menu"
+	
+	discord_sdk.large_image = "chapter-2" # Image key from "Art Assets"
+	discord_sdk.large_image_text = "Main Menu"
+	#discord_sdk.small_image = "chapter-1" # Image key from "Art Assets"
+	#discord_sdk.small_image_text = "Test"
+
+	discord_sdk.start_timestamp = int(Time.get_unix_time_from_system()) # "02:46 elapsed"
+	# discord_sdk.end_timestamp = int(Time.get_unix_time_from_system()) + 3600 # +1 hour in unix time / "01:00 remaining"
+	
+	# Party:
+	#discord_sdk.current_party_size = 1
+	#discord_sdk.max_party_size = 2
+	#discord_sdk.is_public_party = true
+	#discord_sdk.party_id = "PARTY"
+	#discord_sdk.instanced = true
+
+	# Refresh:
+	discord_sdk.refresh() # Always refresh after changing the values!
+
+func update_discordrp():
+	var rp = Global.get_quest_rpdata()
+	discord_sdk.details = rp[0]
+	discord_sdk.state = rp[1]
+	discord_sdk.large_image = rp[2]
+	discord_sdk.large_image_text = rp[3]
+	discord_sdk.refresh()

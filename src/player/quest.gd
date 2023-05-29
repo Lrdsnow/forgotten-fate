@@ -19,11 +19,12 @@ func _ready():
 
 func check_quest(interact_item=null):
 	subquest = Global.quests[Global.quest[0]].segments[Global.quest[1]]
+	Game.update_discordrp()
 	if str(subquest.type) == "grab":
 		var items = []
 		for item in subquest.item_names:
 			if item in Global.inv:
-				print("QuestHandler: subquest complete: " + subquest.name)
+				Global.debug_log("QuestHandler: subquest complete: " + subquest.name)
 				Global.save_checkpoint()
 				if subquest.has("trophy"):
 					Global.trophys[subquest.trophy] = true
@@ -36,15 +37,15 @@ func check_quest(interact_item=null):
 						Global.quest[0] = Global.quest[0] + 1
 						Global.quest[1] = 0
 					else:
-						print("QuestHandler: All Quests Completed")
+						Global.debug_log("QuestHandler: All Quests Completed")
 						get_tree().change_scene("res://src/extras/credits.tscn")
 						Global.quit_game("quest")
 			else:
-				print("QuestHandler: subquest vaild: " + subquest.name)
+				Global.debug_log("QuestHandler: subquest vaild: " + subquest.name)
 	elif str(subquest.type) == "door":
 		if subquest.door != null:
 			if subquest.door == interact_item:
-				print("QuestHandler: subquest complete: " + subquest.name)
+				Global.debug_log("QuestHandler: subquest complete: " + subquest.name)
 				Global.save_checkpoint()
 				if subquest.has("trophy"):
 					Global.trophys[subquest.trophy] = true
@@ -57,15 +58,15 @@ func check_quest(interact_item=null):
 						Global.quest[0] = Global.quest[0] + 1
 						Global.quest[1] = 0
 					else:
-						print("QuestHandler: All Quests Completed")
+						Global.debug_log("QuestHandler: All Quests Completed")
 						if not Global.debug_mode:
 							get_tree().change_scene_to_file("res://src/extras/credits.tscn")
 							Global.quit_game("quest")
 			else:
-				print("QuestHandler: subquest vaild: " + subquest.name)
+				Global.debug_log("QuestHandler: subquest vaild: " + subquest.name)
 	elif str(subquest.type) == "hide":
 		if subquest.complete:
-			print("QuestHandler: subquest complete: " + subquest.name)
+			Global.debug_log("QuestHandler: subquest complete: " + subquest.name)
 			Global.save_checkpoint()
 			if subquest.has("trophy"):
 					Global.trophys[subquest.trophy] = true
@@ -76,12 +77,12 @@ func check_quest(interact_item=null):
 					Global.quest[0] = Global.quest[0] + 1
 					Global.quest[1] = 0
 				else:
-					print("QuestHandler: All Quests Completed")
+					Global.debug_log("QuestHandler: All Quests Completed")
 					get_tree().change_scene("res://src/extras/credits.tscn")
 					Global.quit_game("quest")
-			#print("QuestHandler: Quest info: "+str(Global.current_quest()))
+			#Global.debug_log("QuestHandler: Quest info: "+str(Global.current_quest()))
 		else:
-			print("QuestHandler: subquest vaild: " + subquest.name)
+			Global.debug_log("QuestHandler: subquest vaild: " + subquest.name)
 	call_deferred("update_quest_info")
 	if not Global.cinematic_mode:
 		call("nurse_hide")
@@ -90,7 +91,6 @@ func update_quest_info():
 	self.modulate = color[Global.quests[Global.quest[0]].segments[Global.quest[1]].color]
 	if self.modulate == color.red:
 		shaking = true
-		$quest_anim.play("shake")
 		#get_node("/root/World/Player/collision/neck/head/player_camera/cam_anim").play("shake")
 	else:
 		shaking = false
@@ -114,13 +114,7 @@ func update_quest_info():
 						orb.position = spot.get_meta("quest_orb")
 						prev_orb = orb
 	text = Global.quests[Global.quest[0]].name
-	$desc.text = Global.quests[Global.quest[0]].segments[Global.quest[1]].name
-
-
-func _on_cam_anim_animation_finished(anim_name):
-	if shaking:
-		$quest_anim.play("shake")
-		#get_node("/root/World/Player/collision/neck/head/player_camera/cam_anim").play("shake")
+	$"../desc".text = Global.quests[Global.quest[0]].segments[Global.quest[1]].name
 
 # extras:
 func nurse_hide():

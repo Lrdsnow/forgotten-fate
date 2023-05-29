@@ -7,10 +7,10 @@ func _ready():
 
 func _on_settings_pressed():
 	settings_update()
-	get_node("../anim").play("open_settings")
+	get_node("../anim").play("settings")
 
 func _on_settings_exit_pressed():
-	get_node("../anim").play_backwards("open_settings")
+	get_node("../anim").play_backwards("settings")
 
 var setv = {
 	"sm":"rendering/scaling_3d/mode",
