@@ -1,9 +1,7 @@
-[gd_scene load_steps=107 format=3 uid="uid://ca0ocpsj0r33q"]
+[gd_scene load_steps=104 format=3 uid="uid://ca0ocpsj0r33q"]
 
 [ext_resource type="PackedScene" uid="uid://b7fm0a17b27fb" path="res://src/rooms/story/story_room1.tscn" id="1_wlrj8"]
 [ext_resource type="Script" path="res://src/floor1.gd" id="1_yyn8d"]
-[ext_resource type="PackedScene" uid="uid://dh3vbus2bq28w" path="res://src/rooms/story/story_hall2.tscn" id="2_ihoif"]
-[ext_resource type="PackedScene" uid="uid://wnesync7v32s" path="res://src/rooms/story/story_hall3.tscn" id="3_11qde"]
 [ext_resource type="Texture2D" uid="uid://da3jkuxthcsj" path="res://src/resources/textures/Tech_PlasticBase/Tech_PlasticBase_normal.jpg" id="3_lmvxa"]
 [ext_resource type="Texture2D" uid="uid://bvjr1lr6ugoxx" path="res://src/resources/textures/Tech_PlasticBase/Tech_PlasticBase_roughness.jpg" id="4_4ys7e"]
 [ext_resource type="Texture2D" uid="uid://cd48uexw1pvtx" path="res://src/resources/textures/Stylized_29_ConcreteTiles02/Stylized_29_ConcreteTiles02_basecolor.jpg" id="5_5jtsm"]
@@ -11,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://c2gnvrleypirk" path="res://src/resources/textures/Stylized_29_ConcreteTiles02/Stylized_29_ConcreteTiles02_height.jpg" id="6_4uq80"]
 [ext_resource type="Texture2D" uid="uid://dybfcc1ucn3nl" path="res://src/resources/textures/Stylized_29_ConcreteTiles02/Stylized_29_ConcreteTiles02_normal.jpg" id="7_852et"]
 [ext_resource type="Texture2D" uid="uid://u6yimku51u2h" path="res://src/resources/textures/Stylized_29_ConcreteTiles02/Stylized_29_ConcreteTiles02_roughness.jpg" id="8_t1gq6"]
-[ext_resource type="PackedScene" uid="uid://dsfdiyfdluh7c" path="res://src/rooms/story/story_hall5.tscn" id="9_hydii"]
 [ext_resource type="ArrayMesh" uid="uid://dj1wo66fevuxl" path="res://src/resources/models/hospital_Bed/Bed.obj" id="10_hpn5d"]
 [ext_resource type="Texture2D" uid="uid://dwdhayql10ufy" path="res://src/resources/models/hospital_Bed/Tex.png" id="11_xkv1p"]
 [ext_resource type="Texture2D" uid="uid://dtppphc3y1dq6" path="res://src/resources/textures/Wood_OBS_01/wood_OBS_01_basecolor.jpg" id="12_6xwst"]
@@ -1703,24 +1700,6 @@ skeleton = NodePath("")
 libraries = {
 "": SubResource("AnimationLibrary_ntdmo")
 }
-
-[node name="hall2" parent="." instance=ExtResource("3_11qde")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.73851, 0, -11.1159)
-
-[node name="hall3" parent="." instance=ExtResource("2_ihoif")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.9718, 0, -23.9911)
-
-[node name="hall4" parent="." instance=ExtResource("2_ihoif")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.9226, 0, 15.7174)
-
-[node name="hall5" parent="." instance=ExtResource("9_hydii")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -41.492, -0.0311559, -11.2012)
-
-[node name="room_ex_doors" type="Node3D" parent="hall5"]
-
-[node name="door00" parent="hall5/room_ex_doors" instance=ExtResource("5_tbvpg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.00938, 1.33234, 1.65421)
-metadata/status = "anim1"
 
 [node name="labels" type="Node3D" parent="."]
 visible = false

@@ -16,9 +16,9 @@ var movement:Dictionary = {
 }
 
 var held_item:Dictionary = {
-	"name":Global.player_held_item,
-	"obj":Global.player_held_item_obj,
-	"type":Global.player_held_item
+	"name":Global.player.held_item.name,
+	"obj":Global.player.held_item.obj,
+	"type":Global.player.held_item.name
 }
 
 var interaction:Dictionary = {
@@ -30,19 +30,14 @@ var interaction:Dictionary = {
 
 
 func _ready():
-	Global.ingame = true
 	Game.emit_signal("on_game_started")
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	update_held()
-	$nametag.text = Global.player_name
+	$nametag.text = Global.player.name
 	Global.load_complete.connect(self._load)
 	Global.debuglog.connect(self.debug_log)
 	get_node(self.get_meta("quest")).check_quest()
 	Global.instakill.connect(die)
-	if Global.debug_ext:
-		%pause_menu/debug.show()
-	else:
-		%pause_menu/debug.hide()
 	%pause.hide()
 
 func _load():
@@ -52,7 +47,7 @@ func _load():
 
 func _physics_process(delta):
 	#%ui/gui/info.text = "Self: "+str(rotation)+"\nCam: "+str($collision/neck/head/player_camera.rotation)+"\nHead: "+str($collision/neck/head.rotation)+"\nRot: "+str(rotation+$collision/neck.rotation+$collision/neck/head.rotation)
-	if Global.can_move and not Global.paused:
+	if Global.player.can_move and not Global.paused:
 		if bars:
 			update_held()
 		check_look()
@@ -80,30 +75,30 @@ func _physics_process(delta):
 			$anim.play_backwards("aim")
 			movement.aiming = false
 	if Input.is_action_pressed("shoot"): # This is stupid code :|
-		if Global.can_move:
+		if Global.player.can_move:
 			if not movement.shooting and not Global.shooting:
 				if movement.aiming:
-					if Global.ammo_clip != 0:
+					if Global.player.stats.ammo_clip != 0:
 						movement.shooting=true
 						var plr_rot = Vector3($collision/neck/head.rotation.x, self.rotation.y, $collision/neck.rotation.z)
 						var plr_pos = $collision/neck/head/Marker3d.global_position
-						if Global.player_held_item_obj != null:
-							Global.player_held_item_obj.shoot(plr_rot, plr_pos)
+						if Global.player.held_item.obj != null:
+							Global.player.held_item.obj.shoot(plr_rot, plr_pos)
 						call("shot_delay")
 						$anim.play("shoot+aim")
-						Global.ammo_clip = Global.ammo_clip - 1
+						Global.player.stats.ammo_clip = Global.player.stats.ammo_clip - 1
 					else:
 						$anim.play("no_ammo")
 				else:
-					if Global.ammo_clip != 0:
+					if Global.player.stats.ammo_clip != 0:
 						movement.shooting=false
 						var plr_rot = Vector3($collision/neck/head.rotation.x, self.rotation.y, $collision/neck.rotation.z)
 						var plr_pos = $collision/neck/head/Marker3d.global_position
-						if Global.player_held_item_obj != null:
-							Global.player_held_item_obj.shoot(plr_rot, plr_pos)
+						if Global.player.held_item.obj != null:
+							Global.player.held_item.obj.shoot(plr_rot, plr_pos)
 						call("shot_delay")
 						$anim.play("shoot")
-						Global.ammo_clip = Global.ammo_clip - 1
+						Global.player.stats.ammo_clip = Global.player.stats.ammo_clip - 1
 					else:
 						$anim.play("no_ammo")
 	if Input.is_action_just_pressed("pause"):
@@ -112,18 +107,18 @@ func _physics_process(delta):
 			%gui/gui_anim.play("pause")
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			Global.paused=true
-			Global.can_move=false
+			Global.player.can_move=false
 		else:
 			%gui/gui_anim.play_backwards("pause")
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			Global.paused=false
-			Global.can_move=true
+			Global.player.can_move=true
 			%pause.hide()
 	if Input.is_action_pressed("runnin"):
-		if Global.stamina != 0:
+		if Global.player.stats.stamina != 0:
 			movement.runnin = true
 			SPEED = 10
-			Global.stamina = Global.stamina - 0.001
+			Global.player.stats.stamina = Global.player.stats.stamina - 0.001
 	if Input.is_action_just_released("runnin"):
 		movement.runnin = false
 		SPEED = 5
@@ -138,7 +133,7 @@ func _physics_process(delta):
 					interaction.item.get_node(interaction.item.get_meta("anim")).play("open_fast")
 					interaction.item.get_node(interaction.item.get_meta("col")).disabled = true
 					#interaction.item.call_deferred("queue_free")
-					if Global.current_quest().has("anim"):
+					if Global.quests[Global.quest[0]].segments[Global.quest[1]].has("anim"):
 						if interaction.has("floor"):
 							interaction.floor.init_animation(interaction.item.name)
 				elif interaction.type == "hide":
@@ -165,14 +160,14 @@ func _physics_process(delta):
 	move_and_slide()
 
 func handle_stats():
-	if Global.health == 0:
+	if Global.player.stats.health == 0:
 		die()
 
 func die():
-		Global.health = 0
-		Global.can_move = false
+		Global.player.stats.health = 0
+		Global.player.can_move = false
 		movement.can_aim = false
-		%death_info.text = "Patient:\n"+Global.player_name+"\nDeath:\nAcidental\nTime of death:\n2/2/2003 "+Time.get_time_string_from_system()
+		%death_info.text = "Patient:\n"+Global.player.name+"\nDeath:\nAcidental\nTime of death:\n2/2/2003 "+Time.get_time_string_from_system()
 		%ui/transition.play("death")
 		Global.debug_log("Game: Player Has Died")
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -204,7 +199,7 @@ func refresh_info():
 	%interact_text.text = ""
 
 func _input(event):
-	if Global.can_move and not Global.paused:
+	if Global.player.can_move and not Global.paused:
 		if event is InputEventMouseMotion:
 			var left_ui_right = deg_to_rad(event.relative.x * Global.mouse_sensitivity)
 			var up_down = deg_to_rad(event.relative.y * Global.mouse_sensitivity)
@@ -218,7 +213,9 @@ func _input(event):
 			$collision/neck/head.rotation.x = clamp($collision/neck/head.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 			$collision/neck.rotation.z = clamp($collision/neck.rotation.z, deg_to_rad(-75), deg_to_rad(75))
 		elif event is InputEventJoypadMotion:
+			@warning_ignore("int_as_enum_without_cast")
 			var left_ui_right = deg_to_rad(Input.get_joy_axis(0, 2) * Global.mouse_sensitivity)
+			@warning_ignore("int_as_enum_without_cast")
 			var up_down = deg_to_rad(Input.get_joy_axis(0, 3) * Global.mouse_sensitivity)
 		
 			$collision/neck/head.rotate_x(-up_down)
@@ -231,7 +228,7 @@ func _input(event):
 			$collision/neck.rotation.z = clamp($collision/neck.rotation.z, deg_to_rad(-75), deg_to_rad(75))
 
 func update_held():
-	var item = "collision/neck/head/items/" + Global.player_held_item
+	var item = "collision/neck/head/items/" + Global.player.held_item.name
 	var item_obj = get_node_or_null(item)
 	var og_item = null
 	for i in $collision/neck/head/items.get_child_count():
@@ -242,11 +239,11 @@ func update_held():
 			child.hide()
 	if item_obj != null:
 		item_obj.show()
-		Global.player_held_item_obj = item_obj
+		Global.player.held_item.obj = item_obj
 		for child in item_obj.get_children():
 			child.show()
 		var gui_anim = get_node(get_meta("gui_anim"))
-		if Global.player_held_item in Global.guns:
+		if Global.player.held_item.name in Global.guns:
 			if og_item != null:
 				if str(og_item.get_node("..").name) in Global.lights:
 					gui_anim.play_backwards("switch_power_ammo")
@@ -256,7 +253,7 @@ func update_held():
 					gui_anim.play("open_ammo")
 			else:
 				gui_anim.play("open_ammo")
-		elif Global.player_held_item in Global.lights:
+		elif Global.player.held_item.name in Global.lights:
 			if og_item != null:
 				if str(og_item.get_node("..").name) in Global.guns:
 					gui_anim.play("switch_power_ammo")
@@ -267,7 +264,7 @@ func update_held():
 			else:
 				gui_anim.play("open_power")
 	else:
-		Global.player_held_item_obj = null
+		Global.player.held_item.obj = null
 
 func check_look():
 	var main_raycast = get_node("collision/neck/head/main_raycast")
@@ -285,18 +282,18 @@ func check_look():
 			interaction.is_hovering = true
 			interaction.can_interact = true
 			interaction.type = "item"
-		elif Global.current_quest().type == "hide":
-			if main_raycast.get_collider() in Global.current_quest().hiding_spots:
+		elif Global.quests[Global.quest[0]].segments[Global.quest[1]].type == "hide":
+			if main_raycast.get_collider() in Global.quests[Global.quest[0]].segments[Global.quest[1]].hiding_spots:
 				%interact_text.text = "E - HIDE!!!!"
 				interaction["item"] = main_raycast.get_collider()
 				interaction.is_hovering = true
 				interaction.can_interact = true
 				interaction.type = "hide"
-				interaction["floor"] = Global.current_quest().floor
+				interaction["floor"] = Global.quests[Global.quest[0]].segments[Global.quest[1]].floor
 	if alt_raycast.is_colliding():
 		if "door" in str(alt_raycast.get_collider().name):
-			if "key" in str(Global.doors_lock_status[alt_raycast.get_collider().name]):
-				if str(Global.doors_lock_status[alt_raycast.get_collider().name]) in Global.inv:
+			if "key" in str(Global.doors.lock_status[alt_raycast.get_collider().name]):
+				if str(Global.doors.lock_status[alt_raycast.get_collider().name]) in Global.inv:
 					%interact_text.text = "E - Unlock"
 					interaction["item"] = alt_raycast.get_collider()
 					interaction.is_hovering = true
@@ -308,22 +305,22 @@ func check_look():
 					interaction.is_hovering = true
 					interaction.can_interact = false
 					interaction.type = ""
-			elif "anim" in str(Global.doors_lock_status[alt_raycast.get_collider().name]):
-				if Global.doors_lock_status[alt_raycast.get_collider().name] == "quest"+str(Global.quest[0])+str(Global.quest[1]):
+			elif "anim" in str(Global.doors.lock_status[alt_raycast.get_collider().name]):
+				if Global.doors.lock_status[alt_raycast.get_collider().name] == "quest"+str(Global.quest[0])+str(Global.quest[1]):
 					%interact_text.text = "E - Open"
 					interaction["item"] = alt_raycast.get_colliwwwwder()
 					interaction.is_hovering = true
 					interaction.can_interact = true
 					interaction.type = "door"
-					if Global.current_quest().has("floor"):
-						interaction["floor"] = Global.current_quest().floor
+					if Global.quests[Global.quest[0]].segments[Global.quest[1]].has("floor"):
+						interaction["floor"] = Global.quests[Global.quest[0]].segments[Global.quest[1]].floor
 				else:
 					%interact_text.text = "The door is locked from the otherside"
 					interaction["item"] = null
 					interaction.is_hovering = true
 					interaction.can_interact = false
 					interaction.type = ""
-			elif str(Global.doors_lock_status[alt_raycast.get_collider().name]) == "unlocked":
+			elif str(Global.doors.lock_status[alt_raycast.get_collider().name]) == "unlocked":
 				%interact_text.text = "E - Open"
 				interaction["item"] = alt_raycast.get_collider()
 				interaction.is_hovering = true
@@ -335,7 +332,7 @@ func check_look():
 				interaction.can_interact = false
 				interaction.type = ""
 			# Unlock All After the if tree so it'll just override everything
-			if Global.unlock_all:
+			if Global.doors.unlock_all:
 				%interact_text.text = "E - Open"
 				interaction["item"] = alt_raycast.get_collider()
 				interaction.is_hovering = true
@@ -349,14 +346,12 @@ func check_look():
 		interaction.type = ""
 
 func _on_quit_pressed():
-	Global.save_game()
-	Global.quit_game()
+	Saves.save_game(Saves.get_global_save())
+	get_tree().quit()
 
 
 func _on_save_pressed():
-	Global.pos = position
-	Global.rot = rotation
-	Global.call_deferred("save_game")
+	Saves.save_game(Saves.get_global_save())
 
 
 func _on_continue_pressed():
@@ -374,14 +369,14 @@ func _on_resume_pressed():
 		%ui/gui/gui_anim.play_backwards("pause")
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		Global.paused=false
-		Global.can_move=true
+		Global.player.can_move=true
 
 
 func _on_debug_pressed():
 	Global.emit_signal("debug")
 
 
-func _on_gui_anim_animation_finished(anim_name):
+func _on_gui_anim_animation_finished(_anim_name):
 	bars = true
 
 func shot_delay():
@@ -394,6 +389,7 @@ func shot_delay():
 	await t.timeout
 	Global.shooting = false
 
+@warning_ignore("shadowed_global_identifier")
 func debug_log(log):
 	var fulllog = Array($ui/debuglog.text.split("\n"))
 	if not len(fulllog) >= 50:

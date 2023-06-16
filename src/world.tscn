@@ -1,8 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://buo5rg0jgmp2b"]
+[gd_scene load_steps=3 format=3 uid="uid://buo5rg0jgmp2b"]
 
 [ext_resource type="Script" path="res://src/World.gd" id="1_k7noi"]
-[ext_resource type="PackedScene" uid="uid://c3ue78xdmxvqp" path="res://src/player/player.tscn" id="2_bpike"]
-[ext_resource type="PackedScene" uid="uid://ca0ocpsj0r33q" path="res://src/floor1.tscn" id="2_tjavw"]
 
 [sub_resource type="Environment" id="Environment_e8hr5"]
 background_mode = 1
@@ -21,14 +19,12 @@ script = ExtResource("1_k7noi")
 
 [node name="map" type="Node3D" parent="."]
 
-[node name="floor1" parent="map" instance=ExtResource("2_tjavw")]
-
-[node name="Player" parent="." instance=ExtResource("2_bpike")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -3.27585, 1.80317, -0.348282)
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_e8hr5")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.63871)
 light_energy = 0.0
+
+[node name="spawn" type="Marker3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -3.27585, 1.80317, -0.348282)

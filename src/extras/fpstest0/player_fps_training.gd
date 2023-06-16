@@ -6,8 +6,8 @@ func _ready():
 	call_deferred("setup")
 
 func setup():
-	Global.ammo_clip = 9999999999999
-	Global.ammo = 999
+	Global.player.stats.ammo_clip = 9999999999999
+	Global.player.stats.ammo = 999
 	Game.set_held_item("AK") # Sets Gun To The Unused AK-47
 	Game.replace_questline([{
 	"name":"Kill Everyone",

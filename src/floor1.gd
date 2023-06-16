@@ -1,8 +1,11 @@
 extends Node3D
 
+var rooms = {
+	"pos":{"story_hall3":Vector3(1.739, 0, -11.116),"story_hall2":Vector3(-14.97,0,-23.991),"story_hall5":Vector3(-41.49,-0.031,-11.201)}
+}
+
 func _ready():
 	scandoors()
-	Global.call_deferred("emit_signal", "update_quest_info")
 	call_deferred("init_quests")
 
 func scandoors():
@@ -10,22 +13,22 @@ func scandoors():
 		for c_child in child.get_children():
 			if c_child.name == "room_doors":
 				for c_c_child in c_child.get_children():
-					Global.door_count += 1
-					c_c_child.name = "door" + str("%02d" % Global.door_count)
-					Global.doors[c_c_child.name] = c_c_child
+					Global.doors.count += 1
+					c_c_child.name = "door" + str("%02d" % Global.doors.count)
+					Global.doors.obj[c_c_child.name] = c_c_child
 					if c_c_child.has_meta("status"):
-						Global.doors_lock_status[c_c_child.name] = c_c_child.get_meta("status")
+						Global.doors.lock_status[c_c_child.name] = c_c_child.get_meta("status")
 					else:
-						Global.doors_lock_status[c_c_child.name] = "locked"
+						Global.doors.lock_status[c_c_child.name] = "locked"
 			if c_child.name == "room_ex_doors":
 				for c_c_child in c_child.get_children():
-					Global.door_count += 1
-					c_c_child.name = "door" + str("%02d" % Global.door_count)
-					Global.doors[c_c_child.name] = c_c_child
+					Global.doors.count += 1
+					c_c_child.name = "door" + str("%02d" % Global.doors.count)
+					Global.doors.obj[c_c_child.name] = c_c_child
 					if c_c_child.has_meta("status"):
-						Global.doors_lock_status[c_c_child.name] = c_c_child.get_meta("status")
+						Global.doors.lock_status[c_c_child.name] = c_c_child.get_meta("status")
 					else:
-						Global.doors_lock_status[c_c_child.name] = "locked"
+						Global.doors.lock_status[c_c_child.name] = "locked"
 		if child.has_meta("items"):
 			for item in child.get_meta("items"):
 				var node = child.get_node_or_null(item)
@@ -43,9 +46,9 @@ func init_quests():
 						subquest.items[item] = item_obj
 				elif subquest.type == "door":
 					subquest.floor = self
-					for door in Global.doors_lock_status.keys():
-						if Global.doors_lock_status[door] == subquest.door_status:
-							subquest.door = Global.doors[door]
+					for door in Global.doors.lock_status.keys():
+						if Global.doors.lock_status[door] == subquest.door_status:
+							subquest.door = Global.doors.obj[door]
 							break
 				elif subquest.type == "hide":
 					subquest.floor = self

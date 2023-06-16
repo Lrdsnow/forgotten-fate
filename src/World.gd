@@ -1,17 +1,21 @@
 extends Node3D
 
+# World Script:
+# Allow's Mods to change the player or the first loaded floor easily and anything else that can be changed before the game starts loading things
+
+@onready var floor1 = preload("res://src/floor1.tscn")
+@onready var player = preload("res://src/player/player.tscn")
+
 func _ready():
 	load_unloaded_mods()
-	if not Global.mod_env_override:
-		Global.env = $WorldEnvironment.environment
+	$map.add_child(floor1.instantiate())
+	$spawn.add_child(player.instantiate())
 
 func load_unloaded_mods():
-	for mod in Global.unloaded_mods:
-		var mod_data = Global.unloaded_mods[mod]
+	for mod in Global.mods.unloaded:
+		var mod_data = Global.mods.unloaded[mod]
 		if true:
-			var mod_pck = Global.mods_folder + "/" + Global.mod_folders[Global.lower(mod_data.mod)] + "/" + mod_data.pck
-			if ! FileAccess.file_exists(mod_pck):
-				mod_pck = Global.int_mods_folder + "/" + Global.mod_folders[Global.lower(mod_data.mod)] + "/" + mod_data.pck # Quick Fix
+			var mod_pck = Global.get_home() + "Mods/" + Global.mods.folders[Global.lower(mod_data.mod)] + "/" + mod_data.pck
 			var mod_package = ProjectSettings.load_resource_pack(mod_pck)
 			if mod_package:
 				if FileAccess.file_exists(mod_data.scene):

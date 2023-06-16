@@ -35,7 +35,7 @@ func settings_update():
 func set_overlay(active):
 	Global.overlays = active
 	if active:
-		if not Global.ingame:
+		if get_node_or_null("/root/World") == null:
 			if get_node_or_null("../menu") == null:
 				var background = load("res://src/extras/menu.tscn").instantiate()
 				get_parent().add_child(background)
@@ -44,7 +44,7 @@ func set_overlay(active):
 			var overlay = load("res://src/extras/overlay.tscn").instantiate()
 			get_node("/root").add_child(overlay)
 	else:
-		if not Global.ingame:
+		if get_node_or_null("/root/World") == null:
 			if get_node_or_null("../menu") != null:
 				get_node_or_null("../menu").queue_free()
 		if get_node_or_null("/root/game_overlay") != null:

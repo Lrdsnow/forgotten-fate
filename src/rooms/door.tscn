@@ -1,7 +1,7 @@
 [gd_scene load_steps=24 format=3 uid="uid://dsarxoifuikb8"]
 
-[ext_resource type="Texture2D" uid="uid://kyyl85x85c3w" path="res://src/resources/textures/Wood_Panels_03/Wood_Panels_03_basecolor.jpg" id="1_i5wge"]
-[ext_resource type="Texture2D" uid="uid://du7ju0m8hq3p6" path="res://src/resources/models/door/textures/Door_C.jpg" id="2_5urvn"]
+[ext_resource type="Texture2D" uid="uid://bimf85petltmn" path="res://src/resources/textures/Wood_Panels_03/Wood_Panels_03_basecolor.jpg" id="1_i5wge"]
+[ext_resource type="Texture2D" uid="uid://cnsxivcnfok1h" path="res://src/resources/models/door/textures/Door_C.jpg" id="2_5urvn"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_iddia"]
 size = Vector3(1.3, 2.5, 0.1)

@@ -16,7 +16,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$Health.look_at(Global.get_player().position)
+	$Health.look_at(get_node_or_null("/root/World/Player").position)
 
 func shot(damage):
 	health = health - damage

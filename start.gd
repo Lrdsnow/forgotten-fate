@@ -11,22 +11,14 @@ func _ready():
 	start()
 
 func start():
-	Game.setup_discord()
-	match OS.get_name():
-		"Windows", "UWP", "Linux", "FreeBSD", "NetBSD", "OpenBSD", "BSD", "macOS":
-			PC = true
-		"iOS", "Web":
-			Global.sensitive_filesystem = true
-	if not PC:
-		get_tree().change_scene_to_file("res://friendly_menu.tscn")
+	if OS.get_name() == "Web" or OS.get_name() == "Android" or OS.get_name() == "iOS":
+		Global.efficiency_mode = true
+	if ProjectSettings.get_setting("rendering/renderer/rendering_method") == "mobile":
+		get_tree().change_scene_to_file("res://src/extras/menu/friendly_menu.tscn")
 	else:
-		get_tree().change_scene_to_file("res://new_menu.tscn")
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+		get_tree().change_scene_to_file("res://src/extras/menu/menu.tscn")
 
 # UI Input handling
-func _input(event):
+func _input(_event):
 	if Input.is_anything_pressed():
 		start()

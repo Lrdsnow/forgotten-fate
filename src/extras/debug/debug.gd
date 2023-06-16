@@ -14,23 +14,23 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("debug"):
 		if ! debug_open:
-			if Global.ingame:
+			if get_node_or_null("/root/World") != null:
 				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 				Global.paused=true
-				Global.can_move=false
+				Global.player.can_move=false
 			update_vars()
 			$anim.play("open")
 			debug_open = true
 		else:
-			if Global.ingame and not Global.health == 0:
+			if get_node_or_null("/root/World") != null and not Global.health == 0:
 				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 				Global.paused=false
-				Global.can_move=true
+				Global.player.can_move=true
 			$anim.play_backwards("open")
 			debug_open = false
 
 func update_vars():
-	if Global.ingame:
+	if get_node_or_null("/root/World") != null:
 		$debug_panel/ingame.show()
 		$debug_panel/inmenu.hide()
 		$debug_panel/ingame/fov_slider.value = get_node("/root/World/Player/collision/neck/head/player_camera").fov
@@ -42,7 +42,7 @@ func update_vars():
 	else:
 		$debug_panel/ingame.hide()
 		$debug_panel/inmenu.show()
-		$debug_panel/inmenu/debugui.button_pressed = Global.debug_ui
+		#$debug_panel/inmenu/debugui.button_pressed = Global.debug_ui
 		$debug_panel/inmenu/efficent.button_pressed = Global.efficiency_mode
 
 
@@ -71,7 +71,8 @@ func _on_br_slider_value_changed(value):
 
 
 func _on_debugui_toggled(button_pressed):
-	Global.debug_ui = button_pressed
+	print("unused")
+	#Global.debug_ui = button_pressed
 
 
 func _on_fpstest_pressed():

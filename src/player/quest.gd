@@ -19,13 +19,12 @@ func _ready():
 
 func check_quest(interact_item=null):
 	subquest = Global.quests[Global.quest[0]].segments[Global.quest[1]]
-	Game.update_discordrp()
 	if str(subquest.type) == "grab":
-		var items = []
+		#var items = []
 		for item in subquest.item_names:
 			if item in Global.inv:
 				Global.debug_log("QuestHandler: subquest complete: " + subquest.name)
-				Global.save_checkpoint()
+				Saves.save_game(Saves.get_global_save())
 				if subquest.has("trophy"):
 					Global.trophys[subquest.trophy] = true
 				if prev_orb != null:
@@ -46,9 +45,7 @@ func check_quest(interact_item=null):
 		if subquest.door != null:
 			if subquest.door == interact_item:
 				Global.debug_log("QuestHandler: subquest complete: " + subquest.name)
-				Global.save_checkpoint()
-				if subquest.has("trophy"):
-					Global.trophys[subquest.trophy] = true
+				Saves.save_game(Saves.get_global_save())
 				if prev_orb != null:
 					prev_orb.queue_free()
 				if Global.quest[1] + 1 != Global.quests[Global.quest[0]].segments.size():
@@ -68,8 +65,6 @@ func check_quest(interact_item=null):
 		if subquest.complete:
 			Global.debug_log("QuestHandler: subquest complete: " + subquest.name)
 			Global.save_checkpoint()
-			if subquest.has("trophy"):
-					Global.trophys[subquest.trophy] = true
 			if Global.quest[1] + 1 != Global.quests[Global.quest[0]].segments.size():
 					Global.quest[1] = Global.quest[1] + 1
 			else:
@@ -83,9 +78,8 @@ func check_quest(interact_item=null):
 			#Global.debug_log("QuestHandler: Quest info: "+str(Global.current_quest()))
 		else:
 			Global.debug_log("QuestHandler: subquest vaild: " + subquest.name)
-	call_deferred("update_quest_info")
-	if not Global.cinematic_mode:
-		call("nurse_hide")
+	update_quest_info()
+	nurse_hide()
 
 func update_quest_info():
 	self.modulate = color[Global.quests[Global.quest[0]].segments[Global.quest[1]].color]

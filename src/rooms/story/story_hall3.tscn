@@ -1,12 +1,12 @@
 [gd_scene load_steps=33 format=3 uid="uid://wnesync7v32s"]
 
-[ext_resource type="Texture2D" uid="uid://bn4ifjjna8irq" path="res://src/resources/textures/Tech_PlasticBase/Tech_PlasticBase_normal.jpg" id="2_ss0s3"]
-[ext_resource type="Texture2D" uid="uid://cwmhem72ay2vd" path="res://src/resources/textures/Tech_PlasticBase/Tech_PlasticBase_roughness.jpg" id="3_xqpyb"]
-[ext_resource type="Texture2D" uid="uid://bchg6dopuv6tw" path="res://src/resources/textures/Stylized_29_ConcreteTiles02/Stylized_29_ConcreteTiles02_basecolor.jpg" id="4_egjje"]
-[ext_resource type="Texture2D" uid="uid://6scpjw1s572n" path="res://src/resources/textures/Stylized_29_ConcreteTiles02/Stylized_29_ConcreteTiles02_height.jpg" id="5_imbde"]
-[ext_resource type="Texture2D" uid="uid://cagli7817wyx4" path="res://src/resources/textures/Stylized_29_ConcreteTiles02/Stylized_29_ConcreteTiles02_normal.jpg" id="6_px8kn"]
+[ext_resource type="Texture2D" uid="uid://da3jkuxthcsj" path="res://src/resources/textures/Tech_PlasticBase/Tech_PlasticBase_normal.jpg" id="2_ss0s3"]
+[ext_resource type="Texture2D" uid="uid://bvjr1lr6ugoxx" path="res://src/resources/textures/Tech_PlasticBase/Tech_PlasticBase_roughness.jpg" id="3_xqpyb"]
+[ext_resource type="Texture2D" uid="uid://cd48uexw1pvtx" path="res://src/resources/textures/Stylized_29_ConcreteTiles02/Stylized_29_ConcreteTiles02_basecolor.jpg" id="4_egjje"]
+[ext_resource type="Texture2D" uid="uid://c2gnvrleypirk" path="res://src/resources/textures/Stylized_29_ConcreteTiles02/Stylized_29_ConcreteTiles02_height.jpg" id="5_imbde"]
+[ext_resource type="Texture2D" uid="uid://dybfcc1ucn3nl" path="res://src/resources/textures/Stylized_29_ConcreteTiles02/Stylized_29_ConcreteTiles02_normal.jpg" id="6_px8kn"]
 [ext_resource type="PackedScene" uid="uid://dsarxoifuikb8" path="res://src/rooms/door.tscn" id="7_byaae"]
-[ext_resource type="Texture2D" uid="uid://x1dr5sthtmmt" path="res://src/resources/textures/Stylized_29_ConcreteTiles02/Stylized_29_ConcreteTiles02_roughness.jpg" id="7_p8qw4"]
+[ext_resource type="Texture2D" uid="uid://u6yimku51u2h" path="res://src/resources/textures/Stylized_29_ConcreteTiles02/Stylized_29_ConcreteTiles02_roughness.jpg" id="7_p8qw4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_84jxc"]
 roughness_texture = ExtResource("3_xqpyb")

@@ -25,8 +25,8 @@ func add_save_menu_opt(value_name:String, type:String) -> Node: # (Requires full
 			menu = menu.get_node(menu.get_meta("mod_values"))
 			menu.show()
 			menu.add_child(button)
-			return button
 			print("Extras: add_save_menu_opt: Added New Checkbox To Save Menu")
+			return button
 		else:
 			print("Extras: add_save_menu_opt: unsupported type: "+type)
 			return null
@@ -57,9 +57,10 @@ func set_efficency(enabled:bool): # Sets Efficency Mode
 	print("Extras: set_efficency: Set Efficency Mode To "+str(enabled))
 
 func set_held_item(item_name:String): # Sets Held Item
-	Global.player_held_item = item_name
+	Global.player.held_item.name = item_name
 	print('Extras: set_held_item: Set Current Held Item To "'+str(item_name)+'"')
 
+@warning_ignore("unused_parameter")
 func add_object(object:Node, position:Vector3, rotation:Vector3): # Loads an item into the world
 	if Global.ingame:
 		get_node("/root/World").add_child(object)
@@ -68,36 +69,3 @@ func add_object(object:Node, position:Vector3, rotation:Vector3): # Loads an ite
 		#object.rotation = rotation
 	else:
 		print("Extras: add_object: Cannot load object!, Not In Game!")
-
-func setup_discord():
-	# Main:
-	discord_sdk.app_id = 1003060749695983616 # Application ID
-	print("Discord working: " + str(discord_sdk.get_is_discord_working())) # A boolean if everything worked
-	discord_sdk.details = "Main Menu"
-	discord_sdk.state = "Main Menu"
-	
-	discord_sdk.large_image = "chapter-2" # Image key from "Art Assets"
-	discord_sdk.large_image_text = "Main Menu"
-	#discord_sdk.small_image = "chapter-1" # Image key from "Art Assets"
-	#discord_sdk.small_image_text = "Test"
-
-	discord_sdk.start_timestamp = int(Time.get_unix_time_from_system()) # "02:46 elapsed"
-	# discord_sdk.end_timestamp = int(Time.get_unix_time_from_system()) + 3600 # +1 hour in unix time / "01:00 remaining"
-	
-	# Party:
-	#discord_sdk.current_party_size = 1
-	#discord_sdk.max_party_size = 2
-	#discord_sdk.is_public_party = true
-	#discord_sdk.party_id = "PARTY"
-	#discord_sdk.instanced = true
-
-	# Refresh:
-	discord_sdk.refresh() # Always refresh after changing the values!
-
-func update_discordrp():
-	var rp = Global.get_quest_rpdata()
-	discord_sdk.details = rp[0]
-	discord_sdk.state = rp[1]
-	discord_sdk.large_image = rp[2]
-	discord_sdk.large_image_text = rp[3]
-	discord_sdk.refresh()
