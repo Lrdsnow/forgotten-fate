@@ -11,16 +11,7 @@ func _ready():
 func scandoors():
 	for child in get_children():
 		for c_child in child.get_children():
-			if c_child.name == "room_doors":
-				for c_c_child in c_child.get_children():
-					Global.doors.count += 1
-					c_c_child.name = "door" + str("%02d" % Global.doors.count)
-					Global.doors.obj[c_c_child.name] = c_c_child
-					if c_c_child.has_meta("status"):
-						Global.doors.lock_status[c_c_child.name] = c_c_child.get_meta("status")
-					else:
-						Global.doors.lock_status[c_c_child.name] = "locked"
-			if c_child.name == "room_ex_doors":
+			if c_child.name in ["room_doors", "room_ex_doors"]:
 				for c_c_child in c_child.get_children():
 					Global.doors.count += 1
 					c_c_child.name = "door" + str("%02d" % Global.doors.count)
@@ -32,7 +23,7 @@ func scandoors():
 		if child.has_meta("items"):
 			for item in child.get_meta("items"):
 				var node = child.get_node_or_null(item)
-				if node != null:
+				if node:
 					Global.item_objs[node.name] = node
 
 func init_quests():
