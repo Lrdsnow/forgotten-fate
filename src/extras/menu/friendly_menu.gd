@@ -62,10 +62,10 @@ func _on_new_save_pressed():
 
 # Start Game
 func _on_singleplayer_pressed(save={}):
-	if not ProjectSettings.get_setting("rendering/renderer/rendering_method") == "mobile":
-		get_tree().change_scene_to_file("res://src/world.tscn")
-	else:
-		get_tree().change_scene_to_file("res://src/mobile_world_all.tscn")
+	#if not ProjectSettings.get_setting("rendering/renderer/rendering_method") == "mobile":
+	get_tree().change_scene_to_file("res://src/world.tscn")
+	#else:
+		#get_tree().change_scene_to_file("res://src/mobile_world_all.tscn")
 	if save == {}:
 		Global.player.name = "Jack Campbell"
 		Global.difficulty = 0

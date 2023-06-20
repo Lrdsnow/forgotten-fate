@@ -19,7 +19,6 @@ func mod_scanner():
 		if ".mod" in file:
 			var json = JSON.new()
 			var config = modsfolder + "/" + file + "/mod.json"
-			print(config)
 			if FileAccess.file_exists(config):
 				var file_access = FileAccess.open(config, FileAccess.READ)
 				var data = json.parse(file_access.get_as_text())

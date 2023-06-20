@@ -12,6 +12,7 @@ func _ready():
 signal debuglog
 signal debugstart
 var debug_mode = false
+var speedrunner = true
 func debug_log(logg):
 	if get_node_or_null("/root/World") != null:
 		debuglog.emit(logg)
@@ -54,13 +55,9 @@ var quest = [0,0]
 var quests = [{
 	"name":"Esacape the room",
 	"map":"floor1",
-	"image":"chapter-1",
-	"image_text":"Chapter 1",
-	"rooms":["room1"],
 	"segments":[{
 		"name":"Grab The Key",
 		"color":"white",
-		"orb":false,
 		"type":"grab",
 		"item_names":["key0"],
 		"item_paths":{},
@@ -68,37 +65,66 @@ var quests = [{
 	}, {
 		"name":"Open The Door",
 		"color":"white",
-		"orb":false,
 		"trophy":"so_it_begins",
 		"type":"door",
 		"door_status":"key0",
 		"door":null
 	}]
 }, {
-	"name":"H̴͎̾͋̃̐͋ȉ̵̻̮̜̱̝̩̝͔̂̐̈ḑ̵̜̺̭͖̮̳͚̲̆̆̓̌͝e̴̼̲̝̻̞̽̾̅͂͜͝͠",
+	"name":"Hide",
 	"map":"floor1",
-	"image":"chapter-1",
-	"image_text":"Chapter 1",
-	"rooms":["room1", "hall4"],
+	#"rooms":["room1", "hall4"],
 	"segments":[{
-		"name":"H̴͎̾͋̃̐͋ȉ̵̻̮̜̱̝̩̝͔̂̐̈ḑ̵̜̺̭͖̮̳͚̲̆̆̓̌͝e̴̼̲̝̻̞̽̾̅͂͜͝͠",
+		"name":"Hide",
 		"color":"red",
-		"orb":false,
-		"anim":"anim1",
-		"type":"door",
+		"type":"hide",
+		"complete":false,
 		"door_status":"anim0",
+		"door":null
+	}]
+}, {
+	"name":"Continue",
+	"map":"floor1",
+	#"rooms":["room1", "hall5"],
+	"segments":[{
+		"name":"Continue Through The Hall",
+		"color":"white",
+		"type":"other",
+		"complete":false,
+		"door_status":"anim1",
+		"door":null
+	}]
+}, {
+	"name":"Run",
+	"map":"floor1",
+	#"rooms":["room1", "hall5"],
+	"segments":[{
+		"name":"Get Away from the shadow figure",
+		"color":"red",
+		"type":"other",
+		"complete":false,
+		"door_status":"anim2",
+		"door":null
+	}]
+},{
+	"name":"Continue",
+	"map":"floor1",
+	#"rooms":["room1", "hall5"],
+	"segments":[{
+		"name":"Continue down the stairs",
+		"color":"white",
+		"type":"other",
+		"complete":false,
+		"door_status":"",
 		"door":null
 	}]
 }, {
 	"name":"Escape",
 	"map":"floor1",
-	"image":"chapter-1",
-	"image_text":"Chapter 1",
-	"rooms":["room1", "hall4"],
+	#"rooms":["room1", "hall4"],
 	"segments":[{
 		"name":"Make your way through the hospital",
 		"color":"white",
-		"orb":false,
 		"anim":"anim1",
 		"type":"door",
 		"door_status":"anim0",
@@ -107,7 +133,7 @@ var quests = [{
 }]
 #Functions that only exist because im lazy:
 func lower(string:String): string=string.to_lower().replace(":", "").replace("/", "").replace("-", "").replace("+", "").replace("=", "").replace("$", "").replace("%", "").replace("^", "").replace("&", "").replace("*", "").replace("(", "").replace(")", "").replace("~", "").replace("`", "").replace("?", "").replace("!", "").replace("@", "").replace("#", "").replace(">", "").replace("<", "").replace(",", "").replace(".", "").replace(";", "").replace(":", "").replace(" ", "_"); return string
-func get_quest_name(input) -> Array: var quest_name = [Global.quests[Global.quest[input[0]]]["name"],Global.quests[Global.quest[input[0]]].segments[Global.quest[input[1]]]["name"]]; return quest_name
+func get_quest_name(input): var quest_name = [Global.quests[input[0]]["name"],Global.quests[input[0]].segments[input[1]]["name"]]; return quest_name
 # Items:
 # Please note that all Guns are like unused so yeah
 signal update_item

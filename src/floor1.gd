@@ -1,7 +1,8 @@
 extends Node3D
 
 var rooms = {
-	"pos":{"story_hall3":Vector3(1.739, 0, -11.116),"story_hall2":Vector3(-14.97,0,-23.991),"story_hall5":Vector3(-41.49,-0.031,-11.201)}
+	"pos":{"story_hall3":Vector3(1.739, 0, -11.116),"story_hall2":Vector3(-14.97,0,-23.991),"story_hall5":Vector3(-41.57,-0.031,-11.201)},
+	"scenes":{"story_hall5":preload("res://src/rooms/story/story_hall5.tscn")}
 }
 
 func _ready():
@@ -43,52 +44,62 @@ func init_quests():
 							break
 				elif subquest.type == "hide":
 					subquest.floor = self
-					for spot in get_node(subquest.room).get_meta("spots"):
-						subquest.floor = self
-						subquest.hiding_spots.append(get_node(subquest.room).get_node(spot))
+				elif subquest.type == "other":
+					subquest.floor = self
 				else:
 					Global.debug_log("unrecognized subquest type: " + subquest.type)
 
-func init_animation(anim: String, death=false):
+func init_animation(anim: String):
 	if anim == "bed0":
-		if not death:
-			Global.debug_log("init_animation: Starting Nurse Chase (bed0) Animation (Without Death)")
+		var hall5 = rooms.scenes.story_hall5.instantiate()
+		hall5.position = rooms.pos.story_hall5
+		add_child(hall5)
+		scandoors()
+		if not Global.speedrunner:
+			Global.quests[Global.quest[0]].segments[Global.quest[1]].complete = false
 			var cam = load("res://src/extras/cutscene_camera.tscn").instantiate()
-			Global.get_player_camera().current = false
-			Global.can_move = false
-			Global.get_player().hide()
-			Global.get_player().refresh_info()
-			Global.current_quest().hiding_spots[0].add_child(cam)
+			get_node("/root/World/spawn/Player/collision/neck/head/player_camera").current = false
+			Global.player.can_move = false
+			get_node("/root/World/spawn/Player").hide()
+			get_node("/root/World/spawn/Player").refresh_info()
+			get_node("/root/World/spawn/Player").last_interaction.item.add_child(cam)
 			cam.current = true
 		else:
-			Global.debug_log("init_animation: Starting Nurse Chase (bed0) Animation (With Death)")
-		get_node(Global.current_quest().room).get_node("animations/animation_player").animation_finished.connect(animation_handler.bind(death))
-		get_node(Global.current_quest().room).get_node("animations/animation_player").play("nurse_chase")
-	elif anim == "door16":
-		Global.debug_log("init_animation: Starting Claire (door16) Animation")
+			Global.quests[Global.quest[0]].segments[Global.quest[1]].complete = true
+	elif anim == "door17":
+		Global.debug_log("init_animation: Starting Claire (door17) Animation")
+	elif anim == "door53":
+		Global.debug_log("init_animation: Starting Chase")
+		if not Global.speedrunner:
+			pass
+		else:
+			Global.quests[Global.quest[0]].segments[Global.quest[1]].complete = true
+	elif anim == "door50":
+		Global.debug_log("init_animation: Finished Chase")
+		Global.quests[Global.quest[0]].segments[Global.quest[1]].complete = true
 	else:
-		Global.debug_log('init_animation: Animation "' + anim + '" Is Not Declared!')
+		print(anim)
 
-func animation_handler(anim: String, death=false):
-	if anim == "nurse_chase":
-		if not death:
-			var hiding_spots = Global.current_quest().hiding_spots
-			var room = get_node_or_null(Global.current_quest().room)
-			if hiding_spots.size() > 0 and hiding_spots[0].has_node("cam"):
-				hiding_spots[0].get_node("cam").queue_free()
-			else:
-				Global.debug_log("init_animation: Failed to delete animation camera")
-			Global.get_player_camera().current = true
-			Global.can_move = true
-			Global.get_player().show()
-			Global.get_player().refresh_info()
-			Global.current_quest().complete = true
-			Global.anims.anim0 = true
-			if room != null and room.has_node("animations/nurse_chase/nurse"):
-				room.get_node("animations/nurse_chase/nurse").queue_free()
-		Global.debug_log("init_animation: Animation Nurse Chase (bed0) Finished")
-		Global.get_player().get_node(Global.get_player().get_meta("quest")).check_quest()
-	elif anim == "claire_anim":
-		pass
-	else:
-		Global.debug_log("init_animation: Animation Failed To Close!")
+#func animation_handler(anim: String, death=false):
+#	if anim == "nurse_chase":
+#		if not death:
+#			var hiding_spots = Global.current_quest().hiding_spots
+#			var room = get_node_or_null(Global.current_quest().room)
+#			if hiding_spots.size() > 0 and hiding_spots[0].has_node("cam"):
+#				hiding_spots[0].get_node("cam").queue_free()
+#			else:
+#				Global.debug_log("init_animation: Failed to delete animation camera")
+#			Global.get_player_camera().current = true
+#			Global.can_move = true
+#			Global.get_player().show()
+#			Global.get_player().refresh_info()
+#			Global.current_quest().complete = true
+#			Global.anims.anim0 = true
+#			if room != null and room.has_node("animations/nurse_chase/nurse"):
+#				room.get_node("animations/nurse_chase/nurse").queue_free()
+#		Global.debug_log("init_animation: Animation Nurse Chase (bed0) Finished")
+#		Global.get_player().get_node(Global.get_player().get_meta("quest")).check_quest()
+#	elif anim == "claire_anim":
+#		pass
+#	else:
+#		Global.debug_log("init_animation: Animation Failed To Close!")

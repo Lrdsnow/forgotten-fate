@@ -21,6 +21,12 @@ var held_item:Dictionary = {
 	"type":Global.player.held_item.name
 }
 
+var last_interaction:Dictionary = {
+	"is_hovering":false,
+	"can_interact":false,
+	"type":"",
+	"item":null
+}
 var interaction:Dictionary = {
 	"is_hovering":false,
 	"can_interact":false,
@@ -132,12 +138,10 @@ func _physics_process(delta):
 					interaction.item.set_meta("status", "open")
 					interaction.item.get_node(interaction.item.get_meta("anim")).play("open_fast")
 					interaction.item.get_node(interaction.item.get_meta("col")).disabled = true
-					#interaction.item.call_deferred("queue_free")
-					if Global.quests[Global.quest[0]].segments[Global.quest[1]].has("anim"):
-						if interaction.has("floor"):
-							interaction.floor.init_animation(interaction.item.name)
+					if Global.quests[Global.quest[0]].segments[Global.quest[1]].has("complete"):
+						get_node("/root/World/map/"+Global.quests[Global.quest[0]].map).init_animation(interaction.item.name)
 				elif interaction.type == "hide":
-					interaction.floor.init_animation(interaction.item.name)
+					get_node("/root/World/map/"+Global.quests[Global.quest[0]].map).init_animation(interaction.item.name)
 				get_node(self.get_meta("quest")).check_quest(interaction.item)
 			else:
 				%gui/gui_anim.play("cant_interact")
@@ -269,7 +273,7 @@ func update_held():
 func check_look():
 	var main_raycast = get_node("collision/neck/head/main_raycast")
 	var alt_raycast = get_node("collision/neck/head/alt_raycast")
-	if main_raycast.is_colliding():
+	if main_raycast.is_colliding() and main_raycast.get_collider() != null:
 		if str(main_raycast.get_collider().name) in Global.int_items:
 			%interact_text.text = "E - Interact"
 			interaction["item"] = main_raycast.get_collider()
@@ -282,15 +286,15 @@ func check_look():
 			interaction.is_hovering = true
 			interaction.can_interact = true
 			interaction.type = "item"
-		elif Global.quests[Global.quest[0]].segments[Global.quest[1]].type == "hide":
-			if main_raycast.get_collider() in Global.quests[Global.quest[0]].segments[Global.quest[1]].hiding_spots:
-				%interact_text.text = "E - HIDE!!!!"
-				interaction["item"] = main_raycast.get_collider()
-				interaction.is_hovering = true
-				interaction.can_interact = true
-				interaction.type = "hide"
-				interaction["floor"] = Global.quests[Global.quest[0]].segments[Global.quest[1]].floor
-	if alt_raycast.is_colliding():
+		elif main_raycast.get_collider().has_meta("hide"):
+			%interact_text.text = "E - Hide"
+			interaction["item"] = main_raycast.get_collider()
+			interaction.is_hovering = true
+			interaction.can_interact = true
+			interaction.type = "hide"
+			#interaction["floor"] = Global.quests[Global.quest[0]].segments[Global.quest[1]].floor
+		last_interaction=interaction
+	if alt_raycast.is_colliding() and main_raycast.get_collider() != null:
 		if "door" in str(alt_raycast.get_collider().name):
 			if "key" in str(Global.doors.lock_status[alt_raycast.get_collider().name]):
 				if str(Global.doors.lock_status[alt_raycast.get_collider().name]) in Global.inv:
@@ -305,10 +309,10 @@ func check_look():
 					interaction.is_hovering = true
 					interaction.can_interact = false
 					interaction.type = ""
-			elif "anim" in str(Global.doors.lock_status[alt_raycast.get_collider().name]):
+			elif "quest" in str(Global.doors.lock_status[alt_raycast.get_collider().name]):
 				if Global.doors.lock_status[alt_raycast.get_collider().name] == "quest"+str(Global.quest[0])+str(Global.quest[1]):
 					%interact_text.text = "E - Open"
-					interaction["item"] = alt_raycast.get_colliwwwwder()
+					interaction["item"] = alt_raycast.get_collider()
 					interaction.is_hovering = true
 					interaction.can_interact = true
 					interaction.type = "door"
@@ -338,6 +342,7 @@ func check_look():
 				interaction.is_hovering = true
 				interaction.can_interact = true
 				interaction.type = "door"
+			last_interaction=interaction
 	else:
 		%interact_text.text = ""
 		interaction["item"] = null

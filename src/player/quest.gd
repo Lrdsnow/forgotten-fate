@@ -61,10 +61,9 @@ func check_quest(interact_item=null):
 							Global.quit_game("quest")
 			else:
 				Global.debug_log("QuestHandler: subquest vaild: " + subquest.name)
-	elif str(subquest.type) == "hide":
+	elif str(subquest.type) == "hide" or str(subquest.type) == "other":
 		if subquest.complete:
 			Global.debug_log("QuestHandler: subquest complete: " + subquest.name)
-			Global.save_checkpoint()
 			if Global.quest[1] + 1 != Global.quests[Global.quest[0]].segments.size():
 					Global.quest[1] = Global.quest[1] + 1
 			else:
@@ -88,25 +87,6 @@ func update_quest_info():
 		#get_node("/root/World/Player/collision/neck/head/player_camera/cam_anim").play("shake")
 	else:
 		shaking = false
-	if Global.quests[Global.quest[0]].segments[Global.quest[1]].orb:
-		if Global.quests[Global.quest[0]].segments[Global.quest[1]].type == "grab":
-			for spot in Global.quests[Global.quest[0]].segments[Global.quest[1]].items:
-				if spot.has_meta("quest_orb"):
-					var orb = load("res://src/extras/orb.tscn").instantiate()
-					spot.add_child(orb)
-					orb.position = spot.get_meta("quest_orb")
-					prev_orb = orb
-		elif Global.quests[Global.quest[0]].segments[Global.quest[1]].type == "door":
-			pass
-		elif Global.quests[Global.quest[0]].segments[Global.quest[1]].type == "hide":
-			for spot in Global.quests[Global.quest[0]].segments[Global.quest[1]].hiding_spots:
-				#spot = get_node_or_null(spot)
-				if spot != null:
-					if spot.has_meta("quest_orb"):
-						var orb = load("res://src/extras/orb.tscn").instantiate()
-						spot.add_child(orb)
-						orb.position = spot.get_meta("quest_orb")
-						prev_orb = orb
 	text = Global.quests[Global.quest[0]].name
 	$"../desc".text = Global.quests[Global.quest[0]].segments[Global.quest[1]].name
 
