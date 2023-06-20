@@ -182,5 +182,5 @@ var doors = {
 	"count":0,
 	"obj":{},
 	"lock_status":{},
-	"unlock_all":true
+	"unlock_all":false
 }
