@@ -3,6 +3,9 @@ extends CharacterBody3D
 var SPEED = 5.0
 var JUMP_VELOCITY = 4.5
 
+#debug lol
+@onready var flashlight = %flashlight
+
 # Get the gravity from the project settings to be synced with RigidDynamicBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var bars = false # tells if start anim for bars are finished
@@ -286,7 +289,7 @@ func check_look():
 			interaction.is_hovering = true
 			interaction.can_interact = true
 			interaction.type = "item"
-		elif main_raycast.get_collider().has_meta("hide"):
+		elif main_raycast.get_collider().has_meta("hide") and Global.quests[Global.quest[0]].segments[Global.quest[1]].type == "hide":
 			%interact_text.text = "E - Hide"
 			interaction["item"] = main_raycast.get_collider()
 			interaction.is_hovering = true

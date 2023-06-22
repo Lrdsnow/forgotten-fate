@@ -186,6 +186,13 @@ max_value = 8.0
 layout_mode = 2
 text = "Kys"
 
+[node name="flashlight" type="CheckBox" parent="debug_layer/debug_panel/ingame"]
+layout_mode = 2
+text = "Debug Flashlight"
+alignment = 1
+icon_alignment = 1
+expand_icon = true
+
 [node name="anim" type="AnimationPlayer" parent="debug_layer"]
 root_node = NodePath("../..")
 libraries = {
@@ -204,3 +211,4 @@ libraries = {
 [connection signal="value_changed" from="debug_layer/debug_panel/ingame/fov_slider" to="debug_layer" method="_on_fov_slider_value_changed"]
 [connection signal="value_changed" from="debug_layer/debug_panel/ingame/br_slider" to="debug_layer" method="_on_br_slider_value_changed"]
 [connection signal="pressed" from="debug_layer/debug_panel/ingame/kys" to="debug_layer" method="_on_kys_pressed"]
+[connection signal="pressed" from="debug_layer/debug_panel/ingame/flashlight" to="debug_layer" method="_on_flashlight_pressed"]

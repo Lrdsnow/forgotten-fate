@@ -51,24 +51,25 @@ func init_quests():
 
 func init_animation(anim: String):
 	if anim == "bed0":
-		var hall5 = rooms.scenes.story_hall5.instantiate()
-		hall5.position = rooms.pos.story_hall5
-		add_child(hall5)
-		scandoors()
-		if not Global.speedrunner:
-			Global.quests[Global.quest[0]].segments[Global.quest[1]].complete = false
-			var cam = load("res://src/extras/cutscene_camera.tscn").instantiate()
-			get_node("/root/World/spawn/Player/collision/neck/head/player_camera").current = false
-			Global.player.can_move = false
-			get_node("/root/World/spawn/Player").hide()
-			get_node("/root/World/spawn/Player").refresh_info()
-			get_node("/root/World/spawn/Player").last_interaction.item.add_child(cam)
-			cam.current = true
-		else:
-			Global.quests[Global.quest[0]].segments[Global.quest[1]].complete = true
-	elif anim == "door17":
+		if Global.quests[Global.quest[0]].segments[Global.quest[1]].type == "hide":
+			var hall5 = rooms.scenes.story_hall5.instantiate()
+			hall5.position = rooms.pos.story_hall5
+			add_child(hall5)
+			scandoors()
+			if not Global.speedrunner:
+				Global.quests[Global.quest[0]].segments[Global.quest[1]].complete = false
+				var cam = load("res://src/extras/cutscene_camera.tscn").instantiate()
+				get_node("/root/World/spawn/Player/collision/neck/head/player_camera").current = false
+				Global.player.can_move = false
+				get_node("/root/World/spawn/Player").hide()
+				get_node("/root/World/spawn/Player").refresh_info()
+				get_node("/root/World/spawn/Player").last_interaction.item.add_child(cam)
+				cam.current = true
+			else:
+				Global.quests[Global.quest[0]].segments[Global.quest[1]].complete = true
+	elif anim == "door36":
 		Global.debug_log("init_animation: Starting Claire (door17) Animation")
-	elif anim == "door53":
+	elif anim == "door55":
 		Global.debug_log("init_animation: Starting Chase")
 		if not Global.speedrunner:
 			pass
