@@ -29,7 +29,7 @@ var saves = {}
 func get_home():
 	if home != "":
 		return home
-	home = "user://" if sensitive_filesystem else find_documents_dir() + "/My Games/ForgottenFate"
+	home = "user:/" if sensitive_filesystem else find_documents_dir() + "/My Games/ForgottenFate"
 	create_recursive_dirs(["My Games/ForgottenFate/Saves", "My Games/ForgottenFate/Mods"])
 	return home
 func find_documents_dir():
