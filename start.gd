@@ -15,7 +15,7 @@ func start():
 		Global.efficiency_mode = true
 	if OS.get_name() == "iOS":
 		Global.sensitive_filesystem = true
-	if ProjectSettings.get_setting("rendering/renderer/rendering_method") == "mobile":
+	if ProjectSettings.get_setting("rendering/renderer/rendering_method") == "mobile" or OS.get_name() == "iOS" or OS.get_name() == "Android":
 		get_tree().change_scene_to_file("res://src/extras/menu/friendly_menu.tscn")
 	else:
 		get_tree().change_scene_to_file("res://src/extras/menu/menu.tscn")

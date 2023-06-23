@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://buo5rg0jgmp2b"]
 
-[ext_resource type="Script" path="res://src/World.gd" id="1_k7noi"]
+[ext_resource type="Script" path="res://src/World.gd" id="1_4mno4"]
 
 [sub_resource type="Environment" id="Environment_e8hr5"]
 background_mode = 1
@@ -13,9 +13,10 @@ sdfgi_y_scale = 0
 glow_bloom = 0.32
 fog_light_color = Color(0, 0, 0, 1)
 adjustment_enabled = true
+adjustment_brightness = 2.0
 
 [node name="World" type="Node3D"]
-script = ExtResource("1_k7noi")
+script = ExtResource("1_4mno4")
 
 [node name="map" type="Node3D" parent="."]
 

@@ -29,16 +29,20 @@ var saves = {}
 func get_home():
 	if home != "":
 		return home
-	home = "user:/" if sensitive_filesystem else find_documents_dir() + "/My Games/ForgottenFate"
+	if sensitive_filesystem:
+		home = "user:/"
+	else:
+		home = find_documents_dir() + "/My Games/ForgottenFate"
 	create_recursive_dirs(["My Games/ForgottenFate/Saves", "My Games/ForgottenFate/Mods"])
 	return home
 func find_documents_dir():
-	var dfn = 0
-	while true:
-		var system_dir = OS.get_system_dir(dfn)
-		if "Documents" in system_dir:
-			return system_dir
-		dfn += 1
+	if not sensitive_filesystem:
+		var dfn = 0
+		while true:
+			var system_dir = OS.get_system_dir(dfn)
+			if "Documents" in system_dir:
+				return system_dir
+			dfn += 1
 func create_recursive_dirs(paths:Array):
 	var dir = DirAccess.open(find_documents_dir())
 	for path in paths:

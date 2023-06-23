@@ -418,3 +418,11 @@ func _on_mainmenu_pressed():
 
 func _on_exit_pressed():
 	get_tree().quit()
+
+
+func _on_button_0_pressed():
+	Input.action_press("ui_accept")
+
+
+func _on_button_1_pressed():
+	Input.action_press("interact")

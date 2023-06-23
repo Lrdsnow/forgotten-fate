@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b4o633h847jrf"]
 
-[ext_resource type="Script" path="res://start.gd" id="1_02la3"]
-[ext_resource type="Texture2D" uid="uid://tqa01o3cqmf4" path="res://src/resources/splash.png" id="2_46dnl"]
+[ext_resource type="Script" path="res://start.gd" id="1_22sk1"]
+[ext_resource type="Texture2D" uid="uid://tqa01o3cqmf4" path="res://src/resources/splash.png" id="2_rssgi"]
 
 [sub_resource type="Animation" id="Animation_if6uj"]
 length = 0.001
@@ -65,7 +65,7 @@ _data = {
 }
 
 [node name="start" type="Node"]
-script = ExtResource("1_02la3")
+script = ExtResource("1_22sk1")
 
 [node name="logo" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -73,7 +73,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_46dnl")
+texture = ExtResource("2_rssgi")
 expand_mode = 1
 
 [node name="flashing_lights" type="Label" parent="."]
