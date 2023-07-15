@@ -44,12 +44,13 @@ func get_saves() -> Array:
 	
 	return saves
 
-func get_global_save() -> Dictionary: return {"name":Global.player.name,"difficulty":Global.difficulty,"stats":{"health":Global.player.stats.health,"stamina":Global.player.stats.stamina,"power":Global.player.stats.power}, "quest":Global.quest}
+func get_global_save() -> Dictionary: Global.update_player_position(); return {"name":Global.player.name,"difficulty":Global.difficulty,"rot":[Global.player.rot.x, Global.player.rot.y, Global.player.rot.z],"pos":[Global.player.pos.x, Global.player.pos.y, Global.player.pos.z], "stats":{"health":Global.player.stats.health,"stamina":Global.player.stats.stamina,"power":Global.player.stats.power}, "quest":Global.quest}
 func load_save(save):
 	for i in save.keys():
 		if i == "difficulty" or i == "quest": Global.set(i, save[i])
 		elif i == "name": Global.player[i]=save[i]
 		elif i == "stats": for x in save[i].keys(): Global.player.stats[x] = save[i][x]
+		elif i == "pos" or i == "rot": Global.player[i] = Vector3(save[i][0], save[i][1], save[i][2])
 func save_game(save:Dictionary):
 	var save_file = Global.get_home() + "/Saves/" + Global.lower(save.name) + ".save"
 	var file = FileAccess.open(save_file, FileAccess.WRITE)

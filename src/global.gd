@@ -150,7 +150,7 @@ func update_items():
 	emit_signal("update_item")
 var guns_max_ammo:Dictionary = {"AK":32}
 var int_items = []
-var grab_items = ["key0"]
+var grab_items = ["key0", "basic_flashlight"]
 var inv = []
 var item_objs = {}
 var shooting = false # Whyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
@@ -162,6 +162,9 @@ var paused:bool = false
 var difficulty = 1
 var player = {
 	"name":"Jack Campbell",
+	"obj":null,
+	"pos":Vector3(0,0,0),
+	"rot":Vector3(0,0,0),
 	"interact_obj":[],
 	"held_item":{
 		"name":"N/A",
@@ -176,6 +179,10 @@ var player = {
 	},
 	"can_move":true
 }
+func update_player_position():
+	if player.obj != null:
+		player.pos = player.obj.position
+		player.rot = player.obj.rotation
 # Settings:
 var mouse_sensitivity:int = 1
 var joystick_sensitivity:int = 1

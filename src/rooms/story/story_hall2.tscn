@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://dh3vbus2bq28w"]
+[gd_scene load_steps=39 format=3 uid="uid://dh3vbus2bq28w"]
 
 [ext_resource type="Texture2D" uid="uid://da3jkuxthcsj" path="res://src/resources/textures/Tech_PlasticBase/Tech_PlasticBase_normal.jpg" id="2_ss0s3"]
 [ext_resource type="Texture2D" uid="uid://bvjr1lr6ugoxx" path="res://src/resources/textures/Tech_PlasticBase/Tech_PlasticBase_roughness.jpg" id="3_xqpyb"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dybfcc1ucn3nl" path="res://src/resources/textures/Stylized_29_ConcreteTiles02/Stylized_29_ConcreteTiles02_normal.jpg" id="6_px8kn"]
 [ext_resource type="Texture2D" uid="uid://u6yimku51u2h" path="res://src/resources/textures/Stylized_29_ConcreteTiles02/Stylized_29_ConcreteTiles02_roughness.jpg" id="7_p8qw4"]
 [ext_resource type="PackedScene" uid="uid://dsarxoifuikb8" path="res://src/rooms/door.tscn" id="7_x5nph"]
+[ext_resource type="Texture2D" uid="uid://dp0awciig0xb5" path="res://src/resources/textures/smile.png" id="8_la63g"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_84jxc"]
 roughness_texture = ExtResource("3_xqpyb")
@@ -837,3 +838,8 @@ metadata/anim = NodePath("../door02/Door_Component_BI3/AnimationPlayer")
 metadata/col = NodePath("../door02/CollisionShape3D")
 
 [node name="room_items" type="Node3D" parent="."]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 15.6298, 0.938915, 0)
+shaded = true
+texture = ExtResource("8_la63g")

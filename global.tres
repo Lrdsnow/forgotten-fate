@@ -1,0 +1,67 @@
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://b6mpnko7t5mi3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vqepm"]
+bg_color = Color(0.423529, 0, 0, 0.215686)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xtoc8"]
+bg_color = Color(1, 0, 0, 0.215686)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_04cg5"]
+bg_color = Color(1, 0.443137, 0.376471, 0.215686)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tjgr2"]
+bg_color = Color(1, 0, 0, 0.215686)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o200g"]
+bg_color = Color(1, 0, 0, 0.215686)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_33cw2"]
+bg_color = Color(1, 0, 0, 0.215686)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qnwkf"]
+bg_color = Color(1, 0, 0, 0.215686)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_venj3"]
+bg_color = Color(1, 0, 0, 0.215686)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[resource]
+Button/styles/disabled = SubResource("StyleBoxFlat_vqepm")
+Button/styles/focus = SubResource("StyleBoxFlat_xtoc8")
+Button/styles/hover = SubResource("StyleBoxFlat_04cg5")
+Button/styles/normal = SubResource("StyleBoxFlat_tjgr2")
+Button/styles/pressed = SubResource("StyleBoxFlat_o200g")
+LineEdit/styles/focus = SubResource("StyleBoxFlat_33cw2")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_qnwkf")
+Panel/styles/panel = SubResource("StyleBoxFlat_venj3")

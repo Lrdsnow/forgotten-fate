@@ -3,7 +3,6 @@ extends CharacterBody3D
 var SPEED = 5.0
 var JUMP_VELOCITY = 4.5
 
-#debug lol
 @onready var flashlight = %flashlight
 
 # Get the gravity from the project settings to be synced with RigidDynamicBody nodes.
@@ -30,6 +29,7 @@ var last_interaction:Dictionary = {
 	"type":"",
 	"item":null
 }
+
 var interaction:Dictionary = {
 	"is_hovering":false,
 	"can_interact":false,
@@ -43,16 +43,13 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	update_held()
 	$nametag.text = Global.player.name
-	Global.load_complete.connect(self._load)
 	Global.debuglog.connect(self.debug_log)
 	get_node(self.get_meta("quest")).check_quest()
 	Global.instakill.connect(die)
 	%pause.hide()
-
-func _load():
-	position = Global.pos
-	rotation = Global.rot
-	#Global.update_item.connect(self.update_held())
+	Global.player.obj = self
+	position = Global.player.pos
+	rotation = Global.player.rot
 
 func _physics_process(delta):
 	#%ui/gui/info.text = "Self: "+str(rotation)+"\nCam: "+str($collision/neck/head/player_camera.rotation)+"\nHead: "+str($collision/neck/head.rotation)+"\nRot: "+str(rotation+$collision/neck.rotation+$collision/neck/head.rotation)
@@ -135,16 +132,12 @@ func _physics_process(delta):
 		if interaction.is_hovering:
 			if interaction.can_interact:
 				if interaction.type == "item":
-					Global.interact.connect(Global.item_objs[interaction.item.name].interact.bind(interaction.item))
+					Global.interact.connect(interaction.item.interact.bind(interaction.item))
 					Global.emit_signal("interact")
 				elif interaction.type == "door":
-					interaction.item.set_meta("status", "open")
-					interaction.item.get_node(interaction.item.get_meta("anim")).play("open_fast")
-					interaction.item.get_node(interaction.item.get_meta("col")).disabled = true
-					if Global.quests[Global.quest[0]].segments[Global.quest[1]].has("complete"):
-						get_node("/root/World/map/"+Global.quests[Global.quest[0]].map).init_animation(interaction.item.name)
+					open_door()
 				elif interaction.type == "hide":
-					get_node("/root/World/map/"+Global.quests[Global.quest[0]].map).init_animation(interaction.item.name)
+					get_node("/root/World/map/"+Global.quests[Global.quest[0]].map).init_animation(interaction.item)
 				get_node(self.get_meta("quest")).check_quest(interaction.item)
 			else:
 				%gui/gui_anim.play("cant_interact")
@@ -314,13 +307,12 @@ func check_look():
 					interaction.type = ""
 			elif "quest" in str(Global.doors.lock_status[alt_raycast.get_collider().name]):
 				if Global.doors.lock_status[alt_raycast.get_collider().name] == "quest"+str(Global.quest[0])+str(Global.quest[1]):
-					%interact_text.text = "E - Open"
+#					%interact_text.text = "E - Open"
 					interaction["item"] = alt_raycast.get_collider()
 					interaction.is_hovering = true
 					interaction.can_interact = true
 					interaction.type = "door"
-					if Global.quests[Global.quest[0]].segments[Global.quest[1]].has("floor"):
-						interaction["floor"] = Global.quests[Global.quest[0]].segments[Global.quest[1]].floor
+					open_door()
 				else:
 					%interact_text.text = "The door is locked from the otherside"
 					interaction["item"] = null
@@ -328,11 +320,12 @@ func check_look():
 					interaction.can_interact = false
 					interaction.type = ""
 			elif str(Global.doors.lock_status[alt_raycast.get_collider().name]) == "unlocked":
-				%interact_text.text = "E - Open"
+#				%interact_text.text = "E - Open"
 				interaction["item"] = alt_raycast.get_collider()
 				interaction.is_hovering = true
 				interaction.can_interact = true
 				interaction.type = "door"
+				open_door()
 			else:
 				%interact_text.text = "Locked"
 				interaction.is_hovering = true
@@ -426,3 +419,12 @@ func _on_button_0_pressed():
 
 func _on_button_1_pressed():
 	Input.action_press("interact")
+
+func open_door(close=false):
+	interaction.item.set_meta("status", "open" if !close else "unlocked")
+	if !close: interaction.item.get_node("AnimationPlayer").play("open_fast")
+	else: interaction.item.get_node("AnimationPlayer").play_backwards("open_fast")
+	interaction.item.get_node("CollisionShape3D").set_deferred("disabled", !close)
+	if Global.quests[Global.quest[0]].segments[Global.quest[1]].has("complete") and !close:
+		get_node("/root/World/map/"+Global.quests[Global.quest[0]].map).init_animation(interaction.item)
+	get_node(self.get_meta("quest")).check_quest()

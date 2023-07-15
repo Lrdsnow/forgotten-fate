@@ -64,7 +64,7 @@ func _on_fov_slider_value_changed(value):
 	get_node("/root/World/spawn/Player/collision/neck/head/player_camera").fov = value
 
 
-func _on_br_slider_value_changed(value):
+func _on_br_slider_value_changed(_value):
 	pass
 	#Global.env.adjustment_brightness = value
 

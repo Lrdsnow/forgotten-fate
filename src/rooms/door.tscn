@@ -339,7 +339,7 @@ _data = {
 
 [node name="door" type="StaticBody3D"]
 metadata/status = "locked"
-metadata/anim = NodePath("Door_Component_BI3/AnimationPlayer")
+metadata/anim = NodePath("AnimationPlayer")
 metadata/col = NodePath("CollisionShape3D")
 
 [node name="mesh" type="MeshInstance3D" parent="."]
@@ -363,12 +363,12 @@ surface_material_override/0 = SubResource("StandardMaterial3D_torvi")
 surface_material_override/1 = SubResource("StandardMaterial3D_5dmnt")
 
 [node name="Plane001" type="MeshInstance3D" parent="Door_Component_BI3/Plane002"]
-transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, -2.84217e-14, 0, 1, -0.435135, 0.248962, 0.101397)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.435135, 0.248962, 0.101397)
 mesh = SubResource("ArrayMesh_o6ni4")
 skeleton = NodePath("")
 
 [node name="Circle002" type="MeshInstance3D" parent="Door_Component_BI3/Plane002/Plane001"]
-transform = Transform3D(0.998204, -0.0599094, -1.05364e-09, 0.0599094, 0.998204, -4.07649e-08, 3.49395e-09, 4.06286e-08, 1, 0.809703, 0.802855, -0.0427378)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.809703, 0.802855, -0.0427378)
 mesh = SubResource("ArrayMesh_vsfmu")
 skeleton = NodePath("")
 
@@ -377,7 +377,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.851775, 0.78184, -0.0166004
 mesh = SubResource("ArrayMesh_lcxrs")
 skeleton = NodePath("")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Door_Component_BI3"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Door_Component_BI3")
 libraries = {
 "": SubResource("AnimationLibrary_ntdmo")
 }

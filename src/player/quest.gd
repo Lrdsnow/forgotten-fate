@@ -61,7 +61,7 @@ func check_quest(interact_item=null):
 							Global.quit_game("quest")
 			else:
 				Global.debug_log("QuestHandler: subquest vaild: " + subquest.name)
-	elif str(subquest.type) == "hide" or str(subquest.type) == "other":
+	elif subquest.has("complete"):
 		if subquest.complete:
 			Global.debug_log("QuestHandler: subquest complete: " + subquest.name)
 			if Global.quest[1] + 1 != Global.quests[Global.quest[0]].segments.size():

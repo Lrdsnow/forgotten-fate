@@ -5,6 +5,13 @@ var rooms = {
 	"scenes":{"story_hall5":preload("res://src/rooms/story/story_hall5.tscn")}
 }
 
+var staircase_door_player_interact = {
+	"is_hovering":true,
+	"can_interact":false,
+	"type":"door",
+	"item":null
+}
+
 func _ready():
 	scandoors()
 	call_deferred("init_quests")
@@ -49,8 +56,8 @@ func init_quests():
 				else:
 					Global.debug_log("unrecognized subquest type: " + subquest.type)
 
-func init_animation(anim: String):
-	if anim == "bed0":
+func init_animation(item):
+	if item.name == "bed0":
 		if Global.quests[Global.quest[0]].segments[Global.quest[1]].type == "hide":
 			var hall5 = rooms.scenes.story_hall5.instantiate()
 			hall5.position = rooms.pos.story_hall5
@@ -67,19 +74,26 @@ func init_animation(anim: String):
 				cam.current = true
 			else:
 				Global.quests[Global.quest[0]].segments[Global.quest[1]].complete = true
-	elif anim == "door36":
-		Global.debug_log("init_animation: Starting Claire (door17) Animation")
-	elif anim == "door55":
+	elif item.has_meta("hall5"):
 		Global.debug_log("init_animation: Starting Chase")
 		if not Global.speedrunner:
 			pass
 		else:
 			Global.quests[Global.quest[0]].segments[Global.quest[1]].complete = true
-	elif anim == "door50":
+	elif item.has_meta("stairs"):
+		staircase_door_player_interact.item = item
+		get_children()[get_child_count()-1].load_stairs()
 		Global.debug_log("init_animation: Finished Chase")
 		Global.quests[Global.quest[0]].segments[Global.quest[1]].complete = true
-	else:
-		print(anim)
+
+func close_staircase_door():
+	Global.player.obj.interaction = staircase_door_player_interact
+	Global.player.obj.open_door(true) # closes da door
+	get_children()[get_child_count()-1].unload.emit()
+	$room1.queue_free()
+	$room2.queue_free()
+	$hall1.queue_free()
+	$labels.queue_free()
 
 #func animation_handler(anim: String, death=false):
 #	if anim == "nurse_chase":
